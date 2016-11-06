@@ -1,0 +1,10 @@
+// Inline list
+@mixin inline-list {
+    li {
+        display: inline;
+        list-style-type: none;
+        text-align: left;
+        padding-right: 20px;
+        margin: 0;
+    }
+}
