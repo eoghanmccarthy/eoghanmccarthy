@@ -4,5 +4,6 @@ header {
 
     ul {
         @include inline-list;
+        font-size: $font-size / 1.5;
     }
 }
