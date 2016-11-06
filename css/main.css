@@ -15,12 +15,13 @@ header {
   margin-top: 20px;
   margin-bottom: 20px; }
   header ul {
-    padding-left: 0;
-    font-size: 0.66667em; }
+    padding-left: 0; }
     header ul li {
       display: inline;
       list-style-type: none;
-      padding-right: 20px;
+      padding-right: 1.5em; }
+    header ul li {
+      font-size: 1.4em;
       text-align: left; }
 
 /*# sourceMappingURL=main.css.map */

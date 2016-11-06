@@ -4,6 +4,11 @@ header {
 
     ul {
         @include inline-list;
-        font-size: $font-size / 1.5;
+        padding-left: 0;
+
+        li {
+            font-size: $font-size * 1.4;
+            text-align: left;
+        }
     }
 }
