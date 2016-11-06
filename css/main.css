@@ -5,13 +5,13 @@ Error: Undefined variable: "$stack-mono".
         from line 2 of scss/main.scss
 
 1: // Base
-2: @import "base/index";
+2: @import "base/index.scss";
 3: 
 4: // Layout
-5: @import "layout/index";
+5: @import "layout/index.scss";
 6: 
 7: // Components
-8: @import "components/index";
+8: @import "components/index.scss";
 
 Backtrace:
 scss/base/_base.scss:3
@@ -95,4 +95,4 @@ scss/main.scss:2
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$stack-mono\".\A         on line 3 of scss/base/_base.scss\A         from line 2 of scss/base/_index.scss\A         from line 2 of scss/main.scss\A \A 1: // Base\A 2: @import \"base/index\";\A 3: \A 4: // Layout\A 5: @import \"layout/index\";\A 6: \A 7: // Components\A 8: @import \"components/index\";"; }
+  content: "Error: Undefined variable: \"$stack-mono\".\A         on line 3 of scss/base/_base.scss\A         from line 2 of scss/base/_index.scss\A         from line 2 of scss/main.scss\A \A 1: // Base\A 2: @import \"base/index.scss\";\A 3: \A 4: // Layout\A 5: @import \"layout/index.scss\";\A 6: \A 7: // Components\A 8: @import \"components/index.scss\";"; }
