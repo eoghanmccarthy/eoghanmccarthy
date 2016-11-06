@@ -14,11 +14,13 @@ h1 {
 header {
   margin-top: 20px;
   margin-bottom: 20px; }
-  header ul li {
-    display: inline;
-    list-style-type: none;
-    text-align: left;
-    padding-right: 20px;
-    margin: 0; }
+  header ul {
+    margin-left: 0; }
+    header ul li {
+      display: inline;
+      list-style-type: none;
+      text-align: left;
+      padding-right: 20px;
+      margin: 0; }
 
 /*# sourceMappingURL=main.css.map */
