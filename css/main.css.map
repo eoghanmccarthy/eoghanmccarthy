@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACQ,0EAAkE;ACE1E,IAAK;EACH,WAAW,ECIA,iCAAiC;EDH5C,WAAW,ECML,GAAG;EDLT,KAAK,ECLC,IAAI;EDMV,UAAU,ECLJ,IAAI;;ACFZ,MAAO;EACH,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;EAIf,YAAG;IACC,OAAO,EAAE,MAAM;IACf,eAAe,EAAE,IAAI;IACrB,aAAa,EAAE,IAAI",
+"mappings": "AACQ,0EAAkE;ACA1E,IAAK;EACH,WAAW,ECMA,iCAAiC;EDL5C,WAAW,ECQL,GAAG;EDPT,KAAK,ECHC,IAAI;EDIV,UAAU,ECHJ,IAAI;;ACFZ,MAAO;EACH,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;EAIf,YAAG;IACC,OAAO,EAAE,MAAM;IACf,eAAe,EAAE,IAAI;IACrB,aAAa,EAAE,IAAI",
 "sources": ["../scss/components/_typography.scss","../scss/base/_base.scss","../scss/base/_variables.scss","../scss/layout/_header.scss"],
 "names": [],
 "file": "main.css"
