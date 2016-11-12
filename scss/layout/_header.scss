@@ -1,21 +1,20 @@
 header {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    @extend %px-root;
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
 
     .logo {
-        width: 25%;
-
-        @media and screen (min-width: 768px) {
-            width: 25%;
-        }
+        width: 160px;
+        @include bp-rule($desktop, null, 200px, null, null);
     }
 
     ul {
+        @include type-style($stack-mono, 1.25em, 1.2, $white);
         @include inline-list;
         padding-left: 0;
 
         li {
-            font-size: $font-size * 1.4;
+            padding-right: 1.25em;
             text-align: left;
         }
     }

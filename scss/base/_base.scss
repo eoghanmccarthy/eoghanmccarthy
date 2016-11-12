@@ -1,11 +1,6 @@
-// Body
-body {
-  font-family: $stack-mono;
-  font-weight: $light;
-  color: $white;
-  background: $grey;
-}
+// Body //
 
-h1 {
-    @include h1;
+body {
+    @extend %px-root;
+    background: $grey;
 }

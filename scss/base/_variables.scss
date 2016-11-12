@@ -1,24 +1,29 @@
-// Descriptive color variables
+// Breakpoints //
+
+$mobile-landscape: 576px;
+$tablet-portrait: 768px;
+$tablet-landscape: 992px;
+$desktop: 1200px;
+
+// Asset paths //
+
+$path-img: '../img';
+
+// Descriptive color variables //
+
 $white: #fff;
 $black: #000;
 $grey: #333;
 $cyan: #00ffff;
 
-// Font stacks
+// Font stacks //
+
 $stack-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $stack-mono: 'Ubuntu Mono', Courier, monospace;
 
-// Font size
-$font-size: 1rem;
+// Font weight //
 
-// Font weight
 $light: 300;
 $normal: 400;
 $semibold: 500;
 $bold: 700;
-
-// Border radius
-$br: 10px;
-
-// Asset paths
-$path-img: '../img';
