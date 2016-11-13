@@ -32,4 +32,13 @@ header {
       padding-right: 1.25em;
       text-align: left; }
 
+p {
+  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
+  font-size: 0.875em;
+  line-height: 1.2;
+  color: #000; }
+  p > .display {
+    border-bottom: solid 1px #000;
+    padding: 10px 0; }
+
 /*# sourceMappingURL=main.css.map */

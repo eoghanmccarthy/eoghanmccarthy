@@ -1,1 +1,10 @@
 // Inline lists
+
+p {
+    @include type-style($stack-one, 0.875em, 1.2, $black);
+
+    & > .display {
+        @include border(bottom, solid, 1px, $black);
+        padding: 10px 0;
+    }
+}
