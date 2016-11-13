@@ -1,5 +1,9 @@
 // Body
 body {
     @extend %px-root;
-    background: $grey;
+    background: $white;
+
+    &.index {
+        background: $grey;
+    }
 }

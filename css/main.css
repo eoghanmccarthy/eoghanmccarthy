@@ -4,7 +4,9 @@ body, footer, header {
   font-size: 1rem; }
 
 body {
-  background: #333; }
+  background: #fff; }
+  body.index {
+    background: #333; }
 
 footer {
   margin: 1.25em 0; }
