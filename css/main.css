@@ -15,7 +15,7 @@ header {
       header .logo {
         width: 200px; } }
   header ul {
-    font-family: "Ubuntu Mono", Courier, monospace;
+    font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
     font-size: 1.25em;
     line-height: 1.2;
     color: #fff;

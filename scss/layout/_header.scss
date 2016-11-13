@@ -9,7 +9,7 @@ header {
     }
 
     ul {
-        @include type-style($stack-mono, 1.25em, 1.2, $white);
+        @include type-style($stack-one, 1.25em, 1.2, $white);
         @include inline-list;
         padding-left: 0;
 
