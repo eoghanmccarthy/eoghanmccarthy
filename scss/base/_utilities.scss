@@ -1,5 +1,4 @@
-// Mixins //
-
+// Mixins
 @mixin type-style($family, $size, $l-height, $color) {
     font-family: $family;
     font-size: $size;
@@ -38,8 +37,7 @@
     border-#{$position}: $style $width $color;
 }
 
-// Placeholders //
-
+// Placeholders
 %clearfix {
     content: “”;
     display: table;
