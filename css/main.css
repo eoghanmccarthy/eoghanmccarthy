@@ -44,7 +44,7 @@ header {
   .display .display__img {
     width: 100%; }
   .display .display__meta {
-    padding: 10px 0; }
+    padding-top: 10px 0; }
 
 p {
   font-size: 0.875em;
