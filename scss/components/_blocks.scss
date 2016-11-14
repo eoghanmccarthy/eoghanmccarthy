@@ -1,9 +1,13 @@
 // Display
 .display {
+    @include border(bottom, solid, 1em, $black);
+
     .display__img {
         width: 100%;
     }
-    .display__meta {
 
+    .display__meta {
+        padding: 10px 0;
+        margin: 10px 0;
     }
 }
