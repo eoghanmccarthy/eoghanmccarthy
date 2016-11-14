@@ -1,13 +1,14 @@
 // Display
 .display {
-    @include border(bottom, solid, 1px, $black);
-        margin: 10px 0;
+    @include border(bottom, solid, 1px, $grey);
+        margin: 10px 0 20px;
 
     .display__img {
+        display: block;
         width: 100%;
     }
 
     .display__meta {
-        padding-top: 10px;
+        margin-top: 10px;
     }
 }
