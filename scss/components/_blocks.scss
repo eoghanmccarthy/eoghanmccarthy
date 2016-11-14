@@ -1,6 +1,7 @@
 // Display
 .display {
-    @include border(bottom, solid, 1em, $black);
+    @include border(bottom, solid, 1px, $black);
+        margin: 10px 0;
 
     .display__img {
         width: 100%;
@@ -8,6 +9,5 @@
 
     .display__meta {
         padding: 10px 0;
-        margin: 10px 0;
     }
 }

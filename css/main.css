@@ -39,12 +39,12 @@ header {
       text-align: left; }
 
 .display {
-  border-bottom: solid 1em #000; }
+  border-bottom: solid 1px #000;
+  margin: 10px 0; }
   .display .display__img {
     width: 100%; }
   .display .display__meta {
-    padding: 10px 0;
-    margin: 10px 0; }
+    padding: 10px 0; }
 
 p {
   font-size: 0.875em;
