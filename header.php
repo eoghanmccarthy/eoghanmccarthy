@@ -1,6 +1,6 @@
 <div class="row">
     <header class="col-md-12">
-        <img class="logo" src="#{$path-img}/logo.png">
+        <img class="header__logo" src="img/logo.png">
         <hr>
         <ul>
             <li><a href="photography.php">photography</a></li>

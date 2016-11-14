@@ -17,13 +17,13 @@ footer {
 header {
   margin-top: 1.25em;
   margin-bottom: 1.25em; }
-  header .logo {
+  header .header__logo {
     width: 120px; }
     @media screen and (min-width: 576px) {
-      header .logo {
+      header .header__logo {
         width: 140px; } }
     @media screen and (min-width: 768px) {
-      header .logo {
+      header .header__logo {
         width: 160px; } }
   header ul {
     font-size: 1.25em;
@@ -37,6 +37,9 @@ header {
     header ul li {
       padding-right: 1.25em;
       text-align: left; }
+
+.display .display__img {
+  width: 100%; }
 
 p {
   font-size: 0.875em;
