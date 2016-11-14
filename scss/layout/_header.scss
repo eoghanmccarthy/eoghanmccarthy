@@ -4,8 +4,9 @@ header {
     margin-bottom: 1.25em;
 
     .logo {
-        width: 160px;
-        @include bp-rule($desktop, null, 200px, null, null);
+        width: 120px;
+        @include bp-rule($mobile-landscape, null, 140px, null, null);
+        @include bp-rule($tablet-portrait, null, 160px, null, null);
     }
 
     ul {

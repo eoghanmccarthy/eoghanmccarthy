@@ -39,13 +39,13 @@
             <main class="row">
                 <div class="col-md-6">
                     <div class="display">
-                        <img class="photo" src="photography/img_0111-folio.jpg">
+                        <img class="photo" src="#{$path-photo}/img_0111-folio.jpg">
                         <p>japan</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="display">
-                        <img class="photo" src="photography/img_0111-folio.jpg">
+                        <img class="photo" src="#{$path-photo}/img_0111-folio.jpg">
                         <p>japan</p>
                     </div>
                 </div>
