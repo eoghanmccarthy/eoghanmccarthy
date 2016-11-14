@@ -1,6 +1,6 @@
 // Typography
 p {
-    @include type-style($stack-one, 0.875em, 1.2, $black);
+    @include type-style(0.875em, 1.2);
 
     & > .display {
         @include border(bottom, solid, 1px, $black);

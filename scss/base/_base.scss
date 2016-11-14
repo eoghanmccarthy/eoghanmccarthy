@@ -1,9 +1,12 @@
 // Body
 body {
     @extend %px-root;
+    @include stack($stack-lead);
     background: $white;
+    color: $black;
 
     &.index {
         background: $grey;
+        color: $white;
     }
 }

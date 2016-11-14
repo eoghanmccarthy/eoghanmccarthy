@@ -4,9 +4,12 @@ body, footer, header {
   font-size: 1rem; }
 
 body {
-  background: #fff; }
+  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
+  background: #fff;
+  color: #000; }
   body.index {
-    background: #333; }
+    background: #333;
+    color: #fff; }
 
 footer {
   margin: 1.25em 0; }
@@ -20,10 +23,8 @@ header {
       header .logo {
         width: 200px; } }
   header ul {
-    font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
     font-size: 1.25em;
     line-height: 1.2;
-    color: #fff;
     padding-left: 0; }
     header ul li {
       display: inline;
@@ -35,10 +36,8 @@ header {
       text-align: left; }
 
 p {
-  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-size: 0.875em;
-  line-height: 1.2;
-  color: #000; }
+  line-height: 1.2; }
   p > .display {
     border-bottom: solid 1px #000;
     padding: 10px 0; }

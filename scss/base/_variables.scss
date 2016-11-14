@@ -5,8 +5,8 @@ $tablet-landscape: 992px;
 $desktop: 1200px;
 
 // Asset paths
-$path-img: 'img/';
-$path-photo: 'photography/';
+$path-img: 'img';
+$path-photo: 'photography';
 
 // Descriptive color variables
 $white: #fff;
@@ -15,8 +15,8 @@ $grey: #333;
 $cyan: #00ffff;
 
 // Font stacks
-$stack-one: 'Ubuntu Mono', Courier, monospace, sans-serif;
-$stack-two: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$stack-lead: 'Ubuntu Mono', Courier, monospace, sans-serif;
+$stack-sub: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // Font weight
 $light: 300;

@@ -1,9 +1,13 @@
 // Mixins
-@mixin type-style($family, $size, $l-height, $color) {
+
+@mixin stack($family) {
     font-family: $family;
+    @content;
+}
+
+@mixin type-style($size, $l-height) {
     font-size: $size;
     line-height: $l-height;
-    color: $color;
     @content;
 }
 
