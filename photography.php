@@ -50,8 +50,6 @@
                             <p class="display__meta">sapporo, japan</p>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-md-6">
                         <div class="display">
                             <img class="display__img" src="photography/img_0359-folio.jpg">
@@ -64,8 +62,6 @@
                             <p class="display__meta">abashiri, japan</p>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-md-6">
                         <div class="display">
                             <img class="display__img" src="photography/img_4453-folio.jpg">
@@ -78,8 +74,6 @@
                             <p class="display__meta">shizuoka, japan</p>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-md-6">
                         <div class="display">
                             <img class="display__img" src="photography/img_3889-folio.jpg">
