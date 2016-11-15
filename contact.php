@@ -3,7 +3,7 @@
 
     <head>
 
-        <title>eoghan mccarthy</title>
+        <title>eoghanmccarthy / contact</title>
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description"  content="eoghan mccarthy" />
@@ -20,11 +20,11 @@
         <!-- Font Awesome -->
         <script src="https://use.fontawesome.com/e6985d2f93.js"></script>
 
-        <link href="css/main.css" rel="stylesheet" type="text/css" />
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
-    <body class="index">
+    <body>
 
         <!-- ++++ Container -->
 
@@ -39,7 +39,7 @@
             <main>
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>designer, front-end developer, etc</h1>
+                        <p>contact</p>
                     </div>
                 </div>
             </main>
