@@ -16,7 +16,7 @@ footer {
 
 header {
   margin-top: 1.25em;
-  margin-bottom: 1.25em; }
+  margin-bottom: 2.5em; }
   header .header__logo {
     width: 80px; }
     @media screen and (min-width: 576px) {
@@ -40,7 +40,11 @@ header {
 
 .display {
   border-bottom: solid 1px #bcbcbc;
-  margin: 10px 0 40px; }
+  margin: 10px 0 20px; }
+  @media screen and (min-width: 768px) {
+    .display {
+      width: 120px;
+      margin: 10px 0 40px; } }
   .display .display__img {
     display: block;
     width: 100%; }
