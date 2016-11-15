@@ -39,8 +39,8 @@ header {
       text-align: left; }
 
 .display {
-  border-bottom: solid 1px #333;
-  margin: 10px 0 20px; }
+  border-bottom: solid 1px #bcbcbc;
+  margin: 10px 0 40px; }
   .display .display__img {
     display: block;
     width: 100%; }
@@ -56,9 +56,10 @@ p {
   line-height: 1.2; }
 
 a {
-  opacity: 0.8; }
+  opacity: 0.9;
+  transition: opacity 0.15s ease; }
   a:hover {
     text-decoration: none;
-    opacity: 1.0; }
+    opacity: 1; }
 
 /*# sourceMappingURL=main.css.map */

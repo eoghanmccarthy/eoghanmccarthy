@@ -8,10 +8,11 @@ p {
 }
 
 a {
-    opacity: 0.8;
+    opacity: 0.9;
+    transition: opacity $speed ease;
 
     &:hover {
         text-decoration: none;
-        opacity: 1.0;
+        opacity: 1;
     }
 }
