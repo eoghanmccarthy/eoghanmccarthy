@@ -2,3 +2,12 @@
 p {
     @include type-style(0.875em, 1.2);
 }
+
+a {
+    opacity: 1.0;
+
+    &:hover {
+        text-decoration: none;
+        opacity: 0.7;
+    }
+}
