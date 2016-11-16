@@ -12,10 +12,11 @@ body {
     }
 
     #bottom {
-    	background: #a5ebff;
+    	background: $brand;
     	position: fixed;
-		left: 0; right: 0;
-		height: 15px;
+		left: 0;
+        right: 0;
+		height: 1em;
         bottom: 0;
     }
 }
