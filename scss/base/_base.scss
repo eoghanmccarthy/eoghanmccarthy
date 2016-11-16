@@ -10,4 +10,12 @@ body {
         background: $grey;
         color: $white;
     }
+
+    #bottom {
+    	background: #a5ebff;
+    	position: fixed;
+		left: 0; right: 0;
+		height: 15px;
+        bottom: 0;
+    }
 }
