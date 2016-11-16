@@ -2,6 +2,7 @@
 body {
     @extend %px-root;
     @include stack($stack-lead);
+    @mixin border($bottom, $solid, 1em, $brand)
     background: $white;
     color: $black;
 
