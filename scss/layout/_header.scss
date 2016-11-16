@@ -11,15 +11,17 @@ header {
     }
 
     ul {
-        @include type-style(1.0em, 1.2);
+        @include type-style(.875em, 1.2);
         @include inline-list;
         padding-left: 0;
-        @include bp-rule($tablet-portrait, 1.25em, null, null, null);
+        @include bp-rule($tablet-portrait, 1em, null, null, null);
 
         li {
             padding-right: 1.25em;
             text-align: left;
-            @include bp-rule($tablet-portrait, 1.25em, null, 0 1.0em 0 0, null);
+            @include bp($tablet-portrait) {
+                padding-right: 1em;
+            }
         }
     }
 }

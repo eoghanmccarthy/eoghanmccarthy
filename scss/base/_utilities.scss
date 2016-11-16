@@ -10,6 +10,12 @@
     @content;
 }
 
+@mixin bp($screen) {
+    @media screen and (min-width: $screen) {
+        @content;
+    }
+}
+
 @mixin bp-rule($screen, $fnt-size, $width, $padding, $margin) {
     @media screen and (min-width: $screen) {
         font-size: $fnt-size;

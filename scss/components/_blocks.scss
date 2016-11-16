@@ -2,7 +2,7 @@
 .display {
     @include border(bottom, solid, 1px, $light-grey);
     margin: 10px 0 30px;
-    @include bp-rule($tablet-portrait, null, 120px, null, 10px 0 40px);
+    @include bp-rule($tablet-portrait, null, null, null, 10px 0 40px);
 
     .display__img {
         display: block;

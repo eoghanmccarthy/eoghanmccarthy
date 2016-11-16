@@ -1,13 +1,13 @@
 // Global
 h1 {
-    @include type-style(1.5em, 1.3);
-    @include bp-rule($tablet-portrait, 2em, null, null, null);
+    @include type-style(2em, 1.3);
+    @include bp-rule($tablet-portrait, 2.5em, null, null, null);
 }
 
 p {
-    @include type-style(1.0em, 1.2);
+    @include type-style(1em, 1.2);
 
-    .footer > & {
+    footer > & {
         @include type-style(0.875em, 1.2);
     }
 }
