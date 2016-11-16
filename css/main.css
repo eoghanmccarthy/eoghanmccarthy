@@ -5,11 +5,19 @@ body, footer, header {
 
 body {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
+  border-bottom: solid 1em #6653ff;
   background: #fff;
   color: #000; }
   body.index {
     background: #333;
     color: #fff; }
+  body #bottom {
+    background: #6653ff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 1em;
+    bottom: 0; }
 
 footer {
   margin: 1.25em 0; }
@@ -29,7 +37,8 @@ header {
   header ul {
     font-size: 0.875em;
     line-height: 1.2;
-    padding-left: 0; }
+    padding-left: 0;
+    color: #6653ff; }
     header ul li {
       display: inline;
       list-style-type: none; }
