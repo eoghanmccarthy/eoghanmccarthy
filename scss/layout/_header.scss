@@ -11,7 +11,7 @@ header {
     }
 
     ul {
-        @include type-style(.875em, 1.2);
+        @include type-style(0.875em, 1.2);
         @include inline-list;
         padding-left: 0;
         color: $brand;
