@@ -48,7 +48,7 @@
 
             <?php include 'footer.php';?>
 
-            <div class="page-bottom">
+            <div id="page-bottom">
             </div>
 
         </div>

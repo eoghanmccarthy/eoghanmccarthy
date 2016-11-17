@@ -10,7 +10,7 @@ body {
   body.index {
     background: #333;
     color: #fff; }
-  body .page-bottom {
+  body #page-bottom {
     background: #6653ff;
     position: fixed;
     left: 0;
@@ -87,7 +87,7 @@ a {
     opacity: 1; }
 
 /* Chrome, Safari, Opera */
-@-webkit-keyframes .page-bottom {
+@-webkit-keyframes header {
   0% {
     background-color: #6653ff; }
   50% {
@@ -95,12 +95,23 @@ a {
   100% {
     background-color: #6653ff; } }
 /* Standard syntax */
-@keyframes .page-bottom {
+@keyframes header {
   0% {
     background-color: #6653ff; }
   50% {
     background-color: yellow; }
   100% {
     background-color: #6653ff; } }
+#page-bottom {
+  background-color: #6653ff;
+  -webkit-animation-name: header;
+  /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 12s;
+  /* Chrome, Safari, Opera */
+  -webkit-animation-iteration-count: infinite;
+  /* Chrome, Safari, Opera */
+  animation-name: header;
+  animation-duration: 12s;
+  animation-iteration-count: infinite; }
 
 /*# sourceMappingURL=main.css.map */
