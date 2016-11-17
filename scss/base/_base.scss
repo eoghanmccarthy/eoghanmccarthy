@@ -2,7 +2,6 @@
 body {
     @extend %px-root;
     @include stack($stack-lead);
-    @include border(bottom, solid, 1em, $brand);
     background: $white;
     color: $black;
 
@@ -11,9 +10,9 @@ body {
         color: $white;
     }
 
-    #bottom {
+    .page-bottom {
     	background: $brand;
-    	position: fixed;
+    	position: absolute;
 		left: 0;
         right: 0;
 		height: 1em;

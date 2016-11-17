@@ -5,15 +5,14 @@ body, footer, header {
 
 body {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
-  border-bottom: solid 1em #6653ff;
   background: #fff;
   color: #000; }
   body.index {
     background: #333;
     color: #fff; }
-  body #bottom {
+  body .page-bottom {
     background: #6653ff;
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     height: 1em;
@@ -86,5 +85,22 @@ a {
   a:hover {
     text-decoration: none;
     opacity: 1; }
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes .page-bottom {
+  0% {
+    background-color: #6653ff; }
+  50% {
+    background-color: yellow; }
+  100% {
+    background-color: #6653ff; } }
+/* Standard syntax */
+@keyframes .page-bottom {
+  0% {
+    background-color: #6653ff; }
+  50% {
+    background-color: yellow; }
+  100% {
+    background-color: #6653ff; } }
 
 /*# sourceMappingURL=main.css.map */

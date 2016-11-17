@@ -1,0 +1,15 @@
+// Color transition
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes .page-bottom {
+    0% {background-color: $brand;}
+    50% {background-color: yellow;}
+	100% {background-color: $brand;}
+}
+
+/* Standard syntax */
+@keyframes .page-bottom {
+	0% {background-color: $brand;}
+    50% {background-color: yellow;}
+	100% {background-color: $brand;}
+}
