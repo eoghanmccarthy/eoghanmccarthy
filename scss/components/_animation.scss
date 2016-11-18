@@ -13,13 +13,3 @@
     50% {background-color: yellow;}
 	100% {background-color: $brand;}
 }
-
-#page-bottom {
-	background-color: $brand;
-	-webkit-animation-name: header; /* Chrome, Safari, Opera */
-    -webkit-animation-duration: 12s; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-    animation-name: header;
-    animation-duration: 12s;
-    animation-iteration-count: infinite;
-}
