@@ -39,7 +39,7 @@
             <main>
                 <div class="row">
                     <div class="col-md-12">
-                        <p>contact</p>
+                        <p>mail@eoghanmccarthy.com<br>+44 (0)7490 816 795</p>
                     </div>
                 </div>
             </main>

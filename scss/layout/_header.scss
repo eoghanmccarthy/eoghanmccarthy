@@ -14,10 +14,10 @@ header {
         @include type-style(1em, 1.2);
         @include inline-list;
         padding-left: 0;
-        color: $brand;
         @include bp-rule($tablet-portrait, 1.25em, null, null, null);
 
         li {
+            color: $brand;
             padding-right: 1.25em;
             text-align: left;
             @include bp($tablet-portrait) {
