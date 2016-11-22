@@ -23,9 +23,6 @@
         <!-- CSS -->
         <link href="css/main.css" rel="stylesheet" type="text/css" />
 
-        <!-- Javascript -->
-        <script src="js/main.js"></script>
-
     </head>
 
     <body class="index">
@@ -53,6 +50,9 @@
             <?php include 'footer.php';?>
 
         </div>
+
+        <!-- Javascript -->
+        <script src="js/main.js"></script>
 
     </body>
 
