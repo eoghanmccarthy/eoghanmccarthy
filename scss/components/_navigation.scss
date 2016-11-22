@@ -19,6 +19,7 @@ ul.header__nav {
             padding-right: 1.0em;
             @include bp-min($tablet-portrait) {
                 padding-right: 1.25em;
+            }
         }
 
         &.icon {
@@ -26,7 +27,7 @@ ul.header__nav {
         }
     }
 
-    @include bp-max($xs); {
+    @include bp-max($xs) {
 
         li {
             display: none;

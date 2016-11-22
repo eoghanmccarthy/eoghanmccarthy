@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
-body, footer, header {
+body, header, footer {
   font-size: 1rem; }
 
 body {
@@ -10,25 +10,6 @@ body {
   body.index {
     background: #333;
     color: #fff; }
-  body #page-bottom {
-    background-color: #6653ff;
-    position: fixed;
-    left: 0;
-    right: 0;
-    height: 1em;
-    bottom: 0;
-    -webkit-animation-name: header;
-    /* Chrome, Safari, Opera */
-    -webkit-animation-duration: 12s;
-    /* Chrome, Safari, Opera */
-    -webkit-animation-iteration-count: infinite;
-    /* Chrome, Safari, Opera */
-    animation-name: header;
-    animation-duration: 12s;
-    animation-iteration-count: infinite; }
-
-footer {
-  margin: 1.25em 0; }
 
 header {
   padding-top: 1.25em;
@@ -42,25 +23,9 @@ header {
     @media screen and (min-width: 768px) {
       header .header__logo {
         width: 120px; } }
-  header ul {
-    font-size: 1em;
-    line-height: 1.2;
-    padding-left: 0; }
-    header ul li {
-      display: inline;
-      list-style-type: none; }
-      header ul li:last-child {
-        padding-right: 0; }
-    @media screen and (min-width: 768px) {
-      header ul {
-        font-size: 1.25em; } }
-    header ul li {
-      color: #6653ff;
-      padding-right: 1.0em;
-      text-align: left; }
-      @media screen and (min-width: 768px) {
-        header ul li {
-          padding-right: 1.25em; } }
+
+footer {
+  margin: 1.25em 0; }
 
 .display {
   border-bottom: solid 1px #bcbcbc;
@@ -75,17 +40,20 @@ header {
     margin-top: 10px; }
 
 h1 {
-  font-size: 2.2em;
+  font-size: 2em;
   line-height: 1.3; }
   @media screen and (min-width: 768px) {
     h1 {
       font-size: 3em; } }
 
 p {
-  font-size: 1.875em;
+  font-size: 1em;
   line-height: 1.2; }
   footer > p {
     font-size: 0.875em;
+    line-height: 1.2; }
+  .display > p {
+    font-size: 1em;
     line-height: 1.2; }
 
 a {
@@ -94,6 +62,51 @@ a {
   a:hover {
     text-decoration: none;
     opacity: 0.9; }
+
+ul.header__nav {
+  font-size: 1em;
+  line-height: 1.2;
+  overflow: hidden;
+  padding-left: 0; }
+  ul.header__nav li {
+    display: inline;
+    list-style-type: none; }
+    ul.header__nav li:last-child {
+      padding-right: 0; }
+  @media screen and (min-width: 768px) {
+    ul.header__nav {
+      font-size: 1.125em; } }
+  ul.header__nav li {
+    float: left; }
+    ul.header__nav li a {
+      color: #6653ff;
+      text-align: left;
+      text-decoration: none;
+      transition: 0.3s;
+      padding-right: 1.0em; }
+      @media screen and (min-width: 768px) {
+        ul.header__nav li a {
+          padding-right: 1.25em; } }
+    ul.header__nav li.icon {
+      display: none; }
+  @media screen and (max-width: 575px) {
+    ul.header__nav li {
+      display: none; }
+      ul.header__nav li.icon {
+        float: right;
+        display: inline-block; }
+    ul.header__nav .responsive {
+      position: relative; }
+      ul.header__nav .responsive li {
+        float: none;
+        display: inline; }
+        ul.header__nav .responsive li a {
+          display: block;
+          text-align: left; }
+        ul.header__nav .responsive li.icon {
+          position: absolute;
+          right: 0;
+          top: 0; } }
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes header {
