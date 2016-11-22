@@ -9,20 +9,4 @@ header {
         @include bp-rule($mobile-landscape, null, 100px, null, null);
         @include bp-rule($tablet-portrait, null, 120px, null, null);
     }
-
-    ul {
-        @include type-style(1em, 1.2);
-        @include inline-list;
-        padding-left: 0;
-        @include bp-rule($tablet-portrait, 1.25em, null, null, null);
-
-        li {
-            color: $brand;
-            padding-right: 1.25em;
-            text-align: left;
-            @include bp($tablet-portrait) {
-                padding-right: 1em;
-            }
-        }
-    }
 }

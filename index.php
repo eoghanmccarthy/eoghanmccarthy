@@ -20,7 +20,11 @@
         <!-- Font Awesome -->
         <script src="https://use.fontawesome.com/e6985d2f93.js"></script>
 
+        <!-- CSS -->
         <link href="css/main.css" rel="stylesheet" type="text/css" />
+
+        <!-- Javascript -->
+        <script src="js/main.js"></script>
 
     </head>
 

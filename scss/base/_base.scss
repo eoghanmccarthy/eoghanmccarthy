@@ -9,14 +9,4 @@ body {
         background: $grey;
         color: $white;
     }
-
-    #page-bottom {
-    	background-color: $brand;
-    	position: fixed;
-		left: 0;
-        right: 0;
-		height: 1em;
-        bottom: 0;
-        @include animation(header, 12s, infinite);
-    }
 }

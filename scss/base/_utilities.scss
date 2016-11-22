@@ -10,8 +10,14 @@
     @content;
 }
 
-@mixin bp($screen) {
+@mixin bp-min($screen) {
     @media screen and (min-width: $screen) {
+        @content;
+    }
+}
+
+@mixin bp-max($screen) {
+    @media screen and (max-width: $screen) {
         @content;
     }
 }

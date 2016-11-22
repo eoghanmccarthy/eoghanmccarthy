@@ -1,8 +1,15 @@
 // Breakpoints
+$mobile-portrait: 575px;
 $mobile-landscape: 576px;
 $tablet-portrait: 768px;
 $tablet-landscape: 992px;
 $desktop: 1200px;
+
+$xs: $mobile-portrait;
+$sm: $mobile-landscape;
+$md: $tablet-portrait;
+$lg: $tablet-landscape;
+$xl: $desktop;
 
 // Asset paths
 $path-img: 'img';

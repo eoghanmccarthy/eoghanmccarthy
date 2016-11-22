@@ -1,0 +1,60 @@
+// Top navigation
+ul.header__nav {
+    @include type-style(1em, 1.2);
+    @include inline-list;
+    overflow: hidden;
+    padding-left: 0;
+    @include bp-min($tablet-portrait) {
+        font-size: 1.125em;
+    }
+
+    li {
+        float: left;
+
+        a {
+            color: $brand;
+            text-align: left;
+            text-decoration: none;
+            transition: 0.3s;
+            padding-right: 1.0em;
+            @include bp-min($tablet-portrait) {
+                padding-right: 1.25em;
+        }
+
+        &.icon {
+            display: none;
+        }
+    }
+
+    @include bp-max($xs); {
+
+        li {
+            display: none;
+
+            &.icon {
+                float: right;
+                display: inline-block;
+            }
+        }
+
+        .responsive {
+            position: relative;
+
+            li {
+                float: none;
+                display: inline;
+
+                a {
+                    display: block;
+                    text-align: left;
+                }
+
+                &.icon {
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                }
+            }
+        }
+    }
+}
