@@ -1,7 +1,7 @@
 // Body
 body {
     @extend %px-root;
-    @include stack($stack-lead);
+    @include font($stack-mono, $normal);
     background: $white;
     color: $black;
 

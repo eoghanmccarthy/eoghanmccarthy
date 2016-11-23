@@ -5,17 +5,18 @@ $tablet-portrait: 768px;
 $tablet-landscape: 992px;
 $desktop: 1200px;
 
-$xs: $mobile-portrait;
-$sm: $mobile-landscape;
-$md: $tablet-portrait;
-$lg: $tablet-landscape;
-$xl: $desktop;
+// Media queries
+$xs: 'screen and (max-width: #{$mobile-portrait})';
+$sm: 'screen and (min-width: #{$mobile-landscape})';
+$md: 'screen and (min-width: #{$tablet-portrait})';
+$lg: 'screen and (min-width: #{$tablet-landscape})';
+$xl: 'screen and (min-width: #{$desktop})';
 
 // Asset paths
 $path-img: 'img';
 $path-photo: 'photography';
 
-// Descriptive color variables
+// Descriptive colors
 $white: #fff;
 $black: #000;
 $light-grey: #bcbcbc;
@@ -23,8 +24,8 @@ $grey: #333;
 $brand: #6653ff;
 
 // Font stacks
-$stack-lead: 'Ubuntu Mono', Courier, monospace, sans-serif;
-$stack-sub: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$stack-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$stack-mono: 'Ubuntu Mono', Courier, monospace, sans-serif;
 
 // Font weight
 $light: 300;

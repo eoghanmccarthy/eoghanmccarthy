@@ -1,10 +1,11 @@
 // Top navigation
 ul.header__nav {
-    @include type-style(1em, 1.2);
+    @include font($stack-mono, $normal);
+    @include text-style(1em, 1.2);
     @include inline-list;
     overflow: hidden;
     padding-left: 0;
-    @include bp-min($tablet-portrait) {
+    @media #{$md} {
         font-size: 1.125em;
     }
 
@@ -17,7 +18,7 @@ ul.header__nav {
             text-decoration: none;
             transition: 0.3s;
             padding-right: 1.0em;
-            @include bp-min($tablet-portrait) {
+            @media #{$md} {
                 padding-right: 1.25em;
             }
         }
@@ -27,7 +28,7 @@ ul.header__nav {
         }
     }
 
-    @include bp-max($xs) {
+    @media #{$xs} {
 
         li {
             display: none;

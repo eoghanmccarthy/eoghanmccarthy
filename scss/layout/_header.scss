@@ -6,7 +6,11 @@ header {
     .header__logo {
         width: 80px;
         padding-bottom: 1.25em;
-        @include bp-rule($mobile-landscape, null, 100px, null, null);
-        @include bp-rule($tablet-portrait, null, 120px, null, null);
+        @media #{sm} {
+            width: 100px;
+        }
+        @media #{md} {
+            width: 120px;
+        }
     }
 }

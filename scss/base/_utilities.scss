@@ -1,38 +1,17 @@
 // Mixins
-@mixin stack($family) {
+@mixin font($family, $weight) {
     font-family: $family;
-    @content;
+    font-weight: $weight;
 }
 
-@mixin type-style($size, $l-height) {
+@mixin text-style($size: null, $l-height: null, $color: null) {
     font-size: $size;
     line-height: $l-height;
+    color: $color;
     @content;
 }
 
-@mixin bp-min($screen) {
-    @media screen and (min-width: $screen) {
-        @content;
-    }
-}
-
-@mixin bp-max($screen) {
-    @media screen and (max-width: $screen) {
-        @content;
-    }
-}
-
-@mixin bp-rule($screen, $fnt-size, $width, $padding, $margin) {
-    @media screen and (min-width: $screen) {
-        font-size: $fnt-size;
-        width: $width;
-        padding: $padding;
-        margin: $margin;
-        @content;
-    }
-}
-
-@mixin bp-except($bp-lower, $bp-upper) {
+@mixin mq-block($bp-lower, $bp-upper) {
     @media screen and (min-width: $bp-lower) and (max-width: $bp-upper - 1) {
         @content;
     }
