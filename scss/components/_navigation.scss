@@ -48,10 +48,13 @@ ul.nav {
         li {
             float: none;
             display: inline;
+            list-style-type: none;
 
             a {
                 display: block;
+                color: $brand;
                 text-align: left;
+                text-decoration: none;
             }
 
             &.nav-top__icon {

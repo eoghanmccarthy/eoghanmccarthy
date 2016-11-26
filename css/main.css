@@ -102,10 +102,13 @@ ul.nav {
     position: relative; }
     ul.nav-top__mobile li {
       float: none;
-      display: inline; }
+      display: inline;
+      list-style-type: none; }
       ul.nav-top__mobile li a {
         display: block;
-        text-align: left; }
+        color: #6653ff;
+        text-align: left;
+        text-decoration: none; }
       ul.nav-top__mobile li.nav-top__icon {
         position: absolute;
         right: 0;
