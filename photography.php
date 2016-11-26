@@ -5,6 +5,7 @@
 
         <title>eoghanmccarthy / photography</title>
 
+        <?php include 'partials/meta.php';?>
         <?php include 'partials/scripts.php';?>
 
     </head>

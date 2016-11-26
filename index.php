@@ -5,6 +5,7 @@
 
         <title>eoghan mccarthy</title>
 
+        <?php include 'partials/meta.php';?>
         <?php include 'partials/scripts.php';?>
 
     </head>
