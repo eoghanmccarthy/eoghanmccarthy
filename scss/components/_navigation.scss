@@ -1,30 +1,31 @@
 // Top navigation
-ul.header__nav {
+ul.nav {
     @include font($stack-mono, $normal);
     @include text-style(1em, 1.2);
-    @include inline-list;
-    overflow: hidden;
-    padding-left: 0;
     @media #{$md} {
         font-size: 1.125em;
     }
 
-    li {
-        float: left;
+    &-top {
+        @include inline-list;
+        padding-left: 0;
 
-        a {
-            color: $brand;
-            text-align: left;
-            text-decoration: none;
-            transition: 0.3s;
-            padding-right: 1.0em;
-            @media #{$md} {
-                padding-right: 1.25em;
+        li {
+            float: left;
+
+            a {
+                color: $brand;
+                text-align: left;
+                text-decoration: none;
+                padding-right: 1.0em;
+                @media #{$md} {
+                    padding-right: 1.25em;
+                }
             }
-        }
 
-        &.icon {
-            display: none;
+            &.nav-top__icon {
+                display: none;
+            }
         }
     }
 
@@ -33,13 +34,13 @@ ul.header__nav {
         li {
             display: none;
 
-            &.icon {
+            &.nav-top__icon {
                 float: right;
                 display: inline-block;
             }
         }
 
-        .responsive {
+        &.nav-top__mobile {
             position: relative;
 
             li {
@@ -51,7 +52,7 @@ ul.header__nav {
                     text-align: left;
                 }
 
-                &.icon {
+                &.nav-top__icon {
                   position: absolute;
                   right: 0;
                   top: 0;

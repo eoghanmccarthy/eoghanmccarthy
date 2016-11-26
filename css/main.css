@@ -66,49 +66,48 @@ a {
     text-decoration: none;
     opacity: 0.9; }
 
-ul.header__nav {
+ul.nav {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
   font-size: 1em;
-  line-height: 1.2;
-  overflow: hidden;
-  padding-left: 0; }
-  ul.header__nav li {
-    display: inline;
-    list-style-type: none; }
-    ul.header__nav li:last-child {
-      padding-right: 0; }
+  line-height: 1.2; }
   @media screen and (min-width: 768px) {
-    ul.header__nav {
+    ul.nav {
       font-size: 1.125em; } }
-  ul.header__nav li {
-    float: left; }
-    ul.header__nav li a {
-      color: #6653ff;
-      text-align: left;
-      text-decoration: none;
-      transition: 0.3s;
-      padding-right: 1.0em; }
-      @media screen and (min-width: 768px) {
-        ul.header__nav li a {
-          padding-right: 1.25em; } }
-    ul.header__nav li.icon {
-      display: none; }
+  ul.nav-top {
+    padding-left: 0; }
+    ul.nav-top li {
+      display: inline;
+      list-style-type: none; }
+      ul.nav-top li:last-child {
+        padding-right: 0; }
+    ul.nav-top li {
+      float: left; }
+      ul.nav-top li a {
+        color: #6653ff;
+        text-align: left;
+        text-decoration: none;
+        padding-right: 1.0em; }
+        @media screen and (min-width: 768px) {
+          ul.nav-top li a {
+            padding-right: 1.25em; } }
+      ul.nav-top li.nav-top__icon {
+        display: none; }
   @media screen and (max-width: 575px) {
-    ul.header__nav li {
+    ul.nav li {
       display: none; }
-      ul.header__nav li.icon {
+      ul.nav li.nav-top__icon {
         float: right;
         display: inline-block; }
-    ul.header__nav .responsive {
+    ul.nav.nav-top__mobile {
       position: relative; }
-      ul.header__nav .responsive li {
+      ul.nav.nav-top__mobile li {
         float: none;
         display: inline; }
-        ul.header__nav .responsive li a {
+        ul.nav.nav-top__mobile li a {
           display: block;
           text-align: left; }
-        ul.header__nav .responsive li.icon {
+        ul.nav.nav-top__mobile li.nav-top__icon {
           position: absolute;
           right: 0;
           top: 0; } }
