@@ -27,35 +27,35 @@ ul.nav {
                 display: none;
             }
         }
-    }
 
-    @media #{$xs} {
-
-        li {
-            display: none;
-
-            &.nav-top__icon {
-                float: right;
-                display: inline-block;
-            }
-        }
-
-        &.nav-top__mobile {
-            position: relative;
+        @media #{$xs} {
 
             li {
-                float: none;
-                display: inline;
-
-                a {
-                    display: block;
-                    text-align: left;
-                }
+                display: none;
 
                 &.nav-top__icon {
-                  position: absolute;
-                  right: 0;
-                  top: 0;
+                    float: right;
+                    display: inline-block;
+                }
+            }
+
+            & .nav-top__mobile {
+                position: relative;
+
+                li {
+                    float: none;
+                    display: inline;
+
+                    a {
+                        display: block;
+                        text-align: left;
+                    }
+
+                    &.nav-top__icon {
+                      position: absolute;
+                      right: 0;
+                      top: 0;
+                    }
                 }
             }
         }
