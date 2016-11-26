@@ -77,12 +77,11 @@ ul.nav {
   ul.nav-top {
     padding-left: 0; }
     ul.nav-top li {
+      float: left;
       display: inline;
       list-style-type: none; }
       ul.nav-top li:last-child {
         padding-right: 0; }
-    ul.nav-top li {
-      float: left; }
       ul.nav-top li a {
         color: #6653ff;
         text-align: left;
@@ -93,24 +92,24 @@ ul.nav {
             padding-right: 1.25em; } }
       ul.nav-top li.nav-top__icon {
         display: none; }
-    @media screen and (max-width: 575px) {
-      ul.nav-top li {
-        display: none; }
-        ul.nav-top li.nav-top__icon {
-          float: right;
-          display: inline-block; }
-      ul.nav-top .nav-top__mobile {
-        position: relative; }
-        ul.nav-top .nav-top__mobile li {
-          float: none;
-          display: inline; }
-          ul.nav-top .nav-top__mobile li a {
-            display: block;
-            text-align: left; }
-          ul.nav-top .nav-top__mobile li.nav-top__icon {
-            position: absolute;
-            right: 0;
-            top: 0; } }
+      @media screen and (max-width: 575px) {
+        ul.nav-top li {
+          display: none; }
+          ul.nav-top li.nav-top__icon {
+            float: right;
+            display: inline-block; } }
+    ul.nav-top .nav-top__mobile {
+      position: relative; }
+      ul.nav-top .nav-top__mobile li {
+        float: none;
+        display: inline; }
+        ul.nav-top .nav-top__mobile li a {
+          display: block;
+          text-align: left; }
+        ul.nav-top .nav-top__mobile li.nav-top__icon {
+          position: absolute;
+          right: 0;
+          top: 0; }
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes header {

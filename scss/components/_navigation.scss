@@ -7,11 +7,15 @@ ul.nav {
     }
 
     &-top {
-        @include inline-list;
         padding-left: 0;
 
         li {
             float: left;
+            display: inline;
+            list-style-type: none;
+            &:last-child {
+                padding-right: 0;
+            }
 
             a {
                 color: $brand;
@@ -26,11 +30,8 @@ ul.nav {
             &.nav-top__icon {
                 display: none;
             }
-        }
 
-        @media #{$xs} {
-
-            li {
+            @media #{$xs} {
                 display: none;
 
                 &.nav-top__icon {
@@ -38,24 +39,24 @@ ul.nav {
                     display: inline-block;
                 }
             }
+        }
 
-            & .nav-top__mobile {
-                position: relative;
+        & .nav-top__mobile {
+            position: relative;
 
-                li {
-                    float: none;
-                    display: inline;
+            li {
+                float: none;
+                display: inline;
 
-                    a {
-                        display: block;
-                        text-align: left;
-                    }
+                a {
+                    display: block;
+                    text-align: left;
+                }
 
-                    &.nav-top__icon {
-                      position: absolute;
-                      right: 0;
-                      top: 0;
-                    }
+                &.nav-top__icon {
+                  position: absolute;
+                  right: 0;
+                  top: 0;
                 }
             }
         }
