@@ -101,14 +101,9 @@ ul.nav {
   ul.nav-top__mobile {
     position: relative; }
     ul.nav-top__mobile li {
-      float: none;
-      display: inline;
-      list-style-type: none; }
+      float: none; }
       ul.nav-top__mobile li a {
-        display: block;
-        color: #6653ff;
-        text-align: left;
-        text-decoration: none; }
+        display: block; }
       ul.nav-top__mobile li.nav-top__icon {
         position: absolute;
         right: 0;
