@@ -17,16 +17,6 @@
     }
 }
 
-@mixin inline-list {
-    li {
-        display: inline;
-        list-style-type: none;
-        &:last-child {
-            padding-right: 0;
-        }
-    }
-}
-
 @mixin border($position, $style, $width, $color) {
     border-#{$position}: $style $width $color;
 }
