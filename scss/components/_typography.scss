@@ -1,13 +1,13 @@
 // Global
 h1 {
     @include font($stack-mono, $normal);
-    @include text-style(2em, 2.0);
+    @include text-style(2.1em, 1.8);
     @media #{$md} {
-        @include text-style(3em);
+        @include text-style(3.2em);
     }
 
     span {
-        background: linear-gradient($white, $white) no-repeat;
+        background: linear-gradient($brand, $brand) no-repeat;
     	background-size: 100% 10px;
     	background-position: 0 2em;
     }

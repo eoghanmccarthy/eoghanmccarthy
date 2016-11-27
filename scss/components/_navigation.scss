@@ -7,6 +7,7 @@ ul.nav {
     }
 
     &-top {
+        @extend %clearfix;
         overflow: hidden;
         padding-left: 0;
 
@@ -20,11 +21,10 @@ ul.nav {
 
             a {
                 display: inline-block;
-                padding-right: 1.0em;
                 color: $brand;
                 text-align: left;
                 text-decoration: none;
-                transition: 0.5s;
+                padding-right: 1.0em;
                 @media #{$md} {
                     padding-right: 1.25em;
                 }
