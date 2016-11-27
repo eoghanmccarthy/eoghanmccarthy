@@ -75,6 +75,7 @@ ul.nav {
     ul.nav {
       font-size: 1.125em; } }
   ul.nav-top {
+    overflow: hidden;
     padding-left: 0; }
     ul.nav-top li {
       float: left;
@@ -83,10 +84,12 @@ ul.nav {
       ul.nav-top li:last-child {
         padding-right: 0; }
       ul.nav-top li a {
+        display: inline-block;
+        padding-right: 1.0em;
         color: #6653ff;
         text-align: left;
         text-decoration: none;
-        padding-right: 1.0em; }
+        transition: 0.3s; }
         @media screen and (min-width: 768px) {
           ul.nav-top li a {
             padding-right: 1.25em; } }
@@ -98,16 +101,19 @@ ul.nav {
           ul.nav-top li.nav-top__icon {
             float: right;
             display: inline-block; } }
-  ul.nav-top__mobile {
-    position: relative; }
-    ul.nav-top__mobile li {
-      float: none; }
-      ul.nav-top__mobile li a {
-        display: block; }
-      ul.nav-top__mobile li.nav-top__icon {
-        position: absolute;
-        right: 0;
-        top: 0; }
+  @media screen and (max-width: 575px) {
+    ul.nav-top__mobile {
+      position: relative; }
+      ul.nav-top__mobile li {
+        float: none;
+        display: inline; }
+        ul.nav-top__mobile li a {
+          display: block;
+          text-align: left; }
+        ul.nav-top__mobile li.nav-top__icon {
+          position: absolute;
+          right: 0;
+          top: 0; } }
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes header {

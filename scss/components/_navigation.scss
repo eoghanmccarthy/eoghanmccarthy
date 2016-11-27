@@ -7,6 +7,7 @@ ul.nav {
     }
 
     &-top {
+        overflow: hidden;
         padding-left: 0;
 
         li {
@@ -18,10 +19,12 @@ ul.nav {
             }
 
             a {
+                display: inline-block;
+                padding-right: 1.0em;
                 color: $brand;
                 text-align: left;
                 text-decoration: none;
-                padding-right: 1.0em;
+                transition: 0.3s;
                 @media #{$md} {
                     padding-right: 1.25em;
                 }
@@ -42,20 +45,25 @@ ul.nav {
         }
     }
 
-    &-top__mobile {
-        position: relative;
+    @media #{$xs} {
 
-        li {
-            float: none;
+        &-top__mobile {
+            position: relative;
 
-            a {
-                display: block;
-            }
+            li {
+                float: none;
+                display: inline;
 
-            &.nav-top__icon {
-              position: absolute;
-              right: 0;
-              top: 0;
+                a {
+                    display: block;
+                    text-align: left;
+                }
+
+                &.nav-top__icon {
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                }
             }
         }
     }
