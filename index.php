@@ -25,7 +25,7 @@
             <main>
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>designer, front-end developer, etc</h1>
+                        <h1><span>designer</span>, <span>front-end developer</span>, etc</h1>
                     </div>
                 </div>
             </main>

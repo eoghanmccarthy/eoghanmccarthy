@@ -44,13 +44,14 @@ h1 {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
   font-size: 2em;
-  line-height: 2;
-  background: linear-gradient(#fff, #fff) no-repeat;
-  background-size: 100% 10px;
-  background-position: 0 2em; }
+  line-height: 2; }
   @media screen and (min-width: 768px) {
     h1 {
       font-size: 3em; } }
+  h1 span {
+    background: linear-gradient(#fff, #fff) no-repeat;
+    background-size: 100% 10px;
+    background-position: 0 2em; }
 
 p {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
