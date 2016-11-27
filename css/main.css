@@ -1,11 +1,5 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
-ul.nav-top {
-  content: “”;
-  display: table;
-  clear: both; }
-
 body, header, footer {
   font-size: 1rem; }
 
@@ -85,20 +79,18 @@ ul.nav {
     ul.nav {
       font-size: 1.125em; } }
   ul.nav-top {
+    list-style-type: none;
     overflow: hidden;
-    padding-left: 0; }
+    margin: 0;
+    padding: 0; }
     ul.nav-top li {
-      float: left;
-      display: inline;
-      list-style-type: none; }
-      ul.nav-top li:last-child {
-        padding-right: 0; }
+      float: left; }
       ul.nav-top li a {
         display: inline-block;
         color: #6653ff;
         text-align: left;
         text-decoration: none;
-        padding-right: 1.0em; }
+        padding: 0.875em 1.0em; }
         @media screen and (min-width: 768px) {
           ul.nav-top li a {
             padding-right: 1.25em; } }
@@ -117,8 +109,7 @@ ul.nav {
         float: none;
         display: inline; }
         ul.nav-top__mobile li a {
-          display: block;
-          text-align: left; }
+          display: block; }
         ul.nav-top__mobile li.nav-top__icon {
           position: absolute;
           right: 0;
