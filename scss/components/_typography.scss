@@ -7,9 +7,8 @@ h1 {
     }
 
     span {
-        background: linear-gradient($brand, $brand) no-repeat;
-    	background-size: 100% 10px;
-    	background-position: 0 2em;
+        display: inline;
+        border-bottom: solid 10px $brand;
     }
 }
 

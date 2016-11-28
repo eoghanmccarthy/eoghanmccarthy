@@ -49,9 +49,8 @@ h1 {
     h1 {
       font-size: 3em; } }
   h1 span {
-    background: linear-gradient(#6653ff, #6653ff) no-repeat;
-    background-size: 100% 10px;
-    background-position: 0 2em; }
+    display: inline;
+    border-bottom: solid 10px #6653ff; }
 
 p {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
