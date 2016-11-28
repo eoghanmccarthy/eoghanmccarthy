@@ -1,9 +1,9 @@
 // Global
 h1 {
     @include font($stack-mono, $normal);
-    @include text-style(2.1em, 1.8);
+    @include text-style(2.1em, 1.4);
     @media #{$md} {
-        @include text-style(3.2em);
+        @include text-style(3em);
     }
 
     span {

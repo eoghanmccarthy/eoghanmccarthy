@@ -44,10 +44,10 @@ h1 {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
   font-size: 2.1em;
-  line-height: 1.8; }
+  line-height: 1.4; }
   @media screen and (min-width: 768px) {
     h1 {
-      font-size: 3.2em; } }
+      font-size: 3em; } }
   h1 span {
     background: linear-gradient(#6653ff, #6653ff) no-repeat;
     background-size: 100% 10px;
@@ -90,7 +90,7 @@ ul.nav {
         color: #6653ff;
         text-align: left;
         text-decoration: none;
-        padding: 0.875em 1.0em; }
+        padding: 0.2em 1.0em; }
         @media screen and (min-width: 768px) {
           ul.nav-top li a {
             padding-right: 1.25em; } }
