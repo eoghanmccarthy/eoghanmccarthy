@@ -90,7 +90,7 @@ ul.nav {
         color: #6653ff;
         text-align: left;
         text-decoration: none;
-        padding: 0.2em 1.0em; }
+        padding: 0.2em 1.0em 0.2em 0; }
         @media screen and (min-width: 768px) {
           ul.nav-top li a {
             padding-right: 1.25em; } }
