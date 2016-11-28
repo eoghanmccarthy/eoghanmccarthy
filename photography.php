@@ -27,7 +27,7 @@
                     <div class="col-md-6">
                         <div class="display">
                             <img class="display__img" src="photography/img_0111-folio.jpg">
-                            <p class="display__meta">abashiri, japan</p>
+                            <p class="display__meta"><span class="highlight">abashiri, japan</span></p>
                         </div>
                     </div>
                     <div class="col-md-6">

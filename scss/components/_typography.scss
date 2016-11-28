@@ -5,11 +5,19 @@ h1 {
     @media #{$md} {
         @include text-style(3em);
     }
+    @media #{$xl} {
+        @include text-style(6em);
+    }
 
     span {
         display: inline;
-        padding-bottom: 2px;
-        border-bottom: solid 8px $brand;
+        padding-bottom: 0.25em;
+        border-bottom: solid 0.5em $brand;
+
+        @media #{$xl} {
+            padding-bottom: 0.5em;
+            border-bottom: solid 1.25em $brand;
+        }
     }
 }
 
