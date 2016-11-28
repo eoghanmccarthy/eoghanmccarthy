@@ -1,9 +1,15 @@
 // Global
 h1 {
     @include font($stack-mono, $normal);
-    @include text-style(2.1em, 1.4);
+    @include text-style(2.6em, 1.4);
+    @media #{$sm} {
+        @include text-style(3.2em);
+    }
     @media #{$md} {
-        @include text-style(3em);
+        @include text-style(4.8em);
+    }
+    @media #{$lg} {
+        @include text-style(5.2em);
     }
     @media #{$xl} {
         @include text-style(6em);
@@ -11,8 +17,13 @@ h1 {
 
     span {
         display: inline;
-        padding-bottom: 0.25em;
+        padding-bottom: 0.1875em;
         border-bottom: solid 0.5em $brand;
+
+        @media #{$md} {
+            padding-bottom: 0.5em;
+            border-bottom: solid 1.0em $brand;
+        }
 
         @media #{$xl} {
             padding-bottom: 0.5em;
