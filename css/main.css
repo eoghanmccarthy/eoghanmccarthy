@@ -50,7 +50,8 @@ h1 {
       font-size: 3em; } }
   h1 span {
     display: inline;
-    border-bottom: solid 10px #6653ff; }
+    padding-bottom: 2px;
+    border-bottom: solid 8px #6653ff; }
 
 p {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
