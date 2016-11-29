@@ -1,18 +1,18 @@
 // Global
 h1 {
     @include font($stack-mono, $normal);
-    @include text-style(2.6em, 1.4);
+    @include text-style(2.6rem, 1.2);
     @media #{$sm} {
-        @include text-style(3.2em);
+        @include text-style(3.2rem);
     }
     @media #{$md} {
-        @include text-style(4.8em);
+        @include text-style(4.8rem);
     }
     @media #{$lg} {
-        @include text-style(5.2em);
+        @include text-style(5.2rem);
     }
     @media #{$xl} {
-        @include text-style(6em);
+        @include text-style(6rem);
     }
 
     span {
@@ -22,11 +22,11 @@ h1 {
 
         @media #{$md} {
             padding-bottom: 0.5em;
-            border-bottom: solid 1.0em $brand;
+            border-bottom: solid 1em $brand;
         }
 
         @media #{$xl} {
-            padding-bottom: 0.5em;
+            padding-bottom: -0.5em;
             border-bottom: solid 1.25em $brand;
         }
     }
@@ -34,14 +34,14 @@ h1 {
 
 p {
     @include font($stack-mono, $normal);
-    @include text-style(1em, 1.2);
+    @include text-style(1rem, 1.2);
 
     footer > & {
-        @include text-style(0.875em);
+        @include text-style(0.875rem);
     }
 
     .display > & {
-        @include text-style(1em);
+        @include text-style(1rem);
     }
 }
 

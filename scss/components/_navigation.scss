@@ -1,9 +1,9 @@
 // Top navigation
 ul.nav {
     @include font($stack-mono, $normal);
-    @include text-style(1em, 1.2);
+    @include text-style(1rem, 1.2);
     @media #{$md} {
-        font-size: 1.125em;
+        font-size: 1.125rem;
     }
 
     &-top {
@@ -11,6 +11,7 @@ ul.nav {
         overflow: hidden;
         margin: 0;
         padding: 0;
+        transition: height 1s ease-in-out;
 
         li {
             float: left;
