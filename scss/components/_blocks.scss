@@ -1,5 +1,6 @@
 // Display
 .display {
+    @extend %px-base;
     @include border(bottom, solid, 1px, $light-grey);
     margin: 10px 0 30px;
     @media #{$md} {

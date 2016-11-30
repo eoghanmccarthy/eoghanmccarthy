@@ -1,14 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
-body, header, footer {
+html, footer {
   font-size: 100%; }
 
-body {
+header, .display, ul.nav {
+  font-size: 1rem; }
+
+html body {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
   background: #fff;
   color: #000; }
-  body.index {
+  html body.index {
     background: #333;
     color: #fff; }
 
@@ -44,7 +47,7 @@ h1 {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
   font-size: 2.6rem;
-  line-height: 1.2; }
+  line-height: 1.3; }
   @media screen and (min-width: 576px) {
     h1 {
       font-size: 3.2rem; } }
@@ -59,16 +62,8 @@ h1 {
       font-size: 6rem; } }
   h1 span {
     display: inline;
-    padding-bottom: 0.1875em;
-    border-bottom: solid 0.5em #6653ff; }
-    @media screen and (min-width: 768px) {
-      h1 span {
-        padding-bottom: 0.5em;
-        border-bottom: solid 1em #6653ff; } }
-    @media screen and (min-width: 1200px) {
-      h1 span {
-        padding-bottom: -0.5em;
-        border-bottom: solid 1.25em #6653ff; } }
+    padding-bottom: 0em;
+    border-bottom: solid 1em #6653ff; }
 
 p {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;

@@ -1,12 +1,14 @@
-// Body
-body {
+html {
     @extend %px-root;
-    @include font($stack-mono, $normal);
-    background: $white;
-    color: $black;
 
-    &.index {
-        background: $grey;
-        color: $white;
+    body {
+        @include font($stack-mono, $normal);
+        background: $white;
+        color: $black;
+
+        &.index {
+            background: $grey;
+            color: $white;
+        }
     }
 }

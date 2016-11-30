@@ -1,5 +1,6 @@
 // Top navigation
 ul.nav {
+    @extend %px-base;
     @include font($stack-mono, $normal);
     @include text-style(1rem, 1.2);
     @media #{$md} {
