@@ -1,18 +1,19 @@
-// Display
-.display {
+// Media
+.media {
     @extend %px-base;
     @include border(bottom, solid, 1px, $light-grey);
-    margin: 10px 0 30px;
+    margin: 0 0 30px;
     @media #{$md} {
-        margin: 10px 0 40px;
+        margin: 0 0 40px;
     }
 
-    .display__img {
+    .media__content {
         display: block;
         width: 100%;
     }
 
-    .display__meta {
+    .media__meta {
+        @include text-style(1rem);
         margin-top: 10px;
     }
 }

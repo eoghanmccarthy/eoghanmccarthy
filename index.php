@@ -22,11 +22,9 @@
 
             <!-- Main -->
 
-            <main>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1><span>designer</span>, <span>front-end developer</span>, etc</h1>
-                    </div>
+            <main class="main">
+                <div class="home">
+                    <h1 class="home__title"><span>designer</span>, <span>front-end developer</span>, etc</h1>
                 </div>
             </main>
 

@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
-html, footer {
+html, .footer {
   font-size: 100%; }
 
-header, .display, ul.nav {
+.header, ul.nav, .media {
   font-size: 1rem; }
 
 html body {
@@ -15,72 +15,52 @@ html body {
     background: #333;
     color: #fff; }
 
-header {
+.header {
   padding-top: 1.25em;
   padding-bottom: 1.0em; }
-  header .header__logo {
+  .header .header__logo {
     width: 80px;
     padding-bottom: 1.25em; }
     @media screen and (min-width: 576px) {
-      header .header__logo {
+      .header .header__logo {
         width: 100px; } }
     @media screen and (min-width: 768px) {
-      header .header__logo {
+      .header .header__logo {
         width: 120px; } }
 
-footer {
+.footer {
+  font-size: 0.875rem;
   margin: 1.25em 0; }
 
-.display {
-  border-bottom: solid 1px #bcbcbc;
-  margin: 10px 0 30px; }
-  @media screen and (min-width: 768px) {
-    .display {
-      margin: 10px 0 40px; } }
-  .display .display__img {
-    display: block;
-    width: 100%; }
-  .display .display__meta {
-    margin-top: 10px; }
+.main {
+  margin: 0.875em 0; }
+  .main p {
+    font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.2; }
 
-h1 {
+.home .home__title {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
   font-size: 2.6rem;
   line-height: 1.3; }
   @media screen and (min-width: 576px) {
-    h1 {
+    .home .home__title {
       font-size: 3.2rem; } }
   @media screen and (min-width: 768px) {
-    h1 {
+    .home .home__title {
       font-size: 4.8rem; } }
   @media screen and (min-width: 992px) {
-    h1 {
+    .home .home__title {
       font-size: 5.2rem; } }
   @media screen and (min-width: 1200px) {
-    h1 {
+    .home .home__title {
       font-size: 6rem; } }
-  h1 span {
+  .home .home__title span {
     display: inline;
     padding-bottom: 0em;
     border-bottom: solid 1em #6653ff; }
-
-p {
-  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.2; }
-  footer > p {
-    font-size: 0.875rem; }
-  .display > p {
-    font-size: 1rem; }
-
-a {
-  opacity: 1.0;
-  transition: opacity 0.15s ease; }
-  a:hover {
-    text-decoration: none;
-    opacity: 0.9; }
 
 ul.nav {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
@@ -94,8 +74,7 @@ ul.nav {
     list-style-type: none;
     overflow: hidden;
     margin: 0;
-    padding: 0;
-    transition: height 1s ease-in-out; }
+    padding: 0; }
     ul.nav-top li {
       float: left; }
       ul.nav-top li a {
@@ -127,6 +106,26 @@ ul.nav {
           position: absolute;
           right: 0;
           top: 0; } }
+
+.media {
+  border-bottom: solid 1px #bcbcbc;
+  margin: 0 0 30px; }
+  @media screen and (min-width: 768px) {
+    .media {
+      margin: 0 0 40px; } }
+  .media .media__content {
+    display: block;
+    width: 100%; }
+  .media .media__meta {
+    font-size: 1rem;
+    margin-top: 10px; }
+
+a {
+  opacity: 1.0;
+  transition: opacity 0.15s ease; }
+  a:hover {
+    text-decoration: none;
+    opacity: 0.9; }
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes header {
