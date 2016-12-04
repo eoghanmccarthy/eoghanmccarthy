@@ -22,11 +22,9 @@
 
             <!-- Main -->
 
-            <main>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>mail@eoghanmccarthy.com<br>+44 (0)7490 816 795</p>
-                    </div>
+            <main class="main">
+                <div class="contact">
+                    <p class="contact__meta">mail@eoghanmccarthy.com<br>+44 (0)7490 816 795</p>
                 </div>
             </main>
 

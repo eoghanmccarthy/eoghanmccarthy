@@ -1,17 +1,28 @@
 // Header
 .header {
     @extend %px-base;
-    padding-top: 1.25em;
-    padding-bottom: 1.0em;
+    margin: 1.25em 0 1em;
 
     .header__logo {
-        width: 80px;
         padding-bottom: 1.25em;
-        @media #{$sm} {
-            width: 100px;
-        }
-        @media #{$md} {
-            width: 120px;
+
+        a {
+            opacity: 1.0;
+            transition: opacity $speed ease;
+
+            img {
+                width: 80px;
+                @media #{$sm} {
+                    width: 100px;
+                }
+                @media #{$md} {
+                    width: 120px;
+                }
+            }
+
+            &:hover {
+                opacity: 0.9;
+            }
         }
     }
 }

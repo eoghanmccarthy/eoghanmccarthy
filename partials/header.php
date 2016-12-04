@@ -1,5 +1,7 @@
 <header class="header">
-    <a href="index.php"><img class="header__logo" src="img/logo.png"></a>
+    <div class="header__logo">
+        <a href="index.php"><img src="img/logo.png"></a>
+    </div>
     <hr>
     <nav>
         <ul class="nav nav-top" id="topNav">
