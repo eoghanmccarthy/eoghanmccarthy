@@ -19,19 +19,6 @@
     }
 }
 
-@mixin border($position, $style, $width, $color) {
-    border-#{$position}: $style $width $color;
-}
-
-@mixin animation($name, $duration, $count) {
-    -webkit-animation-name: $name; /* Chrome, Safari, Opera */
-    -webkit-animation-duration: $duration; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: $count; /* Chrome, Safari, Opera */
-    animation-name: $name;
-    animation-duration: $duration;
-    animation-iteration-count: $count;
-}
-
 // Placeholders
 %clearfix {
     content: “”;
@@ -49,4 +36,8 @@
 
 %margin-reset {
     margin: 0;
+}
+
+%mark {
+    background-color: yellow;
 }

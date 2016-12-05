@@ -6,6 +6,9 @@ html, .footer {
 .header, ul.nav, .media {
   font-size: 1rem; }
 
+.contact .contact__meta mark {
+  background-color: yellow; }
+
 html body {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
@@ -112,36 +115,21 @@ ul.nav {
 
 .contact .contact__meta {
   font-size: 1rem;
-  line-height: 1.2; }
+  line-height: 1.4; }
+  .contact .contact__meta mark {
+    border-bottom: solid 1px #6653ff; }
 
 .media {
   border-bottom: solid 1px #bcbcbc;
-  margin: 0 0 30px; }
+  margin: 0 0 1.875em; }
   @media screen and (min-width: 768px) {
     .media {
-      margin: 0 0 40px; } }
+      margin: 0 0 2.5em; } }
   .media .media__content {
     display: block;
-    width: 100%; }
+    width: 100%;
+    margin-bottom: 0.625em; }
   .media .media__meta {
-    font-size: 1rem;
-    margin-top: 10px; }
-
-/* Chrome, Safari, Opera */
-@-webkit-keyframes header {
-  0% {
-    background-color: #6653ff; }
-  50% {
-    background-color: yellow; }
-  100% {
-    background-color: #6653ff; } }
-/* Standard syntax */
-@keyframes header {
-  0% {
-    background-color: #6653ff; }
-  50% {
-    background-color: yellow; }
-  100% {
-    background-color: #6653ff; } }
+    font-size: 1rem; }
 
 /*# sourceMappingURL=main.css.map */
