@@ -11,7 +11,7 @@
             transition: opacity $speed ease;
 
             img {
-                width: 80px;
+                width: 65px;
                 @media #{$sm} {
                     width: 100px;
                 }
