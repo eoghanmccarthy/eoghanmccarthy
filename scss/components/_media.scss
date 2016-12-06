@@ -1,7 +1,6 @@
 // Media
 .media {
     @extend %px-base;
-    border-bottom: solid 1px $light-grey;
     margin: 0 0 1.875em;
     @media #{$md} {
         margin: 0 0 2.5em;
@@ -15,5 +14,7 @@
 
     .media__meta {
         @include text-style(1rem);
+        margin-bottom: 0.25em;
+        border-bottom: solid 1px $grey;
     }
 }
