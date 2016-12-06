@@ -3,13 +3,19 @@ html {
     @extend %px-root;
 
     body {
-        @include font($stack-mono, $normal);
         background: $white;
+        @include font($stack-mono, $normal);
         color: $black;
+        padding-top: 1.25em;
 
         &.index {
             background: $grey;
             color: $white;
+        }
+
+        .hlight {
+            background-color: $yellow;
+            padding: 0.2em 0;
         }
     }
 }

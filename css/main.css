@@ -6,20 +6,21 @@ html, .footer {
 .header, ul.nav, .media {
   font-size: 1rem; }
 
-.contact .contact__meta mark {
-  background-color: yellow; }
-
 html body {
+  background: #fff;
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
-  background: #fff;
-  color: #000; }
+  color: #000;
+  padding-top: 1.25em; }
   html body.index {
     background: #333;
     color: #fff; }
+  html body .hlight {
+    background-color: #ffff00;
+    padding: 0.2em 0; }
 
 .header {
-  margin: 1.25em 0 1em; }
+  margin-bottom: 1em; }
   .header .header__logo {
     padding-bottom: 1.25em; }
     .header .header__logo a {
@@ -41,7 +42,7 @@ html body {
   margin: 1.25em 0; }
 
 .main {
-  margin: 0.875em 0; }
+  padding: 0.875em 0; }
 
 .home .home__title {
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
@@ -115,9 +116,7 @@ ul.nav {
 
 .contact .contact__meta {
   font-size: 1rem;
-  line-height: 1.4; }
-  .contact .contact__meta mark {
-    border-bottom: solid 1px #6653ff; }
+  line-height: 1.5; }
 
 .media {
   border-bottom: solid 1px #bcbcbc;

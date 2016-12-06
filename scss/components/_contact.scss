@@ -2,11 +2,6 @@
 .contact {
 
     .contact__meta {
-        @include text-style(1rem, 1.4);
-
-        mark {
-            @extend %mark;
-            border-bottom: solid 1px $brand;
-        }
+        @include text-style(1rem, 1.5);
     }
 }
