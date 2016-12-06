@@ -100,23 +100,16 @@ ul.nav {
         display: none; }
       @media screen and (max-width: 575px) {
         ul.nav-top li {
-          display: none;
-          opacity: 0.0;
-          -moz-transition: opacity 0.8s ease;
-          -o-transition: opacity 0.8s ease;
-          -ms-transition: opacity 0.8s ease;
-          transition: opacity 0.8s ease; }
+          display: none; }
           ul.nav-top li.nav-top__icon {
             float: right;
-            display: inline-block;
-            opacity: 1.0; } }
+            display: inline-block; } }
   @media screen and (max-width: 575px) {
     ul.nav-top__mobile {
       position: relative; }
       ul.nav-top__mobile li {
         float: none;
-        display: inline;
-        opacity: 1.0; }
+        display: inline; }
         ul.nav-top__mobile li a {
           display: block; }
         ul.nav-top__mobile li.nav-top__icon {
