@@ -75,6 +75,10 @@
                 </div>
             </main>
 
+            <!-- Lightbox -->
+
+            <?php include 'partials/lightbox-photo.php';?>
+
             <!-- Footer -->
 
             <?php include 'partials/footer.php';?>
