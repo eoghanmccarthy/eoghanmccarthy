@@ -19,6 +19,13 @@
     }
 }
 
+@mixin transition($property, $duration, $curve, $delay: null) {
+    -moz-transition: $property $duration $curve $delay;
+    -o-transition: $property $duration $curve $delay;
+    -ms-transition: $property $duration $curve $delay;
+    transition: $property $duration $curve $delay;
+}
+
 // Placeholders
 %clearfix {
     content: “”;
