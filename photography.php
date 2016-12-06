@@ -68,8 +68,8 @@
                     </div>
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_3336-folio.jpg" onclick="openModal();currentSlide(8)">
-                            <figcaption class="media__meta">shizuoka, japan</figcaption>
+                            <img class="media__content" src="photography/img_3251-folio.jpg" onclick="openModal();currentSlide(8)">
+                            <figcaption class="media__meta">izu, japan</figcaption>
                         </figure>
                     </div>
                 </div>
