@@ -9,57 +9,53 @@
   height: 100%;
   overflow: auto;
   background-color: $black;
-  border-collapse: collapse;
-}
 
-.lightbox__viewer {
-    @extend %valign-cell;
-    position: relative;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px;
-}
+  &__viewer {
+      position: relative;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1200px;
+  }
 
-.lightbox__close {
-  color: $white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-}
+  &__close {
+    color: $white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
 
-.lightbox__close:hover,
-.lightbox__close:focus {
-  color: #999;
-  text-decoration: none;
-}
+    &:hover {
+        color: #999;
+        text-decoration: none;
+    }
+  }
 
-.lightbox__slides {
-  display: none;
-}
+  &__slides {
+    display: none;
+  }
 
-.lightbox__prev,
-.lightbox__next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: -25px;
-  width: auto;
-  color: $brand;
-  font-size: 80px;
-  opacity: 0.7;
-  transition: opacity 0.6s ease;
-  user-select: none;
-  -webkit-user-select: none;
-}
+  &__prev,
+  &__next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    width: auto;
+    color: $brand;
+    font-size: 80px;
+    opacity: 0.7;
+    @include transition(opacity, .6s, ease);
+    user-select: none;
+    -webkit-user-select: none;
 
-.lightbox__next {
-  right: -25px;
-}
+    &:hover {
+      opacity: 1.0;
+      text-decoration: none;
+    }
+  }
 
-.lightbox__prev:hover,
-.lightbox__next:hover {
-  opacity: 1.0;
-  text-decoration: none;
+  &__next {
+    right: -25px;
+  }
 }
