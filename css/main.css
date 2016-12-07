@@ -178,16 +178,17 @@ ul.nav {
   cursor: pointer;
   position: absolute;
   top: 50%;
+  left: -25px;
   width: auto;
   color: #6653ff;
-  font-size: 60px;
+  font-size: 80px;
   opacity: 0.7;
   transition: opacity 0.6s ease;
   user-select: none;
   -webkit-user-select: none; }
 
 .lightbox__next {
-  right: 0; }
+  right: -25px; }
 
 .lightbox__prev:hover,
 .lightbox__next:hover {
