@@ -6,6 +6,10 @@ html, .footer {
 .header, ul.nav, .media {
   font-size: 1rem; }
 
+.lightbox__viewer {
+  display: table-cell;
+  vertical-align: middle; }
+
 html body {
   background: #fff;
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
@@ -135,18 +139,17 @@ ul.nav {
     margin-bottom: 0.25em;
     border-bottom: solid 1px #bcbcbc; }
 
-/* The Modal (background) */
 .lightbox {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black; }
+  background-color: black;
+  border-collapse: collapse; }
 
 /* Modal Content */
 .lightbox__viewer {

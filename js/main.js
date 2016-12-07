@@ -8,7 +8,7 @@ function toggleNav() {
 }
 
 function openModal() {
-  document.getElementById('photoLightbox').style.display = "block";
+  document.getElementById('photoLightbox').style.display = "table";
 }
 
 function closeModal() {
