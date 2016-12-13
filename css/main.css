@@ -154,10 +154,6 @@ ul.nav {
     .lightbox__close:hover {
       color: #999;
       text-decoration: none; }
-  .lightbox__slide {
-    display: none; }
-    .lightbox__slide img {
-      width: 100%; }
   .lightbox__viewer {
     top: 50%;
     transform: translateY(-50%);
@@ -166,11 +162,14 @@ ul.nav {
     padding: 0;
     width: 90%;
     max-width: 1200px; }
+    .lightbox__viewer .lightbox__slide {
+      display: none; }
+      .lightbox__viewer .lightbox__slide img {
+        width: 100%; }
     .lightbox__viewer--prev, .lightbox__viewer--next {
       position: absolute;
       cursor: pointer;
-      top: 50%;
-      left: 0;
+      bottom: 10px;
       width: auto;
       color: #6653ff;
       font-size: 112px;
@@ -185,6 +184,8 @@ ul.nav {
         opacity: 1.0;
         text-decoration: none; }
     .lightbox__viewer--next {
-      right: 0; }
+      left: 40%; }
+    .lightbox__viewer--next {
+      right: 40%; }
 
 /*# sourceMappingURL=main.css.map */
