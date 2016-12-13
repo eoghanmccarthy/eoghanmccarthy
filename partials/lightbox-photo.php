@@ -36,8 +36,8 @@
             <img src="photography/img_3251-folio.jpg">
         </div>
 
-        <a class="lightbox__viewer--prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="lightbox__viewer--next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="lightbox__viewer--prev" onclick="plusSlides(-1)"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        <a class="lightbox__viewer--next" onclick="plusSlides(1)"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
     </div>
 
