@@ -26,6 +26,11 @@
     transition: $property $duration $curve $delay;
 }
 
+@mixin v-center {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 // Placeholders
 %clearfix {
     content: “”;
@@ -43,16 +48,4 @@
 
 %margin-reset {
     margin: 0;
-}
-
-%valign-table {
-    display: table;
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-}
-
-%valign-cell {
-    display: table-cell;
-    vertical-align: middle;
 }

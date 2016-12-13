@@ -145,12 +145,6 @@ ul.nav {
   height: 100%;
   overflow: auto;
   background-color: #000; }
-  .lightbox__viewer {
-    position: relative;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px; }
   .lightbox__close {
     color: #fff;
     position: absolute;
@@ -160,27 +154,37 @@ ul.nav {
     .lightbox__close:hover {
       color: #999;
       text-decoration: none; }
-  .lightbox__slides {
+  .lightbox__slide {
     display: none; }
-  .lightbox__prev, .lightbox__next {
-    cursor: pointer;
-    position: absolute;
+    .lightbox__slide img {
+      width: 100%; }
+  .lightbox__viewer {
     top: 50%;
-    left: -25px;
-    width: auto;
-    color: #6653ff;
-    font-size: 80px;
-    opacity: 0.7;
-    -moz-transition: opacity 0.6s ease;
-    -o-transition: opacity 0.6s ease;
-    -ms-transition: opacity 0.6s ease;
-    transition: opacity 0.6s ease;
-    user-select: none;
-    -webkit-user-select: none; }
-    .lightbox__prev:hover, .lightbox__next:hover {
-      opacity: 1.0;
-      text-decoration: none; }
-  .lightbox__next {
-    right: -25px; }
+    transform: translateY(-50%);
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px; }
+    .lightbox__viewer--prev, .lightbox__viewer--next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: auto;
+      color: #6653ff;
+      font-size: 80px;
+      opacity: 0.7;
+      -moz-transition: opacity 0.6s ease;
+      -o-transition: opacity 0.6s ease;
+      -ms-transition: opacity 0.6s ease;
+      transition: opacity 0.6s ease;
+      user-select: none;
+      -webkit-user-select: none; }
+      .lightbox__viewer--prev:hover, .lightbox__viewer--next:hover {
+        opacity: 1.0;
+        text-decoration: none; }
+    .lightbox__viewer--next {
+      right: 0; }
 
 /*# sourceMappingURL=main.css.map */

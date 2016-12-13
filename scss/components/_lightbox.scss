@@ -1,61 +1,66 @@
 // Lightbox
 .lightbox {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: $black;
-
-  &__viewer {
-      position: relative;
-      margin: auto;
-      padding: 0;
-      width: 90%;
-      max-width: 1200px;
-  }
-
-  &__close {
-    color: $white;
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 35px;
-
-    &:hover {
-        color: #999;
-        text-decoration: none;
-    }
-  }
-
-  &__slides {
     display: none;
-  }
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $black;
 
-  &__prev,
-  &__next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: -25px;
-    width: auto;
-    color: $brand;
-    font-size: 80px;
-    opacity: 0.7;
-    @include transition(opacity, .6s, ease);
-    user-select: none;
-    -webkit-user-select: none;
+    &__close {
+        color: $white;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 35px;
 
-    &:hover {
-      opacity: 1.0;
-      text-decoration: none;
+        &:hover {
+            color: #999;
+            text-decoration: none;
+        }
     }
-  }
 
-  &__next {
-    right: -25px;
-  }
+    &__slide {
+        display: none;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__viewer {
+        @include v-center;
+        position: relative;
+        margin: auto;
+        padding: 0;
+        width: 90%;
+        max-width: 1200px;
+
+        &--prev,
+        &--next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: auto;
+            color: $brand;
+            font-size: 80px;
+            opacity: 0.7;
+            @include transition(opacity, .6s, ease);
+            user-select: none;
+            -webkit-user-select: none;
+
+            &:hover {
+                opacity: 1.0;
+                text-decoration: none;
+            }
+        }
+
+        &--next {
+            right: 0;
+        }
+    }
 }
