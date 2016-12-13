@@ -34,20 +34,20 @@
     &__viewer {
         @include v-center;
         position: relative;
-        margin: auto;
+        margin: 0 auto;
         padding: 0;
         width: 90%;
         max-width: 1200px;
 
         &--prev,
         &--next {
+            @include v-center;
+            position: relative;
             cursor: pointer;
-            position: absolute;
-            top: 50%;
             left: 0;
             width: auto;
             color: $brand;
-            font-size: 80px;
+            font-size: 112px;
             opacity: 0.7;
             @include transition(opacity, .6s, ease);
             user-select: none;
