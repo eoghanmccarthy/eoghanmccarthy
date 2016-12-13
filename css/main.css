@@ -13,8 +13,7 @@ html body {
   color: #000;
   padding-top: 1.25em; }
   html body.index {
-    background-image: url("img/flashing-logo.gif");
-    background: #333;
+    background: url("img/flashing-logo.gif");
     color: #fff; }
   html body .hlight {
     background-color: #ffff00;

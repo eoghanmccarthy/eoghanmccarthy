@@ -9,8 +9,8 @@ html {
         padding-top: 1.25em;
 
         &.index {
-            background-image: url('img/flashing-logo.gif');
-            background: $grey;
+            background: url('img/flashing-logo.gif');
+            // background: $grey;
             color: $white;
         }
 
