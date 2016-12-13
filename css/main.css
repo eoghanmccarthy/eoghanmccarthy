@@ -126,11 +126,11 @@ ul.nav {
   @media screen and (min-width: 768px) {
     .media {
       margin: 0 0 2.5em; } }
-  .media .media__content {
+  .media__content {
     display: block;
     width: 100%;
     margin-bottom: 0.625em; }
-  .media .media__meta {
+  .media__meta {
     font-size: 1rem;
     margin-bottom: 0.25em;
     border-bottom: solid 1px #bcbcbc; }

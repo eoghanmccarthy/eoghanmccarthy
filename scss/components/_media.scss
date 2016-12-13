@@ -6,13 +6,13 @@
         margin: 0 0 2.5em;
     }
 
-    .media__content {
+    &__content {
         display: block;
         width: 100%;
         margin-bottom: 0.625em;
     }
 
-    .media__meta {
+    &__meta {
         @include text-style(1rem);
         margin-bottom: 0.25em;
         border-bottom: solid 1px $light-grey;
