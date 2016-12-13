@@ -150,7 +150,8 @@ ul.nav {
     position: absolute;
     top: 10px;
     right: 25px;
-    font-size: 2rem; }
+    font-size: 2rem;
+    line-height: 100%; }
     .lightbox__close:hover {
       color: #999;
       text-decoration: none; }
@@ -173,6 +174,7 @@ ul.nav {
       width: auto;
       color: #6653ff;
       font-size: 3.5rem;
+      line-height: 100%;
       opacity: 0.7;
       -moz-transition: opacity 0.6s ease;
       -o-transition: opacity 0.6s ease;
