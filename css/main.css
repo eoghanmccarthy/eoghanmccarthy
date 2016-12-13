@@ -171,7 +171,7 @@ ul.nav {
         width: 100%; }
     .lightbox__viewer--prev, .lightbox__viewer--next {
       position: absolute;
-      bottom: -2%;
+      bottom: -4%;
       padding: 0.25em 0.75em;
       width: auto;
       background-color: #6653ff;
@@ -193,8 +193,8 @@ ul.nav {
         opacity: 0.8;
         text-decoration: none; }
     .lightbox__viewer--prev {
-      left: 25%; }
+      left: 40%; }
     .lightbox__viewer--next {
-      right: 25%; }
+      right: 40%; }
 
 /*# sourceMappingURL=main.css.map */

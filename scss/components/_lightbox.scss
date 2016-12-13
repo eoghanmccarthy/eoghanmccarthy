@@ -44,7 +44,7 @@
         &--prev,
         &--next {
             position: absolute;
-            bottom: -2%;
+            bottom: -4%;
             padding: 0.25em 0.75em;
             width: auto;
             background-color: $brand;
@@ -68,11 +68,11 @@
         }
 
         &--prev {
-            left: 25%;
+            left: 40%;
         }
 
         &--next {
-            right: 25%;
+            right: 40%;
         }
     }
 }
