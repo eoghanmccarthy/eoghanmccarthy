@@ -45,11 +45,11 @@
         &--next {
             position: absolute;
             bottom: -2%;
-            padding: 0.375em 0.75em;
+            padding: 0.25em 0.75em;
             width: auto;
             background-color: $brand;
             color: $white;
-            font-size: 2rem;
+            font-size: 1.25rem;
             line-height: 100%;
             opacity: 0.3;
             @include transition(opacity, .6s, ease);
@@ -68,11 +68,11 @@
         }
 
         &--prev {
-            left: 30%;
+            left: 25%;
         }
 
         &--next {
-            right: 30%;
+            right: 25%;
         }
     }
 }
