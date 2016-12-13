@@ -194,6 +194,8 @@ ul.nav {
         text-decoration: none; }
       .lightbox__viewer--prev:active, .lightbox__viewer--next:active {
         opacity: 0.2; }
+      .lightbox__viewer--prev:visited, .lightbox__viewer--next:visited {
+        opacity: 0.2; }
     .lightbox__viewer--prev {
       left: 35%; }
     .lightbox__viewer--next {
