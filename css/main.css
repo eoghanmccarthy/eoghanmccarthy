@@ -18,6 +18,8 @@ html body {
   html body .hlight {
     background-color: #ffff00;
     padding: 0.2em 0; }
+  html body hr {
+    margin: 0.125em 0; }
 
 .header {
   margin-bottom: 1em; }
