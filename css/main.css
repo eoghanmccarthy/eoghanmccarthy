@@ -193,8 +193,8 @@ ul.nav {
         opacity: 0.8;
         text-decoration: none; }
     .lightbox__viewer--prev {
-      left: 40%; }
+      left: 30%; }
     .lightbox__viewer--next {
-      right: 40%; }
+      right: 30%; }
 
 /*# sourceMappingURL=main.css.map */
