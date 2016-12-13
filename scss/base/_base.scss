@@ -13,6 +13,11 @@ html {
             color: $white;
         }
 
+        &.contact {
+            background-image: url('img/flashing-logo.gif');
+            background-size: cover;
+        }
+
         .hlight {
             background-color: $yellow;
             padding: 0.2em 0;
