@@ -162,15 +162,14 @@ ul.nav {
     top: 50%;
     transform: translateY(-50%);
     position: relative;
-    margin: 0 auto;
+    margin: auto;
     padding: 0;
     width: 90%;
     max-width: 1200px; }
     .lightbox__viewer--prev, .lightbox__viewer--next {
-      top: 50%;
-      transform: translateY(-50%);
-      position: relative;
+      position: absolute;
       cursor: pointer;
+      top: 50%;
       left: 0;
       width: auto;
       color: #6653ff;

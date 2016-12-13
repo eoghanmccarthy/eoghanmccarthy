@@ -34,16 +34,16 @@
     &__viewer {
         @include v-center;
         position: relative;
-        margin: 0 auto;
+        margin: auto;
         padding: 0;
         width: 90%;
         max-width: 1200px;
 
         &--prev,
         &--next {
-            @include v-center;
-            position: relative;
+            position: absolute;
             cursor: pointer;
+            top: 50%;
             left: 0;
             width: auto;
             color: $brand;
