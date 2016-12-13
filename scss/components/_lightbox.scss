@@ -45,7 +45,7 @@
         &--next {
             position: absolute;
             bottom: -2%;
-            padding: 0.5em 0.75em;
+            padding: 0.375em 0.75em;
             width: auto;
             background-color: $brand;
             color: $white;
@@ -58,7 +58,7 @@
             cursor: pointer;
 
             @media #{$md} {
-                font-size: 7rem;
+                font-size: 6rem;
             }
 
             &:hover {
@@ -68,11 +68,11 @@
         }
 
         &--prev {
-            left: 40%;
+            left: 30%;
         }
 
         &--next {
-            right: 40%;
+            right: 30%;
         }
     }
 }

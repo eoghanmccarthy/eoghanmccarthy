@@ -172,7 +172,7 @@ ul.nav {
     .lightbox__viewer--prev, .lightbox__viewer--next {
       position: absolute;
       bottom: -2%;
-      padding: 0.5em 0.75em;
+      padding: 0.375em 0.75em;
       width: auto;
       background-color: #6653ff;
       color: #fff;
@@ -188,13 +188,13 @@ ul.nav {
       cursor: pointer; }
       @media screen and (min-width: 768px) {
         .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 7rem; } }
+          font-size: 6rem; } }
       .lightbox__viewer--prev:hover, .lightbox__viewer--next:hover {
         opacity: 0.8;
         text-decoration: none; }
     .lightbox__viewer--prev {
-      left: 40%; }
+      left: 30%; }
     .lightbox__viewer--next {
-      right: 40%; }
+      right: 30%; }
 
 /*# sourceMappingURL=main.css.map */
