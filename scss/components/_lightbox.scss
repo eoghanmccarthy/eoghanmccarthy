@@ -57,6 +57,14 @@
             -webkit-user-select: none;
             cursor: pointer;
 
+            @media #{$sm} {
+                font-size: 2rem;
+            }
+
+            @media #{$md} {
+                font-size: 2.4rem;
+            }
+
             @media #{$lg} {
                 font-size: 3rem;
             }
@@ -74,24 +82,40 @@
         &--prev {
             left: 35%;
 
+            @media #{$sm} {
+                left: 38.1%;
+            }
+
             @media #{$md} {
-                left: 36%;
+                left: 39%;
             }
 
             @media #{$lg} {
-                left: 39%;
+                left: 39.8%;
+            }
+
+            @media #{$xl} {
+                left: 38.8%;
             }
         }
 
         &--next {
             right: 35%;
 
+            @media #{$sm} {
+                right: 38.1%;
+            }
+
             @media #{$md} {
-                right: 36%;
+                right: 39%;
             }
 
             @media #{$lg} {
-                right: 39%;
+                right: 39.8%;
+            }
+
+            @media #{$xl} {
+                right: 38.8%;
             }
         }
     }

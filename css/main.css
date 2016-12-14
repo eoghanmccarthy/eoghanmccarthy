@@ -189,6 +189,12 @@ ul.nav {
       user-select: none;
       -webkit-user-select: none;
       cursor: pointer; }
+      @media screen and (min-width: 576px) {
+        .lightbox__viewer--prev, .lightbox__viewer--next {
+          font-size: 2rem; } }
+      @media screen and (min-width: 768px) {
+        .lightbox__viewer--prev, .lightbox__viewer--next {
+          font-size: 2.4rem; } }
       @media screen and (min-width: 992px) {
         .lightbox__viewer--prev, .lightbox__viewer--next {
           font-size: 3rem; } }
@@ -200,19 +206,31 @@ ul.nav {
         text-decoration: none; }
     .lightbox__viewer--prev {
       left: 35%; }
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 576px) {
         .lightbox__viewer--prev {
-          left: 36%; } }
-      @media screen and (min-width: 992px) {
+          left: 38.1%; } }
+      @media screen and (min-width: 768px) {
         .lightbox__viewer--prev {
           left: 39%; } }
+      @media screen and (min-width: 992px) {
+        .lightbox__viewer--prev {
+          left: 39.8%; } }
+      @media screen and (min-width: 1200px) {
+        .lightbox__viewer--prev {
+          left: 38.8%; } }
     .lightbox__viewer--next {
       right: 35%; }
+      @media screen and (min-width: 576px) {
+        .lightbox__viewer--next {
+          right: 38.1%; } }
       @media screen and (min-width: 768px) {
         .lightbox__viewer--next {
-          right: 36%; } }
+          right: 39%; } }
       @media screen and (min-width: 992px) {
         .lightbox__viewer--next {
-          right: 39%; } }
+          right: 39.8%; } }
+      @media screen and (min-width: 1200px) {
+        .lightbox__viewer--next {
+          right: 38.8%; } }
 
 /*# sourceMappingURL=main.css.map */
