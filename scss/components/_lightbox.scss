@@ -74,6 +74,10 @@
         &--prev {
             left: 35%;
 
+            @media #{$md} {
+                left: 36%;
+            }
+
             @media #{$lg} {
                 left: 39%;
             }
@@ -82,7 +86,11 @@
         &--next {
             right: 35%;
 
-            @media #{$xl} {
+            @media #{$md} {
+                right: 36%;
+            }
+
+            @media #{$lg} {
                 right: 39%;
             }
         }

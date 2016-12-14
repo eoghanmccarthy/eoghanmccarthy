@@ -200,12 +200,18 @@ ul.nav {
         text-decoration: none; }
     .lightbox__viewer--prev {
       left: 35%; }
+      @media screen and (min-width: 768px) {
+        .lightbox__viewer--prev {
+          left: 36%; } }
       @media screen and (min-width: 992px) {
         .lightbox__viewer--prev {
           left: 39%; } }
     .lightbox__viewer--next {
       right: 35%; }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 768px) {
+        .lightbox__viewer--next {
+          right: 36%; } }
+      @media screen and (min-width: 992px) {
         .lightbox__viewer--next {
           right: 39%; } }
 
