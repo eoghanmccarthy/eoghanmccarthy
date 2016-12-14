@@ -10,7 +10,7 @@
 
     </head>
 
-    <body class="contact">
+    <body id="contact">
 
         <!-- ++++ Container -->
 

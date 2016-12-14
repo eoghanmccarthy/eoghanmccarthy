@@ -3,17 +3,17 @@ html {
     @extend %px-root;
 
     body {
-        background: $white;
         @include font($stack-mono, $normal);
         color: $black;
+        background: $white;
         padding-top: 1.25em;
 
-        &.index {
+        &#index {
             background: $grey;
             color: $white;
         }
 
-        &.contact {
+        &#contact {
             background-image: url('img/flashing-logo.gif');
             background-size: cover;
         }

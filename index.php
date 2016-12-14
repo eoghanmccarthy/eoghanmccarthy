@@ -10,7 +10,7 @@
 
     </head>
 
-    <body class="index">
+    <body id="index">
 
         <!-- ++++ Container -->
 

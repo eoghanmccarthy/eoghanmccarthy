@@ -7,15 +7,15 @@ html, .footer {
   font-size: 1rem; }
 
 html body {
-  background: #fff;
   font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
   font-weight: 400;
   color: #000;
+  background: #fff;
   padding-top: 1.25em; }
-  html body.index {
+  html body#index {
     background: #333;
     color: #fff; }
-  html body.contact {
+  html body#contact {
     background-image: url("img/flashing-logo.gif");
     background-size: cover; }
   html body .hlight {
