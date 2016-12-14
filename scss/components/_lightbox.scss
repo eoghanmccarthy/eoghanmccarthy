@@ -37,7 +37,13 @@
             display: none;
 
             img {
+                opacity: 1;
+                @include transition(opacity, .3s, ease);
                 width: 100%;
+
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
 
@@ -52,7 +58,7 @@
             font-size: 1.25rem;
             line-height: 100%;
             opacity: 0.2;
-            @include transition(opacity, .6s, ease);
+            @include transition(opacity, .3s, ease);
             user-select: none;
             -webkit-user-select: none;
             cursor: pointer;

@@ -3,14 +3,14 @@
 
     <head>
 
-        <title>eoghan mccarthy</title>
+        <title>eoghanmccarthy / japan, japan</title>
 
         <?php include 'partials/meta.php';?>
         <?php include 'partials/scripts.php';?>
 
     </head>
 
-    <body id="index">
+    <body id="japan-japan">
 
         <!-- ++++ Container -->
 
@@ -23,8 +23,8 @@
             <!-- Main -->
 
             <main>
-                <div class="home">
-                    <h1 class="home__title"><span>designer</span>, <span>front-end developer</span>, etc</h1>
+                <div>
+                    <h1>japan, japan</h1>
                 </div>
             </main>
 

@@ -1,6 +1,6 @@
 // Footer
 .footer {
     @extend %px-root;
-    @include text-style(0.875rem);
+    @include text-style(1rem);
     margin: 1.25em 0;
 }

@@ -22,7 +22,7 @@
 
             <!-- Main -->
 
-            <main class="main">
+            <main>
                 <div class="contact">
                     <p class="contact__meta"><mark class="hlight">mail@eoghanmccarthy.com</mark><br><mark class="hlight">+44 (0)7490 816 795</mark></p>
                 </div>

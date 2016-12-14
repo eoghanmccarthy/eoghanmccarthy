@@ -22,7 +22,7 @@
 
             <!-- Main -->
 
-            <main class="main">
+            <main>
                 <div class="row">
                     <div class="col-md-6">
                         <figure class="media">

@@ -13,9 +13,14 @@ html {
             color: $white;
         }
 
-        &#contact {
-            background-image: url('img/flashing-logo.gif');
-            background-size: cover;
+        &#japan-japan {
+            background-image: url('../img/japan-japan.jpg');
+            background-size: 65%;
+            background-repeat: repeat;
+        }
+
+        main {
+            padding: 0.875em 0;
         }
 
         .hlight {

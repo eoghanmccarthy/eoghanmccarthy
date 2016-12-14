@@ -1,236 +1,105 @@
-@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
-@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
-html, .footer {
-  font-size: 100%; }
+/*
+Error: An @import loop has been found:
+           scss/main.scss imports scss/layout/_index.scss
+           scss/layout/_index.scss imports /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss
+           /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss imports /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/layout/_index.scss
+           /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/layout/_index.scss imports /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss
+        on line 4 of /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/layout/_index.scss
+        from line 5 of /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss
+        from line 4 of scss/layout/_index.scss
+        from line 5 of scss/main.scss
 
-.header, ul.nav, .media, .lightbox {
-  font-size: 1rem; }
+1: // Base
+2: @import "base/index";
+3: 
+4: // Layout
+5: @import "layout/index";
+6: 
+7: // Components
+8: @import "components/index";
 
-html body {
-  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
-  font-weight: 400;
-  color: #000;
-  background: #fff;
-  padding-top: 1.25em; }
-  html body#index {
-    background: #333;
-    color: #fff; }
-  html body#contact {
-    background-image: url("img/flashing-logo.gif");
-    background-size: cover; }
-  html body .hlight {
-    background-color: #ffff00;
-    padding: 0.2em 0; }
-  html body hr {
-    margin: 0.250em 0; }
-
-.header {
-  margin-bottom: 1em; }
-  .header .header__logo {
-    padding-bottom: 1.25em; }
-    .header .header__logo a {
-      opacity: 1.0;
-      transition: opacity 0.15s ease; }
-      .header .header__logo a img {
-        width: 65px; }
-        @media screen and (min-width: 576px) {
-          .header .header__logo a img {
-            width: 100px; } }
-        @media screen and (min-width: 768px) {
-          .header .header__logo a img {
-            width: 120px; } }
-      .header .header__logo a:hover {
-        opacity: 0.9; }
-
-.footer {
-  font-size: 0.875rem;
-  margin: 1.25em 0; }
-
-.main {
-  padding: 0.875em 0; }
-
-.home .home__title {
-  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
-  font-weight: 400;
-  font-size: 2.6rem;
-  line-height: 1.3; }
-  @media screen and (min-width: 576px) {
-    .home .home__title {
-      font-size: 3.2rem; } }
-  @media screen and (min-width: 768px) {
-    .home .home__title {
-      font-size: 4.8rem; } }
-  @media screen and (min-width: 992px) {
-    .home .home__title {
-      font-size: 5.2rem; } }
-  @media screen and (min-width: 1200px) {
-    .home .home__title {
-      font-size: 6rem; } }
-  .home .home__title span {
-    display: inline;
-    padding-bottom: 0em;
-    border-bottom: solid 1em #6653ff; }
-
-ul.nav {
-  font-size: 1rem;
-  line-height: 1.2; }
-  @media screen and (min-width: 768px) {
-    ul.nav {
-      font-size: 1.125rem; } }
-  ul.nav-top {
-    list-style-type: none;
-    overflow: hidden;
-    margin: 0;
-    padding: 0; }
-    ul.nav-top li {
-      float: left; }
-      ul.nav-top li a {
-        display: inline-block;
-        color: #6653ff;
-        text-align: left;
-        text-decoration: none;
-        padding: 0.2em 1.0em 0.2em 0;
-        opacity: 1.0;
-        -moz-transition: opacity 0.3s ease;
-        -o-transition: opacity 0.3s ease;
-        -ms-transition: opacity 0.3s ease;
-        transition: opacity 0.3s ease; }
-        @media screen and (min-width: 768px) {
-          ul.nav-top li a {
-            padding-right: 1.25em; } }
-        ul.nav-top li a:hover {
-          text-decoration: none;
-          opacity: 0.9; }
-      ul.nav-top li.nav-top__icon {
-        display: none; }
-      @media screen and (max-width: 575px) {
-        ul.nav-top li {
-          display: none; }
-          ul.nav-top li.nav-top__icon {
-            float: right;
-            display: inline-block; } }
-  @media screen and (max-width: 575px) {
-    ul.nav-top__mobile {
-      position: relative; }
-      ul.nav-top__mobile li {
-        float: none;
-        display: inline; }
-        ul.nav-top__mobile li a {
-          display: block; }
-        ul.nav-top__mobile li.nav-top__icon {
-          position: absolute;
-          right: 0;
-          top: 0; } }
-
-.contact .contact__meta {
-  font-size: 1rem;
-  line-height: 1.5; }
-
-.media {
-  margin: 0 0 1.875em; }
-  @media screen and (min-width: 768px) {
-    .media {
-      margin: 0 0 2.5em; } }
-  .media__content {
-    display: block;
-    width: 100%;
-    margin-bottom: 0.625em; }
-  .media__meta {
-    font-size: 1rem;
-    margin-bottom: 0.25em;
-    border-bottom: solid 1px #bcbcbc; }
-
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: #000; }
-  .lightbox__close {
-    color: #fff;
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 2rem;
-    line-height: 100%; }
-    .lightbox__close:hover {
-      color: #999;
-      text-decoration: none; }
-  .lightbox__viewer {
-    top: 50%;
-    transform: translateY(-50%);
-    position: relative;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px; }
-    .lightbox__viewer .lightbox__slide {
-      display: none; }
-      .lightbox__viewer .lightbox__slide img {
-        width: 100%; }
-    .lightbox__viewer--prev, .lightbox__viewer--next {
-      position: absolute;
-      bottom: -4%;
-      padding: 0.25em 0.75em;
-      width: auto;
-      background-color: #6653ff;
-      color: #fff;
-      font-size: 1.25rem;
-      line-height: 100%;
-      opacity: 0.2;
-      -moz-transition: opacity 0.6s ease;
-      -o-transition: opacity 0.6s ease;
-      -ms-transition: opacity 0.6s ease;
-      transition: opacity 0.6s ease;
-      user-select: none;
-      -webkit-user-select: none;
-      cursor: pointer; }
-      @media screen and (min-width: 576px) {
-        .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 2rem; } }
-      @media screen and (min-width: 768px) {
-        .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 2.4rem; } }
-      @media screen and (min-width: 992px) {
-        .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 3rem; } }
-      @media screen and (min-width: 1200px) {
-        .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 4rem; } }
-      .lightbox__viewer--prev:hover, .lightbox__viewer--next:hover {
-        opacity: 0.8;
-        text-decoration: none; }
-    .lightbox__viewer--prev {
-      left: 35%; }
-      @media screen and (min-width: 576px) {
-        .lightbox__viewer--prev {
-          left: 38.1%; } }
-      @media screen and (min-width: 768px) {
-        .lightbox__viewer--prev {
-          left: 39%; } }
-      @media screen and (min-width: 992px) {
-        .lightbox__viewer--prev {
-          left: 39.8%; } }
-      @media screen and (min-width: 1200px) {
-        .lightbox__viewer--prev {
-          left: 38.8%; } }
-    .lightbox__viewer--next {
-      right: 35%; }
-      @media screen and (min-width: 576px) {
-        .lightbox__viewer--next {
-          right: 38.1%; } }
-      @media screen and (min-width: 768px) {
-        .lightbox__viewer--next {
-          right: 39%; } }
-      @media screen and (min-width: 992px) {
-        .lightbox__viewer--next {
-          right: 39.8%; } }
-      @media screen and (min-width: 1200px) {
-        .lightbox__viewer--next {
-          right: 38.8%; } }
-
-/*# sourceMappingURL=main.css.map */
+Backtrace:
+/Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/layout/_index.scss:4
+/Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss:5
+scss/layout/_index.scss:4
+scss/main.scss:5
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:556:in `handle_import_loop!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:319:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/listener.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: An @import loop has been found:\A            scss/main.scss imports scss/layout/_index.scss\A            scss/layout/_index.scss imports /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss\A            /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss imports /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/layout/_index.scss\A            /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/layout/_index.scss imports /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss\A         on line 4 of /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/layout/_index.scss\A         from line 5 of /Users/eoghan.mccarthy/Documents/eoghan/projects/eoghanmccarthy/web/eoghanmccarthy/scss/main.scss\A         from line 4 of scss/layout/_index.scss\A         from line 5 of scss/main.scss\A \A 1: // Base\A 2: @import \"base/index\";\A 3: \A 4: // Layout\A 5: @import \"layout/index\";\A 6: \A 7: // Components\A 8: @import \"components/index\";"; }
