@@ -24,7 +24,7 @@
 
             <main>
                 <div class="home">
-                    <h1 class="home__title"><span>designer</span>, <span>front-end developer</span>, etc</h1>
+                    <h1><span>designer</span>, <span>front-end developer</span>, etc</h1>
                 </div>
             </main>
 
