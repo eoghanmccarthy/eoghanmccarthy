@@ -189,15 +189,24 @@ ul.nav {
       user-select: none;
       -webkit-user-select: none;
       cursor: pointer; }
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 992px) {
         .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 6rem; } }
+          font-size: 3rem; } }
+      @media screen and (min-width: 1200px) {
+        .lightbox__viewer--prev, .lightbox__viewer--next {
+          font-size: 4rem; } }
       .lightbox__viewer--prev:hover, .lightbox__viewer--next:hover {
         opacity: 0.8;
         text-decoration: none; }
     .lightbox__viewer--prev {
       left: 35%; }
+      @media screen and (min-width: 992px) {
+        .lightbox__viewer--prev {
+          left: 39%; } }
     .lightbox__viewer--next {
       right: 35%; }
+      @media screen and (min-width: 1200px) {
+        .lightbox__viewer--next {
+          right: 39%; } }
 
 /*# sourceMappingURL=main.css.map */

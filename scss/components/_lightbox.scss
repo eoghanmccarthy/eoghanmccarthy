@@ -57,8 +57,12 @@
             -webkit-user-select: none;
             cursor: pointer;
 
-            @media #{$md} {
-                font-size: 6rem;
+            @media #{$lg} {
+                font-size: 3rem;
+            }
+
+            @media #{$xl} {
+                font-size: 4rem;
             }
 
             &:hover {
@@ -69,10 +73,18 @@
 
         &--prev {
             left: 35%;
+
+            @media #{$lg} {
+                left: 39%;
+            }
         }
 
         &--next {
             right: 35%;
+
+            @media #{$xl} {
+                right: 39%;
+            }
         }
     }
 }
