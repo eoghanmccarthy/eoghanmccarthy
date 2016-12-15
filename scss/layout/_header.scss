@@ -5,10 +5,11 @@
 
     .header__logo {
         padding-bottom: 1.25em;
+        border-bottom: 1px solid $light-grey;
 
         a {
-            opacity: 1.0;
-            transition: opacity $speed ease;
+            opacity: 1;
+            @include transition(opacity, $speed, ease);
 
             img {
                 width: 65px;
@@ -21,7 +22,7 @@
             }
 
             &:hover {
-                opacity: 0.9;
+                opacity: 0.8;
             }
         }
     }

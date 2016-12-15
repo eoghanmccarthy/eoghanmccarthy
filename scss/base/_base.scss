@@ -1,6 +1,8 @@
 // Base
 html {
     @extend %px-root;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
 
     body {
         @include font($stack-mono, $normal);
@@ -8,28 +10,25 @@ html {
         background: $white;
         padding-top: 1.25em;
 
-        &#index {
+        &.dark {
             background: $grey;
+        }
+
+        &.feature {
+            background-size: 65%;
+            background-repeat: repeat;
+        }
+
+        &.dark.feature {
             color: $white;
         }
 
         &#japan-japan {
             background-image: url('../img/japan-japan.jpg');
-            background-size: 65%;
-            background-repeat: repeat;
         }
 
         main {
             padding: 0.875em 0;
-        }
-
-        .hlight {
-            background-color: $yellow;
-            padding: 0.2em 0;
-        }
-
-        hr {
-            margin: 0.250em 0;
         }
     }
 }

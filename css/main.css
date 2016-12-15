@@ -6,34 +6,59 @@ html, .footer {
 .header, ul.nav, .media, .lightbox {
   font-size: 1rem; }
 
-html body {
-  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
-  font-weight: 400;
-  color: #000;
-  background: #fff;
-  padding-top: 1.25em; }
-  html body#index {
-    background: #333;
-    color: #fff; }
-  html body#japan-japan {
-    background-image: url("../img/japan-japan.jpg");
-    background-size: 65%;
-    background-repeat: repeat; }
-  html body main {
-    padding: 0.875em 0; }
-  html body .hlight {
-    background-color: #ffff00;
-    padding: 0.2em 0; }
-  html body hr {
-    margin: 0.250em 0; }
+h1 mark,
+h2 mark,
+h3 mark,
+h4 mark,
+h5 mark,
+h6 mark,
+p mark {
+  background-color: #ffff00;
+  padding: 0.2em 0; }
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span,
+p span {
+  display: inline;
+  padding-bottom: 0em;
+  border-bottom: solid 1em #6653ff; }
+
+html {
+  text-size-adjust: 100%;
+  box-sizing: border-box; }
+  html body {
+    font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
+    font-weight: 400;
+    color: #000;
+    background: #fff;
+    padding-top: 1.25em; }
+    html body.dark {
+      background: #333; }
+    html body.feature {
+      background-size: 65%;
+      background-repeat: repeat; }
+    html body.dark.feature {
+      color: #fff; }
+    html body#japan-japan {
+      background-image: url("../img/japan-japan.jpg"); }
+    html body main {
+      padding: 0.875em 0; }
 
 .header {
   margin-bottom: 1em; }
   .header .header__logo {
-    padding-bottom: 1.25em; }
+    padding-bottom: 1.25em;
+    border-bottom: 1px solid #bcbcbc; }
     .header .header__logo a {
-      opacity: 1.0;
-      transition: opacity 0.3s ease; }
+      opacity: 1;
+      -moz-transition: opacity, 0.3s, ease;
+      -o-transition: opacity, 0.3s, ease;
+      -ms-transition: opacity, 0.3s, ease;
+      transition: opacity, 0.3s, ease; }
       .header .header__logo a img {
         width: 65px; }
         @media screen and (min-width: 576px) {
@@ -43,33 +68,31 @@ html body {
           .header .header__logo a img {
             width: 120px; } }
       .header .header__logo a:hover {
-        opacity: 0.9; }
+        opacity: 0.8; }
 
 .footer {
   font-size: 1rem;
   margin: 1.25em 0; }
 
-.home h1 {
-  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
-  font-weight: 400;
+h1 {
   font-size: 2.6rem;
   line-height: 1.3; }
   @media screen and (min-width: 576px) {
-    .home h1 {
+    h1 {
       font-size: 3.2rem; } }
   @media screen and (min-width: 768px) {
-    .home h1 {
+    h1 {
       font-size: 4.8rem; } }
   @media screen and (min-width: 992px) {
-    .home h1 {
+    h1 {
       font-size: 5.2rem; } }
   @media screen and (min-width: 1200px) {
-    .home h1 {
+    h1 {
       font-size: 6rem; } }
-  .home h1 span {
-    display: inline;
-    padding-bottom: 0em;
-    border-bottom: solid 1em #6653ff; }
+
+p {
+  font-size: 1rem;
+  line-height: 1.5; }
 
 ul.nav {
   font-size: 1rem;
@@ -91,10 +114,10 @@ ul.nav {
         text-decoration: none;
         padding: 0.2em 1.0em 0.2em 0;
         opacity: 1.0;
-        -moz-transition: opacity 0.3s ease;
-        -o-transition: opacity 0.3s ease;
-        -ms-transition: opacity 0.3s ease;
-        transition: opacity 0.3s ease; }
+        -moz-transition: opacity, 0.3s, ease;
+        -o-transition: opacity, 0.3s, ease;
+        -ms-transition: opacity, 0.3s, ease;
+        transition: opacity, 0.3s, ease; }
         @media screen and (min-width: 768px) {
           ul.nav-top li a {
             padding-right: 1.25em; } }
@@ -122,10 +145,6 @@ ul.nav {
           right: 0;
           top: 0; } }
 
-.contact .contact__meta {
-  font-size: 1rem;
-  line-height: 1.5; }
-
 .media {
   margin: 0 0 1.875em; }
   @media screen and (min-width: 768px) {
@@ -135,6 +154,14 @@ ul.nav {
     display: block;
     width: 100%;
     margin-bottom: 0.625em; }
+    .media__content img {
+      opacity: 1;
+      -moz-transition: opacity, 0.3s, ease;
+      -o-transition: opacity, 0.3s, ease;
+      -ms-transition: opacity, 0.3s, ease;
+      transition: opacity, 0.3s, ease; }
+      .media__content img:hover {
+        opacity: 0.8; }
   .media__meta {
     font-size: 1rem;
     margin-bottom: 0.25em;
@@ -158,10 +185,10 @@ ul.nav {
     font-size: 2rem;
     line-height: 100%;
     opacity: 1;
-    -moz-transition: opacity 0.3s ease;
-    -o-transition: opacity 0.3s ease;
-    -ms-transition: opacity 0.3s ease;
-    transition: opacity 0.3s ease;
+    -moz-transition: opacity, 0.3s, ease;
+    -o-transition: opacity, 0.3s, ease;
+    -ms-transition: opacity, 0.3s, ease;
+    transition: opacity, 0.3s, ease;
     user-select: none;
     -webkit-user-select: none; }
     .lightbox__close:hover {
@@ -178,14 +205,7 @@ ul.nav {
     .lightbox__viewer .lightbox__slide {
       display: none; }
       .lightbox__viewer .lightbox__slide img {
-        opacity: 1;
-        -moz-transition: opacity 0.3s ease;
-        -o-transition: opacity 0.3s ease;
-        -ms-transition: opacity 0.3s ease;
-        transition: opacity 0.3s ease;
         width: 100%; }
-        .lightbox__viewer .lightbox__slide img:hover {
-          opacity: 0.8; }
     .lightbox__viewer--prev, .lightbox__viewer--next {
       position: absolute;
       bottom: -4%;
@@ -196,10 +216,10 @@ ul.nav {
       font-size: 1.25rem;
       line-height: 100%;
       opacity: 0.2;
-      -moz-transition: opacity 0.3s ease;
-      -o-transition: opacity 0.3s ease;
-      -ms-transition: opacity 0.3s ease;
-      transition: opacity 0.3s ease;
+      -moz-transition: opacity, 0.3s, ease;
+      -o-transition: opacity, 0.3s, ease;
+      -ms-transition: opacity, 0.3s, ease;
+      transition: opacity, 0.3s, ease;
       user-select: none;
       -webkit-user-select: none;
       cursor: pointer; }

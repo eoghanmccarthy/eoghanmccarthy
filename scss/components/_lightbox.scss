@@ -41,13 +41,7 @@
             display: none;
 
             img {
-                opacity: 1;
-                @include transition(opacity, $speed, ease);
                 width: 100%;
-
-                &:hover {
-                    opacity: 0.8;
-                }
             }
         }
 

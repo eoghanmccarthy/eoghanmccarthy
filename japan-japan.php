@@ -10,7 +10,7 @@
 
     </head>
 
-    <body id="japan-japan">
+    <body id="japan-japan" class="feature">
 
         <!-- ++++ Container -->
 
@@ -24,7 +24,7 @@
 
             <main>
                 <div>
-                    <h1>japan, japan</h1>
+                    <h1><span>japan</span>, <span>japan</span></h1>
                 </div>
             </main>
 

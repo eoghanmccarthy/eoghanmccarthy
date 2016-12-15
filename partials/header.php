@@ -2,7 +2,6 @@
     <div class="header__logo">
         <a href="index.php"><img src="img/logo.png"></a>
     </div>
-    <hr>
     <nav>
         <ul class="nav nav-top" id="topNav">
             <li><a href="photography.php">photography</a></li>

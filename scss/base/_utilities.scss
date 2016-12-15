@@ -19,11 +19,17 @@
     }
 }
 
-@mixin transition($property, $duration, $curve, $delay: null) {
-    -moz-transition: $property $duration $curve $delay;
-    -o-transition: $property $duration $curve $delay;
-    -ms-transition: $property $duration $curve $delay;
-    transition: $property $duration $curve $delay;
+@mixin mq($m-query) {
+    @media #{$m-query} {
+        @content;
+    }
+}
+
+@mixin transition($trans...) {
+    -moz-transition: $trans;
+    -o-transition: $trans;
+    -ms-transition: $trans;
+    transition: $trans;
 }
 
 @mixin v-center {
@@ -48,4 +54,15 @@
 
 %margin-reset {
     margin: 0;
+}
+
+%text-mark {
+    background-color: $yellow;
+    padding: 0.2em 0;
+}
+
+%text-bground__offset {
+    display: inline;
+    padding-bottom: 0em;
+    border-bottom: solid 1em $brand;
 }

@@ -10,6 +10,15 @@
         display: block;
         width: 100%;
         margin-bottom: 0.625em;
+
+        img {
+            opacity: 1;
+            @include transition(opacity, $speed, ease);
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
     }
 
     &__meta {

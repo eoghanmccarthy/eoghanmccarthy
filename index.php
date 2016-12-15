@@ -10,7 +10,7 @@
 
     </head>
 
-    <body id="index">
+    <body class="dark">
 
         <!-- ++++ Container -->
 
@@ -23,9 +23,7 @@
             <!-- Main -->
 
             <main>
-                <div class="home">
-                    <h1><span>designer</span>, <span>front-end developer</span>, etc</h1>
-                </div>
+                <h1><span>designer</span>, <span>front-end developer</span>, etc</h1>
             </main>
 
             <!-- Footer -->
