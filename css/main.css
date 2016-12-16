@@ -37,11 +37,11 @@ html {
     background: #fff;
     padding-top: 1.25em; }
     html body.dark {
-      background: #333; }
+      background: #333;
+      color: #fff; }
     html body.feature {
       background-size: 65%;
-      background-repeat: repeat; }
-    html body.dark.feature {
+      background-repeat: repeat;
       color: #fff; }
     html body#japan-japan {
       background-image: url("../img/japan-japan.jpg"); }
@@ -52,7 +52,8 @@ html {
   margin-bottom: 1em; }
   .header .header__logo {
     padding-bottom: 1.25em;
-    border-bottom: 1px solid #bcbcbc; }
+    border-bottom: 1px solid #bcbcbc;
+    margin-bottom: .5em; }
     .header .header__logo a {
       opacity: 1;
       -moz-transition: opacity, 0.3s, ease;

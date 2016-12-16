@@ -12,14 +12,12 @@ html {
 
         &.dark {
             background: $grey;
+            color: $white;
         }
 
         &.feature {
             background-size: 65%;
             background-repeat: repeat;
-        }
-
-        &.dark.feature {
             color: $white;
         }
 

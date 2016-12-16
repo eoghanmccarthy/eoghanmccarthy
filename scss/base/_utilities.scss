@@ -25,11 +25,11 @@
     }
 }
 
-@mixin transition($trans...) {
-    -moz-transition: $trans;
-    -o-transition: $trans;
-    -ms-transition: $trans;
-    transition: $trans;
+@mixin transition($args...) {
+    -moz-transition: $args;
+    -o-transition: $args;
+    -ms-transition: $args;
+    transition: $args;
 }
 
 @mixin v-center {
