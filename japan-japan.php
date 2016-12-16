@@ -23,9 +23,7 @@
             <!-- Main -->
 
             <main>
-                <div>
-                    <h1><span>japan</span>, <span>japan</span></h1>
-                </div>
+                <h1><mark>japan</mark>, <mark>japan</mark></h1>
             </main>
 
             <!-- Footer -->
