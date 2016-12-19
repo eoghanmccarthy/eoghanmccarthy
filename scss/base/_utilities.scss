@@ -25,7 +25,7 @@
     }
 }
 
-@mixin bgcolor($map) {
+@mixin map-bgcolor($map) {
     @each $name, $value in $map {
         &--#{$name} {
             background-color: $value;

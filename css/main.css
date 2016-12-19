@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
-html, .footer {
+html {
   font-size: 100%; }
 
-.header, ul.nav, .media, .lightbox {
+.header, .footer, ul.nav, .media, .lightbox {
   font-size: 1rem; }
 
 html {
@@ -76,6 +76,8 @@ p {
 
 .highlight {
   padding: 0.2em 0; }
+  .highlight--white {
+    background-color: #fff; }
   .highlight--brand {
     background-color: #6653ff; }
   .highlight--yellow {

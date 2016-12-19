@@ -29,7 +29,7 @@ p {
 
 .highlight {
     @include highlight;
-    @include bgcolor($ui-colors);
+    @include map-bgcolor($ui-colors);
 }
 
 .block-border {
