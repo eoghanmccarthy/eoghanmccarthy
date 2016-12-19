@@ -25,6 +25,14 @@
     }
 }
 
+@mixin bgcolor($map) {
+    @each $name, $value in $map {
+        &--#{$name} {
+            background-color: $value;
+        }
+    }
+}
+
 @mixin transition($args...) {
     -moz-transition: $args;
     -o-transition: $args;
@@ -54,15 +62,4 @@
 
 %margin-reset {
     margin: 0;
-}
-
-%text-mark {
-    background-color: $yellow;
-    padding: 0.2em 0;
-}
-
-%text-bground__offset {
-    display: inline;
-    padding-bottom: 0em;
-    border-bottom: solid 1em $brand;
 }

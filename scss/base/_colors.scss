@@ -1,0 +1,19 @@
+// Colors
+
+// Descriptive colors
+$white: #fff;
+$black: #000;
+$light-grey: #bcbcbc;
+$grey: #333;
+$brand: #6653ff;
+$yellow: #ffff00;
+$persimmon: #ff6653;
+$green: #53ff66;
+
+// UI colors Sass map
+$ui-colors: (
+    brand: $brand,
+    yellow: $yellow,
+    orange: $persimmon,
+    green: $green,
+);

@@ -23,7 +23,7 @@
             <!-- Main -->
 
             <main>
-                <p><mark>mail@eoghanmccarthy.com</mark><br><mark>+44 (0)7490 816 795</mark></p>
+                <p><mark class="highlight highlight--yellow">mail@eoghanmccarthy.com</mark><br><mark class="highlight highlight--yellow">+44 (0)7490 816 795</mark></p>
             </main>
 
             <!-- Footer -->

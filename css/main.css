@@ -6,27 +6,6 @@ html, .footer {
 .header, ul.nav, .media, .lightbox {
   font-size: 1rem; }
 
-h1 mark,
-h2 mark,
-h3 mark,
-h4 mark,
-h5 mark,
-h6 mark,
-p mark {
-  background-color: #ffff00;
-  padding: 0.2em 0; }
-
-h1 span,
-h2 span,
-h3 span,
-h4 span,
-h5 span,
-h6 span,
-p span {
-  display: inline;
-  padding-bottom: 0em;
-  border-bottom: solid 1em #6653ff; }
-
 html {
   text-size-adjust: 100%;
   box-sizing: border-box; }
@@ -94,6 +73,22 @@ h1 {
 p {
   font-size: 1rem;
   line-height: 1.5; }
+
+.highlight {
+  padding: 0.2em 0; }
+  .highlight--brand {
+    background-color: #6653ff; }
+  .highlight--yellow {
+    background-color: #ffff00; }
+  .highlight--orange {
+    background-color: #ff6653; }
+  .highlight--green {
+    background-color: #53ff66; }
+
+.block-border {
+  display: inline;
+  padding-bottom: 0em;
+  border-bottom: solid 1em #6653ff; }
 
 ul.nav {
   font-size: 1rem;

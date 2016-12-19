@@ -23,7 +23,7 @@
             <!-- Main -->
 
             <main>
-                <h1><span>designer</span>, <span>front-end developer</span>, etc</h1>
+                <h1><span class="block-border">designer</span>, <span class="block-border">front-end developer</span>, etc</h1>
             </main>
 
             <!-- Footer -->
