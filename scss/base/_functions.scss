@@ -1,0 +1,11 @@
+// Functions
+
+// Used when using breakpoints and maps
+@function bpoint($bpoint) {
+    @return map-get($bpoints, $bpoint);
+}
+
+// Call the color palette modifiers
+@function palette($color, $shade: 'base') {
+    @return map-get(map-get($palettes, $color), $shade);
+}

@@ -51,7 +51,7 @@
             bottom: -4%;
             padding: 0.25em 0.75em;
             width: auto;
-            background-color: $brand;
+            background-color: $primary;
             color: $white;
             font-size: 1.25rem;
             line-height: 100%;
@@ -61,19 +61,19 @@
             -webkit-user-select: none;
             cursor: pointer;
 
-            @media #{$sm} {
+            @include mq($bp-sm) {
                 font-size: 2rem;
             }
 
-            @media #{$md} {
+            @include mq($bp-md) {
                 font-size: 2.4rem;
             }
 
-            @media #{$lg} {
+            @include mq($bp-lg) {
                 font-size: 3rem;
             }
 
-            @media #{$xl} {
+            @include mq($bp-xl) {
                 font-size: 4rem;
             }
 
@@ -86,19 +86,19 @@
         &--prev {
             left: 35%;
 
-            @media #{$sm} {
+            @include mq($bp-sm) {
                 left: 38.1%;
             }
 
-            @media #{$md} {
+            @include mq($bp-md) {
                 left: 39%;
             }
 
-            @media #{$lg} {
+            @include mq($bp-lg) {
                 left: 39.8%;
             }
 
-            @media #{$xl} {
+            @include mq($bp-xl) {
                 left: 38.8%;
             }
         }
@@ -106,19 +106,19 @@
         &--next {
             right: 35%;
 
-            @media #{$sm} {
+            @include mq($bp-sm) {
                 right: 38.1%;
             }
 
-            @media #{$md} {
+            @include mq($bp-md) {
                 right: 39%;
             }
 
-            @media #{$lg} {
+            @include mq($bp-lg) {
                 right: 39.8%;
             }
 
-            @media #{$xl} {
+            @include mq($bp-xl) {
                 right: 38.8%;
             }
         }

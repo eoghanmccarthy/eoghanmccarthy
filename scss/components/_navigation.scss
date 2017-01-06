@@ -2,7 +2,7 @@
 ul.nav {
     @extend %px-base;
     @include text-style(1rem, 1.2);
-    @media #{$md} {
+    @include mq($bp-md) {
         font-size: 1.125rem;
     }
 
@@ -13,17 +13,21 @@ ul.nav {
         padding: 0;
 
         li {
-            float: left;
+            display: none;
+            @include mq($bp-sm) {
+                display: list-item;
+                float: left;
+            }
 
             a {
                 display: inline-block;
-                color: $brand;
+                color: $primary;
                 text-align: left;
                 text-decoration: none;
                 padding: 0.2em 1.0em 0.2em 0;
                 opacity: 1.0;
                 @include transition(opacity, $speed, ease);
-                @media #{$md} {
+                @include mq($bp-md) {
                     padding-right: 1.25em;
                 }
                 &:hover {
@@ -33,38 +37,31 @@ ul.nav {
             }
 
             &.nav-top__icon {
-                display: none;
-            }
+                float: right;
+                display: inline-block;
 
-            @media #{$xs} {
-                display: none;
-
-                &.nav-top__icon {
-                    float: right;
-                    display: inline-block;
+                @include mq($bp-sm) {
+                    display: none;
                 }
             }
         }
     }
 
-    @media #{$xs} {
+    &-top__mobile {
+        position: relative;
 
-        &-top__mobile {
-            position: relative;
+        li {
+            float: none;
+            display: inline;
 
-            li {
-                float: none;
-                display: inline;
+            a {
+                display: block;
+            }
 
-                a {
-                    display: block;
-                }
-
-                &.nav-top__icon {
-                  position: absolute;
-                  right: 0;
-                  top: 0;
-                }
+            &.nav-top__icon {
+              position: absolute;
+              right: 0;
+              top: 0;
             }
         }
     }

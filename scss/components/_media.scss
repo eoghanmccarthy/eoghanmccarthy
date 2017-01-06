@@ -2,7 +2,7 @@
 .media {
     @extend %px-base;
     margin: 0 0 1.875em;
-    @media #{$md} {
+    @include mq($bp-md) {
         margin: 0 0 2.5em;
     }
 
@@ -24,6 +24,6 @@
     &__meta {
         @include text-style(1rem);
         margin-bottom: 0.25em;
-        border-bottom: solid 1px $light-grey;
+        border-bottom: 1px solid palette(grey, x-light);
     }
 }

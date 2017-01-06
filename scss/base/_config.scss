@@ -1,0 +1,45 @@
+// Named breakpoints
+$mobile-landscape: 576px;
+$tablet-portrait: 768px;
+$tablet-landscape: 992px;
+$desktop: 1200px;
+
+// Breakpoints
+$bp-sm: #{$mobile-landscape};
+$bp-md: #{$tablet-portrait};
+$bp-lg: #{$tablet-landscape};
+$bp-xl: #{$desktop};
+
+// Breakpoints map
+$bpoints: (
+    sm: $bp-sm,
+    md: $bp-md,
+    lg: $bp-lg,
+    xl: $bp-xl
+);
+
+// Asset paths
+$path-lbox: 'img';
+
+// Font stacks
+$stack-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$stack-mono: 'Ubuntu Mono', Courier, monospace, sans-serif;
+
+// Font weight
+$light: 300;
+$normal: 400;
+$semibold: 500;
+$bold: 700;
+
+// Base font size and line height goes
+
+%px-root {
+    font-size: 100%;
+}
+
+%px-base {
+    font-size: 1rem;
+}
+
+// Transitions
+$speed: 0.3s;

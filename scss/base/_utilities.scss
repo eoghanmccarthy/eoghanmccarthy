@@ -1,6 +1,12 @@
-// Utilities
-
 // Mixins
+
+// Media queries
+@mixin mq($bpoint) {
+    @media screen and (min-width: $bpoint) {
+        @content;
+    }
+}
+
 @mixin font($family, $weight) {
     font-family: $family;
     font-weight: $weight;
@@ -13,18 +19,7 @@
     @content;
 }
 
-@mixin mq-block($bp-lower, $bp-upper) {
-    @media screen and (min-width: $bp-lower) and (max-width: $bp-upper - 1) {
-        @content;
-    }
-}
-
-@mixin mq($m-query) {
-    @media #{$m-query} {
-        @content;
-    }
-}
-
+// Generate background color modifier classes
 @mixin map-bgcolor($map) {
     @each $name, $value in $map {
         &--#{$name} {
@@ -33,6 +28,7 @@
     }
 }
 
+// Shorthand transition with vendor prefixs
 @mixin transition($args...) {
     -moz-transition: $args;
     -o-transition: $args;
@@ -40,26 +36,17 @@
     transition: $args;
 }
 
+// Lightbox background images
+@mixin img-replace($img, $w, $h, $disp: block) {
+    background-image: url('#{path--rel}/#{$img}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: $w;
+    height: $h;
+    display: $disp;
+}
+
 @mixin v-center {
     top: 50%;
     transform: translateY(-50%);
-}
-
-// Placeholders
-%clearfix {
-    content: “”;
-    display: table;
-    clear: both;
-}
-
-%px-root {
-    font-size: 100%;
-}
-
-%px-base {
-    font-size: 1rem;
-}
-
-%margin-reset {
-    margin: 0;
 }
