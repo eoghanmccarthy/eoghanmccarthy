@@ -2,7 +2,7 @@
 .media {
     @extend %px-base;
     margin: 0 0 1.875em;
-    @include mq($bp-md) {
+    @include breakpoint(md) {
         margin: 0 0 2.5em;
     }
 
@@ -10,19 +10,16 @@
         display: block;
         width: 100%;
         margin-bottom: 0.625em;
+        opacity: 1;
+        @include transition(opacity, $speed, ease);
 
-        img {
-            opacity: 1;
-            @include transition(opacity, $speed, ease);
-
-            &:hover {
-                opacity: 0.8;
-            }
+        &:hover {
+            opacity: 0.8;
         }
     }
 
     &__meta {
-        @include text-style(1rem);
+        font-size: $base-font-size * 1.6; 
         margin-bottom: 0.25em;
         border-bottom: 1px solid palette(grey, x-light);
     }

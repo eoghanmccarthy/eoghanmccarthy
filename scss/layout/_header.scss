@@ -14,10 +14,10 @@
 
             img {
                 width: 65px;
-                @include mq($bp-sm) {
+                @include breakpoint(sm) {
                     width: 100px;
                 }
-                @include mq($bp-md) {
+                @include breakpoint(md) {
                     width: 120px;
                 }
             }
