@@ -23,7 +23,7 @@
             <!-- Main -->
 
             <main>
-                <h1><mark class="highlight highlight--white">japan</mark>, <mark class="highlight highlight--white">japan</mark></h1>
+                <h1><mark class="mark mark--white">japan</mark>, <mark class="mark mark--white">japan</mark></h1>
             </main>
 
             <!-- Footer -->

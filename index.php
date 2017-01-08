@@ -23,7 +23,7 @@
             <!-- Main -->
 
             <main>
-                <h1><mark class="hlight hlight--dev">designer</mark>, <mark class="hlight hlight--dev">front-end developer</mark>, etc</h1>
+                <h1><mark class="mark mark--white">designer</mark>, <mark class="mark mark--white">front-end developer</mark>, etc</h1>
             </main>
 
             <!-- Footer -->

@@ -5,7 +5,9 @@ html {
     box-sizing: border-box;
 
     body {
-        @include font($stack-mono, $normal);
+        font-family: $stack-mono;
+        font-weight: $normal;
+        line-height: $base-line-height;
         color: $black;
         background: $white;
         padding-top: 1.25em;

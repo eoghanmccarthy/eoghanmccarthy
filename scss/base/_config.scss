@@ -1,4 +1,4 @@
-// Named breakpoints
+  // Named breakpoints
 $mobile-landscape: 576px;
 $tablet-portrait: 768px;
 $tablet-landscape: 992px;
@@ -11,7 +11,7 @@ $bp-lg: #{$tablet-landscape};
 $bp-xl: #{$desktop};
 
 // Breakpoints map
-$bpoints: (
+$breakpoints: (
     sm: $bp-sm,
     md: $bp-md,
     lg: $bp-lg,
@@ -20,6 +20,24 @@ $bpoints: (
 
 // Asset paths
 $path-lbox: 'img';
+
+// Root font size
+%px-root {
+    font-size: 62.5%;
+}
+
+// Base font size and line height
+$base-font-size: 1rem;
+$base-line-height: 1;
+
+// Local font size
+%px-base {
+    font-size: $base-font-size;
+}
+
+// Webfonts
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i');
 
 // Font stacks
 $stack-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -30,16 +48,6 @@ $light: 300;
 $normal: 400;
 $semibold: 500;
 $bold: 700;
-
-// Base font size and line height goes
-
-%px-root {
-    font-size: 100%;
-}
-
-%px-base {
-    font-size: 1rem;
-}
 
 // Transitions
 $speed: 0.3s;
