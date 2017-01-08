@@ -22,13 +22,6 @@
   }
 }
 
-@mixin text-style($size: null, $l-height: null, $color: null) {
-    font-size: $size;
-    line-height: $l-height;
-    color: $color;
-    @content;
-}
-
 // Generate background color modifier classes
 @mixin map-bgcolor($map) {
     @each $name, $value in $map {
