@@ -1,15 +1,15 @@
 // Media
 .media {
     @extend %px-base;
-    margin: 0 0 1.875em;
+    margin: 0 0 3em;
     @include breakpoint(md) {
-        margin: 0 0 2.5em;
+        margin: 0 0 4em;
     }
 
     &__content {
         display: block;
         width: 100%;
-        margin-bottom: 0.625em;
+        margin-bottom: 1em;
         opacity: 1;
         @include transition(opacity, $speed, ease);
 
@@ -19,8 +19,8 @@
     }
 
     &__meta {
-        font-size: $base-font-size * 1.6; 
-        margin-bottom: 0.25em;
+        font-size: $base-font-size * 1.6;
+        margin-bottom: 0.4em;
         border-bottom: 1px solid palette(grey, x-light);
     }
 }
