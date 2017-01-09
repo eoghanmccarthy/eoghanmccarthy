@@ -1,12 +1,12 @@
 // Header
 .header {
     @extend %px-base;
-    margin-bottom: 1.6em;
+    margin-bottom: m(xl);
 
     .header__logo {
-        padding-bottom: 2em;
+        padding-bottom: p(xl);
         border-bottom: 1px solid palette(grey, x-light);
-        margin-bottom: .8em;
+        margin-bottom: m(sm);
 
         a {
             opacity: 1;
