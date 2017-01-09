@@ -6,11 +6,11 @@ html {
 
     body {
         font-family: $stack-mono;
-        font-weight: $normal;
+        font-weight: $font-weight-normal;
         line-height: $base-line-height;
         color: $black;
         background: $white;
-        padding-top: 1.25em;
+        padding-top: p(lg);
 
         &.dark {
             background: $grey;
@@ -28,7 +28,7 @@ html {
         }
 
         main {
-            padding: 0.875em 0;
+            padding: p(lg) 0;
         }
     }
 }

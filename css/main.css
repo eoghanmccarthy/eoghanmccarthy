@@ -15,7 +15,7 @@ html {
     line-height: 1;
     color: #000;
     background: #fff;
-    padding-top: 1.25em; }
+    padding-top: 2em; }
     html body.dark {
       background: #333;
       color: #fff; }
@@ -26,14 +26,14 @@ html {
     html body#japan-japan {
       background-image: url("../img/japan-japan.jpg"); }
     html body main {
-      padding: 0.875em 0; }
+      padding: 2em 0; }
 
 .header {
-  margin-bottom: 1.6em; }
+  margin-bottom: 3em; }
   .header .header__logo {
-    padding-bottom: 2em;
+    padding-bottom: 3em;
     border-bottom: 1px solid #737373;
-    margin-bottom: .8em; }
+    margin-bottom: 1em; }
     .header .header__logo a {
       opacity: 1;
       -moz-transition: opacity, 0.3s, ease;
@@ -52,7 +52,7 @@ html {
         opacity: 0.8; }
 
 .footer {
-  margin: 2em 0; }
+  margin: 3em 0; }
 
 h1 {
   font-size: 4.16rem;
@@ -75,7 +75,7 @@ p {
   line-height: 1.5; }
 
 .mark {
-  padding: 0.2em 0; }
+  padding: 0.5em 0; }
   .mark--brand {
     background-color: #6653ff; }
   .mark--white {
@@ -105,7 +105,7 @@ ul.nav-top {
       color: #6653ff;
       text-align: left;
       text-decoration: none;
-      padding: 0.3em 1.6em 0.3em 0;
+      padding: 0.5em 3em 0.5em 0;
       opacity: 1.0;
       -moz-transition: opacity, 0.3s, ease;
       -o-transition: opacity, 0.3s, ease;
@@ -114,7 +114,7 @@ ul.nav-top {
       @media screen and (min-width: 768px) {
         ul.nav-top li a {
           font-size: 1.8rem;
-          padding-right: 2em; } }
+          padding-right: 3em; } }
       ul.nav-top li a:hover {
         text-decoration: none;
         opacity: 0.8; }
@@ -137,14 +137,14 @@ ul.nav-top__mobile {
       top: 0; }
 
 .media {
-  margin: 0 0 3em; }
+  margin: 0 0 2em; }
   @media screen and (min-width: 768px) {
     .media {
-      margin: 0 0 4em; } }
+      margin: 0 0 3em; } }
   .media__content {
     display: block;
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     opacity: 1;
     -moz-transition: opacity, 0.3s, ease;
     -o-transition: opacity, 0.3s, ease;
@@ -154,7 +154,7 @@ ul.nav-top__mobile {
       opacity: 0.8; }
   .media__meta {
     font-size: 1.6rem;
-    margin-bottom: 0.4em;
+    margin-bottom: 1em;
     border-bottom: 1px solid #737373; }
 
 .lightbox {
