@@ -25,6 +25,6 @@ p {
 
 // Mark
 .mark {
-    padding: p(xs) 0;
+    padding: p(xxs) 0;
     @include map-bgcolor($ui-colors);
 }
