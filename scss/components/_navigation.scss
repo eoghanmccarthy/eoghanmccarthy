@@ -22,12 +22,12 @@ ul.nav {
                 color: $primary;
                 text-align: left;
                 text-decoration: none;
-                padding: p(xs) p(xl) p(xs) 0;
+                padding: p(xs) p(md) p(xs) 0;
                 opacity: 1.0;
                 @include transition(opacity, $speed, ease);
                 @include breakpoint(md) {
                     font-size: $base-font-size * 1.8;
-                    padding-right: p(xl);
+                    padding-right: p(lg);
                 }
                 &:hover {
                     text-decoration: none;

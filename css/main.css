@@ -79,7 +79,7 @@ ul.nav-top {
       color: #6653ff;
       text-align: left;
       text-decoration: none;
-      padding: 0.5em 3em 0.5em 0;
+      padding: 0.5em 1.5em 0.5em 0;
       opacity: 1.0;
       -moz-transition: opacity, 0.3s, ease;
       -o-transition: opacity, 0.3s, ease;
@@ -88,7 +88,7 @@ ul.nav-top {
       @media screen and (min-width: 768px) {
         ul.nav-top li a {
           font-size: 1.8rem;
-          padding-right: 3em; } }
+          padding-right: 2em; } }
       ul.nav-top li a:hover {
         text-decoration: none;
         opacity: 0.8; }
