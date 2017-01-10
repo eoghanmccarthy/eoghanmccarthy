@@ -20,6 +20,7 @@
 
     &__meta {
         font-size: $base-font-size * 1.6;
+        line-height: $base-line-height * 2;
         margin-bottom: m(sm);
         border-bottom: 1px solid palette(grey, x-light);
     }

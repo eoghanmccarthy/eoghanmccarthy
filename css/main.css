@@ -128,6 +128,7 @@ ul.nav-top__mobile {
       opacity: 0.8; }
   .media__meta {
     font-size: 1.6rem;
+    line-height: 2;
     margin-bottom: 1em;
     border-bottom: 1px solid #737373; }
 
