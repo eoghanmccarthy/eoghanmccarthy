@@ -10,7 +10,6 @@ html {
         line-height: $base-line-height;
         color: $black;
         background: $white;
-        padding-top: p(lg);
 
         &.dark {
             background: $grey;
@@ -25,6 +24,15 @@ html {
 
         &#japan-japan {
             background-image: url('../img/japan-japan.jpg');
+        }
+
+        .logo {
+            fill: palette(brand);
+            @include transition(fill, $speed, ease);
+
+            &:hover {
+                fill: palette(brand, dark);
+            }
         }
 
         main {
