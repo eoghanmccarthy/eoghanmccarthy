@@ -7,13 +7,18 @@
     .header__logo {
         padding-bottom: p(xl);
         border-bottom: 1px solid palette(grey, x-light);
-        margin-bottom: 0 auto m(xs);
-        width: 65px;
-        @include breakpoint(sm) {
-            width: 100px;
-        }
-        @include breakpoint(md) {
-            width: 120px;
+        margin-bottom: m(xs);
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 65px;
+            @include breakpoint(sm) {
+                width: 100px;
+            }
+            @include breakpoint(md) {
+                width: 120px;
+            }
         }
     }
 }
