@@ -27,11 +27,14 @@ html {
         }
 
         .logo {
-            fill: palette(brand);
-            @include transition(fill, $speed, ease);
 
-            &:hover {
-                fill: palette(brand, dark);
+            path {
+                fill: palette(brand);
+                @include transition(fill, $speed, ease);
+
+                &:hover {
+                    fill: palette(brand, dark);
+                }
             }
         }
 
