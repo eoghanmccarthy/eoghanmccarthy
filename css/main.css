@@ -24,15 +24,15 @@ html {
       color: #fff; }
     html body#japan-japan {
       background-image: url("../img/japan-japan.jpg"); }
-    html body .logo.svg {
+    html body .logo-svg {
       display: block; }
-      html body .logo.svg path {
+      html body .logo-svg path {
         fill: #6653ff;
         -moz-transition: fill, 0.2s, ease;
         -o-transition: fill, 0.2s, ease;
         -ms-transition: fill, 0.2s, ease;
         transition: fill, 0.2s, ease; }
-        html body .logo.svg path:hover {
+        html body .logo-svg path:hover {
           fill: #1d01ff; }
     html body main {
       padding: 0 0 2em; }
