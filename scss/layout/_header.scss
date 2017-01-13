@@ -10,6 +10,7 @@
         margin-bottom: m(xs);
 
         .logo {
+            margin: 0 auto;
             width: 65px;
             @include breakpoint(sm) {
                 width: 100px;
