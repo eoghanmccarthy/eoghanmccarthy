@@ -12,14 +12,14 @@ ul.nav {
             display: none;
             @include breakpoint(sm) {
                 display: list-item;
-                float: left;
+                float: center;
             }
 
             a {
                 display: inline-block;
                 font-size: $base-font-size * 1.6;
                 line-height: $base-line-height * 1.2;
-                color: $primary;
+                color: $black;
                 text-align: left;
                 text-decoration: none;
                 padding: p(xs) p(md) p(xs) 0;
@@ -29,14 +29,17 @@ ul.nav {
                     font-size: $base-font-size * 1.8;
                     padding-right: p(lg);
                 }
+                &:last-child {
+                    padding-right: 0;
+                }
                 &:hover {
                     text-decoration: none;
-                    opacity: 0.8;
+                    opacity: 0.9;
                 }
             }
 
             &.nav-top__icon {
-                float: right;
+                float: center;
                 display: inline-block;
 
                 @include breakpoint(sm) {
@@ -51,15 +54,14 @@ ul.nav {
 
         li {
             float: none;
-            display: inline;
+            display: inline-block;
 
             a {
-                display: block;
+                display: inline-block;
             }
 
             &.nav-top__icon {
-              position: absolute;
-              right: 0;
+              position: relative;
               top: 0;
             }
         }

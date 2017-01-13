@@ -27,13 +27,13 @@ html {
     html body .logo-svg {
       display: block; }
       html body .logo-svg path {
-        fill: #6653ff;
+        fill: #ccff00;
         -moz-transition: fill, 0.2s, ease;
         -o-transition: fill, 0.2s, ease;
         -ms-transition: fill, 0.2s, ease;
         transition: fill, 0.2s, ease; }
         html body .logo-svg path:hover {
-          fill: #1d01ff; }
+          fill: #8bad00; }
     html body main {
       padding: 0 0 2em; }
 
@@ -60,7 +60,7 @@ p {
 .mark {
   padding: 0.2em 0; }
   .mark--brand {
-    background-color: #6653ff; }
+    background-color: #ccff00; }
   .mark--white {
     background-color: #fff; }
   .mark--dev {
@@ -80,12 +80,12 @@ ul.nav-top {
     @media screen and (min-width: 576px) {
       ul.nav-top li {
         display: list-item;
-        float: left; } }
+        float: center; } }
     ul.nav-top li a {
       display: inline-block;
       font-size: 1.6rem;
       line-height: 1.2;
-      color: #6653ff;
+      color: #000;
       text-align: left;
       text-decoration: none;
       padding: 0.5em 1.5em 0.5em 0;
@@ -98,11 +98,13 @@ ul.nav-top {
         ul.nav-top li a {
           font-size: 1.8rem;
           padding-right: 2em; } }
+      ul.nav-top li a:last-child {
+        padding-right: 0; }
       ul.nav-top li a:hover {
         text-decoration: none;
-        opacity: 0.8; }
+        opacity: 0.9; }
     ul.nav-top li.nav-top__icon {
-      float: right;
+      float: center;
       display: inline-block; }
       @media screen and (min-width: 576px) {
         ul.nav-top li.nav-top__icon {
@@ -111,12 +113,11 @@ ul.nav-top__mobile {
   position: relative; }
   ul.nav-top__mobile li {
     float: none;
-    display: inline; }
+    display: inline-block; }
     ul.nav-top__mobile li a {
-      display: block; }
+      display: inline-block; }
     ul.nav-top__mobile li.nav-top__icon {
-      position: absolute;
-      right: 0;
+      position: relative;
       top: 0; }
 
 .media {
@@ -184,7 +185,7 @@ ul.nav-top__mobile {
       bottom: -4%;
       padding: 0.4em 1.2em;
       width: auto;
-      background-color: #6653ff;
+      background-color: #ccff00;
       color: #fff;
       font-size: 2rem;
       opacity: 0.2;
@@ -248,7 +249,7 @@ ul.nav-top__mobile {
     margin-bottom: 0.5em; }
     .header .header__logo svg {
       margin: 0 auto;
-      width: 65px; }
+      width: 50px; }
       @media screen and (min-width: 576px) {
         .header .header__logo svg {
           width: 100px; } }
