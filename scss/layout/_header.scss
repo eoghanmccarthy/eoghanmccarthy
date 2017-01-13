@@ -9,7 +9,7 @@
         border-bottom: 1px solid palette(grey, x-light);
         margin-bottom: m(xs);
 
-        .logo {
+        svg {
             margin: 0 auto;
             width: 65px;
             @include breakpoint(sm) {
