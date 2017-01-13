@@ -24,15 +24,15 @@ html {
       color: #fff; }
     html body#japan-japan {
       background-image: url("../img/japan-japan.jpg"); }
-    html body .logo {
+    html body .logo.svg {
       display: block; }
-      html body .logo path {
+      html body .logo.svg path {
         fill: #6653ff;
         -moz-transition: fill, 0.2s, ease;
         -o-transition: fill, 0.2s, ease;
         -ms-transition: fill, 0.2s, ease;
         transition: fill, 0.2s, ease; }
-        html body .logo path:hover {
+        html body .logo.svg path:hover {
           fill: #1d01ff; }
     html body main {
       padding: 0 0 2em; }
@@ -246,14 +246,14 @@ ul.nav-top__mobile {
     padding-bottom: 3em;
     border-bottom: 1px solid #737373;
     margin-bottom: 0.5em; }
-    .header .header__logo .logo {
+    .header .header__logo svg {
       margin: 0 auto;
       width: 65px; }
       @media screen and (min-width: 576px) {
-        .header .header__logo .logo {
+        .header .header__logo svg {
           width: 100px; } }
       @media screen and (min-width: 768px) {
-        .header .header__logo .logo {
+        .header .header__logo svg {
           width: 120px; } }
 
 .footer {
