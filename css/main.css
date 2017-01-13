@@ -33,7 +33,7 @@ html {
         -ms-transition: fill, 0.2s, ease;
         transition: fill, 0.2s, ease; }
         html body .logo path:hover {
-          fill: #422aff; }
+          fill: #1d01ff; }
     html body main {
       padding: 0 0 2em; }
 
@@ -134,7 +134,7 @@ ul.nav-top__mobile {
     -ms-transition: opacity, 0.2s, ease;
     transition: opacity, 0.2s, ease; }
     .media__content:hover {
-      opacity: 0.8; }
+      opacity: 0.9; }
   .media__meta {
     font-size: 1.6rem;
     line-height: 2;
@@ -247,6 +247,7 @@ ul.nav-top__mobile {
     border-bottom: 1px solid #737373;
     margin-bottom: 0.5em; }
     .header .header__logo .logo {
+      margin: 0 auto;
       width: 65px; }
       @media screen and (min-width: 576px) {
         .header .header__logo .logo {
