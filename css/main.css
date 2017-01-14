@@ -73,7 +73,7 @@ p {
 ul.nav-top {
   list-style-type: none;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0;
   padding: 0; }
   ul.nav-top li {
     display: none; }
@@ -85,21 +85,19 @@ ul.nav-top {
       font-size: 1.6rem;
       line-height: 1.2;
       color: #000;
-      text-align: left;
+      text-align: center;
       text-decoration: none;
-      padding: 0.5em 1.5em 0.5em 0;
-      opacity: 1.0;
-      -moz-transition: opacity, 0.2s, ease;
-      -o-transition: opacity, 0.2s, ease;
-      -ms-transition: opacity, 0.2s, ease;
-      transition: opacity, 0.2s, ease; }
+      padding: 0.5em 1.5em;
+      -moz-transition: color, 0.2s, ease;
+      -o-transition: color, 0.2s, ease;
+      -ms-transition: color, 0.2s, ease;
+      transition: color, 0.2s, ease; }
       @media screen and (min-width: 768px) {
         ul.nav-top li a {
-          font-size: 1.8rem;
-          padding-right: 2em; } }
+          font-size: 1.8rem; } }
       ul.nav-top li a:hover {
         text-decoration: none;
-        opacity: 0.9; }
+        color: #ccff00; }
     ul.nav-top li.nav-top__icon {
       display: block; }
       @media screen and (min-width: 576px) {
