@@ -25,7 +25,7 @@ html {
     html body#japan-japan {
       background-image: url("../img/japan-japan.jpg"); }
     html body .logo-svg {
-      display: inline-block; }
+      display: block; }
       html body .logo-svg path {
         fill: #ccff00;
         -moz-transition: fill, 0.2s, ease;
@@ -73,16 +73,15 @@ p {
 ul.nav-top {
   list-style-type: none;
   overflow: hidden;
-  margin: 0;
+  margin: 0 auto;
   padding: 0; }
   ul.nav-top li {
     display: none; }
     @media screen and (min-width: 576px) {
       ul.nav-top li {
-        display: list-item;
-        float: center; } }
+        display: inline-block;
+        float: left; } }
     ul.nav-top li a {
-      display: inline-block;
       font-size: 1.6rem;
       line-height: 1.2;
       color: #000;
@@ -98,14 +97,11 @@ ul.nav-top {
         ul.nav-top li a {
           font-size: 1.8rem;
           padding-right: 2em; } }
-      ul.nav-top li a:last-child {
-        padding-right: 0; }
       ul.nav-top li a:hover {
         text-decoration: none;
         opacity: 0.9; }
     ul.nav-top li.nav-top__icon {
-      float: center;
-      display: inline-block; }
+      display: block; }
       @media screen and (min-width: 576px) {
         ul.nav-top li.nav-top__icon {
           display: none; } }
@@ -113,12 +109,7 @@ ul.nav-top__mobile {
   position: relative; }
   ul.nav-top__mobile li {
     float: none;
-    display: inline-block; }
-    ul.nav-top__mobile li a {
-      display: inline-block; }
-    ul.nav-top__mobile li.nav-top__icon {
-      position: relative;
-      top: 0; }
+    display: block; }
 
 .media {
   margin: 0 0 2em; }

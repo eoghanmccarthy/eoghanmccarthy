@@ -4,9 +4,9 @@
     </div>
     <nav>
         <ul class="nav nav-top" id="topNav">
+            <li class="nav-top__icon"><a href="javascript:void(0);" onclick="toggleNav()">&#9776;</a></li>
             <li><a href="photography.php">photography</a></li>
             <li><a href="contact.php">contact</a></li>
-            <li class="nav-top__icon"><a href="javascript:void(0);" onclick="toggleNav()">&#9776;</a></li>
         </ul>
     </nav>
 </header>

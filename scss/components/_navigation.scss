@@ -5,18 +5,17 @@ ul.nav {
     &-top {
         list-style-type: none;
         overflow: hidden;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
 
         li {
             display: none;
             @include breakpoint(sm) {
-                display: list-item;
-                float: center;
+                display: inline-block;
+                float: left;
             }
 
             a {
-                display: inline-block;
                 font-size: $base-font-size * 1.6;
                 line-height: $base-line-height * 1.2;
                 color: $black;
@@ -29,9 +28,6 @@ ul.nav {
                     font-size: $base-font-size * 1.8;
                     padding-right: p(lg);
                 }
-                &:last-child {
-                    padding-right: 0;
-                }
                 &:hover {
                     text-decoration: none;
                     opacity: 0.9;
@@ -39,8 +35,7 @@ ul.nav {
             }
 
             &.nav-top__icon {
-                float: center;
-                display: inline-block;
+                display: block;
 
                 @include breakpoint(sm) {
                     display: none;
@@ -54,16 +49,7 @@ ul.nav {
 
         li {
             float: none;
-            display: inline-block;
-
-            a {
-                display: inline-block;
-            }
-
-            &.nav-top__icon {
-              position: relative;
-              top: 0;
-            }
+            display: block;
         }
     }
 }
