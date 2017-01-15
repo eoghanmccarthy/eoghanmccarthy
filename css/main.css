@@ -78,16 +78,15 @@ p {
   display: inline-block;
   list-style-type: none;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0;
   padding: 0; }
   .nav-bar li {
     display: none; }
     @media screen and (min-width: 576px) {
       .nav-bar li {
-        display: block;
-        float: left; } }
+        display: inline; } }
     .nav-bar li.nav-bar__icon {
-      display: block; }
+      display: inline; }
       @media screen and (min-width: 576px) {
         .nav-bar li.nav-bar__icon {
           display: none; } }
@@ -97,7 +96,7 @@ p {
       color: #000;
       text-align: center;
       text-decoration: none;
-      padding: 0.5em 1.5em;
+      padding: 0.5em 1em;
       -moz-transition: color, 0.2s, ease;
       -o-transition: color, 0.2s, ease;
       -ms-transition: color, 0.2s, ease;
@@ -109,8 +108,7 @@ p {
         text-decoration: none;
         color: #ccff00; }
   .nav-bar--xs li {
-    display: block;
-    float: none; }
+    display: inline; }
 
 .media {
   margin: 0 0 2em; }
