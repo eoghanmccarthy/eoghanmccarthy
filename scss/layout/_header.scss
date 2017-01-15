@@ -1,11 +1,10 @@
 // Header
 .header {
     @extend %px-base;
-    padding: p(xl) 0 m(lg);
+    padding: p(xl) 0 m(xl);
 
     .header__logo {
         padding-bottom: p(xl);
-        margin-bottom: m(xs);
 
         svg {
             margin: 0 auto;
