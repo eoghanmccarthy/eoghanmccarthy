@@ -84,9 +84,6 @@ p {
   overflow: hidden;
   margin: 0 auto;
   padding: 0; }
-  .nav-bar--xs li {
-    display: block;
-    float: none; }
   .nav-bar li {
     display: none; }
     @media screen and (min-width: 576px) {
@@ -115,6 +112,9 @@ p {
       .nav-bar li a:hover {
         text-decoration: none;
         color: #ccff00; }
+  .nav-bar--xs li {
+    display: block;
+    float: none; }
 
 .media {
   margin: 0 0 2em; }
