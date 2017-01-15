@@ -6,7 +6,8 @@
     .header__logo {
         padding-bottom: p(xl);
 
-        svg {
+        .logo-svg {
+            display: block;
             margin: 0 auto;
             width: 50px;
             @include breakpoint(sm) {

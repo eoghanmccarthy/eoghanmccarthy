@@ -3,44 +3,43 @@ html {
     @extend %px-root;
     text-size-adjust: 100%;
     box-sizing: border-box;
+}
 
-    body {
-        font-family: $stack-mono;
-        font-weight: $font-weight-normal;
-        line-height: $base-line-height;
-        color: $black;
-        background: $white;
+body {
+    font-family: $stack-mono;
+    font-weight: $font-weight-normal;
+    line-height: $base-line-height;
+    color: $black;
+    background: $white;
 
-        &.dark {
-            background: $grey;
-            color: $white;
-        }
+    &.dark {
+        background: $grey;
+        color: $white;
+    }
 
-        &.feature {
-            background-size: 65%;
-            background-repeat: repeat;
-            color: $white;
-        }
+    &.feature {
+        background-size: 65%;
+        background-repeat: repeat;
+        color: $white;
+    }
 
-        &#japan-japan {
-            background-image: url('../img/japan-japan.jpg');
-        }
+    &#japan-japan {
+        background-image: url('../img/japan-japan.jpg');
+    }
+}
 
-        .logo-svg {
-            display: block;
+main {
+    padding: 0 0 p(lg);
+}
 
-            path {
-                fill: palette(brand);
-                @include transition(fill, $speed, ease);
+.logo-svg {
 
-                &:hover {
-                    fill: palette(brand, x-dark);
-                }
-            }
-        }
+    path {
+        fill: palette(brand);
+        @include transition(fill, $speed, ease);
 
-        main {
-            padding: 0 0 p(lg);
+        &:hover {
+            fill: palette(brand, x-dark);
         }
     }
 }

@@ -9,33 +9,34 @@ html {
 html {
   text-size-adjust: 100%;
   box-sizing: border-box; }
-  html body {
-    font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
-    font-weight: 400;
-    line-height: 1;
-    color: #000;
-    background: #fff; }
-    html body.dark {
-      background: #333;
-      color: #fff; }
-    html body.feature {
-      background-size: 65%;
-      background-repeat: repeat;
-      color: #fff; }
-    html body#japan-japan {
-      background-image: url("../img/japan-japan.jpg"); }
-    html body .logo-svg {
-      display: block; }
-      html body .logo-svg path {
-        fill: #ccff00;
-        -moz-transition: fill, 0.2s, ease;
-        -o-transition: fill, 0.2s, ease;
-        -ms-transition: fill, 0.2s, ease;
-        transition: fill, 0.2s, ease; }
-        html body .logo-svg path:hover {
-          fill: #8bad00; }
-    html body main {
-      padding: 0 0 2em; }
+
+body {
+  font-family: "Ubuntu Mono", Courier, monospace, sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #000;
+  background: #fff; }
+  body.dark {
+    background: #333;
+    color: #fff; }
+  body.feature {
+    background-size: 65%;
+    background-repeat: repeat;
+    color: #fff; }
+  body#japan-japan {
+    background-image: url("../img/japan-japan.jpg"); }
+
+main {
+  padding: 0 0 2em; }
+
+.logo-svg path {
+  fill: #ccff00;
+  -moz-transition: fill, 0.2s, ease;
+  -o-transition: fill, 0.2s, ease;
+  -ms-transition: fill, 0.2s, ease;
+  transition: fill, 0.2s, ease; }
+  .logo-svg path:hover {
+    fill: #8bad00; }
 
 h1 {
   font-size: 4.16rem;
@@ -71,7 +72,6 @@ p {
     background-color: #53ff66; }
 
 .header__nav {
-  border-top: 1px solid #737373;
   padding-top: 1.5em;
   text-align: center; }
 
@@ -92,7 +92,7 @@ p {
         .nav-bar li.nav-bar__icon {
           display: none; } }
     .nav-bar li a {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       line-height: 1.2;
       color: #000;
       text-align: center;
@@ -104,7 +104,7 @@ p {
       transition: color, 0.2s, ease; }
       @media screen and (min-width: 768px) {
         .nav-bar li a {
-          font-size: 1.8rem; } }
+          font-size: 2.4rem; } }
       .nav-bar li a:hover {
         text-decoration: none;
         color: #ccff00; }
@@ -235,14 +235,15 @@ p {
   padding: 3em 0 3em; }
   .header .header__logo {
     padding-bottom: 3em; }
-    .header .header__logo svg {
+    .header .header__logo .logo-svg {
+      display: block;
       margin: 0 auto;
       width: 50px; }
       @media screen and (min-width: 576px) {
-        .header .header__logo svg {
+        .header .header__logo .logo-svg {
           width: 100px; } }
       @media screen and (min-width: 768px) {
-        .header .header__logo svg {
+        .header .header__logo .logo-svg {
           width: 120px; } }
 
 .footer {
