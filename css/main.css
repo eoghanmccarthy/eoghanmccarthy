@@ -1,10 +1,16 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
 html {
   font-size: 62.5%; }
 
-ul.nav, .media, .lightbox, .header, .footer {
+.header__nav, .media, .lightbox, .header, .footer {
   font-size: 1rem; }
+
+.header__nav {
+  content: ÔÇ£ÔÇØ;
+  display: table;
+  clear: both; }
 
 html {
   text-size-adjust: 100%;
@@ -70,18 +76,22 @@ p {
   .mark--photo {
     background-color: #53ff66; }
 
-ul.nav-top {
+.header__nav {
+  width: 100%; }
+
+.nav-bar {
+  display: inline-block;
   list-style-type: none;
   overflow: hidden;
-  margin: 0;
+  margin: 0 auto;
   padding: 0; }
-  ul.nav-top li {
+  .nav-bar li {
     display: none; }
     @media screen and (min-width: 576px) {
-      ul.nav-top li {
-        display: inline-block;
+      .nav-bar li {
+        display: block;
         float: left; } }
-    ul.nav-top li a {
+    .nav-bar li a {
       font-size: 1.6rem;
       line-height: 1.2;
       color: #000;
@@ -93,19 +103,17 @@ ul.nav-top {
       -ms-transition: color, 0.2s, ease;
       transition: color, 0.2s, ease; }
       @media screen and (min-width: 768px) {
-        ul.nav-top li a {
+        .nav-bar li a {
           font-size: 1.8rem; } }
-      ul.nav-top li a:hover {
+      .nav-bar li a:hover {
         text-decoration: none;
         color: #ccff00; }
-    ul.nav-top li.nav-top__icon {
-      display: block; }
-      @media screen and (min-width: 576px) {
-        ul.nav-top li.nav-top__icon {
-          display: none; } }
-ul.nav-top__mobile {
-  position: relative; }
-  ul.nav-top__mobile li {
+  .nav-bar__icon {
+    display: block; }
+    @media screen and (min-width: 576px) {
+      .nav-bar__icon {
+        display: none; } }
+  .nav-bar--xs li {
     float: none;
     display: block; }
 
