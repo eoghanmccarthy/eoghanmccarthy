@@ -12,14 +12,6 @@
     margin: 0 auto;
     padding: 0;
 
-    &--xs {
-
-        li {
-            display: block;
-            float: none;
-        }
-    }
-
     li {
         display: none;
         @include breakpoint(sm) {
@@ -50,6 +42,14 @@
                 text-decoration: none;
                 color: palette(brand);
             }
+        }
+    }
+
+    &--xs {
+
+        li {
+            display: block;
+            float: none;
         }
     }
 }
