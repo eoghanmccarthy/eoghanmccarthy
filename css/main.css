@@ -6,6 +6,9 @@ html {
 .header__nav, .media, .lightbox, .header, .footer {
   font-size: 1rem; }
 
+.footer {
+  text-align: center; }
+
 html {
   text-size-adjust: 100%;
   box-sizing: border-box; }
@@ -72,7 +75,6 @@ p {
     background-color: #53ff66; }
 
 .header__nav {
-  padding-top: 1.5em;
   text-align: center; }
 
 .nav-bar {
@@ -92,8 +94,8 @@ p {
         .nav-bar li.nav-bar__icon {
           display: none; } }
     .nav-bar li a {
-      font-size: 1.8rem;
-      line-height: 1.2;
+      font-size: 1.6rem;
+      line-height: 1.8;
       color: #000;
       text-align: center;
       text-decoration: none;
@@ -104,7 +106,7 @@ p {
       transition: color, 0.2s, ease; }
       @media screen and (min-width: 768px) {
         .nav-bar li a {
-          font-size: 2.4rem; } }
+          font-size: 2.2rem; } }
       .nav-bar li a:hover {
         text-decoration: none;
         color: #ccff00; }
