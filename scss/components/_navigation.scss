@@ -1,8 +1,8 @@
 // Navigation
 .header__nav {
     @extend %px-base;
-    @extend %clearfix;
     width: 100%;
+    text-align: center;
 }
 
 .nav-bar {

@@ -6,11 +6,6 @@ html {
 .header__nav, .media, .lightbox, .header, .footer {
   font-size: 1rem; }
 
-.header__nav {
-  content: "";
-  display: table;
-  clear: both; }
-
 html {
   text-size-adjust: 100%;
   box-sizing: border-box; }
@@ -76,7 +71,8 @@ p {
     background-color: #53ff66; }
 
 .header__nav {
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
 
 .nav-bar {
   display: inline-block;
