@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i");
 html {
@@ -8,7 +7,7 @@ html {
   font-size: 1rem; }
 
 .header__nav {
-  content: ÔÇ£ÔÇØ;
+  content: "";
   display: table;
   clear: both; }
 
@@ -85,6 +84,9 @@ p {
   overflow: hidden;
   margin: 0 auto;
   padding: 0; }
+  .nav-bar--xs li {
+    display: block;
+    float: none; }
   .nav-bar li {
     display: none; }
     @media screen and (min-width: 576px) {
@@ -113,9 +115,6 @@ p {
       .nav-bar li a:hover {
         text-decoration: none;
         color: #ccff00; }
-  .nav-bar--xs li {
-    float: none;
-    display: block; }
 
 .media {
   margin: 0 0 2em; }

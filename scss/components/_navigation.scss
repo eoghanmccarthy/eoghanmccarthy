@@ -12,6 +12,14 @@
     margin: 0 auto;
     padding: 0;
 
+    &--xs {
+
+        li {
+            display: block;
+            float: none;
+        }
+    }
+
     li {
         display: none;
         @include breakpoint(sm) {
@@ -37,19 +45,11 @@
             @include breakpoint(md) {
                 font-size: $base-font-size * 1.8;
             }
-            
+
             &:hover {
                 text-decoration: none;
                 color: palette(brand);
             }
-        }
-    }
-
-    &--xs {
-
-        li {
-            float: none;
-            display: block;
         }
     }
 }
