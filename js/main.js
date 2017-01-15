@@ -1,19 +1,19 @@
 // Adds mobile nav class when icon is clicked
 function toggleNav() {
     var x = document.getElementById("topNav");
-    if (x.className === "nav nav-top") {
-        x.className += " nav-top__mobile";
+    if (x.className === "nav-bar") {
+        x.className += " nav-bar--xs";
     } else {
-        x.className = "nav nav-top";
+        x.className = "nav-bar";
     }
 }
 
 function openModal() {
-  document.getElementById('photoLightbox').style.display = "block";
+    document.getElementById('photoLightbox').style.display = "block";
 }
 
 function closeModal() {
-  document.getElementById('photoLightbox').style.display = "none";
+    document.getElementById('photoLightbox').style.display = "none";
 }
 
 var slideIndex = 1;
