@@ -108,7 +108,7 @@ p {
         text-decoration: none;
         color: #ccff00; }
   .nav-bar--xs li {
-    display: inline; }
+    display: block; }
 
 .media {
   margin: 0 0 2em; }
