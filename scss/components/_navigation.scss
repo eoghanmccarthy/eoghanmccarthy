@@ -1,49 +1,50 @@
 // Navigation
-ul.nav {
+.header__nav {
     @extend %px-base;
+    @extend %clearfix;
+    width: 100%;
+}
 
-    &-top {
-        list-style-type: none;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
+.nav-bar {
+    display: inline-block;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
 
-        li {
-            display: none;
-            @include breakpoint(sm) {
-                display: inline-block;
-                float: left;
+    li {
+        display: none;
+        @include breakpoint(sm) {
+            display: block;
+            float: left;
+        }
+
+        a {
+            font-size: $base-font-size * 1.6;
+            line-height: $base-line-height * 1.2;
+            color: $black;
+            text-align: center;
+            text-decoration: none;
+            padding: p(xs) p(md);
+            @include transition(color, $speed, ease);
+            @include breakpoint(md) {
+                font-size: $base-font-size * 1.8;
             }
-
-            a {
-                font-size: $base-font-size * 1.6;
-                line-height: $base-line-height * 1.2;
-                color: $black;
-                text-align: center;
+            &:hover {
                 text-decoration: none;
-                padding: p(xs) p(md);
-                @include transition(color, $speed, ease);
-                @include breakpoint(md) {
-                    font-size: $base-font-size * 1.8;
-                }
-                &:hover {
-                    text-decoration: none;
-                    color: palette(brand);
-                }
-            }
-
-            &.nav-top__icon {
-                display: block;
-
-                @include breakpoint(sm) {
-                    display: none;
-                }
+                color: palette(brand);
             }
         }
     }
 
-    &-top__mobile {
-        position: relative;
+    &__icon {
+        display: block;
+        @include breakpoint(sm) {
+            display: none;
+        }
+    }
+
+    &--xs {
 
         li {
             float: none;
