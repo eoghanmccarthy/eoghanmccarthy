@@ -19,6 +19,13 @@
             float: left;
         }
 
+        &.nav-bar__icon {
+            display: block;
+            @include breakpoint(sm) {
+                display: none;
+            }
+        }
+
         a {
             font-size: $base-font-size * 1.6;
             line-height: $base-line-height * 1.2;
@@ -30,17 +37,11 @@
             @include breakpoint(md) {
                 font-size: $base-font-size * 1.8;
             }
+            
             &:hover {
                 text-decoration: none;
                 color: palette(brand);
             }
-        }
-    }
-
-    &__icon {
-        display: block;
-        @include breakpoint(sm) {
-            display: none;
         }
     }
 
