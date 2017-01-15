@@ -28,18 +28,20 @@
         a {
             font-size: $base-font-size * 1.6;
             line-height: $base-line-height * 1.2;
+            background-color: inherit;
             color: $black;
             text-align: center;
             text-decoration: none;
             padding: p(xs) p(sm);
-            @include transition(color, $speed, ease);
+            @include transition(color background-color, $speed, ease);
             @include breakpoint(md) {
                 font-size: $base-font-size * 1.8;
             }
 
             &:hover {
                 text-decoration: none;
-                color: palette(brand);
+                background-color: palette(brand);
+                color: $white;
             }
         }
     }
