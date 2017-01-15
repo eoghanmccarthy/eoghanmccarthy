@@ -91,6 +91,11 @@ p {
       .nav-bar li {
         display: block;
         float: left; } }
+    .nav-bar li.nav-bar__icon {
+      display: block; }
+      @media screen and (min-width: 576px) {
+        .nav-bar li.nav-bar__icon {
+          display: none; } }
     .nav-bar li a {
       font-size: 1.6rem;
       line-height: 1.2;
@@ -108,11 +113,6 @@ p {
       .nav-bar li a:hover {
         text-decoration: none;
         color: #ccff00; }
-  .nav-bar__icon {
-    display: block; }
-    @media screen and (min-width: 576px) {
-      .nav-bar__icon {
-        display: none; } }
   .nav-bar--xs li {
     float: none;
     display: block; }
