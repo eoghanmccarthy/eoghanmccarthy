@@ -106,7 +106,7 @@ p {
       transition: color, 0.2s, ease; }
       @media screen and (min-width: 768px) {
         .nav-bar li a {
-          font-size: 2rem; } }
+          font-size: 2.2rem; } }
       .nav-bar li a:hover {
         text-decoration: none;
         color: #ccff00;
@@ -139,6 +139,26 @@ p {
     margin-bottom: 1em;
     border-bottom: 1px solid #737373; }
 
+.slide-01 {
+  background-image: url("photography/img_0111-folio.jpg"); }
+.slide-02 {
+  background-image: url("photography/img_0243-folio.jpg"); }
+.slide-03 {
+  background-image: url("photography/img_0359-folio.jpg"); }
+.slide-04 {
+  background-image: url("photography/img_0387-folio.jpg"); }
+.slide-05 {
+  background-image: url("photography/img_4458-folio.jpg"); }
+.slide-06 {
+  background-image: url("photography/img_4480-folio.jpg"); }
+.slide-07 {
+  background-image: url("photography/img_3889-folio.jpg"); }
+.slide-08 {
+  background-image: url("photography/img_3251-folio.jpg"); }
+
+.lightbox__slide {
+  background-size: cover; }
+
 .lightbox {
   display: none;
   position: fixed;
@@ -166,17 +186,10 @@ p {
       opacity: 0.8;
       text-decoration: none; }
   .lightbox__viewer {
-    top: 50%;
-    transform: translateY(-50%);
     position: relative;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1200px; }
+    padding: 0; }
     .lightbox__viewer .lightbox__slide {
       display: none; }
-      .lightbox__viewer .lightbox__slide img {
-        width: 100%; }
     .lightbox__viewer--prev, .lightbox__viewer--next {
       position: absolute;
       bottom: -4%;
@@ -193,49 +206,13 @@ p {
       user-select: none;
       -webkit-user-select: none;
       cursor: pointer; }
-      @media screen and (min-width: 576px) {
-        .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 2rem; } }
-      @media screen and (min-width: 768px) {
-        .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 2.4rem; } }
-      @media screen and (min-width: 992px) {
-        .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 3rem; } }
-      @media screen and (min-width: 1200px) {
-        .lightbox__viewer--prev, .lightbox__viewer--next {
-          font-size: 4rem; } }
       .lightbox__viewer--prev:hover, .lightbox__viewer--next:hover {
         opacity: 0.8;
         text-decoration: none; }
     .lightbox__viewer--prev {
       left: 35%; }
-      @media screen and (min-width: 576px) {
-        .lightbox__viewer--prev {
-          left: 38.1%; } }
-      @media screen and (min-width: 768px) {
-        .lightbox__viewer--prev {
-          left: 39%; } }
-      @media screen and (min-width: 992px) {
-        .lightbox__viewer--prev {
-          left: 39.8%; } }
-      @media screen and (min-width: 1200px) {
-        .lightbox__viewer--prev {
-          left: 38.8%; } }
     .lightbox__viewer--next {
       right: 35%; }
-      @media screen and (min-width: 576px) {
-        .lightbox__viewer--next {
-          right: 38.1%; } }
-      @media screen and (min-width: 768px) {
-        .lightbox__viewer--next {
-          right: 39%; } }
-      @media screen and (min-width: 992px) {
-        .lightbox__viewer--next {
-          right: 39.8%; } }
-      @media screen and (min-width: 1200px) {
-        .lightbox__viewer--next {
-          right: 38.8%; } }
 
 .header {
   padding: 3em 0 3em; }
@@ -254,5 +231,10 @@ p {
 
 .footer {
   margin: 3em 0; }
+
+.home {
+  border-radius: 50%;
+  margin: 0 auto;
+  width: 50%; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,4 +1,34 @@
 // Lightbox
+
+// Background image map
+$lightbox: (
+    '01': 'photography/img_0111-folio.jpg',
+    '02': 'photography/img_0243-folio.jpg',
+    '03': 'photography/img_0359-folio.jpg',
+    '04': 'photography/img_0387-folio.jpg',
+    '05': 'photography/img_4458-folio.jpg',
+    '06': 'photography/img_4480-folio.jpg',
+    '07': 'photography/img_3889-folio.jpg',
+    '08': 'photography/img_3251-folio.jpg'
+);
+
+// Generate background image modifier classes
+@mixin bg-image($map) {
+    @each $name, $value in $map {
+        &-#{$name} {
+            background-image: url("#{$value}");
+        }
+    }
+}
+
+.slide {
+    @include bg-image($lightbox);
+}
+
+.lightbox__slide {
+    background-size: cover;
+}
+
 .lightbox {
     @extend %px-base;
     display: none;
@@ -29,19 +59,11 @@
     }
 
     &__viewer {
-        @include v-center;
         position: relative;
-        margin: auto;
         padding: 0;
-        width: 90%;
-        max-width: 1200px;
 
         .lightbox__slide {
             display: none;
-
-            img {
-                width: 100%;
-            }
         }
 
         &--prev,
@@ -59,22 +81,6 @@
             -webkit-user-select: none;
             cursor: pointer;
 
-            @include breakpoint(sm) {
-                font-size: 2rem;
-            }
-
-            @include breakpoint(md) {
-                font-size: 2.4rem;
-            }
-
-            @include breakpoint(lg) {
-                font-size: 3rem;
-            }
-
-            @include breakpoint(xl) {
-                font-size: 4rem;
-            }
-
             &:hover {
                 opacity: 0.8;
                 text-decoration: none;
@@ -83,42 +89,10 @@
 
         &--prev {
             left: 35%;
-
-            @include breakpoint(sm) {
-                left: 38.1%;
-            }
-
-            @include breakpoint(md) {
-                left: 39%;
-            }
-
-            @include breakpoint(lg) {
-                left: 39.8%;
-            }
-
-            @include breakpoint(xl) {
-                left: 38.8%;
-            }
         }
 
         &--next {
             right: 35%;
-
-            @include breakpoint(sm) {
-                right: 38.1%;
-            }
-
-            @include breakpoint(md) {
-                right: 39%;
-            }
-
-            @include breakpoint(lg) {
-                right: 39.8%;
-            }
-
-            @include breakpoint(xl) {
-                right: 38.8%;
-            }
         }
     }
 }
