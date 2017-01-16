@@ -23,7 +23,7 @@
             <!-- Main -->
 
             <main>
-                <h1><mark class="mark mark--brand">designer</mark>, <mark class="mark mark--brand">front-end developer</mark>, etc</h1>
+                <img class="home" src="img/flashing-logo.gif">
             </main>
 
             <!-- Footer -->

@@ -8,10 +8,12 @@ function toggleNav() {
     }
 }
 
+// Open lightbox
 function openModal() {
     document.getElementById('photoLightbox').style.display = "block";
 }
 
+// Close lightbox
 function closeModal() {
     document.getElementById('photoLightbox').style.display = "none";
 }
