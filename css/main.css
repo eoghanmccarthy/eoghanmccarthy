@@ -106,12 +106,16 @@ p {
       transition: color, 0.2s, ease; }
       @media screen and (min-width: 768px) {
         .nav-bar li a {
-          font-size: 2.2rem; } }
+          font-size: 2rem; } }
       .nav-bar li a:hover {
         text-decoration: none;
-        color: #ccff00; }
+        color: #ccff00;
+        border-bottom: 1px solid #ccff00; }
   .nav-bar--xs li {
     display: block; }
+    @media screen and (min-width: 576px) {
+      .nav-bar--xs li {
+        display: inline; } }
 
 .media {
   margin: 0 0 2em; }
