@@ -26,5 +26,5 @@ p {
 // Mark
 .mark {
     padding: p(xxs) 0;
-    @include map-bgcolor($ui-colors);
+    @include mod-bgcolor($ui-colors);
 }

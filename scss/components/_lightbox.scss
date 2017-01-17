@@ -12,19 +12,10 @@ $lightbox: (
     '08': 'photography/img_3251-folio.jpg'
 );
 
-// Generate background image modifier classes
-@mixin bg-image($map) {
-    @each $name, $value in $map {
-        &-#{$name} {
-            background-image: url("#{$value}");
-        }
-    }
-}
-
 .slide {
     display: none;
     background-size: cover;
-    @include bg-image($lightbox);
+    @include mod-bgimage($lightbox);
 }
 
 .lightbox {
