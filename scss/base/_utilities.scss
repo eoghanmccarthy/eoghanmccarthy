@@ -23,10 +23,19 @@
 }
 
 // Generate background color modifier classes
-@mixin map-bgcolor($map) {
+@mixin mod-bgcolor($map) {
     @each $name, $value in $map {
         &--#{$name} {
             background-color: $value;
+        }
+    }
+}
+
+// Generate background image modifier classes
+@mixin mod-bgimage($map) {
+    @each $name, $value in $map {
+        &-#{$name} {
+            background-image: url("#{$value}");
         }
     }
 }
