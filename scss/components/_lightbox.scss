@@ -2,19 +2,21 @@
 
 // Background image map
 $lightbox: (
-    '01': 'photography/img_0111-folio.jpg',
-    '02': 'photography/img_0243-folio.jpg',
-    '03': 'photography/img_0359-folio.jpg',
-    '04': 'photography/img_0387-folio.jpg',
-    '05': 'photography/img_4458-folio.jpg',
-    '06': 'photography/img_4480-folio.jpg',
-    '07': 'photography/img_3889-folio.jpg',
-    '08': 'photography/img_3251-folio.jpg'
+    '01': '../photography/img_0111-folio.jpg',
+    '02': '../photography/img_0243-folio.jpg',
+    '03': '../photography/img_0359-folio.jpg',
+    '04': '../photography/img_0387-folio.jpg',
+    '05': '../photography/img_4458-folio.jpg',
+    '06': '../photography/img_4480-folio.jpg',
+    '07': '../photography/img_3889-folio.jpg',
+    '08': '../photography/img_3251-folio.jpg'
 );
 
 .slide {
     display: none;
     background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
     @include mod-bgimage($lightbox);
 }
 
@@ -33,10 +35,12 @@ $lightbox: (
         position: absolute;
         top: 10px;
         right: 25px;
+        z-index: 1;
         color: $white;
         font-size: $base-font-size * 3;
         user-select: none;
         -webkit-user-select: none;
+        cursor: pointer;
     }
 
     &__viewer {
