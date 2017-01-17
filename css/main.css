@@ -109,8 +109,7 @@ p {
           font-size: 2.2rem; } }
       .nav-bar li a:hover {
         text-decoration: none;
-        color: #ccff00;
-        border-bottom: 1px solid #ccff00; }
+        color: #ccff00; }
   .nav-bar--xs li {
     display: block; }
     @media screen and (min-width: 576px) {
@@ -139,28 +138,22 @@ p {
     margin-bottom: 1em;
     border-bottom: 1px solid #737373; }
 
-.slide {
-  display: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh; }
-  .slide-01 {
-    background-image: url("../photography/img_0111-folio.jpg"); }
-  .slide-02 {
-    background-image: url("../photography/img_0243-folio.jpg"); }
-  .slide-03 {
-    background-image: url("../photography/img_0359-folio.jpg"); }
-  .slide-04 {
-    background-image: url("../photography/img_0387-folio.jpg"); }
-  .slide-05 {
-    background-image: url("../photography/img_4453-folio.jpg"); }
-  .slide-06 {
-    background-image: url("../photography/img_4480-folio.jpg"); }
-  .slide-07 {
-    background-image: url("../photography/img_3889-folio.jpg"); }
-  .slide-08 {
-    background-image: url("../photography/img_3251-folio.jpg"); }
+#photoLightbox .slide-01 {
+  background-image: url("../photography/img_0111-folio.jpg"); }
+#photoLightbox .slide-02 {
+  background-image: url("../photography/img_0243-folio.jpg"); }
+#photoLightbox .slide-03 {
+  background-image: url("../photography/img_0359-folio.jpg"); }
+#photoLightbox .slide-04 {
+  background-image: url("../photography/img_0387-folio.jpg"); }
+#photoLightbox .slide-05 {
+  background-image: url("../photography/img_4453-folio.jpg"); }
+#photoLightbox .slide-06 {
+  background-image: url("../photography/img_4480-folio.jpg"); }
+#photoLightbox .slide-07 {
+  background-image: url("../photography/img_3889-folio.jpg"); }
+#photoLightbox .slide-08 {
+  background-image: url("../photography/img_3251-folio.jpg"); }
 
 .lightbox {
   display: none;
@@ -171,6 +164,12 @@ p {
   width: 100vw;
   height: 100vh;
   background-color: #000; }
+  .lightbox .slide {
+    display: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh; }
   .lightbox__close {
     position: absolute;
     top: 10px;
@@ -187,12 +186,13 @@ p {
     -webkit-user-select: none;
     cursor: pointer; }
     .lightbox__close:hover {
-      opacity: 0.9; }
+      opacity: 0.8; }
   .lightbox__nav {
     position: absolute;
     bottom: 20px;
     right: 20px; }
     .lightbox__nav--prv, .lightbox__nav--nxt {
+      float: left;
       padding: 0.5em 1.5em;
       font-size: 2rem;
       background-color: #ccff00;
@@ -206,7 +206,11 @@ p {
       -webkit-user-select: none;
       cursor: pointer; }
       .lightbox__nav--prv:hover, .lightbox__nav--nxt:hover {
-        opacity: 0.9; }
+        opacity: 0.8; }
+  .lightbox__meta {
+    position: absolute;
+    bottom: 20px;
+    left: 20px; }
 
 .header {
   padding: 3em 0 3em; }
