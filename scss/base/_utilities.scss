@@ -48,16 +48,6 @@
     transition: $args;
 }
 
-// Lightbox background images
-@mixin img-replace($img, $w, $h, $disp: block) {
-    background-image: url('#{path--rel}/#{$img}');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: $w;
-    height: $h;
-    display: $disp;
-}
-
 @mixin v-center {
     top: 50%;
     transform: translateY(-50%);
