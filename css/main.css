@@ -141,23 +141,25 @@ p {
 
 .slide {
   display: none;
-  background-size: cover; }
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%; }
   .slide-01 {
-    background-image: url("photography/img_0111-folio.jpg"); }
+    background-image: url("../photography/img_0111-folio.jpg"); }
   .slide-02 {
-    background-image: url("photography/img_0243-folio.jpg"); }
+    background-image: url("../photography/img_0243-folio.jpg"); }
   .slide-03 {
-    background-image: url("photography/img_0359-folio.jpg"); }
+    background-image: url("../photography/img_0359-folio.jpg"); }
   .slide-04 {
-    background-image: url("photography/img_0387-folio.jpg"); }
+    background-image: url("../photography/img_0387-folio.jpg"); }
   .slide-05 {
-    background-image: url("photography/img_4458-folio.jpg"); }
+    background-image: url("../photography/img_4458-folio.jpg"); }
   .slide-06 {
-    background-image: url("photography/img_4480-folio.jpg"); }
+    background-image: url("../photography/img_4480-folio.jpg"); }
   .slide-07 {
-    background-image: url("photography/img_3889-folio.jpg"); }
+    background-image: url("../photography/img_3889-folio.jpg"); }
   .slide-08 {
-    background-image: url("photography/img_3251-folio.jpg"); }
+    background-image: url("../photography/img_3251-folio.jpg"); }
 
 .lightbox {
   display: none;
@@ -172,10 +174,12 @@ p {
     position: absolute;
     top: 10px;
     right: 25px;
+    z-index: 1;
     color: #fff;
     font-size: 3rem;
     user-select: none;
-    -webkit-user-select: none; }
+    -webkit-user-select: none;
+    cursor: pointer; }
   .lightbox__viewer {
     position: relative;
     padding: 0; }
