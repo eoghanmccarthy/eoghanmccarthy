@@ -1,7 +1,7 @@
 // Lightbox
 
 // Background image map
-$lbox-img: (
+$lbox-photo: (
     '01': '../photography/img_0111-folio.jpg',
     '02': '../photography/img_0243-folio.jpg',
     '03': '../photography/img_0359-folio.jpg',
@@ -12,13 +12,10 @@ $lbox-img: (
     '08': '../photography/img_3251-folio.jpg'
 );
 
-.slide {
-    display: none;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    @include mod-bgimage($lbox-img);
+#photoLightbox {
+    .slide {
+        @include mod-bgimage($lbox-photo);
+    }
 }
 
 .lightbox {
@@ -31,6 +28,14 @@ $lbox-img: (
     width: 100vw;
     height: 100vh;
     background-color: $black;
+
+    .slide {
+        display: none;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 100vh;
+    }
 
     &__close {
         position: absolute;
@@ -46,7 +51,7 @@ $lbox-img: (
         cursor: pointer;
 
         &:hover {
-            opacity: 0.9;
+            opacity: 0.8;
         }
     }
 
@@ -57,6 +62,7 @@ $lbox-img: (
 
         &--prv,
         &--nxt {
+            float: left;
             padding: p(xs) p(md);
             font-size: $base-font-size * 2;
             background-color: $primary;
@@ -68,8 +74,14 @@ $lbox-img: (
             cursor: pointer;
 
             &:hover {
-                opacity: 0.9;
+                opacity: 0.8;
             }
         }
+    }
+
+    &__meta {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
     }
 }
