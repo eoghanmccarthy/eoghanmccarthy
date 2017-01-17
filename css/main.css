@@ -139,25 +139,25 @@ p {
     margin-bottom: 1em;
     border-bottom: 1px solid #737373; }
 
-.slide-01 {
-  background-image: url("photography/img_0111-folio.jpg"); }
-.slide-02 {
-  background-image: url("photography/img_0243-folio.jpg"); }
-.slide-03 {
-  background-image: url("photography/img_0359-folio.jpg"); }
-.slide-04 {
-  background-image: url("photography/img_0387-folio.jpg"); }
-.slide-05 {
-  background-image: url("photography/img_4458-folio.jpg"); }
-.slide-06 {
-  background-image: url("photography/img_4480-folio.jpg"); }
-.slide-07 {
-  background-image: url("photography/img_3889-folio.jpg"); }
-.slide-08 {
-  background-image: url("photography/img_3251-folio.jpg"); }
-
-.lightbox__slide {
+.slide {
+  display: none;
   background-size: cover; }
+  .slide-01 {
+    background-image: url("photography/img_0111-folio.jpg"); }
+  .slide-02 {
+    background-image: url("photography/img_0243-folio.jpg"); }
+  .slide-03 {
+    background-image: url("photography/img_0359-folio.jpg"); }
+  .slide-04 {
+    background-image: url("photography/img_0387-folio.jpg"); }
+  .slide-05 {
+    background-image: url("photography/img_4458-folio.jpg"); }
+  .slide-06 {
+    background-image: url("photography/img_4480-folio.jpg"); }
+  .slide-07 {
+    background-image: url("photography/img_3889-folio.jpg"); }
+  .slide-08 {
+    background-image: url("photography/img_3251-folio.jpg"); }
 
 .lightbox {
   display: none;
@@ -175,21 +175,11 @@ p {
     right: 25px;
     color: #fff;
     font-size: 3rem;
-    opacity: 1;
-    -moz-transition: opacity, 0.2s, ease;
-    -o-transition: opacity, 0.2s, ease;
-    -ms-transition: opacity, 0.2s, ease;
-    transition: opacity, 0.2s, ease;
     user-select: none;
     -webkit-user-select: none; }
-    .lightbox__close:hover {
-      opacity: 0.8;
-      text-decoration: none; }
   .lightbox__viewer {
     position: relative;
     padding: 0; }
-    .lightbox__viewer .lightbox__slide {
-      display: none; }
     .lightbox__viewer--prev, .lightbox__viewer--next {
       position: absolute;
       bottom: -4%;
@@ -198,17 +188,9 @@ p {
       background-color: #ccff00;
       color: #fff;
       font-size: 2rem;
-      opacity: 0.2;
-      -moz-transition: opacity, 0.2s, ease;
-      -o-transition: opacity, 0.2s, ease;
-      -ms-transition: opacity, 0.2s, ease;
-      transition: opacity, 0.2s, ease;
       user-select: none;
       -webkit-user-select: none;
       cursor: pointer; }
-      .lightbox__viewer--prev:hover, .lightbox__viewer--next:hover {
-        opacity: 0.8;
-        text-decoration: none; }
     .lightbox__viewer--prev {
       left: 35%; }
     .lightbox__viewer--next {
