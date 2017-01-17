@@ -1,7 +1,7 @@
 // Lightbox
 
 // Background image map
-$lightbox: (
+$lbox-img: (
     '01': '../photography/img_0111-folio.jpg',
     '02': '../photography/img_0243-folio.jpg',
     '03': '../photography/img_0359-folio.jpg',
@@ -16,20 +16,20 @@ $lightbox: (
     display: none;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 600px;
-    @include mod-bgimage($lightbox);
+    width: 100vw;
+    height: 100vh;
+    @include mod-bgimage($lbox-img);
 }
 
 .lightbox {
     @extend %px-base;
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: $black;
 
     &__close {
@@ -37,27 +37,39 @@ $lightbox: (
         top: 10px;
         right: 25px;
         z-index: 1;
-        color: $white;
         font-size: $base-font-size * 3;
+        color: $white;
+        opacity: 1;
+        @include transition(opacity, $speed, ease);
         user-select: none;
         -webkit-user-select: none;
         cursor: pointer;
+
+        &:hover {
+            opacity: 0.9;
+        }
     }
 
-    &__viewer {
-        position: relative;
-        padding: 0;
+    &__nav {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
 
-        &--prev,
-        &--next {
-            position: absolute;
-            padding: 0.4em 1.2em;
+        &--prv,
+        &--nxt {
+            padding: p(xs) p(md);
+            font-size: $base-font-size * 2;
             background-color: $primary;
             color: $white;
-            font-size: $base-font-size * 2;
+            opacity: 1;
+            @include transition(opacity, $speed, ease);
             user-select: none;
             -webkit-user-select: none;
             cursor: pointer;
+
+            &:hover {
+                opacity: 0.9;
+            }
         }
     }
 }
