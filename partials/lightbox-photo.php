@@ -8,14 +8,21 @@
 
     <!-- Lightbox slides -->
 
-    <div class="slide slide-01"></div>
+    <script>
+        for (var j = 1; j <= 8; j += 1 ) {
+            html += '<div class="slide slide-0' + j + '"></div>';
+        }
+        document.write(html);
+    </script>
+
+    <!-- <div class="slide slide-01"></div>
     <div class="slide slide-02"></div>
     <div class="slide slide-03"></div>
     <div class="slide slide-04"></div>
     <div class="slide slide-05"></div>
     <div class="slide slide-06"></div>
     <div class="slide slide-07"></div>
-    <div class="slide slide-08"></div>
+    <div class="slide slide-08"></div> -->
 
     <!-- Lightbox navigation -->
 
