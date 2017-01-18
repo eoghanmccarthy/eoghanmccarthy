@@ -42,7 +42,7 @@ $lbox-photo: (
         top: 10px;
         right: 40px;
         z-index: 1;
-        font-size: $base-font-size * 3;
+        font-size: $base-font-size * 5;
         color: $white;
         opacity: 1;
         @include transition(opacity, $speed, ease);
