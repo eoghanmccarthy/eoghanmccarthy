@@ -63,19 +63,17 @@ $lbox-photo: (
         &--prv,
         &--nxt {
             float: left;
-            padding: p(xs) p(md);
-            font-size: $base-font-size * 2;
-            background-color: palette(grey, x-light);
-            color: $white;
-            opacity: .6;
-            @include transition(background-color opacity, $speed, ease);
+            padding: 0 p(xxs);
+            font-size: $base-font-size * 5;
+            color: palette(brand);
+            opacity: .8;
+            @include transition(opacity, $speed, ease);
             user-select: none;
             -webkit-user-select: none;
             cursor: pointer;
 
             &:hover {
-                background-color: palette(brand);
-                opacity: .9;
+                opacity: 1;
             }
         }
     }
