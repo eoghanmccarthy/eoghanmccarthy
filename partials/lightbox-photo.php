@@ -20,8 +20,8 @@
     <!-- Lightbox navigation -->
 
     <div class="lightbox__nav">
-        <a class="lightbox__nav--prv" onclick="plusSlides(-1)"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-        <a class="lightbox__nav--nxt" onclick="plusSlides(1)"><i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+        <a class="lightbox__nav--prv" onclick="plusSlides(-1)"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+        <a class="lightbox__nav--nxt" onclick="plusSlides(1)"><i class="fa fa-caret-right" aria-hidden="true"></i> </a>
     </div>
 
 </div>
