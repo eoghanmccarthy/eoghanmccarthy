@@ -12,7 +12,7 @@
 
     <body id="japan-japan" class="feature">
 
-        <!-- ++++ Container -->
+        <!-- Container -->
 
         <div class="container">
 
