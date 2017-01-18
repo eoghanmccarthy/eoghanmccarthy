@@ -40,7 +40,7 @@ $lbox-photo: (
     &__close {
         position: absolute;
         top: 10px;
-        right: 25px;
+        right: 40px;
         z-index: 1;
         font-size: $base-font-size * 3;
         color: $white;
@@ -58,23 +58,24 @@ $lbox-photo: (
     &__nav {
         position: absolute;
         bottom: 20px;
-        right: 20px;
+        right: 40px;
 
         &--prv,
         &--nxt {
             float: left;
             padding: p(xs) p(md);
             font-size: $base-font-size * 2;
-            background-color: $primary;
+            background-color: palette(grey, x-light);
             color: $white;
-            opacity: 1;
-            @include transition(opacity, $speed, ease);
+            opacity: .6;
+            @include transition(background-color opacity, $speed, ease);
             user-select: none;
             -webkit-user-select: none;
             cursor: pointer;
 
             &:hover {
-                opacity: 0.8;
+                background-color: palette(brand);
+                opacity: .9;
             }
         }
     }

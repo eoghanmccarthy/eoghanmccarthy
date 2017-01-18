@@ -12,7 +12,7 @@
 
     <body id="contact">
 
-        <!-- ++++ Container -->
+        <!-- Container -->
 
         <div class="container">
 
