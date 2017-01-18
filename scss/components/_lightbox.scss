@@ -63,7 +63,7 @@ $lbox-photo: (
         &--prv,
         &--nxt {
             float: left;
-            padding: 0 p(xxs);
+            margin: 0 p(xxs);
             font-size: $base-font-size * 5;
             color: palette(brand);
             opacity: .8;

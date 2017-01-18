@@ -193,7 +193,7 @@ p {
     right: 40px; }
     .lightbox__nav--prv, .lightbox__nav--nxt {
       float: left;
-      padding: 0 0.2em;
+      margin: 0 0.2em;
       font-size: 5rem;
       color: #ccff00;
       opacity: .8;
