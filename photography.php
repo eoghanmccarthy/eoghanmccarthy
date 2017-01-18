@@ -12,7 +12,7 @@
 
     <body>
 
-        <!-- ++++ Container -->
+        <!-- Container -->
 
         <div class="container">
 
