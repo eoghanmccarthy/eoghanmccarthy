@@ -8,6 +8,12 @@ function toggleNav() {
     }
 }
 
+// Generate lightbox html
+for (var j = 1; j <= 8; j += 1 ) {
+    html += '<div class="slide slide-0' + j + '"></div>';
+}
+document.write(html);
+
 // Open lightbox
 function openModal() {
     document.getElementById('photoLightbox').style.display = "block";
