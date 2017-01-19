@@ -13,13 +13,13 @@
 
     li {
         display: none;
-        @include breakpoint(sm) {
+        @include breakpoint(md) {
             display: inline;
         }
 
         &.nav-bar__icon {
             display: inline;
-            @include breakpoint(sm) {
+            @include breakpoint(md) {
                 display: none;
             }
         }
@@ -47,7 +47,7 @@
 
         li {
             display: block;
-            @include breakpoint(sm) {
+            @include breakpoint(md) {
                 display: inline;
             }
         }
