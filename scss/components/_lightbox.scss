@@ -59,22 +59,22 @@ $lbox-photo: (
         position: absolute;
         bottom: 20px;
         right: 40px;
+        color: palette(brand);
+        opacity: .8;
+        @include transition(opacity, $speed, ease);
+
+        &:hover {
+            opacity: 1;
+        }
 
         &--prv,
         &--nxt {
             float: left;
             margin: 0 p(xxs);
             font-size: $base-font-size * 5;
-            color: palette(brand);
-            opacity: .8;
-            @include transition(opacity, $speed, ease);
             user-select: none;
             -webkit-user-select: none;
             cursor: pointer;
-
-            &:hover {
-                opacity: 1;
-            }
         }
     }
 

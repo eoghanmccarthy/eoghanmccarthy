@@ -190,22 +190,22 @@ p {
   .lightbox__nav {
     position: absolute;
     bottom: 20px;
-    right: 40px; }
+    right: 40px;
+    color: #ccff00;
+    opacity: .8;
+    -moz-transition: opacity, 0.2s, ease;
+    -o-transition: opacity, 0.2s, ease;
+    -ms-transition: opacity, 0.2s, ease;
+    transition: opacity, 0.2s, ease; }
+    .lightbox__nav:hover {
+      opacity: 1; }
     .lightbox__nav--prv, .lightbox__nav--nxt {
       float: left;
       margin: 0 0.2em;
       font-size: 5rem;
-      color: #ccff00;
-      opacity: .8;
-      -moz-transition: opacity, 0.2s, ease;
-      -o-transition: opacity, 0.2s, ease;
-      -ms-transition: opacity, 0.2s, ease;
-      transition: opacity, 0.2s, ease;
       user-select: none;
       -webkit-user-select: none;
       cursor: pointer; }
-      .lightbox__nav--prv:hover, .lightbox__nav--nxt:hover {
-        opacity: 1; }
   .lightbox__meta {
     position: absolute;
     bottom: 20px;
