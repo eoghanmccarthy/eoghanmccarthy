@@ -8,13 +8,6 @@
 
     <!-- Lightbox slides -->
 
-    <!-- <script>
-        for (var j = 1; j <= 8; j += 1 ) {
-            html += '<div class="slide slide-0' + j + '"></div>';
-        }
-        document.write(html);
-    </script> -->
-
     <div class="slide slide-01"></div>
     <div class="slide slide-02"></div>
     <div class="slide slide-03"></div>
