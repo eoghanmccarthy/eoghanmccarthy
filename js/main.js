@@ -9,10 +9,18 @@ function toggleNav() {
 }
 
 // Generate lightbox html
-for (var j = 1; j <= 8; j += 1 ) {
-    html += '<div class="slide slide-0' + j + '"></div>';
+function print(message) {
+    var outputDiv = document.getElementById('lightboxSlides');
+    outputDiv.innerHTML = message;
 }
-document.write(html);
+
+var html;
+
+for (var i = 1; i <= 8; i += 1 ) {
+    html += '<div class="slide slide-0' + i + '"></div>';
+}
+
+print(html);
 
 // Open lightbox
 function openModal() {
