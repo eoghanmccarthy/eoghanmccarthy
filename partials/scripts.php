@@ -11,5 +11,5 @@
 <script src="https://use.fontawesome.com/e6985d2f93.js"></script>
 
 <!-- Custom -->
-<link href="css/main.css" rel="stylesheet" type="text/css" />
 <script src="js/main.js"></script>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
