@@ -152,8 +152,6 @@ p {
 /*
  * Lightbox
  */
-/* Sass list of photo lightbox images */
-/* Mixin to generate background image classes */
 /* Generate photo lightbox background image classes */
 #photoLightbox .slide-1 {
   background-image: url("../../photography/img_0111-folio.jpg"); }
