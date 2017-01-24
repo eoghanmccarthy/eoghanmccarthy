@@ -12,16 +12,16 @@ for (let i = 1; i < 9; i += 1) {
     toAdd.appendChild(newDiv);
 }
 
-document.getElementById('photoLightbox').appendChild(toAdd);
+document.getElementById('lightboxViewer').appendChild(toAdd);
 
 // Open lightbox
 function openModal() {
-    document.getElementById('photoLightbox').style.display = "block";
+    document.getElementById('lightbox').style.display = "block";
 }
 
 // Close lightbox
 function closeModal() {
-    document.getElementById('photoLightbox').style.display = "none";
+    document.getElementById('lightbox').style.display = "none";
 }
 
 //

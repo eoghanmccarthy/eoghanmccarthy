@@ -77,7 +77,9 @@
 
             <!-- Lightbox -->
 
-            <?php include 'partials/lightbox-photo.php';?>
+            <div id="photoLightbx">
+                <?php include 'partials/lightbox.php';?>
+            </div>
 
             <!-- Footer -->
 

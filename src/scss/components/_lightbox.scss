@@ -31,7 +31,7 @@ $lghtbx-img: (
 /*
  * Generate background image classes
  */
-#photoLightbox {
+#photoLightbx {
     .slide {
         @include bground-img($lghtbx-img);
     }
