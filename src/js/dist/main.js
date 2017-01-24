@@ -2,9 +2,9 @@
 
 /*
  * Main navigation
- *
- * Add mobile nav class when icon is clicked
  */
+
+/* Function to add mobile class when icon is clicked */
 function toggleNav() {
     var x = document.getElementById("topNav");
     if (x.className === "nav-bar") {
