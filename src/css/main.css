@@ -151,39 +151,38 @@ p {
 
 /*
  * Lightbox
- *
- * Currently only photography lightbox
- * Main code block is modular
  */
-/*
- * Generate background image classes
- */
-#photoLightbx .slide-1 {
+/* Sass list of photo lightbox images */
+/* Mixin to generate background image classes */
+/* Generate photo lightbox background image classes */
+#photoLightbox .slide-1 {
   background-image: url("../../photography/img_0111-folio.jpg"); }
 
-#photoLightbx .slide-2 {
+#photoLightbox .slide-2 {
   background-image: url("../../photography/img_0243-folio.jpg"); }
 
-#photoLightbx .slide-3 {
+#photoLightbox .slide-3 {
   background-image: url("../../photography/img_0359-folio.jpg"); }
 
-#photoLightbx .slide-4 {
+#photoLightbox .slide-4 {
   background-image: url("../../photography/img_0387-folio.jpg"); }
 
-#photoLightbx .slide-5 {
+#photoLightbox .slide-5 {
   background-image: url("../../photography/img_4453-folio.jpg"); }
 
-#photoLightbx .slide-6 {
+#photoLightbox .slide-6 {
   background-image: url("../../photography/img_4480-folio.jpg"); }
 
-#photoLightbx .slide-7 {
+#photoLightbox .slide-7 {
   background-image: url("../../photography/img_3889-folio.jpg"); }
 
-#photoLightbx .slide-8 {
+#photoLightbox .slide-8 {
   background-image: url("../../photography/img_3251-folio.jpg"); }
 
 /*
- * Lightbox modular styles
+ * Lightbox main styles
+ *
+ * 100% modular
  */
 .lightbox {
   display: none;
