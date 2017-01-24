@@ -6,7 +6,7 @@
  */
 
 // Sass list of path to images
-$lghtbx-img: (
+$photo-lbx: (
     '../../photography/img_0111-folio.jpg'
     '../../photography/img_0243-folio.jpg'
     '../../photography/img_0359-folio.jpg'
@@ -33,7 +33,7 @@ $lghtbx-img: (
  */
 #photoLightbx {
     .slide {
-        @include bground-img($lghtbx-img);
+        @include bground-img($photo-lbx);
     }
 }
 
