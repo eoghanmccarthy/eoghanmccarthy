@@ -1,0 +1,30 @@
+// Typography
+
+// Type maps
+$type-h1: (
+    null: $base-font-size * 4.16 ,
+    $bp-sm: $base-font-size * 5.12,
+    $bp-md: $base-font-size * 7.68,
+    $bp-lg: $base-font-size * 8.32,
+    $bp-xl: $base-font-size * 9.6
+);
+
+$type-p: (
+    null: $base-font-size * 1.6
+);
+
+h1 {
+  @include font-size($type-h1);
+  line-height: $base-line-height * 1.3;
+}
+
+p {
+  @include font-size($type-p);
+  line-height: $base-line-height * 1.5;
+}
+
+// Mark
+.mark {
+    padding: p(xxs) 0;
+    @include mod-bgcolor($ui-colors);
+}
