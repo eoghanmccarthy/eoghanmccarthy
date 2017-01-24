@@ -1,42 +1,49 @@
 /*
- * Lightbox JavaScript
+ * Lightbox
  *
- * Modular
+ * 100% Modular
  */
 
-// Generate html elements to contain slides
+/* Generate divs and CSS classes */
 let toAdd = document.createDocumentFragment();
 for (let i = 1; i < 9; i += 1) {
-    let newDiv = document.createElement('div');
-    newDiv.className = 'slide slide-' + i;
-    toAdd.appendChild(newDiv);
+    let slideDiv = document.createElement('div');
+    slideDiv.className = 'slide slide-' + i;
+    toAdd.appendChild(slideDiv);
 }
 
+/* Append divs to container element */
 document.getElementById('lightboxViewer').appendChild(toAdd);
 
-// Open lightbox
+/* Function to open lightbox */
 function openModal() {
     document.getElementById('lightbox').style.display = "block";
 }
 
-// Close lightbox
+/* Function to close lightbox */
 function closeModal() {
     document.getElementById('lightbox').style.display = "none";
 }
 
-//
+/*
+ * Lightbox navigation
+ */
+
+/* */
 let slideIndex = 1;
 showSlides(slideIndex);
 
+/* Function to navigate to next slide */
 function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
+/* Function to */
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
-//
+/* Function to */
 function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("slide");
