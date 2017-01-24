@@ -1,11 +1,8 @@
 /*
  * Lightbox
- *
- * Currently only photography lightbox
- * Main code block is modular
  */
 
-// Sass list of path to images
+/* Sass list of photo lightbox images */
 $photo-lbx: (
     '../../photography/img_0111-folio.jpg'
     '../../photography/img_0243-folio.jpg'
@@ -17,8 +14,7 @@ $photo-lbx: (
     '../../photography/img_3251-folio.jpg'
 );
 
-// Mixin with each loop
-// Used within parent selector
+/* Mixin to generate background image classes */
 @mixin bground-img($list) {
     @each $item in $list {
         $i: index($list, $item);
@@ -28,17 +24,17 @@ $photo-lbx: (
     }
 }
 
-/*
- * Generate background image classes
- */
-#photoLightbx {
+/* Generate photo lightbox background image classes */
+#photoLightbox {
     .slide {
         @include bground-img($photo-lbx);
     }
 }
 
 /*
- * Lightbox modular styles
+ * Lightbox main styles
+ *
+ * 100% modular
  */
 .lightbox {
     @extend %px-base;
