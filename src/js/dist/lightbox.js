@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * Lightbox JavaScript
  *
@@ -38,7 +40,7 @@ function currentSlide(n) {
 
 //
 function showSlides(n) {
-    var i;
+    var i = void 0;
     var slides = document.getElementsByClassName("slide");
     if (n > slides.length) {
         slideIndex = 1;

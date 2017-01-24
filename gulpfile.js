@@ -7,7 +7,9 @@ const babel = require('gulp-babel');
 
 gulp.task('default', () => {
     return gulp.src('src/js/es6/**/*.js')
-        .pipe(babel())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(gulp.dest('src/js/dist'));
 });
 
