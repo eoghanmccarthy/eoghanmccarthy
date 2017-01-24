@@ -2,7 +2,7 @@
  * Lightbox
  */
 
-/* Sass list of photo lightbox images */
+// Sass list of photo lightbox images
 $photo-lbx: (
     '../../photography/img_0111-folio.jpg'
     '../../photography/img_0243-folio.jpg'
@@ -14,7 +14,7 @@ $photo-lbx: (
     '../../photography/img_3251-folio.jpg'
 );
 
-/* Mixin to generate background image classes */
+// Mixin to generate background image classes
 @mixin bground-img($list) {
     @each $item in $list {
         $i: index($list, $item);
