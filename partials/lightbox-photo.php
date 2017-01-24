@@ -8,9 +8,6 @@
 
     <!-- Lightbox slides -->
 
-    <div id="lightboxSlides">
-    </div>
-
     <div class="slide slide-01"></div>
     <div class="slide slide-02"></div>
     <div class="slide slide-03"></div>
