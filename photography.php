@@ -13,15 +13,12 @@
     <body>
 
         <!-- Container -->
-
         <div class="container">
 
             <!-- Header -->
-
             <?php include 'partials/header.php';?>
 
             <!-- Main -->
-
             <main>
                 <div class="row">
                     <div class="col-md-6">
@@ -76,17 +73,16 @@
             </main>
 
             <!-- Lightbox -->
-
             <div id="photoLightbx">
                 <?php include 'partials/lightbox.php';?>
             </div>
 
             <!-- Footer -->
-
             <?php include 'partials/footer.php';?>
 
         </div>
 
+        <script src="src/js/dist/lightbox.js"></script>
     </body>
 
 </html>
