@@ -1,7 +1,7 @@
-<!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
+<!-- Latest compiled and minified Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
 
 <!-- Latest compiled and minified JQuery -->
@@ -11,6 +11,7 @@
 <script src="https://use.fontawesome.com/e6985d2f93.js"></script>
 
 <!-- Custom -->
-<!-- <script src="src/js/dist/lightbox.js"></script> -->
+<script src="src/js/dist/lightbox.js"></script>
+
 <link href="src/css/main.css" rel="stylesheet" type="text/css" />
 <script src="src/js/dist/main.js"></script>
