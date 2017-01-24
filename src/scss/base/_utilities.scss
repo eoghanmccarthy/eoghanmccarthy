@@ -31,15 +31,6 @@
     }
 }
 
-// Generate background image modifier classes
-@mixin mod-bgimage($map) {
-    @each $name, $value in $map {
-        &-#{$name} {
-            background-image: url("#{$value}");
-        }
-    }
-}
-
 // Shorthand transition with vendor prefixs
 @mixin transition($args...) {
     -moz-transition: $args;
