@@ -14,7 +14,7 @@ var divCount = gallery.childElementCount;
 var toAdd = document.createDocumentFragment();
 
 /* Generate divs and CSS classes */
-for (var i = 0; i < divCount; i += 1) {
+for (var i = 1; i <= divCount; i += 1) {
     var slideDiv = document.createElement('div');
     slideDiv.className = 'slide slide-' + i;
     toAdd.appendChild(slideDiv);
