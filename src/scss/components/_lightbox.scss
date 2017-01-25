@@ -3,7 +3,7 @@
  */
 
 // Sass list of photo lightbox images
-$photo-lbx: (
+$lghtbx-AA__img: (
     '../../photography/img_0111-folio.jpg'
     '../../photography/img_0243-folio.jpg'
     '../../photography/img_0359-folio.jpg'
@@ -24,10 +24,10 @@ $photo-lbx: (
     }
 }
 
-/* Generate photo lightbox background image classes */
-#photoLightbox {
+/* Generate lightbox background image classes */
+#lghtbxAA {
     .slide {
-        @include bground-img($photo-lbx);
+        @include bground-img($lghtbx-AA__img);
     }
 }
 

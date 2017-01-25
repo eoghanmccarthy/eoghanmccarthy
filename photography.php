@@ -73,7 +73,7 @@
             </main>
 
             <!-- Lightbox -->
-            <div id="photoLightbox">
+            <div id="lghtbxAA">
                 <?php include 'partials/lightbox.php';?>
             </div>
 
