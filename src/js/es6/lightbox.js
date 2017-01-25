@@ -6,12 +6,12 @@
 
 const gallery = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
-const lightboxViewer = document.getElementById('lightboxViewer');
+const viewer = document.getElementById('viewer');
 
+/* Generate divs and CSS classes */
 let divCount = gallery.childElementCount;
 let toAdd = document.createDocumentFragment();
 
-/* Generate divs and CSS classes */
 for (let i = 1; i <= divCount; i += 1) {
     let slideDiv = document.createElement('div');
     slideDiv.className = 'slide slide-' + i;
@@ -19,7 +19,7 @@ for (let i = 1; i <= divCount; i += 1) {
 }
 
 /* Append divs to container element */
-lightboxViewer.appendChild(toAdd);
+viewer.appendChild(toAdd);
 
 /* Function to open lightbox */
 function openModal() {

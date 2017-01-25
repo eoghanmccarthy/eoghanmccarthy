@@ -5,7 +5,7 @@
     <span class="lightbox__close" onclick="closeModal()">&times;</span>
 
     <!-- Lightbox slides -->
-    <div id="lightboxViewer">
+    <div id="viewer">
     </div>
 
     <!-- Lightbox navigation -->
