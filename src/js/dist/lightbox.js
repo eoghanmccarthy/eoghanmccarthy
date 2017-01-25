@@ -6,25 +6,31 @@
  * 100% Modular
  */
 
-/* Generate divs and CSS classes */
+var gallery = document.getElementById('gallery');
+var lightbox = document.getElementById('lightbox');
+var lightboxViewer = document.getElementById('lightboxViewer');
+
+var divCount = gallery.childElementCount;
 var toAdd = document.createDocumentFragment();
-for (var i = 1; i < 9; i += 1) {
+
+/* Generate divs and CSS classes */
+for (var i = 0; i < divCount; i += 1) {
     var slideDiv = document.createElement('div');
     slideDiv.className = 'slide slide-' + i;
     toAdd.appendChild(slideDiv);
 }
 
 /* Append divs to container element */
-document.getElementById('lightboxViewer').appendChild(toAdd);
+lightboxViewer.appendChild(toAdd);
 
 /* Function to open lightbox */
 function openModal() {
-    document.getElementById('lightbox').style.display = "block";
+    lightbox.style.display = 'block';
 }
 
 /* Function to close lightbox */
 function closeModal() {
-    document.getElementById('lightbox').style.display = "none";
+    lightbox.style.display = 'none';
 }
 
 /*
@@ -48,7 +54,7 @@ function currentSlide(n) {
 /* Function to */
 function showSlides(n) {
     var i = void 0;
-    var slides = document.getElementsByClassName("slide");
+    var slides = document.getElementsByClassName('slide');
     if (n > slides.length) {
         slideIndex = 1;
     }
@@ -56,7 +62,7 @@ function showSlides(n) {
         slideIndex = slides.length;
     }
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        slides[i].style.display = 'none';
     }
-    slides[slideIndex - 1].style.display = "block";
+    slides[slideIndex - 1].style.display = 'block';
 }

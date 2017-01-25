@@ -20,7 +20,7 @@
 
             <!-- Main -->
             <main>
-                <div class="row">
+                <div id="gallery" class="row">
                     <div class="col-md-6">
                         <figure class="media">
                             <img class="media__content" src="photography/img_0111-folio.jpg" onclick="openModal();currentSlide(1)">

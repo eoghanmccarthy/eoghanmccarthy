@@ -4,25 +4,31 @@
  * 100% Modular
  */
 
-/* Generate divs and CSS classes */
+const gallery = document.getElementById('gallery');
+const lightbox = document.getElementById('lightbox');
+const lightboxViewer = document.getElementById('lightboxViewer');
+
+let divCount = gallery.childElementCount;
 let toAdd = document.createDocumentFragment();
-for (let i = 1; i < 9; i += 1) {
+
+/* Generate divs and CSS classes */
+for (let i = 0; i < divCount; i += 1) {
     let slideDiv = document.createElement('div');
     slideDiv.className = 'slide slide-' + i;
     toAdd.appendChild(slideDiv);
 }
 
 /* Append divs to container element */
-document.getElementById('lightboxViewer').appendChild(toAdd);
+lightboxViewer.appendChild(toAdd);
 
 /* Function to open lightbox */
 function openModal() {
-    document.getElementById('lightbox').style.display = "block";
+    lightbox.style.display = 'block';
 }
 
 /* Function to close lightbox */
 function closeModal() {
-    document.getElementById('lightbox').style.display = "none";
+    lightbox.style.display = 'none';
 }
 
 /*
@@ -46,11 +52,11 @@ function currentSlide(n) {
 /* Function to */
 function showSlides(n) {
     let i;
-    let slides = document.getElementsByClassName("slide");
+    let slides = document.getElementsByClassName('slide');
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+      slides[i].style.display = 'none';
     }
-    slides[slideIndex-1].style.display = "block";
+    slides[slideIndex-1].style.display = 'block';
 }
