@@ -10,26 +10,26 @@ var gallery = document.getElementById('gallery');
 var lightbox = document.getElementById('lightbox');
 var viewer = document.getElementById('viewer');
 
-/* Generate divs and CSS classes */
-var divCount = gallery.childElementCount;
-var toAdd = document.createDocumentFragment();
+/* Generate slide divs and CSS classes */
+var galleryCount = gallery.childElementCount;
+var slideStack = document.createDocumentFragment();
 
-for (var i = 1; i <= divCount; i += 1) {
-    var slideDiv = document.createElement('div');
-    slideDiv.className = 'slide slide-' + i;
-    toAdd.appendChild(slideDiv);
+for (var i = 1; i <= galleryCount; i += 1) {
+    var slideUnit = document.createElement('div');
+    slideUnit.className = 'slide slide-' + i;
+    slideStack.appendChild(slideUnit);
 }
 
-/* Append divs to container element */
-viewer.appendChild(toAdd);
+/* Append slide stack fragment to viewer */
+viewer.appendChild(slideStack);
 
 /* Function to open lightbox */
-function lghtbxOpen() {
+function lightboxOpen() {
     lightbox.style.display = 'block';
 }
 
 /* Function to close lightbox */
-function lghtbxClose() {
+function lightboxClose() {
     lightbox.style.display = 'none';
 }
 
@@ -38,17 +38,17 @@ function lghtbxClose() {
  */
 
 /* */
-var indxSlide = 1;
-showSlide(indxSlide);
-
-/* Function to navigate to next slide */
-function navSlide(n) {
-    showSlide(indxSlide += n);
-}
+var slideIndex = 1;
+showSlide(slideIndex);
 
 /* Function to */
-function currentSlide(n) {
-    showSlide(indxSlide = n);
+function slideVisible(n) {
+    showSlide(slideIndex = n);
+}
+
+/* Function to navigate through slides */
+function slidesVia(n) {
+    showSlide(slideIndex += n);
 }
 
 /* Function to */
@@ -56,13 +56,13 @@ function showSlide(n) {
     var i = void 0;
     var slides = document.getElementsByClassName('slide');
     if (n > slides.length) {
-        indxSlide = 1;
+        slideIndex = 1;
     }
     if (n < 1) {
-        indxSlide = slides.length;
+        slideIndex = slides.length;
     }
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
     }
-    slides[indxSlide - 1].style.display = 'block';
+    slides[slideIndex - 1].style.display = 'block';
 }

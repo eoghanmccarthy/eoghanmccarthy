@@ -8,26 +8,26 @@ const gallery = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
 const viewer = document.getElementById('viewer');
 
-/* Generate divs and CSS classes */
-let divCount = gallery.childElementCount;
-let toAdd = document.createDocumentFragment();
+/* Generate slide divs and CSS classes */
+let galleryCount = gallery.childElementCount;
+let slideStack = document.createDocumentFragment();
 
-for (let i = 1; i <= divCount; i += 1) {
-    let slideDiv = document.createElement('div');
-    slideDiv.className = 'slide slide-' + i;
-    toAdd.appendChild(slideDiv);
+for (let i = 1; i <= galleryCount; i += 1) {
+    let slideUnit = document.createElement('div');
+    slideUnit.className = 'slide slide-' + i;
+    slideStack.appendChild(slideUnit);
 }
 
-/* Append divs to container element */
-viewer.appendChild(toAdd);
+/* Append slide stack fragment to viewer */
+viewer.appendChild(slideStack);
 
-/* Function to open lightbox */
-function lghtbxOpen() {
+/* Open lightbox */
+function lightboxOpen() {
     lightbox.style.display = 'block';
 }
 
-/* Function to close lightbox */
-function lghtbxClose() {
+/* Close lightbox */
+function lightboxClose() {
     lightbox.style.display = 'none';
 }
 
@@ -36,27 +36,31 @@ function lghtbxClose() {
  */
 
 /* */
-let indxSlide = 1;
-showSlide(indxSlide);
+let slideIndex = 1;
+showSlide(slideIndex);
 
-/* Function to navigate to next slide */
-function navSlide(n) {
-    showSlide(indxSlide += n);
+/* Display clicked gallery image*/
+function topSlide(n) {
+    showSlide(slideIndex = n);
 }
 
-/* Function to */
-function currentSlide(n) {
-    showSlide(indxSlide = n);
+/* Navigate through slides */
+function slidesVia(n) {
+    showSlide(slideIndex += n);
 }
 
 /* Function to */
 function showSlide(n) {
     let i;
     let slides = document.getElementsByClassName('slide');
-    if (n > slides.length) {indxSlide = 1}
-    if (n < 1) {indxSlide = slides.length}
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = 'none';
     }
-    slides[indxSlide-1].style.display = 'block';
+    slides[slideIndex-1].style.display = 'block';
 }

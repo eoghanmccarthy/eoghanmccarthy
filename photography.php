@@ -23,49 +23,49 @@
                 <div id="gallery" class="row">
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_0111-folio.jpg" onclick="lghtbxOpen();currentSlide(1)">
+                            <img class="media__content" src="photography/img_0111-folio.jpg" onclick="lightboxOpen();topSlide(1)">
                             <figcaption class="media__meta">abashiri, japan</figcaption>
                         </figure>
                     </div>
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_0243-folio.jpg" onclick="lghtbxOpen();currentSlide(2)">
+                            <img class="media__content" src="photography/img_0243-folio.jpg" onclick="lightboxOpen();topSlide(2)">
                             <figcaption class="media__meta">sapporo, japan</figcaption>
                         </figure>
                     </div>
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_0359-folio.jpg" onclick="lghtbxOpen();currentSlide(3)">
+                            <img class="media__content" src="photography/img_0359-folio.jpg" onclick="lightboxOpen();topSlide(3)">
                             <figcaption class="media__meta">abashiri, japan</figcaption>
                         </figure>
                     </div>
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_0387-folio.jpg" onclick="lghtbxOpen();currentSlide(4)">
+                            <img class="media__content" src="photography/img_0387-folio.jpg" onclick="lightboxOpen();topSlide(4)">
                             <figcaption class="media__meta">abashiri, japan</figcaption>
                         </figure>
                     </div>
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_4453-folio.jpg" onclick="lghtbxOpen();currentSlide(5)">
+                            <img class="media__content" src="photography/img_4453-folio.jpg" onclick="lightboxOpen();topSlide(5)">
                             <figcaption class="media__meta">shizuoka, japan</figcaption>
                         </figure>
                     </div>
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_4480-folio.jpg" onclick="lghtbxOpen();currentSlide(6)">
+                            <img class="media__content" src="photography/img_4480-folio.jpg" onclick="lightboxOpen();topSlide(6)">
                             <figcaption class="media__meta">shizuoka, japan</figcaption>
                         </figure>
                     </div>
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_3889-folio.jpg" onclick="lghtbxOpen();currentSlide(7)">
+                            <img class="media__content" src="photography/img_3889-folio.jpg" onclick="lightboxOpen();topSlide(7)">
                             <figcaption class="media__meta">tokyo, japan</figcaption>
                         </figure>
                     </div>
                     <div class="col-md-6">
                         <figure class="media">
-                            <img class="media__content" src="photography/img_3251-folio.jpg" onclick="lghtbxOpen();currentSlide(8)">
+                            <img class="media__content" src="photography/img_3251-folio.jpg" onclick="lightboxOpen();topSlide(8)">
                             <figcaption class="media__meta">izu, japan</figcaption>
                         </figure>
                     </div>
