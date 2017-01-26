@@ -8,7 +8,7 @@ const gallery = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
 const viewer = document.getElementById('viewer');
 
-/* Generate slide divs and CSS classes */
+/* Generate slide stack and CSS classes */
 let galleryCount = gallery.childElementCount;
 let slideStack = document.createDocumentFragment();
 
@@ -35,32 +35,39 @@ function lightboxClose() {
  * Lightbox navigation
  */
 
-/* */
-let slideIndex = 1;
-showSlide(slideIndex);
+/*
+ * Set initial index
+ * Indexed slide will display only
+ */
+let index = 1;
+slideDisplay(index);
 
-/* Display clicked gallery image*/
+/* Set clicked gallery image as index */
 function topSlide(n) {
-    showSlide(slideIndex = n);
+    slideDisplay(index = n);
 }
 
-/* Navigate through slides */
+/* Click to navigate through slides */
 function slidesVia(n) {
-    showSlide(slideIndex += n);
+    slideDisplay(index += n);
 }
 
-/* Function to */
-function showSlide(n) {
+/* Navigation controller */
+function slideDisplay(n) {
     let i;
     let slides = document.getElementsByClassName('slide');
+    /* Return index to 1 if 9 */
     if (n > slides.length) {
-        slideIndex = 1
+        index = 1
     }
+    /* Return index to 8 if 0 */
     if (n < 1) {
-        slideIndex = slides.length
+        index = slides.length
     }
+    /* Hide all slides */
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = 'none';
     }
-    slides[slideIndex-1].style.display = 'block';
+    /* Display current indexed slide */
+    slides[index-1].style.display = 'block';
 }

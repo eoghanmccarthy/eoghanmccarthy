@@ -10,7 +10,7 @@ var gallery = document.getElementById('gallery');
 var lightbox = document.getElementById('lightbox');
 var viewer = document.getElementById('viewer');
 
-/* Generate slide divs and CSS classes */
+/* Generate slide stack and CSS classes */
 var galleryCount = gallery.childElementCount;
 var slideStack = document.createDocumentFragment();
 
@@ -23,12 +23,12 @@ for (var i = 1; i <= galleryCount; i += 1) {
 /* Append slide stack fragment to viewer */
 viewer.appendChild(slideStack);
 
-/* Function to open lightbox */
+/* Open lightbox */
 function lightboxOpen() {
     lightbox.style.display = 'block';
 }
 
-/* Function to close lightbox */
+/* Close lightbox */
 function lightboxClose() {
     lightbox.style.display = 'none';
 }
@@ -37,32 +37,39 @@ function lightboxClose() {
  * Lightbox navigation
  */
 
-/* */
-var slideIndex = 1;
-showSlide(slideIndex);
+/*
+ * Set initial index
+ * Indexed slide will display only
+ */
+var index = 1;
+slideDisplay(index);
 
-/* Function to */
-function slideVisible(n) {
-    showSlide(slideIndex = n);
+/* Set clicked gallery image as index */
+function topSlide(n) {
+    slideDisplay(index = n);
 }
 
-/* Function to navigate through slides */
+/* Click to navigate through slides */
 function slidesVia(n) {
-    showSlide(slideIndex += n);
+    slideDisplay(index += n);
 }
 
-/* Function to */
-function showSlide(n) {
+/* Navigation controller */
+function slideDisplay(n) {
     var i = void 0;
     var slides = document.getElementsByClassName('slide');
+    /* Return index to 1 if 9 */
     if (n > slides.length) {
-        slideIndex = 1;
+        index = 1;
     }
+    /* Return index to 8 if 0 */
     if (n < 1) {
-        slideIndex = slides.length;
+        index = slides.length;
     }
+    /* Hide all slides */
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
     }
-    slides[slideIndex - 1].style.display = 'block';
+    /* Display current indexed slide */
+    slides[index - 1].style.display = 'block';
 }
