@@ -22,12 +22,12 @@ for (let i = 1; i <= divCount; i += 1) {
 viewer.appendChild(toAdd);
 
 /* Function to open lightbox */
-function openModal() {
+function lghtbxOpen() {
     lightbox.style.display = 'block';
 }
 
 /* Function to close lightbox */
-function closeModal() {
+function lghtbxClose() {
     lightbox.style.display = 'none';
 }
 
@@ -36,27 +36,27 @@ function closeModal() {
  */
 
 /* */
-let slideIndex = 1;
-showSlides(slideIndex);
+let indxSlide = 1;
+showSlide(indxSlide);
 
 /* Function to navigate to next slide */
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+function navSlide(n) {
+    showSlide(indxSlide += n);
 }
 
 /* Function to */
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlide(indxSlide = n);
 }
 
 /* Function to */
-function showSlides(n) {
+function showSlide(n) {
     let i;
     let slides = document.getElementsByClassName('slide');
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
+    if (n > slides.length) {indxSlide = 1}
+    if (n < 1) {indxSlide = slides.length}
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = 'none';
     }
-    slides[slideIndex-1].style.display = 'block';
+    slides[indxSlide-1].style.display = 'block';
 }
