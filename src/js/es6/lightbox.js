@@ -39,6 +39,7 @@ function lightboxClose() {
  * Set initial index
  * Indexed slide will display only
  */
+
 let index = 1;
 slideDisplay(index);
 
