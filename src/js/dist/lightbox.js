@@ -21,7 +21,7 @@ for (var i = 1; i <= galleryCount; i += 1) {
 }
 
 /* Append slide stack fragment to viewer */
-viewer.appendChild(slideStack);
+lightboxViewer.appendChild(slideStack);
 
 /* Open and close lightbox */
 var mediaContent = document.getElementsByClassName('media__content');
