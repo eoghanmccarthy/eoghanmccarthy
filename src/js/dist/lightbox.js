@@ -41,6 +41,7 @@ function lightboxClose() {
  * Set initial index
  * Indexed slide will display only
  */
+
 var index = 1;
 slideDisplay(index);
 
