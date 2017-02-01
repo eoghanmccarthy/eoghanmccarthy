@@ -82,7 +82,8 @@
 
         </div>
 
-        <script src="src/js/dist/lightbox.js"></script>
+        <?php include 'partials/scripts-js.php';?>
+        
     </body>
 
 </html>
