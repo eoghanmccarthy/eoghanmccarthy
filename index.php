@@ -23,7 +23,6 @@
             <!-- Main -->
 
             <main>
-                <img class="home" src="img/flashing-logo.gif">
             </main>
 
             <!-- Footer -->
