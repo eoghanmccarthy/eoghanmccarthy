@@ -32,6 +32,8 @@
 
         </div>
 
+        <?php include 'partials/scripts-js.php';?>
+
     </body>
 
 </html>
