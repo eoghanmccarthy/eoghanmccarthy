@@ -10,6 +10,5 @@
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/e6985d2f93.js"></script>
 
-<!-- Custom -->
+<!-- Custom CSS -->
 <link href="src/css/main.css" rel="stylesheet" type="text/css" />
-<script src="src/js/dist/main.js"></script>
