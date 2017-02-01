@@ -6,7 +6,7 @@
 
 const gallery = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
-const viewer = document.getElementById('viewer');
+const lightboxViewer = document.getElementById('lightboxViewer');
 
 /* Generate slide stack and CSS classes */
 let galleryCount = gallery.childElementCount;
@@ -21,15 +21,19 @@ for (let i = 1; i <= galleryCount; i += 1) {
 /* Append slide stack fragment to viewer */
 viewer.appendChild(slideStack);
 
+/* Open and close lightbox */
+const mediaContent = document.getElementsByClassName('media__content');
+const closeLightbox = document.getElementById('closeLightbox');
+
 /* Open lightbox */
-function lightboxOpen() {
+mediaContent.addEventListener('click', () => {
     lightbox.style.display = 'block';
-}
+});
 
 /* Close lightbox */
-function lightboxClose() {
+closeLightbox.addEventListener('click', () => {
     lightbox.style.display = 'none';
-}
+});
 
 /*
  * Lightbox navigation
@@ -49,9 +53,27 @@ function topSlide(n) {
 }
 
 /* Click to navigate through slides */
-function slidesVia(n) {
-    slideDisplay(index += n);
-}
+const prv = document.getElementById('prv');
+const nxt = document.getElementById('nxt');
+
+prv.addEventListener('click', () => {
+    slideDisplay(index -= 1);
+});
+
+nxt.addEventListener('click', () => {
+    slideDisplay(index += 1);
+});
+
+// const nav = {
+//     prv: document.getElementById('prv'),
+//     nxt: document.getElementById('nxt'),
+//     prvGo: this.prv ('click', () => {
+//         slideDisplay(index -= 1);
+//     }),
+//     nxtGo: this.nxt ('click', () => {
+//         slideDisplay(index += 1);
+//     }),
+// };
 
 /* Navigation controller */
 function slideDisplay(n) {

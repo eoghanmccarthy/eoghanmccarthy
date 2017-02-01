@@ -2,16 +2,16 @@
 <div id="lightbox" class="lightbox">
 
     <!-- Close button -->
-    <span class="lightbox__close" onclick="lightboxClose()">&times;</span>
+    <span id="closeLightbox" class="lightbox__close">&times;</span>
 
     <!-- Lightbox slides -->
-    <div id="viewer">
+    <div id="lightboxViewer">
     </div>
 
     <!-- Lightbox navigation -->
     <div class="lightbox__nav">
-        <a class="lightbox__nav--prv" onclick="slidesVia(-1)"><i class="fa fa-caret-left"></i></a>
-        <a class="lightbox__nav--nxt" onclick="slidesVia(1)"><i class="fa fa-caret-right"></i></a>
+        <a id="prv" class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>
+        <a id="nxt" class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>
     </div>
 
 </div>
