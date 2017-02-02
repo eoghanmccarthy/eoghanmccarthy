@@ -5,14 +5,16 @@
  */
 
 const gallery = document.getElementById('gallery');
+const mediaContent = document.getElementsByClassName('media__content');
 const lightbox = document.getElementById('lightbox');
+const closeLightboxBtn = document.getElementById('closeLightboxBtn');
 const lightboxViewer = document.getElementById('lightboxViewer');
 
 /* Generate slide stack and CSS classes */
 let galleryCount = gallery.childElementCount;
 let slideStack = document.createDocumentFragment();
 
-for (let i = 1; i <= galleryCount; i += 1) {
+for (let i = 1; i <= galleryCount; i++) {
     let slideUnit = document.createElement('div');
     slideUnit.className = 'slide slide-' + i;
     slideStack.appendChild(slideUnit);
@@ -22,17 +24,19 @@ for (let i = 1; i <= galleryCount; i += 1) {
 lightboxViewer.appendChild(slideStack);
 
 /* Open and close lightbox */
-const mediaContent = document.getElementsByClassName('media__content');
-const closeLightbox = document.getElementById('closeLightbox');
+// mediaContent.addEventListener('click' () => {
+//     lightbox.style.display = 'block';
+// });
 
-/* Open lightbox */
-mediaContent.addEventListener('click', () => {
-    lightbox.style.display = 'block';
-});
+const openLightbox = () => {
+    lightbox.style.display = "block";
+    for (var i = 0; i < mediaContent.length; i++) {
+        mediaContent[i].addEventListener("click", openLightbox)
+    };
+};
 
-/* Close lightbox */
-closeLightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
+closeLightboxBtn.addEventListener("click" () => {
+    lightbox.style.display = "none";
 });
 
 /*
@@ -63,17 +67,6 @@ prv.addEventListener('click', () => {
 nxt.addEventListener('click', () => {
     slideDisplay(index += 1);
 });
-
-// const nav = {
-//     prv: document.getElementById('prv'),
-//     nxt: document.getElementById('nxt'),
-//     prvGo: this.prv ('click', () => {
-//         slideDisplay(index -= 1);
-//     }),
-//     nxtGo: this.nxt ('click', () => {
-//         slideDisplay(index += 1);
-//     }),
-// };
 
 /* Navigation controller */
 function slideDisplay(n) {

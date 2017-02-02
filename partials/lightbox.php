@@ -2,7 +2,7 @@
 <div id="lightbox" class="lightbox">
 
     <!-- Close button -->
-    <span id="closeLightbox" class="lightbox__close">&times;</span>
+    <span id="closeLightboxBtn" class="lightbox__close">&times;</span>
 
     <!-- Lightbox slides -->
     <div id="lightboxViewer">
