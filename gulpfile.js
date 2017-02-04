@@ -2,9 +2,10 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const eslint = require('gulp-eslint');
 const babel = require('gulp-babel');
-// Gulp dependencies go here
 
+// Gulp dependencies go here
 gulp.task('default', () => {
     return gulp.src('src/js/es6/**/*.js')
         .pipe(babel({
