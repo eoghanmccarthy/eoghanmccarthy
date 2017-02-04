@@ -24,13 +24,11 @@ for (let i = 1; i <= galleryCount; i++) {
 lightboxViewer.appendChild(slideStack);
 
 /* Open lightbox */
-const openLightbox = () => {
-    for (var i = 0; i < mediaContent.length; i++) {
-        mediaContent[i].addEventListener("click", function() {
-            lightbox.style.display = "block";
-        });
-    }
-};
+for (var i = 0; i < mediaContent.length; i++) {
+    mediaContent[i].addEventListener("click", function() {
+        lightbox.style.display = "block";
+    });
+}
 
 closeLightboxBtn.addEventListener("click", function() {
     lightbox.style.display = "none";
