@@ -25,9 +25,10 @@ lightboxViewer.appendChild(slideStack);
 
 /* Open lightbox */
 const openLightbox = () => {
-    lightbox.style.display = "block";
     for (var i = 0; i < mediaContent.length; i++) {
-        mediaContent[i].addEventListener("click", openLightbox);
+        mediaContent[i].addEventListener("click", function() {
+            lightbox.style.display = "block";
+        });
     }
 };
 
