@@ -4,10 +4,10 @@
  * 100% Modular
  */
 
-const gallery = document.getElementById('gallery');
+const gallery = document.getElementById("gallery");
 const mediaContent = document.getElementsByClassName('media__content');
 const lightbox = document.getElementById('lightbox');
-const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+const closeLightboxBtn = document.getElementById("closeLightboxBtn");
 const lightboxViewer = document.getElementById('lightboxViewer');
 
 /* Generate slide stack and CSS classes */
@@ -23,19 +23,15 @@ for (let i = 1; i <= galleryCount; i++) {
 /* Append slide stack fragment to viewer */
 lightboxViewer.appendChild(slideStack);
 
-/* Open and close lightbox */
-// mediaContent.addEventListener('click' () => {
-//     lightbox.style.display = 'block';
-// });
-
+/* Open lightbox */
 const openLightbox = () => {
     lightbox.style.display = "block";
     for (var i = 0; i < mediaContent.length; i++) {
-        mediaContent[i].addEventListener("click", openLightbox)
-    };
+        mediaContent[i].addEventListener("click", openLightbox);
+    }
 };
 
-closeLightboxBtn.addEventListener("click" () => {
+closeLightboxBtn.addEventListener("click", function() {
     lightbox.style.display = "none";
 });
 
@@ -74,11 +70,11 @@ function slideDisplay(n) {
     let slides = document.getElementsByClassName('slide');
     /* Return index to 1 if 9 */
     if (n > slides.length) {
-        index = 1
+        index = 1;
     }
     /* Return index to 8 if 0 */
     if (n < 1) {
-        index = slides.length
+        index = slides.length;
     }
     /* Hide all slides */
     for (i = 0; i < slides.length; i++) {

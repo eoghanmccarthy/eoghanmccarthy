@@ -6,15 +6,17 @@
  * 100% Modular
  */
 
-var gallery = document.getElementById('gallery');
+var gallery = document.getElementById("gallery");
+var mediaContent = document.getElementsByClassName('media__content');
 var lightbox = document.getElementById('lightbox');
+var closeLightboxBtn = document.getElementById("closeLightboxBtn");
 var lightboxViewer = document.getElementById('lightboxViewer');
 
 /* Generate slide stack and CSS classes */
 var galleryCount = gallery.childElementCount;
 var slideStack = document.createDocumentFragment();
 
-for (var i = 1; i <= galleryCount; i += 1) {
+for (var i = 1; i <= galleryCount; i++) {
     var slideUnit = document.createElement('div');
     slideUnit.className = 'slide slide-' + i;
     slideStack.appendChild(slideUnit);
@@ -23,18 +25,16 @@ for (var i = 1; i <= galleryCount; i += 1) {
 /* Append slide stack fragment to viewer */
 lightboxViewer.appendChild(slideStack);
 
-/* Open and close lightbox */
-var mediaContent = document.getElementsByClassName('media__content');
-var closeLightbox = document.getElementById('closeLightbox');
-
 /* Open lightbox */
-mediaContent.addEventListener('click', function () {
-    lightbox.style.display = 'block';
-});
+var openLightbox = function openLightbox() {
+    lightbox.style.display = "block";
+    for (var i = 0; i < mediaContent.length; i++) {
+        mediaContent[i].addEventListener("click", openLightbox);
+    }
+};
 
-/* Close lightbox */
-closeLightbox.addEventListener('click', function () {
-    lightbox.style.display = 'none';
+closeLightboxBtn.addEventListener("click", function () {
+    lightbox.style.display = "none";
 });
 
 /*
@@ -65,17 +65,6 @@ prv.addEventListener('click', function () {
 nxt.addEventListener('click', function () {
     slideDisplay(index += 1);
 });
-
-// const nav = {
-//     prv: document.getElementById('prv'),
-//     nxt: document.getElementById('nxt'),
-//     prvGo: this.prv ('click', () => {
-//         slideDisplay(index -= 1);
-//     }),
-//     nxtGo: this.nxt ('click', () => {
-//         slideDisplay(index += 1);
-//     }),
-// };
 
 /* Navigation controller */
 function slideDisplay(n) {
