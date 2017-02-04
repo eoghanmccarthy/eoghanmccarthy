@@ -6,7 +6,7 @@
 const navBar = document.getElementById('navBar');
 const navBarIcon = document.getElementById('navBarIcon');
 
-navBarIcon.addEventListener('click' () => {
+navBarIcon.addEventListener("click", function() {
     if (navBar.className === 'nav-bar') {
         navBar.className += ' nav-bar--xs';
     } else {
