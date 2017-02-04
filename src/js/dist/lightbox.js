@@ -16,9 +16,9 @@ var lightboxViewer = document.getElementById('lightboxViewer');
 var galleryCount = gallery.childElementCount;
 var slideStack = document.createDocumentFragment();
 
-for (var i = 1; i <= galleryCount; i++) {
+for (var _i = 1; _i <= galleryCount; _i++) {
     var slideUnit = document.createElement('div');
-    slideUnit.className = 'slide slide-' + i;
+    slideUnit.className = 'slide slide-' + _i;
     slideStack.appendChild(slideUnit);
 }
 
@@ -26,13 +26,11 @@ for (var i = 1; i <= galleryCount; i++) {
 lightboxViewer.appendChild(slideStack);
 
 /* Open lightbox */
-var openLightbox = function openLightbox() {
-    for (var i = 0; i < mediaContent.length; i++) {
-        mediaContent[i].addEventListener("click", function () {
-            lightbox.style.display = "block";
-        });
-    }
-};
+for (var i = 0; i < mediaContent.length; i++) {
+    mediaContent[i].addEventListener("click", function () {
+        lightbox.style.display = "block";
+    });
+}
 
 closeLightboxBtn.addEventListener("click", function () {
     lightbox.style.display = "none";
