@@ -1,17 +1,17 @@
 <!-- Lightbox modal -->
-<div id="lightbox" class="lightbox">
+<div id="lbox" class="lightbox">
 
     <!-- Close button -->
-    <span id="closeLightboxBtn" class="lightbox__close">&times;</span>
+    <span id="lboxCloseButton" class="lightbox__close">&times;</span>
 
     <!-- Lightbox slides -->
-    <div id="lightboxViewer">
+    <div id="lboxViewer">
     </div>
 
     <!-- Lightbox navigation -->
     <div class="lightbox__nav">
-        <a id="prv" class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>
-        <a id="nxt" class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>
+        <a id="navBack" class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>
+        <a id="navForward" class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>
     </div>
 
 </div>
