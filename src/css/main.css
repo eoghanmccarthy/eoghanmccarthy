@@ -95,7 +95,8 @@ p {
       .nav-bar li {
         display: inline; } }
     .nav-bar li.nav-bar__icon {
-      display: inline; }
+      display: inline;
+      cursor: pointer; }
       @media screen and (min-width: 768px) {
         .nav-bar li.nav-bar__icon {
           display: none; } }
