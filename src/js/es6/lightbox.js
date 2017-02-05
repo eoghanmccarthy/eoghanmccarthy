@@ -1,22 +1,20 @@
 /*
  * Lightbox
- *
- * 100% Modular
  */
 
 const gallery = document.getElementById("gallery");
-const mediaContent = document.getElementsByClassName('media__content');
-const lightbox = document.getElementById('lightbox');
-const closeLightboxBtn = document.getElementById("closeLightboxBtn");
-const lightboxViewer = document.getElementById('lightboxViewer');
+const mediaContent = document.getElementsByClassName("media__content");
+const lightbox = document.getElementById("lightbox");
+const closeButton = document.getElementById("closeLightboxBtn");
+const lightboxViewer = document.getElementById("lightboxViewer");
 
 /* Generate slide stack and CSS classes */
 let galleryCount = gallery.childElementCount;
 let slideStack = document.createDocumentFragment();
 
 for (let i = 1; i <= galleryCount; i++) {
-    let slideUnit = document.createElement('div');
-    slideUnit.className = 'slide slide-' + i;
+    let slideUnit = document.createElement("div");
+    slideUnit.className = "slide slide-" + i;
     slideStack.appendChild(slideUnit);
 }
 
@@ -30,12 +28,12 @@ for (var i = 0; i < mediaContent.length; i++) {
     });
 }
 
-closeLightboxBtn.addEventListener("click", function() {
+closeButton.addEventListener("click", function() {
     lightbox.style.display = "none";
 });
 
 /*
- * Lightbox navigation
+ * Navigation
  */
 
 /*
@@ -52,21 +50,21 @@ function topSlide(n) {
 }
 
 /* Click to navigate through slides */
-const prv = document.getElementById('prv');
-const nxt = document.getElementById('nxt');
+const prv = document.getElementById("prv");
+const nxt = document.getElementById("nxt");
 
-prv.addEventListener('click', () => {
+prv.addEventListener("click", function() {
     slideDisplay(index -= 1);
 });
 
-nxt.addEventListener('click', () => {
+nxt.addEventListener("click", function() {
     slideDisplay(index += 1);
 });
 
 /* Navigation controller */
 function slideDisplay(n) {
     let i;
-    let slides = document.getElementsByClassName('slide');
+    let slides = document.getElementsByClassName("slide");
     /* Return index to 1 if 9 */
     if (n > slides.length) {
         index = 1;
@@ -77,8 +75,8 @@ function slideDisplay(n) {
     }
     /* Hide all slides */
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
+      slides[i].style.display = "none";
     }
     /* Display current indexed slide */
-    slides[index-1].style.display = 'block';
+    slides[index-1].style.display = "block";
 }
