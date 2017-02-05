@@ -4,9 +4,15 @@
 
 const gallery = document.getElementById("gallery");
 const mediaContent = document.getElementsByClassName("media__content");
-const lightbox = document.getElementById("lightbox");
-const closeButton = document.getElementById("closeLightboxBtn");
-const lightboxViewer = document.getElementById("lightboxViewer");
+// const lightbox = document.getElementById("lightbox");
+// const closeButton = document.getElementById("closeLightboxBtn");
+// const lightboxViewer = document.getElementById("lightboxViewer");
+
+const lightboxObj = {
+    lightbox: document.getElementById("lightbox"),
+    close: document.getElementById("closeLightboxBtn"),
+    viewer: document.getElementById("lightboxViewer")
+};
 
 /* Generate slide stack and CSS classes */
 let galleryCount = gallery.childElementCount;
@@ -19,7 +25,7 @@ for (let i = 1; i <= galleryCount; i++) {
 }
 
 /* Append slide stack fragment to viewer */
-lightboxViewer.appendChild(slideStack);
+lightboxObj.viewer.appendChild(slideStack);
 
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {
@@ -28,6 +34,7 @@ for (var i = 0; i < mediaContent.length; i++) {
     });
 }
 
+/* Close lightbox */
 closeButton.addEventListener("click", function() {
     lightbox.style.display = "none";
 });
@@ -50,14 +57,23 @@ function topSlide(n) {
 }
 
 /* Click to navigate through slides */
-const prv = document.getElementById("prv");
-const nxt = document.getElementById("nxt");
+const prvButton = document.getElementById("prv");
+const nxtButton = document.getElementById("nxt");
 
-prv.addEventListener("click", function() {
+// function LightboxNav(change) {
+//     this.addEventListener("click", function() {
+//         slideDisplay(index change);
+//     });
+// }
+//
+// prvButton LightboxNav("-= 1");
+// nxtButton LightboxNav("+= 1");
+
+prvButton.addEventListener("click", function() {
     slideDisplay(index -= 1);
 });
 
-nxt.addEventListener("click", function() {
+nxtButton.addEventListener("click", function() {
     slideDisplay(index += 1);
 });
 
