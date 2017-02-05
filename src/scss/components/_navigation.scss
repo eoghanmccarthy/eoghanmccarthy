@@ -25,6 +25,7 @@
 
         &.nav-bar__icon {
             display: inline;
+            cursor: pointer;
             @include breakpoint(md) {
                 display: none;
             }
