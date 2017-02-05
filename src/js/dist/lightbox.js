@@ -11,11 +11,11 @@ var closeButton = document.getElementById("closeLightboxBtn");
 var lightboxViewer = document.getElementById("lightboxViewer");
 
 /* Constructor functions */
-function Show() {
+function _show() {
     lightbox.style.display = "block";
 }
 
-function Hide() {
+function _hide() {
     lightbox.style.display = "none";
 }
 
@@ -35,13 +35,13 @@ lightboxViewer.appendChild(slideStack);
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {
     mediaContent[i].addEventListener("click", function () {
-        Show();
+        _show();
     });
 }
 
 /* Close lightbox */
 closeButton.addEventListener("click", function () {
-    lightbox.style.display = "none";
+    _hide();
 });
 
 /*
