@@ -39,7 +39,7 @@ lightboxObj.viewer.appendChild(slideStack);
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {
     mediaContent[i].addEventListener("click", function() {
-        Show();
+        lightbox.style.display = "block";
     });
 }
 
