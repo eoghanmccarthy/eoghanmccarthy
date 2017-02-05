@@ -4,13 +4,14 @@
 
 const gallery = document.getElementById("gallery");
 const mediaContent = document.getElementsByClassName("media__content");
-const lightbox = document.getElementById("lightbox");
-const closeButton = document.getElementById("closeLightboxBtn");
-const lightboxViewer = document.getElementById("lightboxViewer");
 
-const lbox = {
-    viewer: document.getElementById("lightboxViewer"),
-    close: document.getElementById("closeLightboxBtn"),
+const lightbox = {
+    console: document.getElementById("lbox"),
+    close: document.getElementById("lboxCloseButton")
+        .addEventListener("click", function() {
+            _hide(this.console);
+        }),
+    viewer: document.getElementById("lboxViewer"),
 }
 
 /* Constructor functions */
@@ -33,18 +34,18 @@ for (let i = 1; i <= galleryCount; i++) {
 }
 
 /* Append slide stack fragment to viewer */
-lbox.viewer.appendChild(slideStack);
+lightbox.viewer.appendChild(slideStack);
 
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {
     mediaContent[i].addEventListener("click", function() {
-        _show(lightbox);
+        _show(lightbox.console);
     });
 }
 
 /* Close lightbox */
-closeButton.addEventListener("click", function() {
-    _hide(lightbox);
+lightbox.close.addEventListener("click", function() {
+    _hide(lightbox.console);
 });
 
 /*
@@ -64,10 +65,6 @@ function topSlide(n) {
     slideDisplay(index = n);
 }
 
-/* Click to navigate through slides */
-const prvButton = document.getElementById("prv");
-const nxtButton = document.getElementById("nxt");
-
 // function LightboxNav(change) {
 //     this.addEventListener("click", function() {
 //         slideDisplay(index change);
@@ -77,11 +74,16 @@ const nxtButton = document.getElementById("nxt");
 // prvButton LightboxNav("-= 1");
 // nxtButton LightboxNav("+= 1");
 
-prvButton.addEventListener("click", function() {
+const nav = {
+    back: document.getElementById("navBack"),
+    forward: document.getElementById("navForward"),
+}
+
+nav.previous.addEventListener("click", function() {
     slideDisplay(index -= 1);
 });
 
-nxtButton.addEventListener("click", function() {
+nav.next.addEventListener("click", function() {
     slideDisplay(index += 1);
 });
 
