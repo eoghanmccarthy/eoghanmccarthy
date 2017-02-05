@@ -10,6 +10,10 @@ var lightbox = document.getElementById("lightbox");
 var closeButton = document.getElementById("closeLightboxBtn");
 var lightboxViewer = document.getElementById("lightboxViewer");
 
+var lbox = {
+    viewer: document.getElementById("lightboxViewer")
+};
+
 /* Constructor functions */
 function _show(x) {
     x.style.display = "block";
@@ -96,7 +100,7 @@ function slideDisplay(n) {
     }
     /* Hide all slides */
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        _hide(slides[i]);
     }
     /* Display current indexed slide */
     _show(slides[index - 1]);

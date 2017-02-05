@@ -8,6 +8,11 @@ const lightbox = document.getElementById("lightbox");
 const closeButton = document.getElementById("closeLightboxBtn");
 const lightboxViewer = document.getElementById("lightboxViewer");
 
+const lbox = {
+    viewer: document.getElementById("lightboxViewer"),
+    close: document.getElementById("closeLightboxBtn"),
+}
+
 /* Constructor functions */
 function _show(x) {
     x.style.display = "block";
@@ -94,7 +99,7 @@ function slideDisplay(n) {
     }
     /* Hide all slides */
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+      _hide(slides[i])
     }
     /* Display current indexed slide */
     _show(slides[index-1])
