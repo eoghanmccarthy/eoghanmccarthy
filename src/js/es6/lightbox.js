@@ -4,23 +4,17 @@
 
 const gallery = document.getElementById("gallery");
 const mediaContent = document.getElementsByClassName("media__content");
-// const lightbox = document.getElementById("lightbox");
-// const closeButton = document.getElementById("closeLightboxBtn");
-// const lightboxViewer = document.getElementById("lightboxViewer");
-
-const lightboxObj = {
-    lightbox: document.getElementById("lightbox"),
-    close: document.getElementById("closeLightboxBtn"),
-    viewer: document.getElementById("lightboxViewer")
-};
+const lightbox = document.getElementById("lightbox");
+const closeButton = document.getElementById("closeLightboxBtn");
+const lightboxViewer = document.getElementById("lightboxViewer");
 
 /* Constructor functions */
 function Show() {
-    this.style.display = "block";
+    lightbox.style.display = "block";
 }
 
 function Hide() {
-    this.style.display = "none";
+    lightbox.style.display = "none";
 }
 
 /* Generate slide stack and CSS classes */
@@ -34,21 +28,19 @@ for (let i = 1; i <= galleryCount; i++) {
 }
 
 /* Append slide stack fragment to viewer */
-lightboxObj.viewer.appendChild(slideStack);
+lightboxViewer.appendChild(slideStack);
 
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {
     mediaContent[i].addEventListener("click", function() {
-        lightbox.style.display = "block";
+        Show();
     });
 }
 
 /* Close lightbox */
-lightboxObj.lightbox = () => {
-    closeButton.addEventListener("click", function() {
-        this.style.display = "none";
-    });
-}
+closeButton.addEventListener("click", function() {
+    lightbox.style.display = "none";
+});
 
 /*
  * Navigation
