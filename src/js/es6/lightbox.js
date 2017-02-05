@@ -33,7 +33,7 @@ for (let i = 1; i <= galleryCount; i++) {
 }
 
 /* Append slide stack fragment to viewer */
-lightboxViewer.appendChild(slideStack);
+lbox.viewer.appendChild(slideStack);
 
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {

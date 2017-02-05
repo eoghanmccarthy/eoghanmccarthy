@@ -11,7 +11,8 @@ var closeButton = document.getElementById("closeLightboxBtn");
 var lightboxViewer = document.getElementById("lightboxViewer");
 
 var lbox = {
-    viewer: document.getElementById("lightboxViewer")
+    viewer: document.getElementById("lightboxViewer"),
+    close: document.getElementById("closeLightboxBtn")
 };
 
 /* Constructor functions */
@@ -34,7 +35,7 @@ for (var _i = 1; _i <= galleryCount; _i++) {
 }
 
 /* Append slide stack fragment to viewer */
-lightboxViewer.appendChild(slideStack);
+lbox.viewer.appendChild(slideStack);
 
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {
