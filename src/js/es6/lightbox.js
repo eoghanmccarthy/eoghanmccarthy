@@ -14,6 +14,15 @@ const lightboxObj = {
     viewer: document.getElementById("lightboxViewer")
 };
 
+/* Constructor functions */
+function Show() {
+    this.style.display = "block";
+}
+
+function Hide() {
+    this.style.display = "none";
+}
+
 /* Generate slide stack and CSS classes */
 let galleryCount = gallery.childElementCount;
 let slideStack = document.createDocumentFragment();
@@ -30,13 +39,13 @@ lightboxObj.viewer.appendChild(slideStack);
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {
     mediaContent[i].addEventListener("click", function() {
-        lightbox.style.display = "block";
+        Show();
     });
 }
 
 /* Close lightbox */
 closeButton.addEventListener("click", function() {
-    lightbox.style.display = "none";
+    Hide();
 });
 
 /*
