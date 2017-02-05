@@ -11,8 +11,8 @@ var closeButton = document.getElementById("closeLightboxBtn");
 var lightboxViewer = document.getElementById("lightboxViewer");
 
 /* Constructor functions */
-function _show() {
-    lightbox.style.display = "block";
+function _show(element) {
+    element.style.display = "block";
 }
 
 function _hide() {
@@ -35,7 +35,7 @@ lightboxViewer.appendChild(slideStack);
 /* Open lightbox */
 for (var i = 0; i < mediaContent.length; i++) {
     mediaContent[i].addEventListener("click", function () {
-        _show();
+        _show(lightbox);
     });
 }
 
