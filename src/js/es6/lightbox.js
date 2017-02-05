@@ -9,12 +9,12 @@ const closeButton = document.getElementById("closeLightboxBtn");
 const lightboxViewer = document.getElementById("lightboxViewer");
 
 /* Constructor functions */
-function _show(element) {
-    (element).style.display = "block";
+function _show(x) {
+    x.style.display = "block";
 }
 
-function _hide() {
-    lightbox.style.display = "none";
+function _hide(x) {
+    x.style.display = "none";
 }
 
 /* Generate slide stack and CSS classes */
@@ -39,7 +39,7 @@ for (var i = 0; i < mediaContent.length; i++) {
 
 /* Close lightbox */
 closeButton.addEventListener("click", function() {
-    _hide();
+    _hide(lightbox);
 });
 
 /*
@@ -97,5 +97,5 @@ function slideDisplay(n) {
       slides[i].style.display = "none";
     }
     /* Display current indexed slide */
-    slides[index-1].style.display = "block";
+    _show(slides[index-1])
 }
