@@ -44,9 +44,11 @@ for (var i = 0; i < mediaContent.length; i++) {
 }
 
 /* Close lightbox */
-closeButton.addEventListener("click", function() {
-    Hide();
-});
+lightboxObj.lightbox = () => {
+    closeButton.addEventListener("click", function() {
+        this.style.display = "none";
+    });
+}
 
 /*
  * Navigation
