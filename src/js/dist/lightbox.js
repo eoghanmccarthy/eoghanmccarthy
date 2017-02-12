@@ -1,108 +1,119 @@
 "use strict";
 
+var _templateObject = _taggedTemplateLiteral(["", ""], ["", ""]);
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 /*
  * Lightbox
  */
 
-var gallery = document.getElementById("gallery");
-var mediaContent = document.getElementsByClassName("media__content");
-var lightbox = document.getElementById("lightbox");
-var closeButton = document.getElementById("closeLightboxBtn");
-var lightboxViewer = document.getElementById("lightboxViewer");
+!function () {
 
-var lbox = {
-    viewer: document.getElementById("lightboxViewer"),
-    close: document.getElementById("closeLightboxBtn")
-};
+    /* Helper functions */
+    function $id(element) {
+        document.getElementById(element);
+    }
 
-/* Constructor functions */
-function _show(x) {
-    x.style.display = "block";
-}
+    function $class(element) {
+        document.getElementsByClassName(element);
+    }
 
-function _hide(x) {
-    x.style.display = "none";
-}
+    var gallery = $id("gallery");
+    var media = $class("media__content");
 
-/* Generate slide stack and CSS classes */
-var galleryCount = gallery.childElementCount;
-var slideStack = document.createDocumentFragment();
+    var lightbox = $id("lightbox");
+    var close = $id("lightboxClose");
+    var viewer = $id("lightboxViewer");
 
-for (var _i = 1; _i <= galleryCount; _i++) {
-    var slideUnit = document.createElement("div");
-    slideUnit.className = "slide slide-" + _i;
-    slideStack.appendChild(slideUnit);
-}
+    /* Constructor functions */
+    function show(x) {
+        x.style.display = "block";
+    }
 
-/* Append slide stack fragment to viewer */
-lbox.viewer.appendChild(slideStack);
+    function hide(x) {
+        x.style.display = "none";
+    }
 
-/* Open lightbox */
-for (var i = 0; i < mediaContent.length; i++) {
-    mediaContent[i].addEventListener("click", function () {
-        _show(lightbox);
+    /* Generate slide stack and CSS classes */
+    var galleryCount = gallery.childElementCount;
+    var slideStack = document.createDocumentFragment();
+
+    for (var _i = 1; _i <= galleryCount; _i++) {
+        var slideUnit = document.createElement("div");
+        slideUnit.className = "slide slide-" + _i;
+        slideStack.appendChild(slideUnit);
+    }
+
+    /* Append slide stack fragment to viewer */
+    viewer.appendChild(slideStack);
+
+    /* Open lightbox */
+    for (var i = 0; i < media.length; i++) {
+        media[i].addEventListener("click", function () {
+            Show(lightbox);
+        });
+    }
+
+    /* Close lightbox */
+    close.addEventListener("click", function () {
+        Hide(lightbox);
     });
-}
 
-/* Close lightbox */
-closeButton.addEventListener("click", function () {
-    _hide(lightbox);
-});
+    /*
+    * Navigation
+    */
 
-/*
- * Navigation
- */
+    /*
+    * Set initial index
+    * Indexed slide will display only
+    */
 
-/*
- * Set initial index
- * Indexed slide will display only
- */
+    var index = 1;
+    slideDisplay(index);
 
-var index = 1;
-slideDisplay(index);
-
-/* Set clicked gallery image as index */
-function topSlide(n) {
-    slideDisplay(index = n);
-}
-
-/* Click to navigate through slides */
-var prvButton = document.getElementById("prv");
-var nxtButton = document.getElementById("nxt");
-
-// function LightboxNav(change) {
-//     this.addEventListener("click", function() {
-//         slideDisplay(index change);
-//     });
-// }
-//
-// prvButton LightboxNav("-= 1");
-// nxtButton LightboxNav("+= 1");
-
-prvButton.addEventListener("click", function () {
-    slideDisplay(index -= 1);
-});
-
-nxtButton.addEventListener("click", function () {
-    slideDisplay(index += 1);
-});
-
-/* Navigation controller */
-function slideDisplay(n) {
-    var i = void 0;
-    var slides = document.getElementsByClassName("slide");
-    /* Return index to 1 if 9 */
-    if (n > slides.length) {
-        index = 1;
+    /* Set clicked gallery image as index */
+    function topSlide(n) {
+        slideDisplay(index = n);
     }
-    /* Return index to 8 if 0 */
-    if (n < 1) {
-        index = slides.length;
+
+    var prv = $id("navBack");
+    var nxt = $id("navForward");
+
+    function nav(x) {
+        this.addEventListener("click", function () {
+            slideDisplay(index(_templateObject, x = 1));
+        });
+    };
+
+    prv = nav("-");
+    nxt = nav("+");
+
+    // back.addEventListener("click", function() {
+    //     slideDisplay(index -= 1);
+    // });
+    //
+    // forward.addEventListener("click", function() {
+    //     slideDisplay(index += 1);
+    // });
+
+    /* Navigation controller */
+    function slideDisplay(n) {
+        var i = void 0;
+        var slides = $class("slide");
+        /* Return index to 1 if 9 */
+        if (n > slides.length) {
+            index = 1;
+        }
+        /* Return index to 8 if 0 */
+        if (n < 1) {
+            index = slides.length;
+        }
+        /* Hide all slides */
+        for (i = 0; i < slides.length; i++) {
+            Hide(slides[i]);
+        }
+        /* Display current indexed slide */
+        Show(slides[index - 1]);
     }
-    /* Hide all slides */
-    for (i = 0; i < slides.length; i++) {
-        _hide(slides[i]);
-    }
-    /* Display current indexed slide */
-    _show(slides[index - 1]);
-}
+}();

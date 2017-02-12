@@ -1,11 +1,11 @@
 <!-- Lightbox modal -->
-<div id="lbox" class="lightbox">
+<div id="lightbox" class="lightbox">
 
     <!-- Close button -->
-    <span id="lboxCloseButton" class="lightbox__close">&times;</span>
+    <span id="lightboxClose" class="lightbox__close">&times;</span>
 
     <!-- Lightbox slides -->
-    <div id="lboxViewer">
+    <div id="lightboxViewer">
     </div>
 
     <!-- Lightbox navigation -->
