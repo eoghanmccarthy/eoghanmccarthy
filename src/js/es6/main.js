@@ -8,7 +8,7 @@ const Web = {
         menu: $('#navBar'),
         icon: $('#navBarIcon'),
         // Add mobile class when icon is clicked
-        toggle: Web.nav.icon.addEventListener('click', function () {
+        toggle: icon.addEventListener('click', function () {
             if (menu.className === 'nav-bar') {
             menu.className += ' nav-bar--xs';
             } else {
