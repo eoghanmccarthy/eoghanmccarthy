@@ -10,10 +10,10 @@ const Web = {
         // Add mobile class when icon is clicked
         toggle: function() {
             Web.nav.icon.addEventListener('click', function () {
-                if (menu.className === 'nav-bar') {
-                menu.className += ' nav-bar--xs';
+                if (Web.nav.menu.className === 'nav-bar') {
+                this.className += ' nav-bar--xs';
                 } else {
-                menu.className = 'nav-bar';
+                this.className = 'nav-bar';
                 }
             });
         }
