@@ -2,7 +2,6 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const eslint = require('gulp-eslint');
 const babel = require('gulp-babel');
 
 // Gulp dependencies go here

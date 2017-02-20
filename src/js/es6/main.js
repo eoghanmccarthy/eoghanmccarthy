@@ -2,21 +2,21 @@
  * Main
  */
 
-var web = {
-    // Top navigation
-    topnav: {
-        navBar: $("#navBar"),
-        navBarIcon: $("#navBarIcon"),
+const Web = {
+    // Responsive navigation menu
+    nav: {
+        menu: $('#navBar'),
+        icon: $('#navBarIcon'),
         // Add mobile class when icon is clicked
-        nav: navBarIcon.addEventListener("click", function() {
-            if (navBar.className === "nav-bar") {
-                navBar.className += " nav-bar--xs";
+        toggle: Web.nav.icon.addEventListener('click', function () {
+            if (menu.className === 'nav-bar') {
+            menu.className += ' nav-bar--xs';
             } else {
-                navBar.className = "nav-bar";
+            menu.className = 'nav-bar';
             }
         })
     }
-}
+};
 
 // /* Function to add mobile class when icon is clicked */
 // const navBar = document.getElementById('navBar');
