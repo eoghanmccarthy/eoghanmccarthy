@@ -8,7 +8,7 @@
     // Responsive navigation menu
     // Add mobile class when icon is clicked
     nav: {
-        $('#navBarIcon').click(function () {
+        $('#navBarIcon').on('click', function () {
             var menu = $('#navBar');
             if (menu.className === 'nav-bar') {
                 menu.className += ' nav-bar--xs';
