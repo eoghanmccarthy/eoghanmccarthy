@@ -2,22 +2,21 @@
  * Main
  */
 
-const Web = {
+(function() {
     // Responsive navigation menu
+    // Add mobile class when icon is clicked
     nav: {
-        // Add mobile class when icon is clicked
-        toggle: function() {
-            $('#navBarIcon').addEventListener('click', function () {
-                let menu = $('#navBar');
-                if (menu.className === 'nav-bar') {
-                    menu.className += ' nav-bar--xs';
-                } else {
-                    menu.className = 'nav-bar';
-                }
-            });
-        }
+        let icon = $('#navBarIcon');
+        icon.addEventListener('click', function() {
+            let menu = $('#navBar');
+            if (menu.className === 'nav-bar') {
+                menu.className += ' nav-bar--xs';
+            } else {
+                menu.className = 'nav-bar';
+            }
+        });
     }
-};
+} ());
 
 // const Web = {
 //     // Responsive navigation menu

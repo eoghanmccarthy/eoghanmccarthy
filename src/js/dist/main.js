@@ -4,22 +4,21 @@
  * Main
  */
 
-var Web = {
+(function () {
     // Responsive navigation menu
+    // Add mobile class when icon is clicked
     nav: {
-        // Add mobile class when icon is clicked
-        toggle: function toggle() {
-            $('#navBarIcon').addEventListener('click', function () {
-                var menu = $('#navBar');
-                if (menu.className === 'nav-bar') {
-                    menu.className += ' nav-bar--xs';
-                } else {
-                    menu.className = 'nav-bar';
-                }
-            });
-        }
+        var icon = $('#navBarIcon');
+        icon.addEventListener('click', function () {
+            var menu = $('#navBar');
+            if (menu.className === 'nav-bar') {
+                menu.className += ' nav-bar--xs';
+            } else {
+                menu.className = 'nav-bar';
+            }
+        });
     }
-};
+})();
 
 // const Web = {
 //     // Responsive navigation menu
