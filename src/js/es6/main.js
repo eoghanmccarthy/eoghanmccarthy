@@ -7,7 +7,7 @@
     // Add mobile class when icon is clicked
     nav: {
         let icon = $('#navBarIcon');
-        icon.addEventListener('click', function() {
+        icon.on('click', function() {
             let menu = $('#navBar');
             if (menu.className === 'nav-bar') {
                 menu.className += ' nav-bar--xs';
@@ -17,24 +17,6 @@
         });
     }
 } ());
-
-// const Web = {
-//     // Responsive navigation menu
-//     nav: {
-//         menu: $('#navBar'),
-//         icon: $('#navBarIcon'),
-//         // Add mobile class when icon is clicked
-//         toggle: function() {
-//             Web.nav.icon.addEventListener('click', function () {
-//                 if (Web.nav.menu.className === 'nav-bar') {
-//                 this.className += ' nav-bar--xs';
-//                 } else {
-//                 this.className = 'nav-bar';
-//                 }
-//             });
-//         }
-//     }
-// };
 
 // /* Function to add mobile class when icon is clicked */
 // const navBar = document.getElementById('navBar');
