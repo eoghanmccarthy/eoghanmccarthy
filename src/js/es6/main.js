@@ -21,7 +21,7 @@
     // Web app
     var Web = {
         // Menu
-        menu: function() {
+        nav: function() {
             $('#navBarIcon').on('click', function() {
                 let menu = $('#navBar');
                 if (menu.className === 'nav-bar') {
@@ -33,7 +33,7 @@
         }
     };
 
-    Web.menu();
+    Web.nav();
 
 })();
 

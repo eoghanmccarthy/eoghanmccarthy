@@ -23,7 +23,7 @@
     // Web app
     var Web = {
         // Menu
-        menu: function menu() {
+        nav: function nav() {
             $('#navBarIcon').on('click', function () {
                 var menu = $('#navBar');
                 if (menu.className === 'nav-bar') {
@@ -35,7 +35,7 @@
         }
     };
 
-    Web.menu();
+    Web.nav();
 })();
 
 // /* Function to add mobile class when icon is clicked */
