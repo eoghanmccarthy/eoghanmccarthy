@@ -4,7 +4,7 @@
     </div>
     <nav class="header__nav">
         <ul class="nav-bar" id="navBar">
-            <li id="navBarIcon" class="nav-bar__icon"><a href="#">&#9776;</a></li>
+            <li class="nav-bar__icon"><a id="navBarIcon" href="#">&#9776;</a></li>
             <li><a href="photography.php">photography</a></li>
             <li><a href="contact.php">contact</a></li>
         </ul>
