@@ -3,7 +3,7 @@
 html {
   font-size: 62.5%; }
 
-.header__nav, .media, .lightbox, .header, .footer {
+.menu-nav, .media, .lightbox, .header, .footer {
   font-size: 1rem; }
 
 .footer {
@@ -77,30 +77,30 @@ p {
 /*
  * Navigation
  */
-.header__nav {
+.menu-nav {
   text-align: center; }
 
 /*
  * Main nav bar styles
  */
-.nav-bar {
+.menu-nav__list {
   display: inline-block;
   list-style-type: none;
   overflow: hidden;
   margin: 0;
   padding: 0; }
-  .nav-bar li {
+  .menu-nav__list li {
     display: none; }
     @media screen and (min-width: 768px) {
-      .nav-bar li {
+      .menu-nav__list li {
         display: inline; } }
-    .nav-bar li.nav-bar__icon {
+    .menu-nav__list li.menu-nav__toggle {
       display: inline;
       cursor: pointer; }
       @media screen and (min-width: 768px) {
-        .nav-bar li.nav-bar__icon {
+        .menu-nav__list li.menu-nav__toggle {
           display: none; } }
-    .nav-bar li a {
+    .menu-nav__list li a {
       font-size: 1.6rem;
       line-height: 1.8;
       color: #000;
@@ -112,15 +112,15 @@ p {
       -ms-transition: color, 0.2s, ease;
       transition: color, 0.2s, ease; }
       @media screen and (min-width: 768px) {
-        .nav-bar li a {
+        .menu-nav__list li a {
           font-size: 2.2rem; } }
-      .nav-bar li a:hover {
+      .menu-nav__list li a:hover {
         text-decoration: none;
         color: #ccff00; }
-  .nav-bar--xs li {
+  .menu-nav__list--xs li {
     display: block; }
     @media screen and (min-width: 768px) {
-      .nav-bar--xs li {
+      .menu-nav__list--xs li {
         display: inline; } }
 
 .media {
