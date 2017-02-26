@@ -2,7 +2,7 @@
  * Navigation
  */
 
-.header__nav {
+.menu-nav {
     @extend %px-base;
     text-align: center;
 }
@@ -10,7 +10,7 @@
 /*
  * Main nav bar styles
  */
-.nav-bar {
+.menu-nav__list {
     display: inline-block;
     list-style-type: none;
     overflow: hidden;
@@ -23,7 +23,7 @@
             display: inline;
         }
 
-        &.nav-bar__icon {
+        &.menu-nav__toggle {
             display: inline;
             cursor: pointer;
             @include breakpoint(md) {
