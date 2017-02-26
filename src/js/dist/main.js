@@ -25,7 +25,7 @@
         }
     };
 
-    Web.init();
+    // Web.init();
 })();
 
 // /* Function to add mobile class when icon is clicked */
