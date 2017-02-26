@@ -10,7 +10,7 @@
     var Web = {
         // Init
         init: function init() {
-            menu.bind();
+            Web.menu.bind();
         },
         // Menu
         menu: {

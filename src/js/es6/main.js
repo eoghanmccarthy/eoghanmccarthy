@@ -8,7 +8,7 @@
     const Web = {
         // Init
         init: () => {
-            menu.bind();
+            Web.menu.bind();
         },
         // Menu
         menu: {
