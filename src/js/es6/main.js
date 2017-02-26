@@ -2,7 +2,7 @@
  * Main
  */
 
-(() => {
+
 
     // Web app
     const Web = {
@@ -28,7 +28,7 @@
 
     Web.init();
 
-})();
+
 
 // /* Function to add mobile class when icon is clicked */
 // const navBar = document.getElementById('navBar');

@@ -4,32 +4,29 @@
  * Main
  */
 
-(function () {
-
-    // Web app
-    var Web = {
-        // Init
-        init: function init() {
-            Web.nav.bind();
-        },
-        // Menu
-        nav: {
-            // Bind menu
-            bind: function bind() {
-                $('#navBarIcon').on('click', function () {
-                    var menu = $('#navBar');
-                    if (menu.className === 'nav-bar') {
-                        menu.className += ' nav-bar--xs';
-                    } else {
-                        menu.className = 'nav-bar';
-                    }
-                });
-            }
+// Web app
+var Web = {
+    // Init
+    init: function init() {
+        Web.nav.bind();
+    },
+    // Menu
+    nav: {
+        // Bind menu
+        bind: function bind() {
+            $('#navBarIcon').on('click', function () {
+                var menu = $('#navBar');
+                if (menu.className === 'nav-bar') {
+                    menu.className += ' nav-bar--xs';
+                } else {
+                    menu.className = 'nav-bar';
+                }
+            });
         }
-    };
+    }
+};
 
-    Web.init();
-})();
+Web.init();
 
 // /* Function to add mobile class when icon is clicked */
 // const navBar = document.getElementById('navBar');
