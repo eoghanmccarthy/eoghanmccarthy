@@ -2,7 +2,7 @@
  * Main
  */
 
-(function () {
+(() => {
 
     // Web app
     const Web = {
@@ -23,7 +23,7 @@
         }
     };
 
-    // Web.init();
+    Web.init();
 
 })();
 
