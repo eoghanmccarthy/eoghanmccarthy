@@ -10,7 +10,7 @@
     var Web = {
         // Init
         init: function init() {
-            undefined.nav.bind();
+            Web.nav.bind();
         },
         // Menu
         nav: {
@@ -28,7 +28,7 @@
         }
     };
 
-    //Web.init();
+    Web.init();
 })();
 
 // /* Function to add mobile class when icon is clicked */

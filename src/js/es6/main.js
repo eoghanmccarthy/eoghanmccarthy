@@ -8,7 +8,7 @@
     const Web = {
         // Init
         init: () => {
-            this.nav.bind();
+            Web.nav.bind();
         },
         // Menu
         nav: {
@@ -26,7 +26,7 @@
         }
     };
 
-    //Web.init();
+    Web.init();
 
 })();
 
