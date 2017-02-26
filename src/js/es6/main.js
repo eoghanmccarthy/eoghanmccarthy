@@ -8,18 +8,21 @@
     const Web = {
         // Init
         init: () => {
-            Web.nav();
+            Web.nav.bind();
         },
         // Menu
-        nav: () => {
-            $('#navBarIcon').on('click', () => {
-                let menu = $('#navBar');
-                if (menu.className === 'nav-bar') {
-                    menu.className += ' nav-bar--xs';
-                } else {
-                    menu.className = 'nav-bar';
-                }
-            });
+        nav: {
+            // Bind menu
+            bind: () => {
+                $('#navBarIcon').on('click', () => {
+                    let menu = $('#navBar');
+                    if (menu.className === 'nav-bar') {
+                        menu.className += ' nav-bar--xs';
+                    } else {
+                        menu.className = 'nav-bar';
+                    }
+                });
+            }
         }
     };
 

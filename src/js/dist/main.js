@@ -10,18 +10,21 @@
     var Web = {
         // Init
         init: function init() {
-            Web.nav();
+            Web.nav.bind();
         },
         // Menu
-        nav: function nav() {
-            $('#navBarIcon').on('click', function () {
-                var menu = $('#navBar');
-                if (menu.className === 'nav-bar') {
-                    menu.className += ' nav-bar--xs';
-                } else {
-                    menu.className = 'nav-bar';
-                }
-            });
+        nav: {
+            // Bind menu
+            bind: function bind() {
+                $('#navBarIcon').on('click', function () {
+                    var menu = $('#navBar');
+                    if (menu.className === 'nav-bar') {
+                        menu.className += ' nav-bar--xs';
+                    } else {
+                        menu.className = 'nav-bar';
+                    }
+                });
+            }
         }
     };
 
