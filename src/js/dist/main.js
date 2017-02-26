@@ -10,7 +10,7 @@
     var Web = {
         // Init
         init: function init() {
-            this.nav();
+            Web.nav();
         },
         // Menu
         nav: function nav() {

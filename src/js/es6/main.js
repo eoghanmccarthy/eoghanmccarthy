@@ -5,14 +5,14 @@
 (function () {
 
     // Web app
-    var Web = {
+    const Web = {
         // Init
-        init: function() {
-            this.nav();
+        init: () => {
+            Web.nav();
         },
         // Menu
-        nav: function() {
-            $('#navBarIcon').on('click', function() {
+        nav: () => {
+            $('#navBarIcon').on('click', () => {
                 let menu = $('#navBar');
                 if (menu.className === 'nav-bar') {
                     menu.className += ' nav-bar--xs';
