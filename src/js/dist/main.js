@@ -10,14 +10,13 @@
     var Web = {
         // Init
         init: function init() {
-            Web.nav.bind();
+            undefined.nav.bind();
         },
         // Menu
         nav: {
             // Bind menu
             bind: function bind() {
-                var menuToggle = $('#navBarIcon');
-                menuToggle.on('click', function () {
+                $('#navBarIcon').on('click', function () {
                     var menu = $('#navBar');
                     if (menu.className === 'nav-bar') {
                         menu.className += ' nav-bar--xs';
@@ -29,7 +28,7 @@
         }
     };
 
-    Web.init();
+    //Web.init();
 })();
 
 // /* Function to add mobile class when icon is clicked */

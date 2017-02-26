@@ -8,14 +8,13 @@
     const Web = {
         // Init
         init: () => {
-            Web.nav.bind();
+            this.nav.bind();
         },
         // Menu
         nav: {
             // Bind menu
             bind: () => {
-                const menuToggle = $('#navBarIcon');
-                menuToggle.on('click', () => {
+                $('#navBarIcon').on('click', () => {
                     let menu = $('#navBar');
                     if (menu.className === 'nav-bar') {
                         menu.className += ' nav-bar--xs';
@@ -27,7 +26,7 @@
         }
     };
 
-    Web.init();
+    //Web.init();
 
 })();
 
