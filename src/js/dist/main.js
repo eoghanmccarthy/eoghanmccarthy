@@ -4,24 +4,14 @@
  * Main
  */
 
-// (function() {
-//     // Responsive navigation menu
-//     // Add mobile class when icon is clicked
-//     nav: {
-//         $('#navBarIcon').on('click', function() {
-//             let menu = $('#navBar');
-//             if (menu.className === 'nav-bar') {
-//                 menu.className += ' nav-bar--xs';
-//             } else {
-//                 menu.className = 'nav-bar';
-//             }
-//         });
-//     }
-// } )();
-
 (function () {
+
     // Web app
     var Web = {
+        // Init
+        init: function init() {
+            this.nav();
+        },
         // Menu
         nav: function nav() {
             $('#navBarIcon').on('click', function () {
@@ -35,7 +25,7 @@
         }
     };
 
-    Web.nav();
+    Web.init();
 })();
 
 // /* Function to add mobile class when icon is clicked */
