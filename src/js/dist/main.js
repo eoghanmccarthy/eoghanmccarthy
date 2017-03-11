@@ -10,7 +10,7 @@
     var Web = {
         // Init
         init: function init() {
-            undefined.bind();
+            Web.bind();
         },
         // Bind
         bind: function bind() {

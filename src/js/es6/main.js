@@ -8,7 +8,7 @@
     const Web = {
         // Init
         init: () => {
-            this.bind();
+            Web.bind();
         },
         // Bind
         bind: () => {
