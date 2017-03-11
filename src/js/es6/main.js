@@ -8,11 +8,15 @@
     const Web = {
         // Init
         init: () => {
-            Web.menu.bind();
+            this.bind();
+        },
+        // Bind
+        bind: () => {
+            this.menu.bind();
         },
         // Menu
         menu: {
-            // Bind menu
+            // Bind
             bind: () => {
                 $('#menu-toggle').on('click', () => {
                     let m = $('#menu');

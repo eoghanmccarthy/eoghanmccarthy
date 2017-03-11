@@ -10,11 +10,15 @@
     var Web = {
         // Init
         init: function init() {
-            Web.menu.bind();
+            undefined.bind();
+        },
+        // Bind
+        bind: function bind() {
+            undefined.menu.bind();
         },
         // Menu
         menu: {
-            // Bind menu
+            // Bind
             bind: function bind() {
                 $('#menu-toggle').on('click', function () {
                     var m = $('#menu');
