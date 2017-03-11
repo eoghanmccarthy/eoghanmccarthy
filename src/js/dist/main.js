@@ -14,7 +14,7 @@
         },
         // Bind
         bind: function bind() {
-            undefined.menu.bind();
+            menu.bind();
         },
         // Menu
         menu: {
