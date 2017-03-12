@@ -12,7 +12,7 @@
         },
         // Bind
         bind: () => {
-            this.menu.bind();
+        Web.menu.bind();
         },
         // Menu
         menu: {
