@@ -1,7 +1,7 @@
-/*
- * Lightbox
- */
-
+// /*
+//  * Lightbox
+//  */
+//
 // (() => {
 //
 //     // Lightbox app
@@ -15,13 +15,13 @@
 //
 //         },
 //         // Console
-//         console: $('#lightbox'),
+//         modal: $('#lightbox'),
 //         // Open
 //         open: () => {
 //             let media = $('.media__content');
 //             for (let i = 0; i < media.length; i++) {
 //                 media[i].on('click', () => {
-//                     this.console.style.display = 'block';
+//                     this.modal.style.display = 'block';
 //                 });
 //             }
 //         },
@@ -29,7 +29,7 @@
 //         close: () => {
 //             let button = $('#lightboxClose');
 //             button.on('click', () => {
-//                 this.console.style.display = 'none';
+//                 this.modal.style.display = 'none';
 //             });
 //         },
 //         // Slide
@@ -53,8 +53,25 @@
 //             current: function top(n) {
 //                 this.index = n;
 //             },
+// 			// Slide navigation
+// 			nav: () => {
+// 				// Previous slide
+// 				prv: () => {
+// 					let prevBtn = $('#prevBtn');
+// 					prevBtn.on('click', () => {
+// 		                show(index += n);
+// 		            });
+// 				},
+// 				// Next slide
+// 				nxt: () => {
+// 					let nextBtn = $('#nextBtn');
+// 					nextBtn.on('click', () => {
+// 		                show(index -= n);
+// 		            });
+// 				}
+// 			},
 //
-//             function slideDisplay(n) {
+//             function showSlide(n) {
 //                 let i;
 //                 let slides = $class("slide");
 //                 /* Return index to 1 if 9 */
@@ -140,35 +157,40 @@
 //     */
 //
 //     let index = 1;
-//     slideDisplay(index);
+//     showSlide(index);
 //
 //     /* Set clicked gallery image as index */
 //     function topSlide(n) {
-//         slideDisplay(index = n);
+//         showSlide(index = n);
 //     }
+//
+// 	// Constructor function
+// 	function plusSlides(n) {
+// 		show(index += n);
+// 	}
 //
 //     let prv = $id("navBack");
 //     let nxt = $id("navForward");
 //
 //     function nav(x) {
 //         this.addEventListener("click", function() {
-//          slideDisplay(index `${x= 1}`);
+//          showSlide(index `${x= 1}`);
 //         });
 //     };
 //
 //     prv = nav(`-`);
 //     nxt = nav(`+`);
 //
-//     // back.addEventListener("click", function() {
-//     //     slideDisplay(index -= 1);
-//     // });
-//     //
-//     // forward.addEventListener("click", function() {
-//     //     slideDisplay(index += 1);
-//     // });
+//     back.addEventListener("click", function() {
+//         showSlide(index -= 1);
+//     });
+//
+//     forward.addEventListener("click", function() {
+//         showSlide(index += 1);
+//     });
 //
 //     /* Navigation controller */
-//     function slideDisplay(n) {
+//     function showSlide(n) {
 //         let i;
 //         let slides = $class("slide");
 //         /* Return index to 1 if 9 */

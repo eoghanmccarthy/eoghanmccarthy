@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 /*
  * Main
@@ -14,7 +14,7 @@
         },
         // Bind
         bind: function bind() {
-            Web.menu.bind();
+            undefined.menu.bind();
         },
         // Menu
         menu: {
