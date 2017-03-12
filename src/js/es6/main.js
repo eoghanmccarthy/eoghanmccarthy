@@ -2,17 +2,17 @@
  * Main
  */
 
-(() => {
+//(() => {
 
     // Web app
-    const Web = {
+    var Web = {
         // Init
         init: () => {
             Web.bind();
         },
         // Bind
         bind: () => {
-        Web.menu.bind();
+        menu.bind();
         },
         // Menu
         menu: {
@@ -32,7 +32,7 @@
 
     Web.init();
 
-})();
+//})();
 
 // /* Function to add mobile class when icon is clicked */
 // const navBar = document.getElementById('menu');
