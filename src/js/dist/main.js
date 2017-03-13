@@ -4,16 +4,6 @@
  * Main
  */
 
-// Toggle mobile nav
-// $('#menu-toggle').on('click', function() {
-// 	let navBar = document.getElementById('menu');
-// 	if (navBar.className === 'menu-nav__list') {
-// 		navBar.className += ' menu-nav__list--xs';
-// 	} else {
-// 		navBar.className = 'menu-nav__list';
-// 	}
-// });
-
 (function () {
 
 	// Web app
@@ -44,3 +34,13 @@
 
 	Web.init();
 })();
+
+// Toggle mobile nav
+// $('#menu-toggle').on('click', function() {
+// 	let navBar = document.getElementById('menu');
+// 	if (navBar.className === 'menu-nav__list') {
+// 		navBar.className += ' menu-nav__list--xs';
+// 	} else {
+// 		navBar.className = 'menu-nav__list';
+// 	}
+// });
