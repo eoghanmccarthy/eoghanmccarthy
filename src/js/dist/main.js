@@ -37,13 +37,13 @@
 // })();
 
 // Function to add mobile class when icon is clicked
-var menu = $('#menu');
-var menuToggle = $('#menu-toggle');
+var navBar = document.getElementById('menu');
+var navBarIcon = document.getElementById('menu-toggle');
 
-menuToggle.on('click', function () {
-	if (menu.className === 'menu-nav__list') {
-		menu.className += ' menu-nav__list--xs';
+navBarIcon.addEventListener("click", function () {
+	if (navBar.className === 'menu-nav__list') {
+		navBar.className += ' menu-nav__list--xs';
 	} else {
-		menu.className = 'menu-nav__list';
+		navBar.className = 'menu-nav__list';
 	}
 });
