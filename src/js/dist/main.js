@@ -6,7 +6,7 @@
 
 // Toggle mobile nav
 $('#menu-toggle').on('click', function () {
-	var navBar = document.getElementById('menu');
+	var navBar = $('#menu');
 	if (navBar.className === 'menu-nav__list') {
 		navBar.className += ' menu-nav__list--xs';
 	} else {
