@@ -21,17 +21,19 @@
       modal: {
          // Open
          open: function open() {
-            var media = $('.media__content');
-            for (var i = 0; i < media.length; i++) {
-               media[i].on('click', function () {
-                  $('#lightbox').style.display = 'block';
-               });
-            }
+            $('.media__content').on('click', function () {
+               $('#lightbox').style.display = 'block';
+            });
+            // let media = $('.media__content');
+            // for (let i = 0; i < media.length; i++) {
+            // 	media[i].on('click', () => {
+            // 		$('#lightbox').style.display = 'block';
+            // 	});
+            // }
          },
          // Close
          close: function close() {
-            var button = document.getElementById('lightboxClose');
-            button.on('click', function () {
+            $('#lightboxClose').on('click', function () {
                $('#lightbox').style.display = 'none';
             });
          }

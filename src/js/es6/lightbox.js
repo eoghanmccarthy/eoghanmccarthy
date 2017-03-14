@@ -19,17 +19,19 @@
 		modal: {
 			// Open
 			open: () => {
-				let media = $('.media__content');
-				for (let i = 0; i < media.length; i++) {
-					media[i].on('click', () => {
-						$('#lightbox').style.display = 'block';
-					});
-				}
+				$('.media__content').on('click', () => {
+					$('#lightbox').style.display = 'block';
+				});
+				// let media = $('.media__content');
+				// for (let i = 0; i < media.length; i++) {
+				// 	media[i].on('click', () => {
+				// 		$('#lightbox').style.display = 'block';
+				// 	});
+				// }
 			},
 			// Close
 			close: () => {
-				let button = document.getElementById('lightboxClose');
-				button.on('click', () => {
+				$('#lightboxClose').on('click', () => {
 					$('#lightbox').style.display = 'none';
 				});
 			}
