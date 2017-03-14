@@ -31,7 +31,65 @@
                $('.lightbox').style.display = 'none';
             });
          }
+      },
+      // Slide
+      slide: {
+         stack: function stack() {
+            var count = $('#gallery').childElementCount;
+            for (var i = 1; i <= count; i++) {
+               var unit = document.createElement('div');
+               unit.className = 'slide slide-' + i;
+               var deck = document.createDocumentFragment();
+               deck.appendChild(unit);
+            }
+            // Append slide stack fragment to viewer
+            //const viewer = $('#lightboxViewer');
+            $('#lightboxViewer').appendChild(Lightbox.slide.stack);
+         }
       }
+      //     // Index
+      //     index: 1,
+      //     // Show clicked image as top slide
+      //     current: function top(n) {
+      //         this.index = n;
+      //     },
+      // 	// Slide navigation
+      // 	nav: () => {
+      // 		// Previous slide
+      // 		prv: () => {
+      // 			let prevBtn = $('#prevBtn');
+      // 			prevBtn.on('click', () => {
+      //                 show(index += n);
+      //             });
+      // 		},
+      // 		// Next slide
+      // 		nxt: () => {
+      // 			let nextBtn = $('#nextBtn');
+      // 			nextBtn.on('click', () => {
+      //                 show(index -= n);
+      //             });
+      // 		}
+      // 	},
+      //
+      //     function showSlide(n) {
+      //         let i;
+      //         let slides = $class("slide");
+      //         /* Return index to 1 if 9 */
+      //         if (n > slides.length) {
+      //          index = 1;
+      //         }
+      //         /* Return index to 8 if 0 */
+      //         if (n < 1) {
+      //          index = slides.length;
+      //         }
+      //         /* Hide all slides */
+      //         for (i = 0; i < slides.length; i++) {
+      //         Hide(slides[i])
+      //         }
+      //         /* Display current indexed slide */
+      //         Show(slides[index-1])
+      //     }
+      // },
    };
 
    Lightbox.init();

@@ -30,21 +30,21 @@
 				});
 			}
 		},
-		// // Slide
-        // slide: {
-        //     stack: () => {
-        //         const gallery = $('#gallery');
-        //         let count = gallery.childElementCount;
-        //         for (let i = 1; i <= count; i++) {
-        //             let unit = document.createElement('div');
-        //             unit.className = "slide slide-" + i;
-        //             let deck = document.createDocumentFragment();
-        //             deck.appendChild(unit);
-        //         },
-        //         // Append slide stack fragment to viewer
-        //         const viewer = $('#lightboxViewer');
-        //         viewer.appendChild(stack);
-        //     },
+		// Slide
+        slide: {
+            stack: () => {
+                let count = $('#gallery').childElementCount;
+                for (let i = 1; i <= count; i++) {
+                    let unit = document.createElement('div');
+                    unit.className = 'slide slide-' + i;
+                    let deck = document.createDocumentFragment();
+                    deck.appendChild(unit);
+                }
+                // Append slide stack fragment to viewer
+                //const viewer = $('#lightboxViewer');
+                $('#lightboxViewer').appendChild(Lightbox.slide.stack);
+            }
+		}
         //     // Index
         //     index: 1,
         //     // Show clicked image as top slide
