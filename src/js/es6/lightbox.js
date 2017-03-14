@@ -19,20 +19,14 @@
 		modal: {
 			// Open
 			open: () => {
-				$('.media__content').on('click', () => {
-					$('#lightbox').style.display = 'block';
+				$('div.media__content').on('click', () => {
+					$('.lightbox').style.display = 'block';
 				});
-				// let media = $('.media__content');
-				// for (let i = 0; i < media.length; i++) {
-				// 	media[i].on('click', () => {
-				// 		$('#lightbox').style.display = 'block';
-				// 	});
-				// }
 			},
 			// Close
 			close: () => {
 				$('#lightboxClose').on('click', () => {
-					$('#lightbox').style.display = 'none';
+					$('.lightbox').style.display = 'none';
 				});
 			}
 		},
