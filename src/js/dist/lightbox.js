@@ -21,7 +21,7 @@
       modal: {
          // Open
          open: function open() {
-            $('div.media__content').on('click', function () {
+            $('img.media__content').on('click', function () {
                $('.lightbox').style.display = 'block';
             });
          },

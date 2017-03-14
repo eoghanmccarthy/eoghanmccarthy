@@ -19,7 +19,7 @@
 		modal: {
 			// Open
 			open: () => {
-				$('div.media__content').on('click', () => {
+				$('img.media__content').on('click', () => {
 					$('.lightbox').style.display = 'block';
 				});
 			},
