@@ -37,10 +37,10 @@
 
 // Toggle mobile nav
 // $('#menu-toggle').on('click', function() {
-// 	let navBar = document.getElementById('menu');
-// 	if (navBar.className === 'menu-nav__list') {
-// 		navBar.className += ' menu-nav__list--xs';
+// 	let m = document.getElementById('menu');
+// 	if (m.className === 'menu-nav__list') {
+// 		m.className += ' menu-nav__list--xs';
 // 	} else {
-// 		navBar.className = 'menu-nav__list';
+// 		m.className = 'menu-nav__list';
 // 	}
 // });
