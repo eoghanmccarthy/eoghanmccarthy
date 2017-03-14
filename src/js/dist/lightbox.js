@@ -21,8 +21,8 @@
       modal: {
          // Open
          open: function open() {
-            var media = document.getElementByClass('media__content');
-            for (var i = 0; i < media.length; i++) {
+            var media = $('.media__content').length;
+            for (var i = 0; i < media; i++) {
                media[i].on('click', function () {
                   $('#lightbox').style.display = 'block';
                });
