@@ -38,10 +38,11 @@
             for (var i = 1; i <= $('figure.media').length; i++) {
                var unit = document.createElement('div');
                unit.className = 'slide slide-' + i;
-               var _deck = document.createDocumentFragment();
-               _deck.appendChild(unit);
+               $('#lightboxViewer').appendChild(unit);
+               // let deck = document.createDocumentFragment();
+               // deck.appendChild(unit);
             };
-            $('#lightboxViewer').appendChild(deck);
+            //$('#lightboxViewer').appendChild(deck);
             // $('#lightboxViewer').append(unit);
             // let count = $('#gallery').childElementCount;
             // for (let i = 1; i <= count; i++) {
