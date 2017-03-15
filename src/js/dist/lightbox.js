@@ -35,16 +35,23 @@
       // Slide
       slide: {
          stack: function stack() {
-            var count = $('#gallery').childElementCount;
-            for (var i = 1; i <= count; i++) {
+            for (var i = 1; i <= $('div.media').length; i++) {
                var unit = document.createElement('div');
                unit.className = 'slide slide-' + i;
                var deck = document.createDocumentFragment();
                deck.appendChild(unit);
             }
+            // $('#lightboxViewer').appendChild(Lightbox.slide.stack);
+            // let count = $('#gallery').childElementCount;
+            // for (let i = 1; i <= count; i++) {
+            //     let unit = document.createElement('div');
+            //     unit.className = 'slide slide-' + i;
+            //     let deck = document.createDocumentFragment();
+            //     deck.appendChild(unit);
+            // }
             // Append slide stack fragment to viewer
-            //const viewer = $('#lightboxViewer');
-            $('#lightboxViewer').appendChild(Lightbox.slide.stack);
+            // const viewer = $('#lightboxViewer');
+            // $('#lightboxViewer').appendChild(Lightbox.slide.stack);
          }
       }
       //     // Index
