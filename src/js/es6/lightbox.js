@@ -20,13 +20,13 @@
 			// Open
 			open: () => {
 				$('img.media__content').on('click', () => {
-					document.getElementByClass('lightbox').style.display = 'block';
+					$('.lightbox').css('display', 'block');
 				});
 			},
 			// Close
 			close: () => {
 				$('#lightboxClose').on('click', () => {
-					$('#lightbox').style.display = 'none';
+					$('.lightbox').css('display', 'none');
 				});
 			}
 		},

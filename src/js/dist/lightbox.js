@@ -22,13 +22,13 @@
          // Open
          open: function open() {
             $('img.media__content').on('click', function () {
-               document.getElementByClass('lightbox').style.display = 'block';
+               $('.lightbox').css('display', 'block');
             });
          },
          // Close
          close: function close() {
             $('#lightboxClose').on('click', function () {
-               $('#lightbox').style.display = 'none';
+               $('.lightbox').css('display', 'none');
             });
          }
       },
