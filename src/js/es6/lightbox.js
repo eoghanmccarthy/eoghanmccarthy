@@ -31,15 +31,15 @@
 			}
 		},
 		// Slide
-        slide: {
-            stack: () => {
-                for (let i = 1; i <= $('figure.media').length; i++) {
-                    let unit = document.createElement('div');
-                    unit.className = 'slide slide-' + i;
+		slide: {
+			stack: () => {
+				for (let i = 1; i <= $('figure.media').length; i++) {
+					let unit = document.createElement('div');
+					unit.className = 'slide slide-' + i;
 					let deck = document.createDocumentFragment();
-	                deck.appendChild(unit);
-                };
-				$('#lightboxViewer').appendChild(Lightbox.slide.stack);
+					deck.appendChild(unit);
+				};
+				$('#lightboxViewer').appendChild(deck);
                 // $('#lightboxViewer').append(unit);
                 // let count = $('#gallery').childElementCount;
                 // for (let i = 1; i <= count; i++) {
