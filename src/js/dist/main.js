@@ -14,13 +14,12 @@
 		},
 		// Bind
 		bind: function bind() {
-			Web.menu.open();
-			Web.menu.close();
+			Web.menu.bind();
 		},
 		// Menu
 		menu: {
 			// Open
-			open: function open() {
+			bind: function bind() {
 				$('#menu-toggle').on('click', function () {
 					$('#menu').toggleClass('menu-nav__list--xs');
 					// let m = document.getElementById('menu');
