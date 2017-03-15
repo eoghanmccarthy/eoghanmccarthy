@@ -14,12 +14,13 @@
 		},
 		// Bind
 		bind: function bind() {
-			Web.menu.bind();
+			Web.menu.open();
+			Web.menu.close();
 		},
 		// Menu
 		menu: {
-			// Bind
-			bind: function bind() {
+			// Open
+			open: function open() {
 				$('#menu-toggle').on('click', function () {
 					// let m = document.getElementById('menu');
 					// if (m.className === 'menu-nav__list') {
@@ -33,6 +34,13 @@
 					// else {
 					// 	m.className = 'menu-nav__list';
 					// }
+				});
+			},
+			close: function close() {
+				$('#menu-toggle').on('click', function () {
+					if ($('#menu').hasClass('menu-nav__list--xs')) {
+						$('#menu').removeClass('menu-nav__list--xs');
+					}
 				});
 			}
 		}

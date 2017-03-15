@@ -12,12 +12,13 @@
 		},
 		// Bind
 		bind: () => {
-			Web.menu.bind();
+			Web.menu.open();
+			Web.menu.close();
 		},
 		// Menu
 		menu: {
-			// Bind
-			bind: () => {
+			// Open
+			open: () => {
 				$('#menu-toggle').on('click', () => {
 					// let m = document.getElementById('menu');
 					// if (m.className === 'menu-nav__list') {
@@ -31,6 +32,13 @@
 					// else {
 					// 	m.className = 'menu-nav__list';
 					// }
+				});
+			},
+			close: () => {
+				$('#menu-toggle').on('click', () => {
+					if ($('#menu').hasClass('menu-nav__list--xs')) {
+						$('#menu').removeClass('menu-nav__list--xs');
+					}
 				});
 			}
 		}
