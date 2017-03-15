@@ -20,7 +20,7 @@
 			// Open
 			open: () => {
 				$('img.media__content').on('click', () => {
-					$('#lightbox').style.display = 'block';
+					document.getElementByClass('lightbox').style.display = 'block';
 				});
 			},
 			// Close

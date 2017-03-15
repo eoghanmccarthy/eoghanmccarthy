@@ -22,7 +22,7 @@
          // Open
          open: function open() {
             $('img.media__content').on('click', function () {
-               $('#lightbox').style.display = 'block';
+               document.getElementByClass('lightbox').style.display = 'block';
             });
          },
          // Close
