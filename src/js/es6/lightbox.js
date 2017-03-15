@@ -33,7 +33,7 @@
 		// Slide
         slide: {
             stack: () => {
-                for (let i = 1; i <= $('div.media').length; i++) {
+                for (let i = 1; i <= $('figure.media').length; i++) {
                     let unit = document.createElement('div');
                     unit.className = 'slide slide-' + i;
                     $('#lightboxViewer').append(unit);
