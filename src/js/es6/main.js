@@ -20,25 +20,19 @@
 			// Open
 			open: () => {
 				$('#menu-toggle').on('click', () => {
+					$('#menu').toggleClass('menu-nav__list--xs');
 					// let m = document.getElementById('menu');
 					// if (m.className === 'menu-nav__list') {
 					// 	m.className += ' menu-nav__list--xs';
 					// } else {
 					// 	m.className = 'menu-nav__list';
 					// }
-					if ($('#menu').hasClass('menu-nav__list')) {
-						$('#menu').addClass('menu-nav__list--xs');
-					}
+					// if ($('#menu').hasClass('menu-nav__list')) {
+					// 	$('#menu').addClass('menu-nav__list--xs');
+					// }
 					// else {
 					// 	m.className = 'menu-nav__list';
 					// }
-				});
-			},
-			close: () => {
-				$('#menu-toggle').on('click', () => {
-					if ($('#menu').hasClass('menu-nav__list--xs')) {
-						$('#menu').removeClass('menu-nav__list--xs');
-					}
 				});
 			}
 		}
