@@ -19,7 +19,7 @@
 			// Bind
 			bind: () => {
 				$('#menu-toggle').on('click', () => {
-					let m = $('#menu');
+					let m = document.getElementById('menu');
 					if (m.className === 'menu-nav__list') {
 						m.className += ' menu-nav__list--xs';
 					} else {
