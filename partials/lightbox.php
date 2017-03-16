@@ -10,8 +10,8 @@
 
     <!-- Lightbox navigation -->
     <div class="lightbox__nav">
-        <a id="prevBtn" class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>
-        <a id="nextBtn" class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>
+        <a id="prev" class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>
+        <a id="next" class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>
     </div>
 
 </div>

@@ -12,12 +12,12 @@
 		},
 		// Bind
 		bind: () => {
-			Web.menu.bind();
+			Web.menu.toggle();
 		},
 		// Menu
 		menu: {
 			// Open
-			bind: () => {
+			toggle: () => {
 				$('#menu-toggle').on('click', () => {
 					$('#menu').toggleClass('menu-nav__list--xs');
 				});
@@ -28,13 +28,3 @@
 	Web.init();
 
 })();
-
-// Toggle mobile nav
-// $('#menu-toggle').on('click', function() {
-// 	let m = document.getElementById('menu');
-// 	if (m.className === 'menu-nav__list') {
-// 		m.className += ' menu-nav__list--xs';
-// 	} else {
-// 		m.className = 'menu-nav__list';
-// 	}
-// });
