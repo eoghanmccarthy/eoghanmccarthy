@@ -17,7 +17,7 @@
 			Lightbox.slide.bind();
 		},
 		// Index
-		// index: 1,
+		index: 1,
 		// Modal
 		modal: {
 			// Open
@@ -45,24 +45,21 @@
 			// Stack slides
 			stack: () => {
 				// Create deck
-				// let deck = document.createDocumentFragment();
-				// for (let i = 1; i <= $('figure.media').length; i++) {
-				// 	let unit = document.createElement('div');
-				// 	unit.className = 'slide slide-' + i;
-				// 	deck.appendChild(unit);
-				// };
-				// // Prepend deck
-				// $('#lightboxViewer').prepend(deck);
+				let deck = document.createDocumentFragment();
 				for (let i = 1; i <= $('figure.media').length; i++) {
-					$('#lightboxViewer').html($("<div class='slide slide-' + i></div>"));
+					let unit = document.createElement('div');
+					unit.className = 'slide slide-' + i;
+					deck.appendChild(unit);
 				};
+				// Prepend deck
+				$('#lightboxViewer').prepend(deck);
 			},
 			// Display clicked gallery image
-			// top: () => {
-			// 	deck[i].on('click'), () => {
-			// 		Lightbox.index = i;
-			// 	}
-			// },
+			top: () => {
+				deck[i].on('click'), () => {
+					Lightbox.index = i;
+				}
+			},
 			// navigation: () => {
 			// 	// Constructor
 			// 	let nav = class {
