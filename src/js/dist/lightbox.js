@@ -36,6 +36,7 @@
       // Slide
       slide: {
          stack: function stack() {
+            // Create deck
             var deck = document.createDocumentFragment();
             for (var i = 1; i <= $('figure.media').length; i++) {
                var unit = document.createElement('div');
@@ -43,7 +44,7 @@
                unit.addClass('slide slide-' + i);
                deck.append(unit);
             };
-            // Prepend deck to viewer
+            // Prepend deck
             $('#lightboxViewer').prepend(deck);
          }
       }

@@ -34,14 +34,15 @@
 		// Slide
 		slide: {
 			stack: () => {
+				// Create deck
 				let deck = document.createDocumentFragment();
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let unit = document.createElement('div');
 					//unit.className = 'slide slide-' + i;
-					unit.addClass('slide slide-' + i);
-					deck.append(unit);
+					(unit).addClass('slide slide-' + i);
+					(deck).append(unit);
 				};
-				// Prepend deck to viewer
+				// Prepend deck
 				$('#lightboxViewer').prepend(deck);
             },
 		}
