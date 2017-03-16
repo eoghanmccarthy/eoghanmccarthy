@@ -39,8 +39,8 @@
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let unit = document.createElement('div');
 					//unit.className = 'slide slide-' + i;
-					(unit).addClass('slide slide-' + i);
-					(deck).append(unit);
+					unit.className = 'slide slide-' + i;
+					deck.appendChild(unit);
 				};
 				// Prepend deck
 				$('#lightboxViewer').prepend(deck);
