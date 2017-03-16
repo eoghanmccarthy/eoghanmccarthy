@@ -39,7 +39,7 @@
             for (var i = 1; i <= $('figure.media').length; i++) {
                var unit = document.createElement('div');
                unit.className = 'slide slide-' + i;
-               $('#lightboxViewer').appendChild(unit);
+               $('#lightboxViewer').prepend(unit);
                // let deck = document.createDocumentFragment();
                // deck.appendChild(unit);
             };
