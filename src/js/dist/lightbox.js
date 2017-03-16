@@ -39,21 +39,12 @@
             var deck = document.createDocumentFragment();
             for (var i = 1; i <= $('figure.media').length; i++) {
                var unit = document.createElement('div');
-               unit.className = 'slide slide-' + i;
-               deck.appendChild(unit);
+               //unit.className = 'slide slide-' + i;
+               unit.addClass('slide slide-' + i);
+               deck.append(unit);
             };
+            // Prepend deck to viewer
             $('#lightboxViewer').prepend(deck);
-            // $('#lightboxViewer').append(unit);
-            // let count = $('#gallery').childElementCount;
-            // for (let i = 1; i <= count; i++) {
-            //     let unit = document.createElement('div');
-            //     unit.className = 'slide slide-' + i;
-            //     let deck = document.createDocumentFragment();
-            //     deck.appendChild(unit);
-            // }
-            // Append slide stack fragment to viewer
-            // const viewer = $('#lightboxViewer');
-            // $('#lightboxViewer').appendChild(Lightbox.slide.stack);
          }
       }
       //     // Index
