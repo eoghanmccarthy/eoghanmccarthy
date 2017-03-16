@@ -34,14 +34,13 @@
 		// Slide
 		slide: {
 			stack: () => {
+				let deck = document.createDocumentFragment();
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let unit = document.createElement('div');
 					unit.className = 'slide slide-' + i;
-					$('#lightboxViewer').prepend(unit);
-					// let deck = document.createDocumentFragment();
-					// deck.appendChild(unit);
+					deck.appendChild(unit);
 				};
-				//$('#lightboxViewer').appendChild(deck);
+				$('#lightboxViewer').prepend(deck);
                 // $('#lightboxViewer').append(unit);
                 // let count = $('#gallery').childElementCount;
                 // for (let i = 1; i <= count; i++) {
