@@ -14,6 +14,7 @@
 		bind: () => {
 			Lightbox.modal.open();
 			Lightbox.modal.close();
+			Lightbox.slide.stack();
 		},
 		// Modal
 		modal: {
