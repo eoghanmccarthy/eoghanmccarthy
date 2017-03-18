@@ -50,12 +50,12 @@
 					let unit = $(`<div class="slide slide-${i}"></div>`);
 					viewer.append(unit);
 				};
-				// Prepend deck
+				// Prepend viewer
 				$('#lightbox').prepend(viewer);
 			},
 			// Display clicked gallery image
 			top: () => {
-				$('img.media__content'[i]).on('click'), () => {
+				$('img.media__content[i]').on('click'), () => {
 					Lightbox.index = i;
 				}
 			},
