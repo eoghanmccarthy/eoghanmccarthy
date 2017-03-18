@@ -55,7 +55,7 @@
 			},
 			// Display clicked gallery image
 			top: () => {
-				$('img.media__content'[i]).on('click'), () => {
+				$('img.media__content')[i].on('click'), () => {
 					Lightbox.index = i;
 				}
 			},
