@@ -48,24 +48,14 @@
 				let viewer = $('<div id="viewer"></div>');
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let unit = $(`<div class="slide slide-${i}"></div>`);
-					// $unit.className = 'slide slide-' + i;
 					viewer.append(unit);
 				};
 				// Prepend deck
 				$('#lightbox').prepend(viewer);
-				// // Create deck
-				// let deck = document.createDocumentFragment();
-				// for (let i = 1; i <= $('figure.media').length; i++) {
-				// 	let unit = document.createElement('div');
-				// 	unit.className = 'slide slide-' + i;
-				// 	deck.appendChild(unit);
-				// };
-				// // Prepend deck
-				// $('#viewer').prepend(deck);
 			},
 			// Display clicked gallery image
 			top: () => {
-				deck[i].on('click'), () => {
+				$('img.media__content[i]').on('click'), () => {
 					Lightbox.index = i;
 				}
 			},

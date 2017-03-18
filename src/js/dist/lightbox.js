@@ -50,24 +50,14 @@
 				var viewer = $('<div id="viewer"></div>');
 				for (var _i = 1; _i <= $('figure.media').length; _i++) {
 					var unit = $('<div class="slide slide-' + _i + '"></div>');
-					// $unit.className = 'slide slide-' + i;
 					viewer.append(unit);
 				};
 				// Prepend deck
 				$('#lightbox').prepend(viewer);
-				// // Create deck
-				// let deck = document.createDocumentFragment();
-				// for (let i = 1; i <= $('figure.media').length; i++) {
-				// 	let unit = document.createElement('div');
-				// 	unit.className = 'slide slide-' + i;
-				// 	deck.appendChild(unit);
-				// };
-				// // Prepend deck
-				// $('#viewer').prepend(deck);
 			},
 			// Display clicked gallery image
 			top: function top() {
-				deck[i].on('click'), function () {
+				$('img.media__content[i]').on('click'), function () {
 					Lightbox.index = i;
 				};
 			}

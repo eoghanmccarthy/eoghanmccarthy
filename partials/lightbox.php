@@ -4,10 +4,6 @@
 	<!-- Close button -->
 	<span id="closeButton" class="lightbox__close">&times;</span>
 
-	<!-- Lightbox slides -->
-	<!-- <div id="viewer">
-	</div> -->
-
 	<!-- Lightbox navigation -->
 	<div class="lightbox__nav">
 		<a id="prev" class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>
