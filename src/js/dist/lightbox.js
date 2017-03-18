@@ -30,7 +30,7 @@
 			},
 			// Close
 			close: function close() {
-				$('#lightboxClose').on('click', function () {
+				$('#closeButton').on('click', function () {
 					$('.lightbox').css('display', 'none');
 				});
 			}
@@ -41,20 +41,29 @@
 			bind: function bind() {
 				Lightbox.slide.stack();
 				Lightbox.slide.top();
-				Lightbox.slide.navigation();
-				Lightbox.slide.display();
+				// Lightbox.slide.navigation();
+				// Lightbox.slide.display();
 			},
 			// Stack slides
 			stack: function stack() {
 				// Create deck
-				var deck = document.createDocumentFragment();
+				var viewer = $('<div id="viewer"></div>');
 				for (var _i = 1; _i <= $('figure.media').length; _i++) {
-					var unit = document.createElement('div');
-					unit.className = 'slide slide-' + _i;
-					deck.appendChild(unit);
+					var unit = $('<div class="slide slide-' + _i + '"></div>');
+					// $unit.className = 'slide slide-' + i;
+					viewer.append(unit);
 				};
 				// Prepend deck
-				$('#lightboxViewer').prepend(deck);
+				$('#lightbox').prepend(viewer);
+				// // Create deck
+				// let deck = document.createDocumentFragment();
+				// for (let i = 1; i <= $('figure.media').length; i++) {
+				// 	let unit = document.createElement('div');
+				// 	unit.className = 'slide slide-' + i;
+				// 	deck.appendChild(unit);
+				// };
+				// // Prepend deck
+				// $('#viewer').prepend(deck);
 			},
 			// Display clicked gallery image
 			top: function top() {

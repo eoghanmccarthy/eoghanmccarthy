@@ -28,7 +28,7 @@
 			},
 			// Close
 			close: () => {
-				$('#lightboxClose').on('click', () => {
+				$('#closeButton').on('click', () => {
 					$('.lightbox').css('display', 'none');
 				});
 			}
@@ -39,20 +39,29 @@
 			bind: () => {
 				Lightbox.slide.stack();
 				Lightbox.slide.top();
-				Lightbox.slide.navigation();
-				Lightbox.slide.display();
+				// Lightbox.slide.navigation();
+				// Lightbox.slide.display();
 			},
 			// Stack slides
 			stack: () => {
 				// Create deck
-				let deck = document.createDocumentFragment();
+				let viewer = $('<div id="viewer"></div>');
 				for (let i = 1; i <= $('figure.media').length; i++) {
-					let unit = document.createElement('div');
-					unit.className = 'slide slide-' + i;
-					deck.appendChild(unit);
+					let unit = $(`<div class="slide slide-${i}"></div>`);
+					// $unit.className = 'slide slide-' + i;
+					viewer.append(unit);
 				};
 				// Prepend deck
-				$('#lightboxViewer').prepend(deck);
+				$('#lightbox').prepend(viewer);
+				// // Create deck
+				// let deck = document.createDocumentFragment();
+				// for (let i = 1; i <= $('figure.media').length; i++) {
+				// 	let unit = document.createElement('div');
+				// 	unit.className = 'slide slide-' + i;
+				// 	deck.appendChild(unit);
+				// };
+				// // Prepend deck
+				// $('#viewer').prepend(deck);
 			},
 			// Display clicked gallery image
 			top: () => {
