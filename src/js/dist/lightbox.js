@@ -42,7 +42,7 @@
 				Lightbox.slide.stack();
 				Lightbox.slide.top();
 				// Lightbox.slide.navigation();
-				// Lightbox.slide.display();
+				Lightbox.slide.display();
 			},
 			// Stack slides
 			stack: function stack() {
@@ -60,6 +60,31 @@
 				$('img.media__content[i]').on('click'), function () {
 					Lightbox.index = i;
 				};
+			},
+			// navigation: () => {
+			// 	// Constructor
+			// 	let nav = class {
+			// 		constructor(button, x) {
+			// 			$(button).on('click', () => {
+			// 				Lightbox.index x= n);
+			// 			});
+			// 		}
+			// 	};
+			// 	// Button instances
+			// 	const prev = new nav('#prev', -);
+			// 	const next = new nav('#next', +);
+			// },
+			display: function display(n) {
+				if (n > $('.slide').length) {
+					index = 1;
+				}
+				if (n < 1) {
+					index = $('.slide').length;
+				}
+				for (var _i2 = 0; _i2 < $('.slide').length; _i2++) {
+					slides[_i2].hide();
+				}
+				slides[index - 1].show();
 			}
 		}
 	};

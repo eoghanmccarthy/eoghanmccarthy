@@ -40,7 +40,7 @@
 				Lightbox.slide.stack();
 				Lightbox.slide.top();
 				// Lightbox.slide.navigation();
-				// Lightbox.slide.display();
+				Lightbox.slide.display();
 			},
 			// Stack slides
 			stack: () => {
@@ -72,18 +72,18 @@
 			// 	const prev = new nav('#prev', -);
 			// 	const next = new nav('#next', +);
 			// },
-			// display: (n) => {
-			// 	if (n > $('.slide').length) {
-			// 		index = 1;
-			// 	}
-			// 	if (n < 1) {
-			// 		index = $('.slide').length;
-			// 	}
-			// 	for (let i = 0; i < $('.slide').length; i++) {
-			// 		slides[i].hide();
-			// 	}
-			// 	slides[index-1].show();
-			// }
+			display: (n) => {
+				if (n > $('.slide').length) {
+					index = 1;
+				}
+				if (n < 1) {
+					index = $('.slide').length;
+				}
+				for (let i = 0; i < $('.slide').length; i++) {
+					slides[i].hide();
+				}
+				slides[index-1].show();
+			}
 		}
 	};
 
