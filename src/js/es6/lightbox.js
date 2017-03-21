@@ -60,8 +60,8 @@
 			},
 			// Display clicked gallery image
 			top: () => {
-				$('img.media__content').get(n).on('click'), () => {
-					showSlide(slideIndex = n);
+				$('img.media__content')[i].on('click'), () => {
+					showSlide(slideIndex = i);
 				}
 			},
 			navigation: {
