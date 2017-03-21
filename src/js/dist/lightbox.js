@@ -53,8 +53,8 @@
 			stack: function stack() {
 				// Compile slides
 				var viewer = $('<div id="viewer"></div>');
-				for (var _i = 1; _i <= $('figure.media').length; _i++) {
-					var unit = $('<div class="slide slide-' + _i + '"></div>');
+				for (var i = 1; i <= $('figure.media').length; i++) {
+					var unit = $('<div class="slide slide-' + i + '"></div>');
 					viewer.append(unit);
 				};
 				// Prepend viewer
@@ -62,9 +62,8 @@
 			},
 			// Display clicked gallery image
 			top: function top() {
-				var navnav = $('img.media__content').length;
-				navnav[i].on('click'), function () {
-					showSlide(slideIndex = i);
+				$('img.media__content').get(n).on('click'), function () {
+					showSlide(slideIndex = n);
 				};
 			},
 			navigation: {
