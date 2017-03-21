@@ -15,15 +15,16 @@
 		// Bind
 		bind: function bind() {
 			//Lightbox.show();
+			Lightbox.index();
 			Lightbox.modal.open();
 			Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
-		// show: () => {
-		// 	// Index
-		// 	let index = 1;
-		// 	showSlide(index);
-		// },
+		index: function index() {
+			// Index
+			var slideIndex = 1;
+			// showSlide(slideIndex);
+		},
 		// Modal
 		modal: {
 			// Open
@@ -50,7 +51,7 @@
 			},
 			// Stack slides
 			stack: function stack() {
-				// Create deck
+				// Compile slides
 				var viewer = $('<div id="viewer"></div>');
 				for (var _i = 1; _i <= $('figure.media').length; _i++) {
 					var unit = $('<div class="slide slide-' + _i + '"></div>');
@@ -61,22 +62,22 @@
 			},
 			// Display clicked gallery image
 			top: function top() {
-				var navnav = $('img.media__content');
+				var navnav = $('img.media__content').length;
 				navnav[i].on('click'), function () {
-					showSlide(index = i);
+					showSlide(slideIndex = i);
 				};
 			},
 			navigation: {
 				// Next slide
 				next: function next() {
 					$('#nextButton').on('click', function () {
-						showSlide(index + 1);
+						showSlide(slideIndex + 1);
 					});
 				},
 				// Previous slide
 				prev: function prev() {
 					$('#prevButton').on('click', function () {
-						showSlide(index - 1);
+						showSlide(slideIndex - 1);
 					});
 				}
 			}
