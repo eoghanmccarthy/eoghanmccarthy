@@ -6,18 +6,22 @@
 
 	// Lightbox app
 	const Lightbox = {
-		// Init
+		// Initialise
 		init: () => {
 			Lightbox.bind();
 		},
 		// Bind
 		bind: () => {
+			Lightbox.show();
 			Lightbox.modal.open();
 			Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
-		// Index
-		index: 1,
+		show: () => {
+			// Index
+			let index = 1;
+			showSlide(index);
+		},
 		// Modal
 		modal: {
 			// Open
@@ -39,7 +43,7 @@
 			bind: () => {
 				Lightbox.slide.stack();
 				Lightbox.slide.top();
-				// Lightbox.slide.navigation();
+				Lightbox.slide.navigation();
 				Lightbox.slide.display();
 			},
 			// Stack slides
@@ -55,35 +59,39 @@
 			},
 			// Display clicked gallery image
 			top: () => {
-				$('img.media__content[i]').on('click'), () => {
-					Lightbox.index = i;
+				let navnav = $('img.media__content');
+				navnav[i].on('click'), () => {
+					showSlide(index = i);
 				}
 			},
-			// navigation: () => {
-			// 	// Constructor
-			// 	let nav = class {
-			// 		constructor(button, x) {
-			// 			$(button).on('click', () => {
-			// 				Lightbox.index x= n);
-			// 			});
+			navigation: {
+				// Next slide
+				next: () => {
+					$('#nextButton').on('click', () => {
+						showSlide(index + 1);
+					});
+				},
+				// Previous slide
+				prev: () => {
+					$('#prevButton').on('click', () => {
+						showSlide(index - 1);
+					});
+				}
+			},
+			// display: () => {
+			// 	function showSlide(n) {
+			// 		if (n > $('.slide').length) {
+			// 			index = 1;
 			// 		}
-			// 	};
-			// 	// Button instances
-			// 	const prev = new nav('#prev', -);
-			// 	const next = new nav('#next', +);
-			// },
-			display: (n) => {
-				if (n > $('.slide').length) {
-					index = 1;
-				}
-				if (n < 1) {
-					index = $('.slide').length;
-				}
-				for (let i = 0; i < $('.slide').length; i++) {
-					slides[i].hide();
-				}
-				slides[index-1].show();
-			}
+			// 		if (n < 1) {
+			// 			index = $('.slide').length;
+			// 		}
+			// 		for (let i = 0; i < $('.slide').length; i++) {
+			// 			slides[i].hide();
+			// 		}
+			// 		slides[index-1].show();
+			// 	}
+			// }
 		}
 	};
 

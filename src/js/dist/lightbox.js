@@ -8,18 +8,22 @@
 
 	// Lightbox app
 	var Lightbox = {
-		// Init
+		// Initialise
 		init: function init() {
 			Lightbox.bind();
 		},
 		// Bind
 		bind: function bind() {
+			Lightbox.show();
 			Lightbox.modal.open();
 			Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
-		// Index
-		index: 1,
+		show: function show() {
+			// Index
+			var index = 1;
+			showSlide(index);
+		},
 		// Modal
 		modal: {
 			// Open
@@ -41,7 +45,7 @@
 			bind: function bind() {
 				Lightbox.slide.stack();
 				Lightbox.slide.top();
-				// Lightbox.slide.navigation();
+				Lightbox.slide.navigation();
 				Lightbox.slide.display();
 			},
 			// Stack slides
@@ -57,34 +61,24 @@
 			},
 			// Display clicked gallery image
 			top: function top() {
-				$('img.media__content[i]').on('click'), function () {
-					Lightbox.index = i;
+				var navnav = $('img.media__content');
+				navnav[i].on('click'), function () {
+					showSlide(index = i);
 				};
 			},
-			// navigation: () => {
-			// 	// Constructor
-			// 	let nav = class {
-			// 		constructor(button, x) {
-			// 			$(button).on('click', () => {
-			// 				Lightbox.index x= n);
-			// 			});
-			// 		}
-			// 	};
-			// 	// Button instances
-			// 	const prev = new nav('#prev', -);
-			// 	const next = new nav('#next', +);
-			// },
-			display: function display(n) {
-				if (n > $('.slide').length) {
-					index = 1;
+			navigation: {
+				// Next slide
+				next: function next() {
+					$('#nextButton').on('click', function () {
+						showSlide(index + 1);
+					});
+				},
+				// Previous slide
+				prev: function prev() {
+					$('#prevButton').on('click', function () {
+						showSlide(index - 1);
+					});
 				}
-				if (n < 1) {
-					index = $('.slide').length;
-				}
-				for (var _i2 = 0; _i2 < $('.slide').length; _i2++) {
-					slides[_i2].hide();
-				}
-				slides[index - 1].show();
 			}
 		}
 	};
