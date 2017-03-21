@@ -14,16 +14,16 @@
 		},
 		// Bind
 		bind: function bind() {
-			Lightbox.show();
+			//Lightbox.show();
 			Lightbox.modal.open();
 			Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
-		show: function show() {
-			// Index
-			var index = 1;
-			showSlide(index);
-		},
+		// show: () => {
+		// 	// Index
+		// 	let index = 1;
+		// 	showSlide(index);
+		// },
 		// Modal
 		modal: {
 			// Open
@@ -46,7 +46,7 @@
 				Lightbox.slide.stack();
 				Lightbox.slide.top();
 				Lightbox.slide.navigation();
-				Lightbox.slide.display();
+				//Lightbox.slide.display();
 			},
 			// Stack slides
 			stack: function stack() {

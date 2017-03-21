@@ -12,16 +12,16 @@
 		},
 		// Bind
 		bind: () => {
-			Lightbox.show();
+			//Lightbox.show();
 			Lightbox.modal.open();
 			Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
-		show: () => {
-			// Index
-			let index = 1;
-			showSlide(index);
-		},
+		// show: () => {
+		// 	// Index
+		// 	let index = 1;
+		// 	showSlide(index);
+		// },
 		// Modal
 		modal: {
 			// Open
@@ -44,7 +44,7 @@
 				Lightbox.slide.stack();
 				Lightbox.slide.top();
 				Lightbox.slide.navigation();
-				Lightbox.slide.display();
+				//Lightbox.slide.display();
 			},
 			// Stack slides
 			stack: () => {
