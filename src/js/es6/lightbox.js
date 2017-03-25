@@ -12,7 +12,6 @@
 		},
 		// Bind
 		bind: () => {
-			//Lightbox.show();
 			Lightbox.control();
 			Lightbox.modal.open();
 			Lightbox.modal.close();
@@ -94,19 +93,15 @@
 				show: (n) => {
 					let i;
 					let slides = $('div.slide');
-					if (n > $('figure.media').length) {
-						index = 1;
-					}
-					if (n < 1) {
-						index = $('figure.media').length;
-					}
+					// if (n > $('figure.media').length) {index = 1;}
+					// if (n < 1) {index = $('figure.media').length;}
 					// for (let i = 0; i < $('figure.media').length; i++) {
 					// 	slides[i].css('display', 'none');
 					// }
 					$('.slide').each(function() {
-						slides[i].css('display', 'none');
+						slides[i].css('display', 'block');
 					});
-					slides[n - 1].css('display', 'block');
+					//slides[index - 1].css('display', 'block');
 				}
 			}
 		}
