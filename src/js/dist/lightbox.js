@@ -23,7 +23,7 @@
 		control: function control() {
 			// Index
 			var index = 1;
-			showSlide(index);
+			Lightbox.slide.display.showSlide(index);
 		},
 		// Modal
 		modal: {
@@ -44,12 +44,14 @@
 		slide: {
 			// Bind
 			bind: function bind() {
-				Lightbox.slide.stack();
-				Lightbox.slide.navigation();
+				Lightbox.slide.compile();
+				Lightbox.slide.top();
+				Lightbox.slide.navigation.next();
+				Lightbox.slide.navigation.prev();
 				Lightbox.slide.display();
 			},
 			// Stack slides
-			stack: function stack() {
+			compile: function compile() {
 				// Compile slides
 				var viewer = $('<div id="viewer"></div>');
 				for (var i = 1; i <= $('figure.media').length; i++) {
@@ -59,22 +61,22 @@
 				// Prepend viewer
 				$('#lightbox').prepend(viewer);
 				// Display clicked gallery image
-				top: (function () {
-					var i = void 0;
-					var array = $('img.media__content');
-					array[i].on('click'), function () {
-						showSlide(index = i);
-					};
-				});
+				// top: () => {
+				// 	let i;
+				// 	let array = $('img.media__content');
+				// 	array[i].on('click'), () => {
+				// 		showSlide(index = i);
+				// 	}
+				// }
 			},
 			// Display clicked gallery image
-			// top: () => {
-			// 	let i;
-			// 	let array = $('img.media__content').get();
-			// 	array[i].on('click'), () => {
-			// 		showSlide(index = i);
-			// 	}
-			// },
+			top: function top() {
+				var i = void 0;
+				var array = $('img.media__content').get();
+				array[i].on('click'), function () {
+					showSlide(index = i);
+				};
+			},
 			navigation: {
 				// Next slide
 				next: function next() {
@@ -89,8 +91,9 @@
 					});
 				}
 			},
-			display: function display() {
-				function showSlide(n) {
+			display: {
+				// Display functionality
+				showSlide: function showSlide(n) {
 					var i = void 0;
 					var slides = $('div.slide');
 					if (n > $('figure.media').length) {
