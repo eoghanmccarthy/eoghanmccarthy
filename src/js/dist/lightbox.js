@@ -49,7 +49,7 @@
 			// Bind
 			bind: function bind() {
 				Lightbox.slide.compile();
-				//Lightbox.slide.top();
+				Lightbox.slide.top();
 			},
 			// Stack slides
 			compile: function compile() {
@@ -61,6 +61,13 @@
 				};
 				// Prepend viewer
 				$('#lightbox').prepend(viewer);
+			},
+			// Display clicked gallery image
+			top: function top() {
+				var i = void 0;
+				$('img.media__content')[i].on('click'), function () {
+					Lightbox.display(Lightbox.index = i);
+				};
 			}
 		},
 		// Navigation
@@ -85,10 +92,10 @@
 				var button = $('<a class="lightbox__nav--prv"></a>');
 				var icon = $('<i class="fa fa-caret-left"></i>');
 				button.append(icon);
+				$('#lightboxNav').append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index -= 1);
 				});
-				$('#lightboxNav').append(button);
 			}
 		},
 		// Display
@@ -106,7 +113,7 @@
 			// 	slides[i].css('display', 'none');
 			// }
 			$('.slide').each(function () {
-				slides.css('display', 'block');
+				$('div.slide')[i].css('display', 'block');
 			});
 			//slides[index - 1].css('display', 'block');
 		}
