@@ -34,9 +34,11 @@
 			},
 			// Close
 			close: () => {
-				$('#closeButton').on('click', () => {
+				let button = $('<span id="closeButton" class="lightbox__close">&times;</span>');
+				button.on('click', () => {
 					$('.lightbox').css('display', 'none');
 				});
+				$('#lightbox').append(button);
 			}
 		},
 		// Slides
@@ -49,7 +51,7 @@
 			// Stack slides
 			compile: () => {
 				// Compile slides
-				let viewer = $('<div id="viewer"></div>');
+				const viewer = $('<div id="viewer"></div>');
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let unit = $(`<div class="slide slide-${i}"></div>`);
 					viewer.append(unit);
@@ -93,9 +95,9 @@
 			let slides = $('div.slide');
 			if (n > $('figure.media').length) {Lightbox.index = 1;}
 			if (n < 1) {Lightbox.index = $('figure.media').length;}
-			for (let i = 0; i < $('figure.media').length; i++) {
-				slides[i].css('display', 'none');
-			}
+			// for (let i = 0; i < $('figure.media').length; i++) {
+			// 	slides[i].css('display', 'none');
+			// }
 			$('.slide').each(function() {
 				slides.css('display', 'block');
 			});

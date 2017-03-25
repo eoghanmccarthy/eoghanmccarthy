@@ -36,9 +36,11 @@
 			},
 			// Close
 			close: function close() {
-				$('#closeButton').on('click', function () {
+				var button = $('<span id="closeButton" class="lightbox__close">&times;</span>');
+				button.on('click', function () {
 					$('.lightbox').css('display', 'none');
 				});
+				$('#lightbox').append(button);
 			}
 		},
 		// Slides
@@ -91,9 +93,9 @@
 			if (n < 1) {
 				Lightbox.index = $('figure.media').length;
 			}
-			for (var _i = 0; _i < $('figure.media').length; _i++) {
-				slides[_i].css('display', 'none');
-			}
+			// for (let i = 0; i < $('figure.media').length; i++) {
+			// 	slides[i].css('display', 'none');
+			// }
 			$('.slide').each(function () {
 				slides.css('display', 'block');
 			});
