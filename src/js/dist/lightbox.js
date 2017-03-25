@@ -15,15 +15,15 @@
 		// Bind
 		bind: function bind() {
 			//Lightbox.show();
-			Lightbox.index();
+			Lightbox.control();
 			Lightbox.modal.open();
 			Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
-		index: function index() {
+		control: function control() {
 			// Index
-			var slideIndex = 1;
-			showSlide(slideIndex);
+			var index = 1;
+			showSlide(index);
 		},
 		// Modal
 		modal: {
@@ -45,7 +45,6 @@
 			// Bind
 			bind: function bind() {
 				Lightbox.slide.stack();
-				Lightbox.slide.top();
 				Lightbox.slide.navigation();
 				Lightbox.slide.display();
 			},
@@ -59,26 +58,34 @@
 				};
 				// Prepend viewer
 				$('#lightbox').prepend(viewer);
+				// Display clicked gallery image
+				top: (function () {
+					var i = void 0;
+					var array = $('img.media__content');
+					array[i].on('click'), function () {
+						showSlide(index = i);
+					};
+				});
 			},
 			// Display clicked gallery image
-			top: function top() {
-				var i = void 0;
-				var array = $('img.media__content').get();
-				array[i].on('click'), function () {
-					showSlide(slideIndex = i);
-				};
-			},
+			// top: () => {
+			// 	let i;
+			// 	let array = $('img.media__content').get();
+			// 	array[i].on('click'), () => {
+			// 		showSlide(index = i);
+			// 	}
+			// },
 			navigation: {
 				// Next slide
 				next: function next() {
 					$('#nextButton').on('click', function () {
-						showSlide(slideIndex + 1);
+						showSlide(index + 1);
 					});
 				},
 				// Previous slide
 				prev: function prev() {
 					$('#prevButton').on('click', function () {
-						showSlide(slideIndex - 1);
+						showSlide(index - 1);
 					});
 				}
 			},
@@ -87,15 +94,18 @@
 					var i = void 0;
 					var slides = $('div.slide');
 					if (n > $('figure.media').length) {
-						slideIndex = 1;
+						index = 1;
 					}
 					if (n < 1) {
-						slideIndex = $('figure.media').length;
+						index = $('figure.media').length;
 					}
-					for (var _i = 0; _i < $('figure.media').length; _i++) {
-						slides[_i].css('display', 'none');
-					}
-					slides[slideIndex - 1].css('display', 'block');
+					// for (let i = 0; i < $('figure.media').length; i++) {
+					// 	slides[i].css('display', 'none');
+					// }
+					$('.slide').length.each(function () {
+						slides[i].css('display', 'none');
+					});
+					slides[index - 1].css('display', 'block');
 				}
 			}
 		}
