@@ -70,13 +70,13 @@
 				// Next slide
 				next: () => {
 					$('#nextButton').on('click', () => {
-						show(index += 1);
+						Lightbox.slide.display.show(index += 1);
 					});
 				},
 				// Previous slide
 				prev: () => {
 					$('#prevButton').on('click', () => {
-						show(index -= 1);
+						Lightbox.slide.display.show(index -= 1);
 					});
 				}
 			},
