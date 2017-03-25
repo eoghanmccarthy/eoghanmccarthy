@@ -79,23 +79,15 @@
 			},
 			// Next
 			next: () => {
-				let button = $('<a></a>');
-				button.addClass('lightbox__nav--nxt');
-				let icon = $('<i></i>');
-				icon.addClass('fa fa-caret-right');
-				button.append(icon);
+				let button = $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>');
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index += 1);
 				});
 			},
 			// Previous
 			prev: () => {
-				let button = $('<a></a>');
-				button.addClass('lightbox__nav--prv');
-				let icon = $('<i></i>');
-				icon.addClass('fa fa-caret-left');
-				button.append(icon);
-				$('#prevButton').on('click', () => {
+				let button = $('<a class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>');
+				button.on('click', () => {
 					Lightbox.display(Lightbox.index -= 1);
 				});
 			},
@@ -103,8 +95,8 @@
 			console: () => {
 				let nav = $('<div></div>');
 				nav.addClass('lightbox__nav');
-				nav.append(Lightbox.navigation.next.button);
-				nav.append(Lightbox.navigation.prev.button);
+				nav.append(Lightbox.navigation.next(button));
+				nav.append(Lightbox.navigation.prev(button));
 				$('#lightbox').append(nav);
 
 			}

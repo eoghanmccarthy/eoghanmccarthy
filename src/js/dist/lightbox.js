@@ -73,23 +73,15 @@
 			},
 			// Next
 			next: function next() {
-				var button = $('<a></a>');
-				button.addClass('lightbox__nav--nxt');
-				var icon = $('<i></i>');
-				icon.addClass('fa fa-caret-right');
-				button.append(icon);
+				var button = $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>');
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index += 1);
 				});
 			},
 			// Previous
 			prev: function prev() {
-				var button = $('<a></a>');
-				button.addClass('lightbox__nav--prv');
-				var icon = $('<i></i>');
-				icon.addClass('fa fa-caret-left');
-				button.append(icon);
-				$('#prevButton').on('click', function () {
+				var button = $('<a class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>');
+				button.on('click', function () {
 					Lightbox.display(Lightbox.index -= 1);
 				});
 			},
@@ -97,8 +89,8 @@
 			console: function console() {
 				var nav = $('<div></div>');
 				nav.addClass('lightbox__nav');
-				nav.append(Lightbox.navigation.next.button);
-				nav.append(Lightbox.navigation.prev.button);
+				nav.append(Lightbox.navigation.next(button));
+				nav.append(Lightbox.navigation.prev(button));
 				$('#lightbox').append(nav);
 			}
 		},
