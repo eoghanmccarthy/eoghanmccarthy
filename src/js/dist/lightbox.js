@@ -44,7 +44,7 @@
 			// Bind
 			bind: function bind() {
 				Lightbox.slide.compile();
-				Lightbox.slide.top();
+				// Lightbox.slide.top();
 				Lightbox.slide.navigation.next();
 				Lightbox.slide.navigation.prev();
 				Lightbox.slide.display.show();
@@ -61,13 +61,13 @@
 				$('#lightbox').prepend(viewer);
 			},
 			// Display clicked gallery image
-			top: function top() {
-				var i = void 0;
-				var topslide = $('img.media__content').get();
-				topslide[2].on('click'), function () {
-					show(index = 2);
-				};
-			},
+			// top: () => {
+			// 	let i;
+			// 	let topslide = $('img.media__content');
+			// 	topslide[i].on('click'), () => {
+			// 		show(index = i);
+			// 	}
+			// },
 			navigation: {
 				// Next slide
 				next: function next() {

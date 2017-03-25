@@ -42,7 +42,7 @@
 			// Bind
 			bind: () => {
 				Lightbox.slide.compile();
-				Lightbox.slide.top();
+				// Lightbox.slide.top();
 				Lightbox.slide.navigation.next();
 				Lightbox.slide.navigation.prev();
 				Lightbox.slide.display.show();
@@ -59,13 +59,13 @@
 				$('#lightbox').prepend(viewer);
 			},
 			// Display clicked gallery image
-			top: () => {
-				let i;
-				let topslide = $('img.media__content').get();
-				topslide[2].on('click'), () => {
-					show(index = 2);
-				}
-			},
+			// top: () => {
+			// 	let i;
+			// 	let topslide = $('img.media__content');
+			// 	topslide[i].on('click'), () => {
+			// 		show(index = i);
+			// 	}
+			// },
 			navigation: {
 				// Next slide
 				next: () => {
