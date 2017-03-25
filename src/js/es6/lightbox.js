@@ -14,8 +14,6 @@
 		bind: () => {
 			// Lightbox.control();
 			Lightbox.modal.bind();
-			// Lightbox.modal.open();
-			// Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
 		// control: {
@@ -28,8 +26,8 @@
 		modal: {
 			// Bind
 			bind: () => {
-				this.open();
-				this.close();
+				Lightbox.modal.open();
+				Lightbox.modal.close();
 			},
 			// Open
 			open: () => {
