@@ -23,7 +23,7 @@
 		control: function control() {
 			// Index
 			var index = 1;
-			Lightbox.slide.display.showSlide(index);
+			Lightbox.slide.display.show(index);
 		},
 		// Modal
 		modal: {
@@ -48,7 +48,7 @@
 				Lightbox.slide.top();
 				Lightbox.slide.navigation.next();
 				Lightbox.slide.navigation.prev();
-				Lightbox.slide.display();
+				Lightbox.slide.display.show();
 			},
 			// Stack slides
 			compile: function compile() {
@@ -72,28 +72,28 @@
 			// Display clicked gallery image
 			top: function top() {
 				var i = void 0;
-				var array = $('img.media__content').get();
+				var array = $('img.media__content');
 				array[i].on('click'), function () {
-					showSlide(index = i);
+					show(index = i);
 				};
 			},
 			navigation: {
 				// Next slide
 				next: function next() {
 					$('#nextButton').on('click', function () {
-						showSlide(index + 1);
+						show(index + 1);
 					});
 				},
 				// Previous slide
 				prev: function prev() {
 					$('#prevButton').on('click', function () {
-						showSlide(index - 1);
+						show(index - 1);
 					});
 				}
 			},
 			display: {
 				// Display functionality
-				showSlide: function showSlide(n) {
+				show: function show(n) {
 					var i = void 0;
 					var slides = $('div.slide');
 					if (n > $('figure.media').length) {

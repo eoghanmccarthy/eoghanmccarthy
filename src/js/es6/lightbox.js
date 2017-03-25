@@ -21,7 +21,7 @@
 		control: () => {
 			// Index
 			let index = 1;
-			Lightbox.slide.display.showSlide(index);
+			Lightbox.slide.display.show(index);
 		},
 		// Modal
 		modal: {
@@ -46,7 +46,7 @@
 				Lightbox.slide.top();
 				Lightbox.slide.navigation.next();
 				Lightbox.slide.navigation.prev();
-				Lightbox.slide.display();
+				Lightbox.slide.display.show();
 			},
 			// Stack slides
 			compile: () => {
@@ -70,28 +70,28 @@
 			// Display clicked gallery image
 			top: () => {
 				let i;
-				let array = $('img.media__content').get();
+				let array = $('img.media__content');
 				array[i].on('click'), () => {
-					showSlide(index = i);
+					show(index = i);
 				}
 			},
 			navigation: {
 				// Next slide
 				next: () => {
 					$('#nextButton').on('click', () => {
-						showSlide(index + 1);
+						show(index + 1);
 					});
 				},
 				// Previous slide
 				prev: () => {
 					$('#prevButton').on('click', () => {
-						showSlide(index - 1);
+						show(index - 1);
 					});
 				}
 			},
 			display: {
 				// Display functionality
-				showSlide: (n) => {
+				show: (n) => {
 					let i;
 					let slides = $('div.slide');
 					if (n > $('figure.media').length) {
@@ -105,7 +105,7 @@
 					// }
 					$('.slide').each(function() {
 						slides[i].css('display', 'none');
-					})
+					});
 					slides[index - 1].css('display', 'block');
 				}
 			}
