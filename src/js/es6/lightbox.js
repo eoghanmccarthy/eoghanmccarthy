@@ -44,7 +44,7 @@
 			// Bind
 			bind: () => {
 				Lightbox.slide.compile();
-				Lightbox.slide.top();
+				//Lightbox.slide.top();
 			},
 			// Stack slides
 			compile: () => {
@@ -91,11 +91,11 @@
 			// Show
 			let i;
 			let slides = $('div.slide');
-			//if (n > $('figure.media').length) {Lightbox.index = 1;}
-			//if (n < 1) {Lightbox.index = $('figure.media').length;}
-			// for (let i = 0; i < $('figure.media').length; i++) {
-			// 	slides[i].css('display', 'none');
-			// }
+			if (n > $('figure.media').length) {Lightbox.index = 1;}
+			if (n < 1) {Lightbox.index = $('figure.media').length;}
+			for (let i = 0; i < $('figure.media').length; i++) {
+				slides[i].css('display', 'none');
+			}
 			$('.slide').each(function() {
 				slides.css('display', 'block');
 			});

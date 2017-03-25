@@ -46,7 +46,7 @@
 			// Bind
 			bind: function bind() {
 				Lightbox.slide.compile();
-				Lightbox.slide.top();
+				//Lightbox.slide.top();
 			},
 			// Stack slides
 			compile: function compile() {
@@ -85,11 +85,15 @@
 			// Show
 			var i = void 0;
 			var slides = $('div.slide');
-			//if (n > $('figure.media').length) {Lightbox.index = 1;}
-			//if (n < 1) {Lightbox.index = $('figure.media').length;}
-			// for (let i = 0; i < $('figure.media').length; i++) {
-			// 	slides[i].css('display', 'none');
-			// }
+			if (n > $('figure.media').length) {
+				Lightbox.index = 1;
+			}
+			if (n < 1) {
+				Lightbox.index = $('figure.media').length;
+			}
+			for (var _i = 0; _i < $('figure.media').length; _i++) {
+				slides[_i].css('display', 'none');
+			}
 			$('.slide').each(function () {
 				slides.css('display', 'block');
 			});
