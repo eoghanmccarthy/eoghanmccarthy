@@ -79,8 +79,8 @@
 			},
 			// Next
 			next: () => {
-				let button = $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>');
-				button.on('click', () => {
+				button: $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>'),
+				this.button.on('click', () => {
 					Lightbox.display(Lightbox.index += 1);
 				});
 			},
@@ -95,7 +95,7 @@
 			console: () => {
 				let nav = $('<div></div>');
 				nav.addClass('lightbox__nav');
-				nav.append(Lightbox.navigation.next(button));
+				nav.append(Lightbox.navigation.next.button);
 				nav.append(Lightbox.navigation.prev(button));
 				$('#lightbox').append(nav);
 
