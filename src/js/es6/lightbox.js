@@ -81,7 +81,7 @@
 				let button = $('<a class="lightbox__nav--nxt"></a>');
 				let icon = $('<i class="fa fa-caret-right"></i>');
 				button.append(icon);
-				$('lightboxNav').append(button)
+				$('#lightboxNav').append(button);
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index += 1);
 				});
@@ -91,10 +91,10 @@
 				let button = $('<a class="lightbox__nav--prv"></a>');
 				let icon = $('<i class="fa fa-caret-left"></i>');
 				button.append(icon);
-				$('lightboxNav').append(button)
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index -= 1);
 				});
+				$('#lightboxNav').append(button);
 			},
 		},
 		// Display

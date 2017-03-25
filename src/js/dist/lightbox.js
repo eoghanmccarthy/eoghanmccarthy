@@ -75,7 +75,7 @@
 				var button = $('<a class="lightbox__nav--nxt"></a>');
 				var icon = $('<i class="fa fa-caret-right"></i>');
 				button.append(icon);
-				$('lightboxNav').append(button);
+				$('#lightboxNav').append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index += 1);
 				});
@@ -85,10 +85,10 @@
 				var button = $('<a class="lightbox__nav--prv"></a>');
 				var icon = $('<i class="fa fa-caret-left"></i>');
 				button.append(icon);
-				$('lightboxNav').append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index -= 1);
 				});
+				$('#lightboxNav').append(button);
 			}
 		},
 		// Display
