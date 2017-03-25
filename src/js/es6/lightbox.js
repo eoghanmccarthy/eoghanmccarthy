@@ -62,8 +62,8 @@
 			top: () => {
 				let i;
 				let topslide = $('img.media__content').get();
-				topslide[i].on('click'), () => {
-					show(index = i);
+				topslide[2].on('click'), () => {
+					show(index = 2);
 				}
 			},
 			navigation: {

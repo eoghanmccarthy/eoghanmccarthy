@@ -64,8 +64,8 @@
 			top: function top() {
 				var i = void 0;
 				var topslide = $('img.media__content').get();
-				topslide[i].on('click'), function () {
-					show(index = i);
+				topslide[2].on('click'), function () {
+					show(index = 2);
 				};
 			},
 			navigation: {
