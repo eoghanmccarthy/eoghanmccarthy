@@ -34,7 +34,8 @@
 			},
 			// Close
 			close: () => {
-				let button = $('<span id="closeButton">&times;</span>');
+				let button = $('<span>&times;</span>');
+				button.attr('closeButton');
 				button.addClass('lightbox__close');
 				button.on('click', () => {
 					$('.lightbox').css('display', 'none');
