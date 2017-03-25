@@ -105,7 +105,7 @@
 					// for (let i = 0; i < $('figure.media').length; i++) {
 					// 	slides[i].css('display', 'none');
 					// }
-					$('.slide').length.each(function () {
+					$('.slide').each(function () {
 						slides[i].css('display', 'none');
 					});
 					slides[index - 1].css('display', 'block');
