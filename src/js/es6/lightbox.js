@@ -12,7 +12,7 @@
 		},
 		// Bind
 		bind: () => {
-			Lightbox.control();
+			// Lightbox.control();
 			Lightbox.modal.open();
 			Lightbox.modal.close();
 			Lightbox.slide.bind();
