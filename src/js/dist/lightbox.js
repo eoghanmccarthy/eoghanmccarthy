@@ -108,7 +108,7 @@
 					$('.slide').each(function () {
 						slides[i].css('display', 'none');
 					});
-					slides[index - 1].css('display', 'block');
+					slides[n - 1].css('display', 'block');
 				}
 			}
 		}
