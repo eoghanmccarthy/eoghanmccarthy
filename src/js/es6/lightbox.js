@@ -75,31 +75,27 @@
 			bind: () => {
 				Lightbox.navigation.next();
 				Lightbox.navigation.prev();
-				Lightbox.navigation.console();
 			},
 			// Next
 			next: () => {
-				button: $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>'),
-				this.button.on('click', () => {
+				let button = $('<a class="lightbox__nav--nxt"></a>');
+				let icon = $('<i class="fa fa-caret-right"></i>');
+				button.append(icon);
+				$('lightboxNav').append(button)
+				button.on('click', () => {
 					Lightbox.display(Lightbox.index += 1);
 				});
 			},
 			// Previous
 			prev: () => {
-				let button = $('<a class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>');
+				let button = $('<a class="lightbox__nav--prv"></a>');
+				let icon = $('<i class="fa fa-caret-left"></i>');
+				button.append(icon);
+				$('lightboxNav').append(button)
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index -= 1);
 				});
 			},
-			// Console
-			console: () => {
-				let nav = $('<div></div>');
-				nav.addClass('lightbox__nav');
-				nav.append(Lightbox.navigation.next.button);
-				nav.append(Lightbox.navigation.prev(button));
-				$('#lightbox').append(nav);
-
-			}
 		},
 		// Display
 		display: (n) => {
