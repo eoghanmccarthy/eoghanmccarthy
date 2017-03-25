@@ -69,8 +69,8 @@
 			// Display clicked gallery image
 			top: () => {
 				let i;
-				let array = $('img.media__content');
-				array[i].on('click'), () => {
+				let topslide = $('img.media__content').length;
+				topslide[i].on('click'), () => {
 					show(index = i);
 				}
 			},
