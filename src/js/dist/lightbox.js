@@ -93,7 +93,7 @@
 					// 	slides[i].css('display', 'none');
 					// }
 					$('.slide').each(function () {
-						slides[i].css('display', 'block');
+						slides.css('display', 'block');
 					});
 					//slides[index - 1].css('display', 'block');
 				}
