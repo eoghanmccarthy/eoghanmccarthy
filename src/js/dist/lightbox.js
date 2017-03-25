@@ -59,19 +59,11 @@
 				};
 				// Prepend viewer
 				$('#lightbox').prepend(viewer);
-				// Display clicked gallery image
-				// top: () => {
-				// 	let i;
-				// 	let array = $('img.media__content');
-				// 	array[i].on('click'), () => {
-				// 		showSlide(index = i);
-				// 	}
-				// }
 			},
 			// Display clicked gallery image
 			top: function top() {
 				var i = void 0;
-				var topslide = $('img.media__content').length;
+				var topslide = $('img.media__content').get();
 				topslide[i].on('click'), function () {
 					show(index = i);
 				};
@@ -80,13 +72,13 @@
 				// Next slide
 				next: function next() {
 					$('#nextButton').on('click', function () {
-						show(index + 1);
+						show(index += 1);
 					});
 				},
 				// Previous slide
 				prev: function prev() {
 					$('#prevButton').on('click', function () {
-						show(index - 1);
+						show(index -= 1);
 					});
 				}
 			},
