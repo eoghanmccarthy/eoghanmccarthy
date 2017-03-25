@@ -35,7 +35,6 @@
 			// Close
 			close: () => {
 				let button = $('<span>&times;</span>');
-				button.attr('closeButton');
 				button.addClass('lightbox__close');
 				button.on('click', () => {
 					$('.lightbox').css('display', 'none');
@@ -76,18 +75,38 @@
 			bind: () => {
 				Lightbox.navigation.next();
 				Lightbox.navigation.prev();
+				Lightbox.navigation.console();
 			},
 			// Next
 			next: () => {
-				$('#nextButton').on('click', () => {
+				let button = $('<a></a>');
+				button.addClass('lightbox__nav--nxt');
+				let icon = $('<i></i>');
+				icon.addClass('fa fa-caret-right');
+				button.append(icon);
+				button.on('click', () => {
 					Lightbox.display(Lightbox.index += 1);
 				});
 			},
 			// Previous
 			prev: () => {
+				let button = $('<a></a>');
+				button.addClass('lightbox__nav--prv');
+				let icon = $('<i></i>');
+				icon.addClass('fa fa-caret-left');
+				button.append(icon);
 				$('#prevButton').on('click', () => {
 					Lightbox.display(Lightbox.index -= 1);
 				});
+			},
+			// Console
+			console: () => {
+				let nav = $('<div></div>');
+				nav.addClass('lightbox__nav');
+				nav.append(Lightbox.navigation.next.button);
+				nav.append(Lightbox.navigation.prev.button);
+				$('#lightbox').append(nav);
+
 			}
 		},
 		// Display

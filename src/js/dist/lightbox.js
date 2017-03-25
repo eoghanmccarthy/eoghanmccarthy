@@ -37,7 +37,6 @@
 			// Close
 			close: function close() {
 				var button = $('<span>&times;</span>');
-				button.attr('closeButton');
 				button.addClass('lightbox__close');
 				button.on('click', function () {
 					$('.lightbox').css('display', 'none');
@@ -70,18 +69,37 @@
 			bind: function bind() {
 				Lightbox.navigation.next();
 				Lightbox.navigation.prev();
+				Lightbox.navigation.console();
 			},
 			// Next
 			next: function next() {
-				$('#nextButton').on('click', function () {
+				var button = $('<a></a>');
+				button.addClass('lightbox__nav--nxt');
+				var icon = $('<i></i>');
+				icon.addClass('fa fa-caret-right');
+				button.append(icon);
+				button.on('click', function () {
 					Lightbox.display(Lightbox.index += 1);
 				});
 			},
 			// Previous
 			prev: function prev() {
+				var button = $('<a></a>');
+				button.addClass('lightbox__nav--prv');
+				var icon = $('<i></i>');
+				icon.addClass('fa fa-caret-left');
+				button.append(icon);
 				$('#prevButton').on('click', function () {
 					Lightbox.display(Lightbox.index -= 1);
 				});
+			},
+			// Console
+			console: function console() {
+				var nav = $('<div></div>');
+				nav.addClass('lightbox__nav');
+				nav.append(Lightbox.navigation.next.button);
+				nav.append(Lightbox.navigation.prev.button);
+				$('#lightbox').append(nav);
 			}
 		},
 		// Display
