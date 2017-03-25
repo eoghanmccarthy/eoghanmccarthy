@@ -36,7 +36,8 @@
 			},
 			// Close
 			close: function close() {
-				var button = $('<span id="closeButton" class="lightbox__close">&times;</span>');
+				var button = $('<span id="closeButton">&times;</span>');
+				button.addClass('lightbox__close');
 				button.on('click', function () {
 					$('.lightbox').css('display', 'none');
 				});

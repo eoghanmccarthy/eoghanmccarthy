@@ -1,9 +1,6 @@
 <!-- Lightbox modal -->
 <div id="lightbox" class="lightbox">
 
-	<!-- Close button -->
-	<!-- <span id="closeButton" class="lightbox__close">&times;</span> -->
-
 	<!-- Lightbox navigation -->
 	<div class="lightbox__nav">
 		<a id="prevButton" class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>
