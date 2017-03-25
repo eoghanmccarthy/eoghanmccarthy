@@ -19,11 +19,12 @@
 			Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
-		control: function control() {
-			// Index
-			var index = 1;
-			Lightbox.slide.display.show(index);
-		},
+		// control: {
+		// 	// Index
+		// 	var index = 1;
+		// 	Lightbox.slide.display.show(index);
+		// },
+		index: 1,
 		// Modal
 		modal: {
 			// Open
@@ -44,7 +45,7 @@
 			// Bind
 			bind: function bind() {
 				Lightbox.slide.compile();
-				// Lightbox.slide.top();
+				Lightbox.slide.top();
 				Lightbox.slide.navigation.next();
 				Lightbox.slide.navigation.prev();
 				Lightbox.slide.display.show();
@@ -61,24 +62,24 @@
 				$('#lightbox').prepend(viewer);
 			},
 			// Display clicked gallery image
-			// top: () => {
-			// 	let i;
-			// 	let topslide = $('img.media__content');
-			// 	topslide[i].on('click'), () => {
-			// 		show(index = i);
-			// 	}
-			// },
+			top: function top() {
+				var i = void 0;
+				var topslide = $('img.media__content');
+				topslide[i].on('click'), function () {
+					Lightbox.slide.display.show(Lightbox.index = i);
+				};
+			},
 			navigation: {
 				// Next slide
 				next: function next() {
 					$('#nextButton').on('click', function () {
-						Lightbox.slide.display.show(index += 1);
+						Lightbox.slide.display.show(Lightbox.index += 1);
 					});
 				},
 				// Previous slide
 				prev: function prev() {
 					$('#prevButton').on('click', function () {
-						Lightbox.slide.display.show(index -= 1);
+						Lightbox.slide.display.show(Lightbox.index -= 1);
 					});
 				}
 			},
@@ -87,8 +88,12 @@
 				show: function show(n) {
 					var i = void 0;
 					var slides = $('div.slide');
-					// if (n > $('figure.media').length) {index = 1;}
-					// if (n < 1) {index = $('figure.media').length;}
+					if (n > $('figure.media').length) {
+						Lightbox.index = 1;
+					}
+					if (n < 1) {
+						Lightbox.index = $('figure.media').length;
+					}
 					// for (let i = 0; i < $('figure.media').length; i++) {
 					// 	slides[i].css('display', 'none');
 					// }
