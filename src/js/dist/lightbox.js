@@ -15,8 +15,9 @@
 		// Bind
 		bind: function bind() {
 			// Lightbox.control();
-			Lightbox.modal.open();
-			Lightbox.modal.close();
+			Lightbox.modal.bind();
+			// Lightbox.modal.open();
+			// Lightbox.modal.close();
 			Lightbox.slide.bind();
 		},
 		// control: {
@@ -27,6 +28,11 @@
 		index: 1,
 		// Modal
 		modal: {
+			// Bind
+			bind: function bind() {
+				undefined.open();
+				undefined.close();
+			},
 			// Open
 			open: function open() {
 				$('img.media__content').on('click', function () {
