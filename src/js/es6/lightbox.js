@@ -15,12 +15,9 @@
 			// Lightbox.control();
 			Lightbox.modal.bind();
 			Lightbox.slide.bind();
+			Lightbox.navigation.bind();
+			Lightbox.display.bind();
 		},
-		// control: {
-		// 	// Index
-		// 	var index = 1;
-		// 	Lightbox.slide.display.show(index);
-		// },
 		index: 1,
 		// Modal
 		modal: {
@@ -48,9 +45,6 @@
 			bind: () => {
 				Lightbox.slide.compile();
 				Lightbox.slide.top();
-				Lightbox.slide.navigation.next();
-				Lightbox.slide.navigation.prev();
-				Lightbox.slide.display.show();
 			},
 			// Stack slides
 			compile: () => {
@@ -64,61 +58,51 @@
 				$('#lightbox').prepend(viewer);
 			},
 			// Display clicked gallery image
-			top: () => {
-				let i;
-				let topslide = $('img.media__content');
-				topslide[i].on('click'), () => {
-					Lightbox.slide.display.show(Lightbox.index = i);
-				}
+			// top: () => {
+			// 	let i;
+			// 	let topslide = $('img.media__content');
+			// 	topslide[i].on('click'), () => {
+			// 		Lightbox.display(Lightbox.index = i);
+			// 	}
+			// }
+		},
+		// Navigation
+		navigation: {
+			// Bind
+			bind: () => {
+				Lightbox.navigation.next();
+				Lightbox.navigation.prev();
 			},
-			navigation: {
-				// Next slide
-				next: () => {
-					$('#nextButton').on('click', () => {
-						Lightbox.slide.display.show(Lightbox.index += 1);
-					});
-				},
-				// Previous slide
-				prev: () => {
-					$('#prevButton').on('click', () => {
-						Lightbox.slide.display.show(Lightbox.index -= 1);
-					});
-				}
+			// Next
+			next: () => {
+				$('#nextButton').on('click', () => {
+					Lightbox.display(Lightbox.index += 1);
+				});
 			},
-			display: {
-				// Display functionality
-				show: (n) => {
-					let i;
-					let slides = $('div.slide');
-					if (n > $('figure.media').length) {Lightbox.index = 1;}
-					if (n < 1) {Lightbox.index = $('figure.media').length;}
-					// for (let i = 0; i < $('figure.media').length; i++) {
-					// 	slides[i].css('display', 'none');
-					// }
-					$('.slide').each(function() {
-						slides.css('display', 'block');
-					});
-					//slides[index - 1].css('display', 'block');
-				}
+			// Previous
+			prev: () => {
+				$('#prevButton').on('click', () => {
+					Lightbox.display(Lightbox.index -= 1);
+				});
 			}
+		},
+		// Display
+		display: (n) => {
+			// Show
+			let i;
+			let slides = $('div.slide');
+			//if (n > $('figure.media').length) {Lightbox.index = 1;}
+			//if (n < 1) {Lightbox.index = $('figure.media').length;}
+			// for (let i = 0; i < $('figure.media').length; i++) {
+			// 	slides[i].css('display', 'none');
+			// }
+			$('.slide').each(function() {
+				slides.css('display', 'block');
+			});
+			//slides[index - 1].css('display', 'block');
 		}
 	}
 
 	Lightbox.init();
 
 })();
-
-
-	//
-    // /*
-    // * Set initial index
-    // * Indexed slide will display only
-    // */
-	//
-    // let index = 1;
-    // showSlide(index);
-	//
-    // /* Set clicked gallery image as index */
-    // function topSlide(n) {
-    //     showSlide(index = n);
-    // }
