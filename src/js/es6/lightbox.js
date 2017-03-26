@@ -95,16 +95,11 @@
 		display: (n) => {
 			// Show
 			let i;
-			let slides = $('div.slide');
+			let slides = $('slide');
 			if (n > $('figure.media').length) {Lightbox.index = 1;}
 			if (n < 1) {Lightbox.index = $('figure.media').length;}
-			// for (let i = 0; i < $('figure.media').length; i++) {
-			// 	slides[i].css('display', 'none');
-			// }
-			$('.slide').each(function() {
-				$(this).css('display', 'none');
-			});
-			$('.slide')[Lightbox.index - 1].css('display', 'block');
+			$('.slide').css('display', 'none');
+			$('.slide').get(Lightbox.index -1).css('display', 'block');
 		}
 	}
 
