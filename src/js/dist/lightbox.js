@@ -79,8 +79,14 @@
 		navigation: {
 			// Bind
 			bind: function bind() {
+				Lightbox.navigation.component();
 				Lightbox.navigation.previous();
 				Lightbox.navigation.next();
+			},
+			// Container
+			component: function component() {
+				var nav = $('<div id="lightboxNav" class="lightbox__nav"></div>');
+				$('#lightbox').append(nav);
 			},
 			// Previous
 			previous: function previous() {
