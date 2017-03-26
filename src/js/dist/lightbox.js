@@ -95,17 +95,15 @@
 		},
 		// Display
 		display: function display(n) {
-			// Show
-			var i = void 0;
-			var slides = $('slide');
-			if (n > $('figure.media').length) {
+			var slides = $('.slide');
+			if (n > slides.length) {
 				Lightbox.index = 1;
 			}
 			if (n < 1) {
-				Lightbox.index = $('figure.media').length;
+				Lightbox.index = slides.length;
 			}
-			$('.slide').css('display', 'none');
-			$('.slide').get(Lightbox.index - 1).css('display', 'block');
+			slides.css('display', 'none');
+			slides.get(Lightbox.index - 1).css('display', 'block');
 		}
 	};
 
