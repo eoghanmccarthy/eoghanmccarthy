@@ -36,12 +36,11 @@
 			},
 			// Close
 			close: function close() {
-				var button = $('<span>&times;</span>');
-				button.addClass('lightbox__close');
+				var button = $('<span class="lightbox__close">&times;</span>');
+				$('#lightbox').append(button);
 				button.on('click', function () {
 					$('.lightbox').css('display', 'none');
 				});
-				$('#lightbox').append(button);
 			}
 		},
 		// Slides
@@ -79,9 +78,7 @@
 			},
 			// Next
 			next: function next() {
-				var button = $('<a class="lightbox__nav--nxt"></a>');
-				var icon = $('<i class="fa fa-caret-right"></i>');
-				button.append(icon);
+				var button = $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>');
 				$('#lightboxNav').append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index += 1);
@@ -89,9 +86,7 @@
 			},
 			// Previous
 			prev: function prev() {
-				var button = $('<a class="lightbox__nav--prv"></a>');
-				var icon = $('<i class="fa fa-caret-left"></i>');
-				button.append(icon);
+				var button = $('<a class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>');
 				$('#lightboxNav').append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index -= 1);
@@ -112,8 +107,8 @@
 			// for (let i = 0; i < $('figure.media').length; i++) {
 			// 	slides[i].css('display', 'none');
 			// }
-			$('.slide').each(function () {
-				$('div.slide')[i].css('display', 'block');
+			$('.slide').each(function (i) {
+				this.css('display', 'block');
 			});
 			//slides[index - 1].css('display', 'block');
 		}

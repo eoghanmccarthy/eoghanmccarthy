@@ -34,12 +34,11 @@
 			},
 			// Close
 			close: () => {
-				let button = $('<span>&times;</span>');
-				button.addClass('lightbox__close');
+				let button = $('<span class="lightbox__close">&times;</span>');
+				$('#lightbox').append(button);
 				button.on('click', () => {
 					$('.lightbox').css('display', 'none');
 				});
-				$('#lightbox').append(button);
 			}
 		},
 		// Slides
@@ -77,9 +76,7 @@
 			},
 			// Next
 			next: () => {
-				let button = $('<a class="lightbox__nav--nxt"></a>');
-				let icon = $('<i class="fa fa-caret-right"></i>');
-				button.append(icon);
+				let button = $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>');
 				$('#lightboxNav').append(button);
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index += 1);
@@ -87,9 +84,7 @@
 			},
 			// Previous
 			prev: () => {
-				let button = $('<a class="lightbox__nav--prv"></a>');
-				let icon = $('<i class="fa fa-caret-left"></i>');
-				button.append(icon);
+				let button = $('<a class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>');
 				$('#lightboxNav').append(button);
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index -= 1);
@@ -106,8 +101,8 @@
 			// for (let i = 0; i < $('figure.media').length; i++) {
 			// 	slides[i].css('display', 'none');
 			// }
-			$('.slide').each(function() {
-				$('div.slide')[i].css('display', 'block');
+			$('.slide').each(function(i) {
+				this.css('display', 'block');
 			});
 			//slides[index - 1].css('display', 'block');
 		}
