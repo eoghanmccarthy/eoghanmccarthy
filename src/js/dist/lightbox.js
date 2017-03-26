@@ -18,7 +18,7 @@
 			Lightbox.modal.bind();
 			Lightbox.slide.bind();
 			Lightbox.navigation.bind();
-			Lightbox.display.bind();
+			Lightbox.display();
 		},
 		index: 1,
 		// Modal
@@ -108,7 +108,7 @@
 			// 	slides[i].css('display', 'none');
 			// }
 			$('.slide').each(function () {
-				$('.slide').css('display', 'block');
+				$(this).css('display', 'block');
 			});
 			//slides[index - 1].css('display', 'block');
 		}
