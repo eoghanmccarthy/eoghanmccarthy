@@ -25,12 +25,12 @@
 		modal: {
 			// Bind
 			bind: function bind() {
-				Lightbox.modal.create();
+				Lightbox.modal.construct();
 				Lightbox.modal.open();
 				Lightbox.modal.close();
 			},
 			// Open
-			create: function create() {
+			construct: function construct() {
 				var lightbox = $('<div class="lightbox"></div>');
 				$('body').append(lightbox);
 			},
@@ -43,7 +43,7 @@
 			// Close
 			close: function close() {
 				var button = $('<span class="lightbox__close">&times;</span>');
-				$('#lightbox').append(button);
+				lightbox.append(button);
 				button.on('click', function () {
 					$('.lightbox').css('display', 'none');
 				});
