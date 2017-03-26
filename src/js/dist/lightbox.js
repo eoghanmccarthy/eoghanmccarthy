@@ -54,8 +54,8 @@
 			compile: function compile() {
 				// Compile slides
 				var viewer = $('<div id="viewer"></div>');
-				for (var _i = 1; _i <= $('figure.media').length; _i++) {
-					var unit = $('<div class="slide slide-' + _i + '"></div>');
+				for (var i = 1; i <= $('figure.media').length; i++) {
+					var unit = $('<div class="slide slide-' + i + '"></div>');
 					viewer.append(unit);
 				};
 				// Prepend viewer
@@ -63,7 +63,7 @@
 			},
 			// Display clicked gallery image
 			top: function top() {
-				// let i;
+				var i = void 0;
 				$('img.media__content').eq(i).on('click'), function () {
 					Lightbox.display(Lightbox.index = i);
 				};
@@ -73,11 +73,11 @@
 		navigation: {
 			// Bind
 			bind: function bind() {
-				Lightbox.navigation.prev();
+				Lightbox.navigation.previous();
 				Lightbox.navigation.next();
 			},
 			// Previous
-			prev: function prev() {
+			previous: function previous() {
 				var button = $('<a class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>');
 				$('#lightboxNav').append(button);
 				button.on('click', function () {

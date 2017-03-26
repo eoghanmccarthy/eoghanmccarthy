@@ -61,7 +61,7 @@
 			},
 			// Display clicked gallery image
 			top: () => {
-				// let i;
+				let i;
 				$('img.media__content').eq(i).on('click'), () => {
 					Lightbox.display(Lightbox.index = i);
 				}
@@ -71,11 +71,11 @@
 		navigation: {
 			// Bind
 			bind: () => {
-				Lightbox.navigation.prev();
+				Lightbox.navigation.previous();
 				Lightbox.navigation.next();
 			},
 			// Previous
-			prev: () => {
+			previous: () => {
 				let button = $('<a class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>');
 				$('#lightboxNav').append(button);
 				button.on('click', () => {
