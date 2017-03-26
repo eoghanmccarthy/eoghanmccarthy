@@ -107,8 +107,8 @@
 			// for (let i = 0; i < $('figure.media').length; i++) {
 			// 	slides[i].css('display', 'none');
 			// }
-			$('.slide').each(function (i) {
-				this.css('display', 'block');
+			$('.slide').each(function () {
+				$('.slide').css('display', 'block');
 			});
 			//slides[index - 1].css('display', 'block');
 		}
