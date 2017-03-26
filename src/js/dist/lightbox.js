@@ -103,7 +103,7 @@
 				Lightbox.index = slides.length;
 			}
 			slides.css('display', 'none');
-			slides.get(Lightbox.index - 1).css('display', 'block');
+			slides.eq(Lightbox.index - 1).css('display', 'block');
 		}
 	};
 

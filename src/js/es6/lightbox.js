@@ -97,7 +97,7 @@
 			if (n > slides.length) {Lightbox.index = 1;}
 			if (n < 1) {Lightbox.index = slides.length;}
 			slides.css('display', 'none');
-			slides.get(Lightbox.index -1).css('display', 'block');
+			slides.eq(Lightbox.index -1).css('display', 'block');
 		}
 	}
 
