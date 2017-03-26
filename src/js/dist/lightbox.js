@@ -48,7 +48,7 @@
 			// Bind
 			bind: function bind() {
 				Lightbox.slide.compile();
-				//Lightbox.slide.top();
+				Lightbox.slide.top();
 			},
 			// Stack slides
 			compile: function compile() {
