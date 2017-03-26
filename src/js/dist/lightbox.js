@@ -54,8 +54,8 @@
 			compile: function compile() {
 				// Compile slides
 				var viewer = $('<div id="viewer"></div>');
-				for (var i = 1; i <= $('figure.media').length; i++) {
-					var unit = $('<div class="slide slide-' + i + '"></div>');
+				for (var _i = 1; _i <= $('figure.media').length; _i++) {
+					var unit = $('<div class="slide slide-' + _i + '"></div>');
 					viewer.append(unit);
 				};
 				// Prepend viewer
@@ -63,7 +63,7 @@
 			},
 			// Display clicked gallery image
 			top: function top() {
-				var i = void 0;
+				// let i;
 				$('img.media__content').eq(i).on('click'), function () {
 					Lightbox.display(Lightbox.index = i);
 				};
