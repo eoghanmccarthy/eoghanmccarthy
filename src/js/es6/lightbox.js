@@ -62,7 +62,7 @@
 			// Display clicked gallery image
 			top: () => {
 				let i;
-				$('img.media__content')[i].on('click'), () => {
+				$('img.media__content').eq(i).on('click'), () => {
 					Lightbox.display(Lightbox.index = i);
 				}
 			}
