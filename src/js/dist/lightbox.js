@@ -73,16 +73,8 @@
 		navigation: {
 			// Bind
 			bind: function bind() {
-				Lightbox.navigation.next();
 				Lightbox.navigation.prev();
-			},
-			// Next
-			next: function next() {
-				var button = $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>');
-				$('#lightboxNav').append(button);
-				button.on('click', function () {
-					Lightbox.display(Lightbox.index += 1);
-				});
+				Lightbox.navigation.next();
 			},
 			// Previous
 			prev: function prev() {
@@ -90,6 +82,14 @@
 				$('#lightboxNav').append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index -= 1);
+				});
+			},
+			// Next
+			next: function next() {
+				var button = $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>');
+				$('#lightboxNav').append(button);
+				button.on('click', function () {
+					Lightbox.display(Lightbox.index += 1);
 				});
 			}
 		},
