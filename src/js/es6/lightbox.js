@@ -46,7 +46,7 @@
 			// Bind
 			bind: () => {
 				Lightbox.slide.compile();
-				Lightbox.slide.top();
+				//Lightbox.slide.top();
 			},
 			// Stack slides
 			compile: () => {
@@ -89,7 +89,7 @@
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index -= 1);
 				});
-			},
+			}
 		},
 		// Display
 		display: (n) => {
