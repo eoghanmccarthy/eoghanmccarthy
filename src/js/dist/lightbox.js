@@ -31,7 +31,7 @@
 			},
 			// Open
 			construct: function construct() {
-				var lightbox = $('<div class="lightbox"></div>');
+				var lightbox = $('<div id="lightbox" class="lightbox"></div>');
 				$('body').append(lightbox);
 			},
 			// Open
@@ -43,7 +43,7 @@
 			// Close
 			close: function close() {
 				var button = $('<span class="lightbox__close">&times;</span>');
-				lightbox.append(button);
+				$('#lightbox').append(button);
 				button.on('click', function () {
 					$('.lightbox').css('display', 'none');
 				});
