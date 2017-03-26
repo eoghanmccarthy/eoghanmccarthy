@@ -23,8 +23,14 @@
 		modal: {
 			// Bind
 			bind: () => {
+				Lightbox.modal.create();
 				Lightbox.modal.open();
 				Lightbox.modal.close();
+			},
+			// Open
+			create: () => {
+				const lightbox = $('<div class="lightbox"></div>');
+				$('body').append(lightbox);
 			},
 			// Open
 			open: () => {
@@ -51,7 +57,7 @@
 			// Stack slides
 			compile: () => {
 				// Compile slides
-				const viewer = $('<div id="viewer"></div>');
+				const viewer = $('<div></div>');
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let unit = $(`<div class="slide slide-${i}"></div>`);
 					viewer.append(unit);
