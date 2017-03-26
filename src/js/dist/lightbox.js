@@ -108,9 +108,9 @@
 			// 	slides[i].css('display', 'none');
 			// }
 			$('.slide').each(function () {
-				$(this).css('display', 'block');
+				$(this).css('display', 'none');
 			});
-			//slides[index - 1].css('display', 'block');
+			$('.slide')[Lightbox.index - 1].css('display', 'block');
 		}
 	};
 
