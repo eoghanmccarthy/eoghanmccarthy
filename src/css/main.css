@@ -149,28 +149,28 @@ p {
  * Lightbox
  */
 /* Generate lightbox background image classes */
-#lghtbxAA .slide-1 {
+#lightbox .slide-1 {
   background-image: url("../../photography/img_0111-folio.jpg"); }
 
-#lghtbxAA .slide-2 {
+#lightbox .slide-2 {
   background-image: url("../../photography/img_0243-folio.jpg"); }
 
-#lghtbxAA .slide-3 {
+#lightbox .slide-3 {
   background-image: url("../../photography/img_0359-folio.jpg"); }
 
-#lghtbxAA .slide-4 {
+#lightbox .slide-4 {
   background-image: url("../../photography/img_0387-folio.jpg"); }
 
-#lghtbxAA .slide-5 {
+#lightbox .slide-5 {
   background-image: url("../../photography/img_4453-folio.jpg"); }
 
-#lghtbxAA .slide-6 {
+#lightbox .slide-6 {
   background-image: url("../../photography/img_4480-folio.jpg"); }
 
-#lghtbxAA .slide-7 {
+#lightbox .slide-7 {
   background-image: url("../../photography/img_3889-folio.jpg"); }
 
-#lghtbxAA .slide-8 {
+#lightbox .slide-8 {
   background-image: url("../../photography/img_3251-folio.jpg"); }
 
 /*

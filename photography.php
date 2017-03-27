@@ -72,11 +72,6 @@
                 </div>
             </main>
 
-            <!-- Lightbox -->
-            <div id="lghtbxAA">
-                <?php include 'partials/lightbox.php';?>
-            </div>
-
             <!-- Footer -->
             <?php include 'partials/footer.php';?>
 

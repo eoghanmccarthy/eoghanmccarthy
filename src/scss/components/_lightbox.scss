@@ -25,7 +25,7 @@ $lghtbx-AA__img: (
 }
 
 /* Generate lightbox background image classes */
-#lghtbxAA {
+#lightbox {
     .slide {
         @include bground-img($lghtbx-AA__img);
     }
