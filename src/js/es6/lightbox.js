@@ -14,7 +14,7 @@
 		bind: () => {
 			// Lightbox.control();
 			Lightbox.modal.bind();
-			Lightbox.slide.bind();
+			Lightbox.slides.bind();
 			Lightbox.navigation.bind();
 			Lightbox.display();
 		},
@@ -48,11 +48,11 @@
 			}
 		},
 		// Slides
-		slide: {
+		slides: {
 			// Bind
 			bind: () => {
-				Lightbox.slide.compile();
-				Lightbox.slide.top();
+				Lightbox.slides.compile();
+				Lightbox.slides.top();
 			},
 			// Stack slides
 			compile: () => {
@@ -105,11 +105,10 @@
 		},
 		// Display
 		display: (n) => {
-			const slides = $('.slide');
-			if (n > slides.length) {Lightbox.index = 1;}
-			if (n < 1) {Lightbox.index = slides.length;}
-			slides.css('display', 'none');
-			slides.eq(Lightbox.index -1).css('display', 'block');
+			if (n > $('.slide').length) {Lightbox.index = 1;}
+			if (n < 1) {Lightbox.index = $('.slide').length;}
+			$('.slide').css('display', 'none');
+			$('.slide').eq(Lightbox.index -1).css('display', 'block');
 		}
 	}
 

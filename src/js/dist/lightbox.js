@@ -16,7 +16,7 @@
 		bind: function bind() {
 			// Lightbox.control();
 			Lightbox.modal.bind();
-			Lightbox.slide.bind();
+			Lightbox.slides.bind();
 			Lightbox.navigation.bind();
 			Lightbox.display();
 		},
@@ -50,11 +50,11 @@
 			}
 		},
 		// Slides
-		slide: {
+		slides: {
 			// Bind
 			bind: function bind() {
-				Lightbox.slide.compile();
-				Lightbox.slide.top();
+				Lightbox.slides.compile();
+				Lightbox.slides.top();
 			},
 			// Stack slides
 			compile: function compile() {
@@ -107,15 +107,14 @@
 		},
 		// Display
 		display: function display(n) {
-			var slides = $('.slide');
-			if (n > slides.length) {
+			if (n > $('.slide').length) {
 				Lightbox.index = 1;
 			}
 			if (n < 1) {
-				Lightbox.index = slides.length;
+				Lightbox.index = $('.slide').length;
 			}
-			slides.css('display', 'none');
-			slides.eq(Lightbox.index - 1).css('display', 'block');
+			$('.slide').css('display', 'none');
+			$('.slide').eq(Lightbox.index - 1).css('display', 'block');
 		}
 	};
 
