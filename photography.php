@@ -75,10 +75,11 @@
             <!-- Footer -->
             <?php include 'partials/footer.php';?>
 
-        </div>
+		</div>
 
-        <?php include 'partials/scripts-js.php';?>
+		<?php include 'partials/scripts-js.php';?>
+		<script src="src/js/dist/lightbox.js"></script>
 
-    </body>
+	</body>
 
 </html>

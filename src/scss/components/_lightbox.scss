@@ -2,7 +2,7 @@
  * Lightbox
  */
 
-// Sass list of photo lightbox images
+// List of photo lightbox images
 $lghtbx-AA__img: (
     '../../photography/img_0111-folio.jpg'
     '../../photography/img_0243-folio.jpg'
@@ -14,7 +14,7 @@ $lghtbx-AA__img: (
     '../../photography/img_3251-folio.jpg'
 );
 
-// Mixin to generate background image classes
+// Generate background image classes
 @mixin bground-img($list) {
     @each $item in $list {
         $i: index($list, $item);
@@ -24,7 +24,7 @@ $lghtbx-AA__img: (
     }
 }
 
-/* Generate lightbox background image classes */
+// Generate lightbox background image classes
 #lightbox {
     .slide {
         @include bground-img($lghtbx-AA__img);
@@ -33,9 +33,8 @@ $lghtbx-AA__img: (
 
 /*
  * Lightbox main styles
- *
- * 100% modular
  */
+
 .lightbox {
     @extend %px-base;
     display: none;
@@ -96,7 +95,7 @@ $lghtbx-AA__img: (
             }
         }
     }
-    /* Slide meta information */
+    // Slide meta information
     &__meta {
         position: absolute;
         bottom: 20px;
