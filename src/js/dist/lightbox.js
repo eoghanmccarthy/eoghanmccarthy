@@ -25,12 +25,12 @@
 		modal: {
 			// Bind
 			bind: function bind() {
-				Lightbox.modal.construct();
+				Lightbox.modal.create();
 				Lightbox.modal.open();
 				Lightbox.modal.close();
 			},
 			// Open
-			construct: function construct() {
+			create: function create() {
 				var lightbox = $('<div id="lightbox" class="lightbox"></div>');
 				$('body').append(lightbox);
 			},
@@ -61,8 +61,10 @@
 				// Compile slides
 				var viewer = $('<div></div>');
 				for (var i = 1; i <= $('figure.media').length; i++) {
-					var unit = $('<div class="slide slide-' + i + '"></div>');
-					viewer.append(unit);
+					var slide = $('<div class="slide slide-' + i + '"></div>');
+					var image = $('figure img').attr('src');
+					slide.css('background-image', 'url: ' + image);
+					viewer.append(slide);
 				};
 				// Prepend viewer
 				$('#lightbox').prepend(viewer);
@@ -79,12 +81,12 @@
 		navigation: {
 			// Bind
 			bind: function bind() {
-				Lightbox.navigation.component();
+				Lightbox.navigation.create();
 				Lightbox.navigation.previous();
 				Lightbox.navigation.next();
 			},
 			// Container
-			component: function component() {
+			create: function create() {
 				var nav = $('<div id="lightboxNav" class="lightbox__nav"></div>');
 				$('#lightbox').append(nav);
 			},

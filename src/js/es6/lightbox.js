@@ -23,12 +23,12 @@
 		modal: {
 			// Bind
 			bind: () => {
-				Lightbox.modal.construct();
+				Lightbox.modal.create();
 				Lightbox.modal.open();
 				Lightbox.modal.close();
 			},
 			// Open
-			construct: () => {
+			create: () => {
 				const lightbox = $('<div id="lightbox" class="lightbox"></div>');
 				$('body').append(lightbox);
 			},
@@ -59,8 +59,10 @@
 				// Compile slides
 				const viewer = $('<div></div>');
 				for (let i = 1; i <= $('figure.media').length; i++) {
-					let unit = $(`<div class="slide slide-${i}"></div>`);
-					viewer.append(unit);
+					let slide = $(`<div class="slide slide-${i}"></div>`);
+					let image = $('figure img').attr('src');
+					slide.css('background-image', `url: ${image}`);
+					viewer.append(slide);
 				};
 				// Prepend viewer
 				$('#lightbox').prepend(viewer);
@@ -77,12 +79,12 @@
 		navigation: {
 			// Bind
 			bind: () => {
-				Lightbox.navigation.component();
+				Lightbox.navigation.create();
 				Lightbox.navigation.previous();
 				Lightbox.navigation.next();
 			},
 			// Container
-			component: () => {
+			create: () => {
 				const nav = $('<div id="lightboxNav" class="lightbox__nav"></div>');
 				$('#lightbox').append(nav);
 			},
