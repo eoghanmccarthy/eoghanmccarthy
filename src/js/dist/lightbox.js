@@ -63,7 +63,7 @@
 				for (var i = 1; i <= $('figure.media').length; i++) {
 					var slide = $('<div class="slide slide-' + i + '"></div>');
 					var j = void 0;
-					var image = $('figure img').attr('src', j);
+					var image = $('figure img').attr('src');
 					slide.css('background', 'url(' + image + ')');
 					viewer.append(slide);
 				};
