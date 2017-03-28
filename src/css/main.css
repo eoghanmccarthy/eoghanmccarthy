@@ -148,35 +148,8 @@ p {
 /*
  * Lightbox
  */
-/* Generate lightbox background image classes */
-#lightbox .slide-1 {
-  background-image: url("../../photography/img_0111-folio.jpg"); }
-
-#lightbox .slide-2 {
-  background-image: url("../../photography/img_0243-folio.jpg"); }
-
-#lightbox .slide-3 {
-  background-image: url("../../photography/img_0359-folio.jpg"); }
-
-#lightbox .slide-4 {
-  background-image: url("../../photography/img_0387-folio.jpg"); }
-
-#lightbox .slide-5 {
-  background-image: url("../../photography/img_4453-folio.jpg"); }
-
-#lightbox .slide-6 {
-  background-image: url("../../photography/img_4480-folio.jpg"); }
-
-#lightbox .slide-7 {
-  background-image: url("../../photography/img_3889-folio.jpg"); }
-
-#lightbox .slide-8 {
-  background-image: url("../../photography/img_3251-folio.jpg"); }
-
 /*
  * Lightbox main styles
- *
- * 100% modular
  */
 .lightbox {
   display: none;
@@ -187,8 +160,7 @@ p {
   width: 100%;
   height: 100%;
   background-color: #000;
-  overflow: hidden;
-  /* Slide meta information */ }
+  overflow: hidden; }
   .lightbox .slide {
     display: none;
     background-size: cover;
