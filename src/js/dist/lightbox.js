@@ -61,9 +61,12 @@
 				var viewer = $('<div></div>');
 				for (var i = 1; i <= $('figure.media').length; i++) {
 					var slide = $('<div class="slide slide-' + i + '"></div>');
-					var j = void 0;
-					var image = $('figure img').attr('src');
-					slide.get(j).css('background', 'url(' + image + ')');
+					for (var j = 0; j <= $('figure img').length; j++) {
+						var image = $('figure img')[j].attr('src');
+						slide.css('background', 'url(' + image + ')');
+					};
+					// let image = $('figure img').attr('src');
+					// slide.css('background', `url(${image})`);
 					viewer.append(slide);
 				};
 				// Prepend viewer
