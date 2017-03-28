@@ -61,7 +61,7 @@
 					let slide = $(`<div class="slide slide-${i}"></div>`);
 					let j;
 					let image = $('figure img').attr('src');
-					slide.css('background', `url(${image})`);
+					slide.eq(j).css('background', `url(${image})`);
 					viewer.append(slide);
 				};
 				// Prepend viewer
