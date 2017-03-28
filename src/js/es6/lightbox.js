@@ -56,13 +56,16 @@
 			// Stack slides
 			compile: () => {
 				// Compile slides
+				// let viewer = $('<div></div>');
+				// for (let i = 1; i <= $('figure.media').length; i++) {
+				// 	let slide = $(`<div class="slide slide-${i}"></div>`);
+				// 	viewer.append(slide);
+				// };
 				let viewer = $('<div></div>');
-				for (let i = 1; i <= $('figure.media').length; i++) {
-					let slide = $(`<div class="slide slide-${i}"></div>`);
-					for (let j = 0; j <= $('figure img').length; j++) {
-						let image = $('figure img').attr('src');
-						slide.css('background', `url(${image})`);
-					};
+				for (let i = 0; i <= $('figure img').length; i++) {
+					let slide = $('<div class="slide"></div>');
+					let image = $('figure img').each().attr('src');
+					slide.css('background', `url(${image})`);
 					// let image = $('figure img').attr('src');
 					// slide.css('background', `url(${image})`);
 					viewer.append(slide);
