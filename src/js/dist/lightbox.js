@@ -14,7 +14,6 @@
 		},
 		// Bind
 		bind: function bind() {
-			// Lightbox.control();
 			Lightbox.modal.bind();
 			Lightbox.slides.bind();
 			Lightbox.navigation.bind();
@@ -63,7 +62,7 @@
 				for (var i = 1; i <= $('figure.media').length; i++) {
 					var slide = $('<div class="slide slide-' + i + '"></div>');
 					var j = void 0;
-					var image = $('figure img').length.attr('src');
+					var image = $('figure img').eq(j).attr('src');
 					slide.css('background', 'url(' + image + ')');
 					viewer.append(slide);
 				};
