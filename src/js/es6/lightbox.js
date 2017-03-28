@@ -60,7 +60,7 @@
 				for (let i = 0; i < $('figure img').length; i++) {
 					let slide = $('<div class="slide"></div>');
 					let image = $('figure img').eq(i).attr('src');
-					slide.css('background', `url(${image})`);
+					slide.css('background-image', `url(${image})`);
 					viewer.append(slide);
 				};
 				// Prepend viewer
