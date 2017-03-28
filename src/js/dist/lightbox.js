@@ -62,6 +62,7 @@
 				var viewer = $('<div></div>');
 				for (var i = 1; i <= $('figure.media').length; i++) {
 					var slide = $('<div class="slide slide-' + i + '"></div>');
+					slide.css('background', 'url(/images/r-srchbg_white.png) no-repeat');
 					viewer.append(slide);
 				};
 				// Prepend viewer

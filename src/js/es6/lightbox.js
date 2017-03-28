@@ -29,7 +29,7 @@
 			},
 			// Open
 			create: () => {
-				const lightbox = $('<div id="lightbox" class="lightbox"></div>');
+				let lightbox = $('<div id="lightbox" class="lightbox"></div>');
 				$('body').append(lightbox);
 			},
 			// Open
@@ -57,9 +57,10 @@
 			// Stack slides
 			compile: () => {
 				// Compile slides
-				const viewer = $('<div></div>');
+				let viewer = $('<div></div>');
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let slide = $(`<div class="slide slide-${i}"></div>`);
+					slide.css('background', 'url(/images/r-srchbg_white.png) no-repeat');
 					viewer.append(slide);
 				};
 				// Prepend viewer
