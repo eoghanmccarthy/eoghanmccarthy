@@ -63,7 +63,7 @@
 					var slide = $('<div class="slide slide-' + i + '"></div>');
 					var j = void 0;
 					var image = $('figure img').attr('src');
-					slide.eq(j).css('background', 'url(' + image + ')');
+					slide.get(j).css('background', 'url(' + image + ')');
 					viewer.append(slide);
 				};
 				// Prepend viewer
