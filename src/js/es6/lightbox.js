@@ -60,7 +60,9 @@
 				let viewer = $('<div></div>');
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let slide = $(`<div class="slide slide-${i}"></div>`);
-					slide.css('background', 'url(/images/r-srchbg_white.png) no-repeat');
+					let j;
+					let image = $('figure img').attr('src', j)
+					slide.css('background', 'url(' + image + ')');
 					viewer.append(slide);
 				};
 				// Prepend viewer
