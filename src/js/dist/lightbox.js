@@ -66,8 +66,7 @@
 				var viewer = $('<div></div>');
 				for (var i = 0; i <= $('figure img').length; i++) {
 					var slide = $('<div class="slide"></div>');
-					var image = $('figure img').eq(i);
-					image.attr('src');
+					var image = $('figure img').eq(i).attr('src');
 					slide.css('background', 'url(' + image + ')');
 					// let image = $('figure img').attr('src');
 					// slide.css('background', `url(${image})`);
