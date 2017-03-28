@@ -60,7 +60,7 @@
 				for (let i = 1; i <= $('figure.media').length; i++) {
 					let slide = $(`<div class="slide slide-${i}"></div>`);
 					for (let j = 0; j <= $('figure img').length; j++) {
-						let image = $('figure img')[j].attr('src');
+						let image = $('figure img').attr('src');
 						slide.css('background', `url(${image})`);
 					};
 					// let image = $('figure img').attr('src');
