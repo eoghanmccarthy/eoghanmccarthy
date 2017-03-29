@@ -63,14 +63,14 @@
 				let viewer = $('<div></div>');
 				$('figure img').each(function(i) {
 					let slide = $('<div></div>');
-					slide.addClass('slide')
+					slide.addClass('slide');
+					let image = $('figure img').eq(i).attr('src');
+					slide.css('background-image', `url(${image})`);
 					let meta = $('<span></span>');
 					meta.addClass('slide__meta');
 					let title = $('figure img').eq(i).attr('title');
 					meta.html(title);
 					slide.append(meta);
-					let image = $('figure img').eq(i).attr('src');
-					slide.css('background-image', `url(${image})`);
 					viewer.append(slide);
 				});
 				// Prepend viewer

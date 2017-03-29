@@ -66,13 +66,13 @@
 				$('figure img').each(function (i) {
 					var slide = $('<div></div>');
 					slide.addClass('slide');
+					var image = $('figure img').eq(i).attr('src');
+					slide.css('background-image', 'url(' + image + ')');
 					var meta = $('<span></span>');
 					meta.addClass('slide__meta');
 					var title = $('figure img').eq(i).attr('title');
 					meta.html(title);
 					slide.append(meta);
-					var image = $('figure img').eq(i).attr('src');
-					slide.css('background-image', 'url(' + image + ')');
 					viewer.append(slide);
 				});
 				// Prepend viewer
