@@ -64,6 +64,7 @@
 				var viewer = $('<div></div>');
 				for (var i = 0; i < $('figure img').length; i++) {
 					var slide = $('<div class="slide"></div>');
+					slide.html('<span></span>');
 					var image = $('figure img').eq(i).attr('src');
 					slide.css('background-image', 'url(' + image + ')');
 					viewer.append(slide);
@@ -75,7 +76,7 @@
 			top: function top() {
 				var i = void 0;
 				$('figure img').eq(i).on('click', function () {
-					Lightbox.display(Lightbox.index = i);
+					return Lightbox.display(Lightbox.index = i);
 				});
 			}
 		},
@@ -89,7 +90,8 @@
 			},
 			// Create
 			create: function create() {
-				Lightbox.nav = $('<div class="lightbox__nav"></div>');
+				Lightbox.nav = $('<div></div>');
+				Lightbox.nav.addClass('lightbox__nav');
 				Lightbox.modal.append(Lightbox.nav);
 			},
 			// Previous
@@ -99,7 +101,7 @@
 				button.append(icon);
 				Lightbox.nav.append(button);
 				button.on('click', function () {
-					Lightbox.display(Lightbox.index -= 1);
+					return Lightbox.display(Lightbox.index -= 1);
 				});
 			},
 			// Next
@@ -109,7 +111,7 @@
 				button.append(icon);
 				Lightbox.nav.append(button);
 				button.on('click', function () {
-					Lightbox.display(Lightbox.index += 1);
+					return Lightbox.display(Lightbox.index += 1);
 				});
 			}
 		},

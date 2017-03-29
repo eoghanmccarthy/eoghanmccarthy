@@ -58,6 +58,7 @@
 				let viewer = $('<div></div>');
 				for (let i = 0; i < $('figure img').length; i++) {
 					let slide = $('<div class="slide"></div>');
+					slide.html('<span></span>');
 					let image = $('figure img').eq(i).attr('src');
 					slide.css('background-image', `url(${image})`);
 					viewer.append(slide);
@@ -68,9 +69,7 @@
 			// Display clicked image
 			top: () => {
 				let i;
-				$('figure img').eq(i).on('click', () => {
-					Lightbox.display(Lightbox.index = i);
-				});
+				$('figure img').eq(i).on('click', () => Lightbox.display(Lightbox.index = i));
 			}
 		},
 		// Navigation
@@ -83,7 +82,8 @@
 			},
 			// Create
 			create: () => {
-				Lightbox.nav = $('<div class="lightbox__nav"></div>');
+				Lightbox.nav = $('<div></div>');
+				Lightbox.nav.addClass('lightbox__nav');
 				Lightbox.modal.append(Lightbox.nav);
 			},
 			// Previous
@@ -92,9 +92,7 @@
 				let icon = $('<i class="fa fa-caret-left"></i>');
 				button.append(icon);
 				Lightbox.nav.append(button);
-				button.on('click', () => {
-					Lightbox.display(Lightbox.index -= 1);
-				});
+				button.on('click', () => Lightbox.display(Lightbox.index -= 1));
 			},
 			// Next
 			next: () => {
@@ -102,9 +100,7 @@
 				let icon = $('<i class="fa fa-caret-right"></i>');
 				button.append(icon);
 				Lightbox.nav.append(button);
-				button.on('click', () => {
-					Lightbox.display(Lightbox.index += 1);
-				});
+				button.on('click', () => Lightbox.display(Lightbox.index += 1));
 			}
 		},
 		// Display
