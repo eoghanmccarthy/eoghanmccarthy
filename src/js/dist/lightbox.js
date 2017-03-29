@@ -65,7 +65,9 @@
 				$('figure img').each(function (i) {
 					var slide = $('<div></div>');
 					slide.addClass('slide');
-					slide.html('<span></span>');
+					var meta = $('<span></span>');
+					meta.addClass('slide__meta');
+					slide.append(meta);
 					var image = $('figure img').eq(i).attr('src');
 					slide.css('background-image', 'url(' + image + ')');
 					viewer.append(slide);
