@@ -63,6 +63,7 @@
 					meta.addClass('slide__meta');
 					let title = $('figure img').eq(i).attr('title');
 					meta.html(title);
+					slide.append(meta);
 					let image = $('figure img').eq(i).attr('src');
 					slide.css('background-image', `url(${image})`);
 					viewer.append(slide);
