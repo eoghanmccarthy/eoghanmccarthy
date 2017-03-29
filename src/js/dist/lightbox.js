@@ -62,13 +62,14 @@
 			compile: function compile() {
 				// Create viewer
 				var viewer = $('<div></div>');
-				for (var i = 0; i < $('figure img').length; i++) {
-					var slide = $('<div class="slide"></div>');
+				$('figure img').each(function (i) {
+					var slide = $('<div></div>');
+					slide.addClass('slide');
 					slide.html('<span></span>');
 					var image = $('figure img').eq(i).attr('src');
 					slide.css('background-image', 'url(' + image + ')');
 					viewer.append(slide);
-				};
+				});
 				// Prepend viewer
 				Lightbox.modal.prepend(viewer);
 			},

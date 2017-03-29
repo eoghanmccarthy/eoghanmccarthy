@@ -56,13 +56,14 @@
 			compile: () => {
 				// Create viewer
 				let viewer = $('<div></div>');
-				for (let i = 0; i < $('figure img').length; i++) {
-					let slide = $('<div class="slide"></div>');
+				$('figure img').each(function(i) {
+					let slide = $('<div></div>');
+					slide.addClass('slide')
 					slide.html('<span></span>');
 					let image = $('figure img').eq(i).attr('src');
 					slide.css('background-image', `url(${image})`);
 					viewer.append(slide);
-				};
+				});
 				// Prepend viewer
 				Lightbox.modal.prepend(viewer);
 			},
