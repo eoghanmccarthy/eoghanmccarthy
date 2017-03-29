@@ -87,7 +87,7 @@
 			// Create
 			create: () => {
 				Lightbox.nav = $('<div class="lightbox__nav"></div>');
-				Lightbox.modal.append(nav);
+				Lightbox.modal.append(Lightbox.nav);
 			},
 			// Previous
 			previous: () => {
