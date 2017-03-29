@@ -38,16 +38,17 @@
 			// Open
 			open: function open() {
 				$('figure img').on('click', function () {
-					return Lightbox.modal.css('display', 'block');
+					Lightbox.modal.css('display', 'block');
 				});
 			},
 			// Close
 			close: function close() {
-				var button = $('<span>&times;</span>');
+				var button = $('<span></span>');
 				button.addClass('lightbox__close');
+				button.html('&times;');
 				Lightbox.modal.append(button);
 				button.on('click', function () {
-					return Lightbox.modal.css('display', 'none');
+					Lightbox.modal.css('display', 'none');
 				});
 			}
 		},
@@ -81,7 +82,7 @@
 			top: function top() {
 				var i = void 0;
 				$('figure img').eq(i).on('click', function () {
-					return Lightbox.display(Lightbox.index = i);
+					Lightbox.display(Lightbox.index == i);
 				});
 			}
 		},

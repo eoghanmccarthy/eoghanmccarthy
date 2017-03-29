@@ -35,14 +35,19 @@
 			},
 			// Open
 			open: () => {
-				$('figure img').on('click', () => Lightbox.modal.css('display', 'block'));
+				$('figure img').on('click', () => {
+					Lightbox.modal.css('display', 'block');
+				});
 			},
 			// Close
 			close: () => {
-				let button = $('<span>&times;</span>');
+				let button = $('<span></span>');
 				button.addClass('lightbox__close');
+				button.html('&times;');
 				Lightbox.modal.append(button);
-				button.on('click', () => Lightbox.modal.css('display', 'none'));
+				button.on('click', () => {
+					Lightbox.modal.css('display', 'none');
+				});
 			}
 		},
 		// Slides
@@ -74,7 +79,9 @@
 			// Display clicked image
 			top: () => {
 				let i;
-				$('figure img').eq(i).on('click', () => Lightbox.display(Lightbox.index = i));
+				$('figure img').eq(i).on('click', () => {
+					Lightbox.display(Lightbox.index == i);
+				});
 			}
 		},
 		// Navigation
