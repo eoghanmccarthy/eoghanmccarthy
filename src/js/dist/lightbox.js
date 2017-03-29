@@ -14,41 +14,39 @@
 		},
 		// Bind
 		bind: function bind() {
-			Lightbox.modal.bind();
+			Lightbox.box.bind();
 			Lightbox.slides.bind();
 			Lightbox.navigation.bind();
 			Lightbox.display();
 		},
 		index: 1,
 		// Modal
-		modal: {
+		box: {
 			// Bind
 			bind: function bind() {
-				Lightbox.modal.create();
-				Lightbox.modal.open();
-				Lightbox.modal.close();
+				Lightbox.box.create();
+				Lightbox.box.open();
+				Lightbox.box.close();
 			},
 			// Create
 			create: function create() {
-				Lightbox.box = $('<div id="lightbox" class="lightbox"></div>');
-				$('body').append(Lightbox.box);
-				// Create lightbox
-				// let lightbox = $('<div id="lightbox" class="lightbox"></div>');
-				// $('body').append(lightbox);
+				// Create lightbox modal
+				Lightbox.modal = $('<div></div>');
+				Lightbox.modal.addClass('lightbox');
+				$('body').append(Lightbox.modal);
 			},
 			// Open
 			open: function open() {
 				$('figure img').on('click', function () {
-					// $('.lightbox').css('display', 'block');
-					Lightbox.box.css('display', 'block');
+					Lightbox.modal.css('display', 'block');
 				});
 			},
 			// Close
 			close: function close() {
 				var button = $('<span class="lightbox__close">&times;</span>');
-				$('#lightbox').append(button);
+				Lightbox.modal.append(button);
 				button.on('click', function () {
-					$('.lightbox').css('display', 'none');
+					Lightbox.modal.css('display', 'none');
 				});
 			}
 		},
@@ -70,12 +68,12 @@
 					viewer.append(slide);
 				};
 				// Prepend viewer
-				$('#lightbox').prepend(viewer);
+				Lightbox.modal.prepend(viewer);
 			},
 			// Display clicked image
 			top: function top() {
 				var i = void 0;
-				$('img.media__content').eq(i).on('click', function () {
+				$('figure img').eq(i).on('click', function () {
 					Lightbox.display(Lightbox.index = i);
 				});
 			}
@@ -90,15 +88,15 @@
 			},
 			// Create
 			create: function create() {
-				var nav = $('<div id="lightboxNav" class="lightbox__nav"></div>');
-				$('#lightbox').append(nav);
+				Lightbox.nav = $('<div class="lightbox__nav"></div>');
+				Lightbox.modal.append(nav);
 			},
 			// Previous
 			previous: function previous() {
 				var button = $('<a class="nav__prev"></a>');
 				var icon = $('<i class="fa fa-caret-left"></i>');
 				button.append(icon);
-				$('#lightboxNav').append(button);
+				Lightbox.nav.append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index -= 1);
 				});
@@ -108,7 +106,7 @@
 				var button = $('<a class="nav__next"></a>');
 				var icon = $('<i class="fa fa-caret-right"></i>');
 				button.append(icon);
-				$('#lightboxNav').append(button);
+				Lightbox.nav.append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index += 1);
 				});

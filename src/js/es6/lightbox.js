@@ -12,41 +12,39 @@
 		},
 		// Bind
 		bind: () => {
-			Lightbox.modal.bind();
+			Lightbox.box.bind();
 			Lightbox.slides.bind();
 			Lightbox.navigation.bind();
 			Lightbox.display();
 		},
 		index: 1,
 		// Modal
-		modal: {
+		box: {
 			// Bind
 			bind: () => {
-				Lightbox.modal.create();
-				Lightbox.modal.open();
-				Lightbox.modal.close();
+				Lightbox.box.create();
+				Lightbox.box.open();
+				Lightbox.box.close();
 			},
 			// Create
 			create: () => {
-				Lightbox.box = $('<div id="lightbox" class="lightbox"></div>');
-				$('body').append(Lightbox.box);
-				// Create lightbox
-				// let lightbox = $('<div id="lightbox" class="lightbox"></div>');
-				// $('body').append(lightbox);
+				// Create lightbox modal
+				Lightbox.modal = $('<div></div>');
+				Lightbox.modal.addClass('lightbox');
+				$('body').append(Lightbox.modal);
 			},
 			// Open
 			open: () => {
 				$('figure img').on('click', () => {
-					// $('.lightbox').css('display', 'block');
-					Lightbox.box.css('display', 'block');
+					Lightbox.modal.css('display', 'block');
 				});
 			},
 			// Close
 			close: () => {
 				let button = $('<span class="lightbox__close">&times;</span>');
-				$('#lightbox').append(button);
+				Lightbox.modal.append(button);
 				button.on('click', () => {
-					$('.lightbox').css('display', 'none');
+					Lightbox.modal.css('display', 'none');
 				});
 			}
 		},
@@ -68,12 +66,12 @@
 					viewer.append(slide);
 				};
 				// Prepend viewer
-				$('#lightbox').prepend(viewer);
+				Lightbox.modal.prepend(viewer);
 			},
 			// Display clicked image
 			top: () => {
 				let i;
-				$('img.media__content').eq(i).on('click', () => {
+				$('figure img').eq(i).on('click', () => {
 					Lightbox.display(Lightbox.index = i);
 				});
 			}
@@ -88,15 +86,15 @@
 			},
 			// Create
 			create: () => {
-				let nav = $('<div id="lightboxNav" class="lightbox__nav"></div>');
-				$('#lightbox').append(nav);
+				Lightbox.nav = $('<div class="lightbox__nav"></div>');
+				Lightbox.modal.append(nav);
 			},
 			// Previous
 			previous: () => {
 				let button = $('<a class="nav__prev"></a>');
 				let icon = $('<i class="fa fa-caret-left"></i>');
 				button.append(icon);
-				$('#lightboxNav').append(button);
+				Lightbox.nav.append(button);
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index -= 1);
 				});
@@ -106,7 +104,7 @@
 				let button = $('<a class="nav__next"></a>');
 				let icon = $('<i class="fa fa-caret-right"></i>');
 				button.append(icon);
-				$('#lightboxNav').append(button);
+				Lightbox.nav.append(button);
 				button.on('click', () => {
 					Lightbox.display(Lightbox.index += 1);
 				});
