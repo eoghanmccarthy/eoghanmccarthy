@@ -38,15 +38,16 @@
 			// Open
 			open: function open() {
 				$('figure img').on('click', function () {
-					Lightbox.modal.css('display', 'block');
+					return Lightbox.modal.css('display', 'block');
 				});
 			},
 			// Close
 			close: function close() {
-				var button = $('<span class="lightbox__close">&times;</span>');
+				var button = $('<span>&times;</span>');
+				button.addClass('lightbox__close');
 				Lightbox.modal.append(button);
 				button.on('click', function () {
-					Lightbox.modal.css('display', 'none');
+					return Lightbox.modal.css('display', 'none');
 				});
 			}
 		},

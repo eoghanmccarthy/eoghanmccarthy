@@ -35,17 +35,14 @@
 			},
 			// Open
 			open: () => {
-				$('figure img').on('click', () => {
-					Lightbox.modal.css('display', 'block');
-				});
+				$('figure img').on('click', () => Lightbox.modal.css('display', 'block'));
 			},
 			// Close
 			close: () => {
-				let button = $('<span class="lightbox__close">&times;</span>');
+				let button = $('<span>&times;</span>');
+				button.addClass('lightbox__close');
 				Lightbox.modal.append(button);
-				button.on('click', () => {
-					Lightbox.modal.css('display', 'none');
-				});
+				button.on('click', () => Lightbox.modal.css('display', 'none'));
 			}
 		},
 		// Slides
