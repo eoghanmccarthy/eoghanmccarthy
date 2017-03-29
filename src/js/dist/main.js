@@ -18,7 +18,7 @@
 		},
 		// Menu
 		menu: {
-			// Open
+			// Toggle
 			toggle: function toggle() {
 				$('#menu-toggle').on('click', function () {
 					$('#menu').toggleClass('menu-nav__list--xs');

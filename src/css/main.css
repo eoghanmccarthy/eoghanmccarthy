@@ -190,7 +190,8 @@ p {
     bottom: 20px;
     right: 20px;
     color: #ccff00; }
-    .lightbox__nav--prv, .lightbox__nav--nxt {
+    .lightbox__nav .nav__prev,
+    .lightbox__nav .nav__next {
       float: left;
       margin: 0 0.2em;
       font-size: 5rem;
@@ -202,7 +203,8 @@ p {
       -o-transition: opacity, 0.2s, ease;
       -ms-transition: opacity, 0.2s, ease;
       transition: opacity, 0.2s, ease; }
-      .lightbox__nav--prv:hover, .lightbox__nav--nxt:hover {
+      .lightbox__nav .nav__prev:hover,
+      .lightbox__nav .nav__next:hover {
         opacity: 1; }
   .lightbox__meta {
     position: absolute;

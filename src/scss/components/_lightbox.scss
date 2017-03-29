@@ -80,8 +80,8 @@
         right: 20px;
         color: palette(brand);
 
-        &--prv,
-        &--nxt {
+        .nav__prev,
+        .nav__next {
             float: left;
             margin: 0 p(xxs);
             font-size: $base-font-size * 5;

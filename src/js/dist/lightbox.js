@@ -28,15 +28,19 @@
 				Lightbox.modal.open();
 				Lightbox.modal.close();
 			},
-			// Open
+			// Create
 			create: function create() {
-				var lightbox = $('<div id="lightbox" class="lightbox"></div>');
-				$('body').append(lightbox);
+				Lightbox.box = $('<div id="lightbox" class="lightbox"></div>');
+				$('body').append(Lightbox.box);
+				// Create lightbox
+				// let lightbox = $('<div id="lightbox" class="lightbox"></div>');
+				// $('body').append(lightbox);
 			},
 			// Open
 			open: function open() {
-				$('img.media__content').on('click', function () {
-					$('.lightbox').css('display', 'block');
+				$('figure img').on('click', function () {
+					// $('.lightbox').css('display', 'block');
+					Lightbox.box.css('display', 'block');
 				});
 			},
 			// Close
@@ -55,9 +59,9 @@
 				Lightbox.slides.compile();
 				Lightbox.slides.top();
 			},
-			// Stack slides
+			// Compile
 			compile: function compile() {
-				// Compile slides
+				// Create viewer
 				var viewer = $('<div></div>');
 				for (var i = 0; i < $('figure img').length; i++) {
 					var slide = $('<div class="slide"></div>');
@@ -68,7 +72,7 @@
 				// Prepend viewer
 				$('#lightbox').prepend(viewer);
 			},
-			// Display clicked gallery image
+			// Display clicked image
 			top: function top() {
 				var i = void 0;
 				$('img.media__content').eq(i).on('click', function () {
@@ -84,14 +88,16 @@
 				Lightbox.navigation.previous();
 				Lightbox.navigation.next();
 			},
-			// Container
+			// Create
 			create: function create() {
 				var nav = $('<div id="lightboxNav" class="lightbox__nav"></div>');
 				$('#lightbox').append(nav);
 			},
 			// Previous
 			previous: function previous() {
-				var button = $('<a class="lightbox__nav--prv"><i class="fa fa-caret-left"></i></a>');
+				var button = $('<a class="nav__prev"></a>');
+				var icon = $('<i class="fa fa-caret-left"></i>');
+				button.append(icon);
 				$('#lightboxNav').append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index -= 1);
@@ -99,7 +105,9 @@
 			},
 			// Next
 			next: function next() {
-				var button = $('<a class="lightbox__nav--nxt"><i class="fa fa-caret-right"></i></a>');
+				var button = $('<a class="nav__next"></a>');
+				var icon = $('<i class="fa fa-caret-right"></i>');
+				button.append(icon);
 				$('#lightboxNav').append(button);
 				button.on('click', function () {
 					Lightbox.display(Lightbox.index += 1);
