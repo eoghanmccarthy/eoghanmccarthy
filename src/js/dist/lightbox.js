@@ -12,14 +12,17 @@
 		init: function init() {
 			Lightbox.bind();
 		},
+		// Index
+		index: 1,
 		// Bind
 		bind: function bind() {
 			Lightbox.box.bind();
 			Lightbox.slides.bind();
 			Lightbox.navigation.bind();
-			Lightbox.display();
+			Lightbox.display(Lightbox.index);
 		},
-		index: 1,
+		// Index
+		// index: 1,
 		// Modal
 		box: {
 			// Bind
@@ -84,13 +87,8 @@
 			top: function top() {
 				var i = void 0;
 				// Click function
-				// $('figure img').eq(i).on('click', () => {
-				// 	Lightbox.display(Lightbox.index == i);
-				// });
-				$('figure img').each(function (i) {
-					$(this).on('click', function () {
-						Lightbox.display(Lightbox.index = i);
-					});
+				$('figure img').eq(i).on('click', function () {
+					Lightbox.display(Lightbox.index = i);
 				});
 			}
 		},
