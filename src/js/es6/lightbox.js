@@ -8,7 +8,7 @@
 	const Lightbox = {
 		// Initialise
 		init: () => {
-			this.bind();
+			Lightbox.bind();
 		},
 		// Bind
 		bind: () => {
@@ -23,7 +23,7 @@
 		box: {
 			// Bind
 			bind: () => {
-				Lightbox.box.create();
+				this.create();
 				Lightbox.box.open();
 				Lightbox.box.close();
 			},

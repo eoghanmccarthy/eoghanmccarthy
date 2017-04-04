@@ -10,7 +10,7 @@
 	var Lightbox = {
 		// Initialise
 		init: function init() {
-			undefined.bind();
+			Lightbox.bind();
 		},
 		// Bind
 		bind: function bind() {
@@ -25,7 +25,7 @@
 		box: {
 			// Bind
 			bind: function bind() {
-				Lightbox.box.create();
+				undefined.create();
 				Lightbox.box.open();
 				Lightbox.box.close();
 			},
