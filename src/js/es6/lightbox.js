@@ -8,10 +8,8 @@
 	const Lightbox = {
 		// Initialise
 		init: () => {
-			Lightbox.bind();
+			this.bind();
 		},
-		// Index
-		index: 1,
 		// Bind
 		bind: () => {
 			Lightbox.box.bind();
@@ -20,7 +18,7 @@
 			Lightbox.display(Lightbox.index);
 		},
 		// Index
-		// index: 1,
+		index: 1,
 		// Modal
 		box: {
 			// Bind

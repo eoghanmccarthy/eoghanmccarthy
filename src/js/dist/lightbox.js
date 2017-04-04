@@ -10,10 +10,8 @@
 	var Lightbox = {
 		// Initialise
 		init: function init() {
-			Lightbox.bind();
+			undefined.bind();
 		},
-		// Index
-		index: 1,
 		// Bind
 		bind: function bind() {
 			Lightbox.box.bind();
@@ -22,7 +20,7 @@
 			Lightbox.display(Lightbox.index);
 		},
 		// Index
-		// index: 1,
+		index: 1,
 		// Modal
 		box: {
 			// Bind
