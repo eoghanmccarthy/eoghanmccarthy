@@ -2,39 +2,6 @@
  * Lightbox
  */
 
-// // List of photo lightbox images
-// $lghtbx-AA__img: (
-//     '../../photography/img_0111-folio.jpg'
-//     '../../photography/img_0243-folio.jpg'
-//     '../../photography/img_0359-folio.jpg'
-//     '../../photography/img_0387-folio.jpg'
-//     '../../photography/img_4453-folio.jpg'
-//     '../../photography/img_4480-folio.jpg'
-//     '../../photography/img_3889-folio.jpg'
-//     '../../photography/img_3251-folio.jpg'
-// );
-//
-// // Generate background image classes
-// @mixin bground-img($list) {
-//     @each $item in $list {
-//         $i: index($list, $item);
-//         &-#{$i} {
-//             background-image: url("#{$item}");
-//         }
-//     }
-// }
-//
-// // Generate lightbox background image classes
-// #lightbox {
-//     .slide {
-//         @include bground-img($lghtbx-AA__img);
-//     }
-// }
-
-/*
- * Lightbox main styles
- */
-
 .lightbox {
 	@extend %px-base;
 	display: none;
@@ -104,3 +71,32 @@
 		}
 	}
 }
+
+// // List of photo lightbox images
+// $lghtbx-AA__img: (
+//     '../../photography/img_0111-folio.jpg'
+//     '../../photography/img_0243-folio.jpg'
+//     '../../photography/img_0359-folio.jpg'
+//     '../../photography/img_0387-folio.jpg'
+//     '../../photography/img_4453-folio.jpg'
+//     '../../photography/img_4480-folio.jpg'
+//     '../../photography/img_3889-folio.jpg'
+//     '../../photography/img_3251-folio.jpg'
+// );
+//
+// // Generate background image classes
+// @mixin bground-img($list) {
+//     @each $item in $list {
+//         $i: index($list, $item);
+//         &-#{$i} {
+//             background-image: url("#{$item}");
+//         }
+//     }
+// }
+//
+// // Generate lightbox background image classes
+// #lightbox {
+//     .slide {
+//         @include bground-img($lghtbx-AA__img);
+//     }
+// }

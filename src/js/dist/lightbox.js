@@ -37,6 +37,7 @@
 			},
 			// Open
 			open: function open() {
+				// Click function
 				$('figure img').on('click', function () {
 					Lightbox.modal.css('display', 'block');
 				});
@@ -47,6 +48,7 @@
 				button.addClass('lightbox__close');
 				button.html('&times;');
 				Lightbox.modal.append(button);
+				// Click function
 				button.on('click', function () {
 					Lightbox.modal.css('display', 'none');
 				});
@@ -81,8 +83,14 @@
 			// Display clicked image
 			top: function top() {
 				var i = void 0;
-				$('figure img').eq(i).on('click', function () {
-					Lightbox.display(Lightbox.index == i);
+				// Click function
+				// $('figure img').eq(i).on('click', () => {
+				// 	Lightbox.display(Lightbox.index == i);
+				// });
+				$('figure img').each(function (i) {
+					$(this).on('click', function () {
+						Lightbox.display(Lightbox.index = i);
+					});
 				});
 			}
 		},
@@ -102,22 +110,28 @@
 			},
 			// Previous
 			previous: function previous() {
-				var button = $('<a class="nav__prev"></a>');
-				var icon = $('<i class="fa fa-caret-left"></i>');
+				var button = $('<a></a>');
+				button.addClass('nav__prev');
+				var icon = $('<i></i>');
+				icon.addClass('fa fa-caret-left');
 				button.append(icon);
 				Lightbox.nav.append(button);
+				// Click function
 				button.on('click', function () {
-					return Lightbox.display(Lightbox.index -= 1);
+					Lightbox.display(Lightbox.index -= 1);
 				});
 			},
 			// Next
 			next: function next() {
-				var button = $('<a class="nav__next"></a>');
-				var icon = $('<i class="fa fa-caret-right"></i>');
+				var button = $('<a></a>');
+				button.addClass('nav__next');
+				var icon = $('<i></i>');
+				icon.addClass('fa fa-caret-right');
 				button.append(icon);
 				Lightbox.nav.append(button);
+				// Click function
 				button.on('click', function () {
-					return Lightbox.display(Lightbox.index += 1);
+					Lightbox.display(Lightbox.index += 1);
 				});
 			}
 		},

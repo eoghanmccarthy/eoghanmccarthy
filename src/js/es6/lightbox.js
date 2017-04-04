@@ -35,6 +35,7 @@
 			},
 			// Open
 			open: () => {
+				// Click function
 				$('figure img').on('click', () => {
 					Lightbox.modal.css('display', 'block');
 				});
@@ -45,6 +46,7 @@
 				button.addClass('lightbox__close');
 				button.html('&times;');
 				Lightbox.modal.append(button);
+				// Click function
 				button.on('click', () => {
 					Lightbox.modal.css('display', 'none');
 				});
@@ -79,8 +81,14 @@
 			// Display clicked image
 			top: () => {
 				let i;
-				$('figure img').eq(i).on('click', () => {
-					Lightbox.display(Lightbox.index == i);
+				// Click function
+				// $('figure img').eq(i).on('click', () => {
+				// 	Lightbox.display(Lightbox.index == i);
+				// });
+				$('figure img').each(function(i) {
+					$(this).on('click', () => {
+						Lightbox.display(Lightbox.index = i);
+					});
 				});
 			}
 		},
@@ -100,19 +108,29 @@
 			},
 			// Previous
 			previous: () => {
-				let button = $('<a class="nav__prev"></a>');
-				let icon = $('<i class="fa fa-caret-left"></i>');
+				let button = $('<a></a>');
+				button.addClass('nav__prev');
+				let icon = $('<i></i>');
+				icon.addClass('fa fa-caret-left');
 				button.append(icon);
 				Lightbox.nav.append(button);
-				button.on('click', () => Lightbox.display(Lightbox.index -= 1));
+				// Click function
+				button.on('click', () => {
+					Lightbox.display(Lightbox.index -= 1);
+				});
 			},
 			// Next
 			next: () => {
-				let button = $('<a class="nav__next"></a>');
-				let icon = $('<i class="fa fa-caret-right"></i>');
+				let button = $('<a></a>');
+				button.addClass('nav__next');
+				let icon = $('<i></i>');
+				icon.addClass('fa fa-caret-right');
 				button.append(icon);
 				Lightbox.nav.append(button);
-				button.on('click', () => Lightbox.display(Lightbox.index += 1));
+				// Click function
+				button.on('click', () => {
+					Lightbox.display(Lightbox.index += 1);
+				});
 			}
 		},
 		// Display
