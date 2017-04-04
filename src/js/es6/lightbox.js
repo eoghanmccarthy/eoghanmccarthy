@@ -17,6 +17,7 @@
 			Lightbox.navigation.bind();
 			Lightbox.display();
 		},
+		// Index
 		index: 1,
 		// Modal
 		box: {
@@ -82,13 +83,8 @@
 			top: () => {
 				let i;
 				// Click function
-				// $('figure img').eq(i).on('click', () => {
-				// 	Lightbox.display(Lightbox.index == i);
-				// });
-				$('figure img').each(function(i) {
-					$(this).on('click', () => {
-						Lightbox.display(Lightbox.index = i);
-					});
+				$('figure img').eq(i).on('click', () => {
+					Lightbox.display(Lightbox.index = i);
 				});
 			}
 		},
