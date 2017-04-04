@@ -25,7 +25,7 @@
 		box: {
 			// Bind
 			bind: function bind() {
-				undefined.create();
+				Lightbox.create();
 				Lightbox.box.open();
 				Lightbox.box.close();
 			},

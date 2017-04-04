@@ -23,7 +23,7 @@
 		box: {
 			// Bind
 			bind: () => {
-				this.create();
+				Lightbox.create();
 				Lightbox.box.open();
 				Lightbox.box.close();
 			},
