@@ -148,9 +148,6 @@ p {
 /*
  * Lightbox
  */
-/*
- * Lightbox main styles
- */
 .lightbox {
   display: none;
   position: fixed;
@@ -218,10 +215,10 @@ p {
     .header .header__logo .logo-svg {
       display: block;
       margin: 0 auto;
-      width: 50px; }
+      width: 120px; }
       @media screen and (min-width: 576px) {
         .header .header__logo .logo-svg {
-          width: 100px; } }
+          width: 120px; } }
       @media screen and (min-width: 768px) {
         .header .header__logo .logo-svg {
           width: 120px; } }
