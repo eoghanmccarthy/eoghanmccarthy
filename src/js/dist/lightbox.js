@@ -83,7 +83,7 @@
 			},
 			// Display clicked image
 			top: function top() {
-				var i = void 0;
+				//let i;
 				// Click function
 				$('figure img').eq(i).on('click', function () {
 					Lightbox.display(Lightbox.index = i);
