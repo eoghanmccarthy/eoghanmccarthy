@@ -20,7 +20,7 @@
 			Lightbox.display();
 		},
 		// Index
-		index: 0,
+		index: 1,
 		// Modal
 		box: {
 			// Bind
@@ -134,9 +134,9 @@
 		// Display
 		display: function display(n) {
 			if (n > $('.slide').length) {
-				Lightbox.index = 0;
+				Lightbox.index = 1;
 			}
-			if (n < 0) {
+			if (n < 1) {
 				Lightbox.index = $('.slide').length;
 			}
 			$('.slide').css('display', 'none');
