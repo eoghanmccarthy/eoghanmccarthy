@@ -133,14 +133,14 @@
 		},
 		// Display
 		display: function display(n) {
-			if (n > $('.slide').length) {
-				Lightbox.index = 1;
+			if (n > $('.slide').length - 1) {
+				Lightbox.index = 0;
 			}
-			if (n < 1) {
-				Lightbox.index = $('.slide').length;
+			if (n < 0) {
+				Lightbox.index = $('.slide').length - 1;
 			}
 			$('.slide').css('display', 'none');
-			$('.slide').eq(Lightbox.index - 1).css('display', 'block');
+			$('.slide').eq(Lightbox.index).css('display', 'block');
 		}
 	};
 
