@@ -32,26 +32,27 @@
 			// Create
 			create: function create() {
 				// Create lightbox modal
-				var modal = $('<div></div>');
-				modal.addClass('lightbox');
-				$('body').append(modal);
+				Lightbox.modal = $('<div></div>');
+				Lightbox.modal.addClass('lightbox');
+				$('body').append(Lightbox.modal);
 			},
 			// Open
 			open: function open() {
 				// Click function
 				$('figure img').on('click', function () {
-					modal.css('display', 'block');
+					Lightbox.modal.css('display', 'block');
 				});
 			},
 			// Close
 			close: function close() {
-				var button = $('<span></span>');
+				var button = $('<span>');
 				button.addClass('lightbox__close');
 				button.html('&times;');
-				modal.append(button);
+				var x = Lightbox.modal;
+				x.append(button);
 				// Click function
 				button.on('click', function () {
-					modal.css('display', 'none');
+					x.css('display', 'none');
 				});
 			}
 		},

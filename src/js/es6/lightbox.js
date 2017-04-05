@@ -30,26 +30,27 @@
 			// Create
 			create: () => {
 				// Create lightbox modal
-				let modal = $('<div></div>');
-				modal.addClass('lightbox');
-				$('body').append(modal);
+				Lightbox.modal = $('<div></div>');
+				Lightbox.modal.addClass('lightbox');
+				$('body').append(Lightbox.modal);
 			},
 			// Open
 			open: () => {
 				// Click function
 				$('figure img').on('click', () => {
-					modal.css('display', 'block');
+					Lightbox.modal.css('display', 'block');
 				});
 			},
 			// Close
 			close: () => {
-				let button = $('<span></span>');
+				let button = $('<span>');
 				button.addClass('lightbox__close');
 				button.html('&times;');
-				modal.append(button);
+				let x = Lightbox.modal;
+				x.append(button);
 				// Click function
 				button.on('click', () => {
-					modal.css('display', 'none');
+					x.css('display', 'none');
 				});
 			}
 		},
