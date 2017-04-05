@@ -83,8 +83,6 @@
 			},
 			// Display clicked image
 			top: function top() {
-				// let i;
-				// Click function
 				$('figure img').each(function (i) {
 					$(this).on('click', function () {
 						Lightbox.display(Lightbox.index = i);
@@ -145,7 +143,7 @@
 				Lightbox.index = $('.slide').length;
 			}
 			$('.slide').css('display', 'none');
-			$('.slide').eq(Lightbox.index - 1).css('display', 'block');
+			$('.slide').eq(Lightbox.index).css('display', 'block');
 		}
 	};
 
