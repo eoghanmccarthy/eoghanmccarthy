@@ -38,7 +38,7 @@
 			open: () => {
 				// Click function
 				$('figure img').on('click', () => {
-					Lightbox.modal.css('display', 'block');
+					modal.css('display', 'block');
 				});
 			},
 			// Close
@@ -46,10 +46,10 @@
 				let button = $('<span></span>');
 				button.addClass('lightbox__close');
 				button.html('&times;');
-				Lightbox.modal.append(button);
+				modal.append(button);
 				// Click function
 				button.on('click', () => {
-					Lightbox.modal.css('display', 'none');
+					modal.css('display', 'none');
 				});
 			}
 		},
