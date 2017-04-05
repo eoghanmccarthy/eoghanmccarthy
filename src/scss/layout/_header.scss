@@ -9,10 +9,10 @@
 		.logo-svg {
 			display: block;
 			margin: 0 auto;
-			width: 120px;
+			width: 60px;
 
 			@include breakpoint(sm) {
-				width: 120px;
+				width: 100px;
 			}
 
 			@include breakpoint(md) {

@@ -15,7 +15,7 @@
 			Lightbox.box.bind();
 			Lightbox.slides.bind();
 			Lightbox.navigation.bind();
-			Lightbox.display(Lightbox.index);
+			Lightbox.display();
 		},
 		// Index
 		index: 1,
@@ -23,7 +23,7 @@
 		box: {
 			// Bind
 			bind: () => {
-				Lightbox.create();
+				Lightbox.box.create();
 				Lightbox.box.open();
 				Lightbox.box.close();
 			},
