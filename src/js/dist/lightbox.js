@@ -20,7 +20,7 @@
 			Lightbox.display();
 		},
 		// Index
-		index: 1,
+		index: 0,
 		// Modal
 		box: {
 			// Bind
