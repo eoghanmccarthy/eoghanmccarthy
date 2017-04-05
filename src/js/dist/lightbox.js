@@ -32,7 +32,7 @@
 			// Create
 			create: function create() {
 				// Create lightbox modal
-				Lightbox.modal = $('<div></div>');
+				Lightbox.modal = $('<div>');
 				Lightbox.modal.addClass('lightbox');
 				$('body').append(Lightbox.modal);
 			},
@@ -48,11 +48,10 @@
 				var button = $('<span>');
 				button.addClass('lightbox__close');
 				button.html('&times;');
-				var x = Lightbox.modal;
-				x.append(button);
+				Lightbox.modal.append(button);
 				// Click function
 				button.on('click', function () {
-					x.css('display', 'none');
+					Lightbox.modal.css('display', 'none');
 				});
 			}
 		},
@@ -66,13 +65,13 @@
 			// Compile
 			compile: function compile() {
 				// Create viewer
-				var viewer = $('<div></div>');
+				var viewer = $('<div>');
 				$('figure img').each(function (i) {
-					var slide = $('<div></div>');
+					var slide = $('<div>');
 					slide.addClass('slide');
 					var image = $('figure img').eq(i).attr('src');
 					slide.css('background-image', 'url(' + image + ')');
-					var meta = $('<span></span>');
+					var meta = $('<span>');
 					meta.addClass('slide__meta');
 					var title = $('figure img').eq(i).attr('title');
 					meta.html(title);
@@ -101,15 +100,15 @@
 			},
 			// Create
 			create: function create() {
-				Lightbox.nav = $('<div></div>');
+				Lightbox.nav = $('<div>');
 				Lightbox.nav.addClass('lightbox__nav');
 				Lightbox.modal.append(Lightbox.nav);
 			},
 			// Previous
 			previous: function previous() {
-				var button = $('<a></a>');
+				var button = $('<a>');
 				button.addClass('nav__prev');
-				var icon = $('<i></i>');
+				var icon = $('<i>');
 				icon.addClass('fa fa-caret-left');
 				button.append(icon);
 				Lightbox.nav.append(button);
@@ -120,9 +119,9 @@
 			},
 			// Next
 			next: function next() {
-				var button = $('<a></a>');
+				var button = $('<a>');
 				button.addClass('nav__next');
-				var icon = $('<i></i>');
+				var icon = $('<i>');
 				icon.addClass('fa fa-caret-right');
 				button.append(icon);
 				Lightbox.nav.append(button);

@@ -30,7 +30,7 @@
 			// Create
 			create: () => {
 				// Create lightbox modal
-				Lightbox.modal = $('<div></div>');
+				Lightbox.modal = $('<div>');
 				Lightbox.modal.addClass('lightbox');
 				$('body').append(Lightbox.modal);
 			},
@@ -46,11 +46,10 @@
 				let button = $('<span>');
 				button.addClass('lightbox__close');
 				button.html('&times;');
-				let x = Lightbox.modal;
-				x.append(button);
+				Lightbox.modal.append(button);
 				// Click function
 				button.on('click', () => {
-					x.css('display', 'none');
+					Lightbox.modal.css('display', 'none');
 				});
 			}
 		},
@@ -64,13 +63,13 @@
 			// Compile
 			compile: () => {
 				// Create viewer
-				let viewer = $('<div></div>');
+				let viewer = $('<div>');
 				$('figure img').each(function(i) {
-					let slide = $('<div></div>');
+					let slide = $('<div>');
 					slide.addClass('slide');
 					let image = $('figure img').eq(i).attr('src');
 					slide.css('background-image', `url(${image})`);
-					let meta = $('<span></span>');
+					let meta = $('<span>');
 					meta.addClass('slide__meta');
 					let title = $('figure img').eq(i).attr('title');
 					meta.html(title);
@@ -99,15 +98,15 @@
 			},
 			// Create
 			create: () => {
-				Lightbox.nav = $('<div></div>');
+				Lightbox.nav = $('<div>');
 				Lightbox.nav.addClass('lightbox__nav');
 				Lightbox.modal.append(Lightbox.nav);
 			},
 			// Previous
 			previous: () => {
-				let button = $('<a></a>');
+				let button = $('<a>');
 				button.addClass('nav__prev');
-				let icon = $('<i></i>');
+				let icon = $('<i>');
 				icon.addClass('fa fa-caret-left');
 				button.append(icon);
 				Lightbox.nav.append(button);
@@ -118,9 +117,9 @@
 			},
 			// Next
 			next: () => {
-				let button = $('<a></a>');
+				let button = $('<a>');
 				button.addClass('nav__next');
-				let icon = $('<i></i>');
+				let icon = $('<i>');
 				icon.addClass('fa fa-caret-right');
 				button.append(icon);
 				Lightbox.nav.append(button);
