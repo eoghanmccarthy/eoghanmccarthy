@@ -138,7 +138,7 @@
 				Lightbox.index = $('.slide').length;
 			}
 			$('.slide').css('display', 'none');
-			$('.slide').eq(Lightbox.index).css('display', 'block');
+			$('.slide').eq(Lightbox.index -1).css('display', 'block');
 		}
 	}
 
