@@ -32,9 +32,9 @@
 			// Create
 			create: function create() {
 				// Create lightbox modal
-				Lightbox.modal = $('<div></div>');
-				Lightbox.modal.addClass('lightbox');
-				$('body').append(Lightbox.modal);
+				var modal = $('<div></div>');
+				modal.addClass('lightbox');
+				$('body').append(modal);
 			},
 			// Open
 			open: function open() {
