@@ -20,7 +20,7 @@
 			Lightbox.display();
 		},
 		// Index
-		index: 1,
+		index: 0,
 		// Modal
 		box: {
 			// Bind
@@ -88,9 +88,6 @@
 						Lightbox.display(Lightbox.index = i);
 					});
 				});
-				// $('figure img').eq(i).on('click', () => {
-				// 	Lightbox.display(Lightbox.index = i);
-				// });
 			}
 		},
 		// Navigation
@@ -137,7 +134,7 @@
 		// Display
 		display: function display(n) {
 			if (n > $('.slide').length) {
-				Lightbox.index = 1;
+				Lightbox.index = 0;
 			}
 			if (n < 1) {
 				Lightbox.index = $('.slide').length;
