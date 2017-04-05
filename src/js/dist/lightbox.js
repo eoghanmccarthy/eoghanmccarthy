@@ -83,9 +83,9 @@
 			},
 			// Display clicked image
 			top: function top() {
-				//let i;
+				var i = void 0;
 				// Click function
-				$('figure img').eq(i).on('click', function () {
+				$('figure img')[i].on('click', function () {
 					Lightbox.display(Lightbox.index = i);
 				});
 			}
