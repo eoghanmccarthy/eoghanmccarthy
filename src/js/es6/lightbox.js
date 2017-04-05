@@ -81,11 +81,16 @@
 			},
 			// Display clicked image
 			top: () => {
-				let i;
+				// let i;
 				// Click function
-				$('figure img')[i].on('click', () => {
-					Lightbox.display(Lightbox.index = i);
+				$('figure img').each(function(i) {
+					$(this).on('click', () => {
+						Lightbox.display(Lightbox.index = i);
+					});
 				});
+				// $('figure img').eq(i).on('click', () => {
+				// 	Lightbox.display(Lightbox.index = i);
+				// });
 			}
 		},
 		// Navigation
