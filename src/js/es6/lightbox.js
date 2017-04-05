@@ -134,7 +134,7 @@
 			if (n > $('.slide').length) {
 				Lightbox.index = 0;
 			}
-			if (n < 1) {
+			if (n < 0) {
 				Lightbox.index = $('.slide').length;
 			}
 			$('.slide').css('display', 'none');
