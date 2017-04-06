@@ -85,7 +85,7 @@
 			top: function top() {
 				$('figure img').each(function (i) {
 					$(this).on('click', function () {
-						Lightbox.display(Lightbox.index = i);
+						display(Lightbox.index = i);
 					});
 				});
 			}
@@ -114,7 +114,7 @@
 				Lightbox.nav.append(button);
 				// Click function
 				button.on('click', function () {
-					Lightbox.display(Lightbox.index -= 1);
+					display(Lightbox.index -= 1);
 				});
 			},
 			// Next
@@ -133,14 +133,15 @@
 		},
 		// Display
 		display: function display(n) {
+			var index = Lightbox.index;
 			if (n > $('.slide').length - 1) {
-				Lightbox.index = 0;
+				index = 0;
 			}
 			if (n < 0) {
-				Lightbox.index = $('.slide').length - 1;
+				index = $('.slide').length - 1;
 			}
 			$('.slide').css('display', 'none');
-			$('.slide').eq(Lightbox.index).css('display', 'block');
+			$('.slide').eq(index).css('display', 'block');
 		}
 	};
 
