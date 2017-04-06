@@ -111,11 +111,7 @@
 				var icon = $('<i>');
 				icon.addClass('${iClass}');
 				button.append(icon);
-				Lightbox.nav.append(button);
-				// Click function
-				button.on('click', function () {
-					Lightbox.display(Lightbox.index -= 1);
-				});
+				$('body').append(button);
 			},
 			previous: function previous() {
 				var button = $('<a>');

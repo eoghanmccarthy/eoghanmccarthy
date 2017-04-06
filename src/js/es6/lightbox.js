@@ -109,11 +109,7 @@
 				let icon = $('<i>');
 				icon.addClass('${iClass}');
 				button.append(icon);
-				Lightbox.nav.append(button);
-				// Click function
-				button.on('click', () => {
-					Lightbox.display(Lightbox.index -= 1);
-				});
+				$('body').append(button);
 			},
 			previous: () => {
 				let button = $('<a>');
