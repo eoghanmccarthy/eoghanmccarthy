@@ -103,6 +103,18 @@
 				Lightbox.modal.append(Lightbox.nav);
 			},
 			// Previous
+			button: (aClass, iClass) => {
+				let button = $('<a>');
+				button.addClass('${aClass}');
+				let icon = $('<i>');
+				icon.addClass('${iClass}');
+				button.append(icon);
+				Lightbox.nav.append(button);
+				// Click function
+				button.on('click', () => {
+					Lightbox.display(Lightbox.index -= 1);
+				});
+			},
 			previous: () => {
 				let button = $('<a>');
 				button.addClass('nav__prev');
@@ -112,7 +124,7 @@
 				Lightbox.nav.append(button);
 				// Click function
 				button.on('click', () => {
-					this.display(Lightbox.index -= 1);
+					Lightbox.display(Lightbox.index -= 1);
 				});
 			},
 			// Next
@@ -143,6 +155,7 @@
 		}
 	}
 
+	Lightbox.navigation.button('nav__prev', 'fa fa-caret-right');
 	Lightbox.init();
 
 })();

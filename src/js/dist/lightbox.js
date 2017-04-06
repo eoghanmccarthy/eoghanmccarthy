@@ -105,6 +105,18 @@
 				Lightbox.modal.append(Lightbox.nav);
 			},
 			// Previous
+			button: function button(aClass, iClass) {
+				var button = $('<a>');
+				button.addClass('${aClass}');
+				var icon = $('<i>');
+				icon.addClass('${iClass}');
+				button.append(icon);
+				Lightbox.nav.append(button);
+				// Click function
+				button.on('click', function () {
+					Lightbox.display(Lightbox.index -= 1);
+				});
+			},
 			previous: function previous() {
 				var button = $('<a>');
 				button.addClass('nav__prev');
@@ -114,7 +126,7 @@
 				Lightbox.nav.append(button);
 				// Click function
 				button.on('click', function () {
-					undefined.display(Lightbox.index -= 1);
+					Lightbox.display(Lightbox.index -= 1);
 				});
 			},
 			// Next
@@ -145,5 +157,6 @@
 		}
 	};
 
+	Lightbox.navigation.button('nav__prev', 'fa fa-caret-right');
 	Lightbox.init();
 })();
