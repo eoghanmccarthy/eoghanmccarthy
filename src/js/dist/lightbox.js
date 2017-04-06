@@ -107,9 +107,9 @@
 			// Previous
 			button: function button(aClass, iClass) {
 				var button = $('<a>');
-				button.addClass('${aClass}');
+				button.addClass('' + aClass);
 				var icon = $('<i>');
-				icon.addClass('${iClass}');
+				icon.addClass('' + iClass);
 				button.append(icon);
 				$('body').append(button);
 			},
