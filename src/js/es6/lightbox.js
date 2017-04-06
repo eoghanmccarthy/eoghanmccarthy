@@ -83,7 +83,7 @@
 			top: () => {
 				$('figure img').each(function(i) {
 					$(this).on('click', () => {
-						display(Lightbox.index = i);
+						Lightbox.display(Lightbox.index = i);
 					});
 				});
 			}
@@ -112,7 +112,7 @@
 				Lightbox.nav.append(button);
 				// Click function
 				button.on('click', () => {
-					display(Lightbox.index -= 1);
+					this.display(Lightbox.index -= 1);
 				});
 			},
 			// Next
@@ -133,13 +133,13 @@
 		display: (n) => {
 			let index = Lightbox.index;
 			if (n > $('.slide').length -1) {
-				index = 0;
+				Lightbox.index = 0;
 			}
 			if (n < 0) {
-				index = $('.slide').length -1;
+				Lightbox.index = $('.slide').length -1;
 			}
 			$('.slide').css('display', 'none');
-			$('.slide').eq(index).css('display', 'block');
+			$('.slide').eq(Lightbox.index).css('display', 'block');
 		}
 	}
 
