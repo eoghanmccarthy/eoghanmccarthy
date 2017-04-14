@@ -1,4 +1,4 @@
-<header class="header">
+<header>
 	<a href="index.php"><?php include 'partials/logo.php';?></a>
 	<nav class="menu-nav">
 		<ul id="menu" class="menu-nav__list">
