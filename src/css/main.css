@@ -127,22 +127,22 @@ p {
 
 .logo {
   padding: 3em 0; }
-  .logo svg {
+  .logo .svg {
     display: inline-block;
     margin: 0 auto; }
-    .logo svg path {
+    .logo .svg path {
       fill: #e6ff80;
       -moz-transition: fill, 0.2s, ease;
       -webkit-transition: fill, 0.2s, ease;
       -o-transition: fill, 0.2s, ease;
       -ms-transition: fill, 0.2s, ease;
       transition: fill, 0.2s, ease; }
-      .logo svg path:hover {
+      .logo .svg path:hover {
         fill: #8bad00; }
-    header > .logo svg {
+    header > .logo .svg {
       width: 120px; }
       @media screen and (min-width: 768px) {
-        header > .logo svg {
+        header > .logo .svg {
           width: 150px; } }
 
 .media {
