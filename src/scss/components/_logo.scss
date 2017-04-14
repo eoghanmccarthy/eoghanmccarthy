@@ -2,7 +2,7 @@
 	padding: p(xl) 0;
 
 	svg {
-		display: block;
+		display: inline-block;
 		margin: 0 auto;
 
 		path {
@@ -13,12 +13,12 @@
 				fill: palette(brand, x-dark);
 			}
 		}
-	}
 
-	header > & {
-		width: 120px;
-		@include breakpoint(md) {
-			width: 150px;
+		header > & {
+			width: 120px;
+			@include breakpoint(md) {
+				width: 150px;
+			}
 		}
 	}
 }
