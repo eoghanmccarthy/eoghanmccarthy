@@ -6,7 +6,7 @@
 		display: inline-block;
 
 		path {
-			fill: palette(brand, x-light);
+			fill: palette(brand);
 			@include transition(fill, $speed, ease);
 
 			&:hover {

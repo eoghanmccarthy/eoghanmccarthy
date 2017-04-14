@@ -3,7 +3,7 @@
 html {
   font-size: 62.5%; }
 
-.menu-nav, .media, .lightbox, .header, .footer {
+.menu-nav, .media, .lightbox, header, .footer {
   font-size: 1rem; }
 
 .footer {
@@ -31,16 +31,6 @@ body {
 
 main {
   padding: 0 0 2em; }
-
-.logo-svg path {
-  fill: #ccff00;
-  -moz-transition: fill, 0.2s, ease;
-  -webkit-transition: fill, 0.2s, ease;
-  -o-transition: fill, 0.2s, ease;
-  -ms-transition: fill, 0.2s, ease;
-  transition: fill, 0.2s, ease; }
-  .logo-svg path:hover {
-    fill: #8bad00; }
 
 h1 {
   font-size: 4.16rem;
@@ -131,7 +121,7 @@ p {
   .logo svg {
     display: inline-block; }
     .logo svg path {
-      fill: #e6ff80;
+      fill: #ccff00;
       -moz-transition: fill, 0.2s, ease;
       -webkit-transition: fill, 0.2s, ease;
       -o-transition: fill, 0.2s, ease;
@@ -139,10 +129,10 @@ p {
       transition: fill, 0.2s, ease; }
       .logo svg path:hover {
         fill: #8bad00; }
-  .header > .logo {
+  header > .logo {
     width: 120px; }
     @media screen and (min-width: 768px) {
-      .header > .logo {
+      header > .logo {
         width: 150px; } }
 
 .media {
@@ -241,7 +231,7 @@ p {
       .lightbox__nav .nav__next:hover {
         opacity: 1; }
 
-.header {
+header {
   padding: 3em 0 3em; }
 
 .footer {
