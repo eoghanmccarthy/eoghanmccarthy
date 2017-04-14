@@ -2,44 +2,45 @@
 
 // Media queries
 @mixin breakpoint($breakpoint) {
-    $value: map-get($breakpoints, $breakpoint);
-    @media screen and (min-width: $value) {
-        @content;
-    }
+	$value: map-get($breakpoints, $breakpoint);
+	@media screen and (min-width: $value) {
+		@content;
+	}
 }
 
 // Generate responsive font sizes
 @mixin font-size($fs-map) {
-    @each $fs-breakpoint, $fs-font-size in $fs-map {
-        @if $fs-breakpoint == null {
-            font-size: $fs-font-size;
-        }
-        @else {
-            @media screen and (min-width: $fs-breakpoint) {
-                font-size: $fs-font-size;
-            }
-        }
-    }
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint == null {
+			font-size: $fs-font-size;
+		}
+		@else {
+			@media screen and (min-width: $fs-breakpoint) {
+				font-size: $fs-font-size;
+			}
+		}
+	}
 }
 
 // Generate background color modifier classes
 @mixin mod-bgcolor($map) {
-    @each $name, $value in $map {
-        &--#{$name} {
-            background-color: $value;
-        }
-    }
+	@each $name, $value in $map {
+		&--#{$name} {
+			background-color: $value;
+		}
+	}
 }
 
 // Shorthand transition with vendor prefixs
 @mixin transition($args...) {
-    -moz-transition: $args;
-    -o-transition: $args;
-    -ms-transition: $args;
-    transition: $args;
+	-moz-transition: $args;
+	-webkit-transition: $args;
+	-o-transition: $args;
+	-ms-transition: $args;
+	transition: $args;
 }
 
 @mixin v-center {
-    top: 50%;
-    transform: translateY(-50%);
+	top: 50%;
+	transform: translateY(-50%);
 }

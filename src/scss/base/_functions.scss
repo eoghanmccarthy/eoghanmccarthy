@@ -2,15 +2,15 @@
 
 // Call the color palette modifiers
 @function palette($color, $shade: 'base') {
-    @return map-get(map-get($palettes, $color), $shade);
+	@return map-get(map-get($palettes, $color), $shade);
 }
 
 // Call margin size
 @function m($value) {
-    @return map-get($margin, $value);
+	@return map-get($margin, $value);
 }
 
 // Call padding size
 @function p($value) {
-    @return map-get($padding, $value);
+	@return map-get($padding, $value);
 }

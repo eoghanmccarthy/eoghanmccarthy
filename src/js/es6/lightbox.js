@@ -107,7 +107,7 @@
 				let button = $('<a>');
 				button.addClass(`${aClass}`);
 				let icon = $('<i>');
-				icon.addClass(`${iClass}`);
+				icon.addClass(`fa fa-caret-${iClass}`);
 				button.append(icon);
 				$('body').append(button);
 			},
@@ -151,7 +151,7 @@
 		}
 	}
 
-	Lightbox.navigation.button('nav__prev', 'fa fa-caret-right');
+	Lightbox.navigation.button('nav__prev', 'right');
 	Lightbox.init();
 
 })();

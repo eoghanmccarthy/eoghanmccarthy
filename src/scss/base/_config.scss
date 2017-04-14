@@ -12,10 +12,10 @@ $bp-xl: #{$desktop};
 
 // Breakpoints map
 $breakpoints: (
-    sm: $bp-sm,
-    md: $bp-md,
-    lg: $bp-lg,
-    xl: $bp-xl
+	sm: $bp-sm,
+	md: $bp-md,
+	lg: $bp-lg,
+	xl: $bp-xl
 );
 
 // Asset paths
@@ -23,7 +23,7 @@ $path-lbox: 'img';
 
 // Root font size
 %px-root {
-    font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 // Base font size and line height
@@ -32,7 +32,7 @@ $base-line-height: 1;
 
 // Local font size
 %px-base {
-    font-size: $base-font-size;
+	font-size: $base-font-size;
 }
 
 // Webfonts
@@ -53,26 +53,26 @@ $font-weight-bold: 700;
 $base-margin: 1em;
 
 $margin: (
-    xxs: $base-margin / 5,
-    xs: $base-margin / 2,
-    sm: $base-margin,
-    md: $base-margin * 1.5,
-    lg: $base-margin * 2,
-    xl: $base-margin * 3,
-    xxl: $base-margin * 4
+	xxs: $base-margin / 5,
+	xs: $base-margin / 2,
+	sm: $base-margin,
+	md: $base-margin * 1.5,
+	lg: $base-margin * 2,
+	xl: $base-margin * 3,
+	xxl: $base-margin * 4
 );
 
 // Padding
 $base-padding: 1em;
 
 $padding: (
-    xxs: $base-padding / 5,
-    xs: $base-padding / 2,
-    sm: $base-padding,
-    md: $base-padding * 1.5,
-    lg: $base-padding * 2,
-    xl: $base-padding * 3,
-    xxl: $base-padding * 4
+	xxs: $base-padding / 5,
+	xs: $base-padding / 2,
+	sm: $base-padding,
+	md: $base-padding * 1.5,
+	lg: $base-padding * 2,
+	xl: $base-padding * 3,
+	xxl: $base-padding * 4
 );
 
 // Transitions
