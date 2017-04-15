@@ -98,10 +98,9 @@ p {
       text-align: center;
       text-decoration: none;
       padding: 0.5em 1em;
-      -moz-transition: color, 0.2s, ease;
       -webkit-transition: color, 0.2s, ease;
+      -moz-transition: color, 0.2s, ease;
       -o-transition: color, 0.2s, ease;
-      -ms-transition: color, 0.2s, ease;
       transition: color, 0.2s, ease; }
       @media screen and (min-width: 768px) {
         .menu-nav__list li a {
@@ -122,10 +121,9 @@ p {
     display: inline-block; }
     .logo svg path {
       fill: #ccff00;
-      -moz-transition: fill, 0.2s, ease;
       -webkit-transition: fill, 0.2s, ease;
+      -moz-transition: fill, 0.2s, ease;
       -o-transition: fill, 0.2s, ease;
-      -ms-transition: fill, 0.2s, ease;
       transition: fill, 0.2s, ease; }
       .logo svg path:hover {
         fill: #8bad00; }
@@ -145,10 +143,9 @@ p {
     width: 100%;
     margin-bottom: 1.5em;
     opacity: 1;
-    -moz-transition: opacity, 0.2s, ease;
     -webkit-transition: opacity, 0.2s, ease;
+    -moz-transition: opacity, 0.2s, ease;
     -o-transition: opacity, 0.2s, ease;
-    -ms-transition: opacity, 0.2s, ease;
     transition: opacity, 0.2s, ease; }
     .media__content:hover {
       opacity: 0.9; }
@@ -182,7 +179,7 @@ p {
       position: absolute;
       bottom: 25px;
       left: 25px;
-      padding: 0 0.2em;
+      padding: 0 0.2em 0.2em;
       font-size: 2.2rem;
       text-align: left;
       color: #000;
@@ -198,10 +195,9 @@ p {
     font-size: 5rem;
     color: #fff;
     opacity: 1;
-    -moz-transition: opacity, 0.2s, ease;
     -webkit-transition: opacity, 0.2s, ease;
+    -moz-transition: opacity, 0.2s, ease;
     -o-transition: opacity, 0.2s, ease;
-    -ms-transition: opacity, 0.2s, ease;
     transition: opacity, 0.2s, ease;
     user-select: none;
     -webkit-user-select: none;
@@ -222,10 +218,9 @@ p {
       -webkit-user-select: none;
       cursor: pointer;
       opacity: .6;
-      -moz-transition: opacity, 0.2s, ease;
       -webkit-transition: opacity, 0.2s, ease;
+      -moz-transition: opacity, 0.2s, ease;
       -o-transition: opacity, 0.2s, ease;
-      -ms-transition: opacity, 0.2s, ease;
       transition: opacity, 0.2s, ease; }
       .lightbox__nav .nav__prev:hover,
       .lightbox__nav .nav__next:hover {

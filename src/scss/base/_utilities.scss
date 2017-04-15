@@ -33,10 +33,9 @@
 
 // Shorthand transition with vendor prefixs
 @mixin transition($args...) {
-	-moz-transition: $args;
 	-webkit-transition: $args;
+	-moz-transition: $args;
 	-o-transition: $args;
-	-ms-transition: $args;
 	transition: $args;
 }
 
