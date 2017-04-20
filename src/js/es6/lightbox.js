@@ -67,7 +67,7 @@
 				$('figure img').each(function(i) {
 					let slide = $('<div>');
 					slide.addClass('slide');
-					let image = $('figure img').eq(i).attr('src');
+					let image = $('figure img').eq(i).attr('data-original');
 					slide.css('background-image', `url(${image})`);
 					let meta = $('<span>');
 					meta.addClass('slide__meta');

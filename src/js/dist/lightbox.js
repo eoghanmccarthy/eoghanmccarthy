@@ -69,7 +69,7 @@
 				$('figure img').each(function (i) {
 					var slide = $('<div>');
 					slide.addClass('slide');
-					var image = $('figure img').eq(i).attr('src');
+					var image = $('figure img').eq(i).attr('data-original');
 					slide.css('background-image', 'url(' + image + ')');
 					var meta = $('<span>');
 					meta.addClass('slide__meta');
@@ -109,7 +109,7 @@
 				var button = $('<a>');
 				button.addClass('' + aClass);
 				var icon = $('<i>');
-				icon.addClass('' + iClass);
+				icon.addClass('fa fa-caret-' + iClass);
 				button.append(icon);
 				$('body').append(button);
 			},
@@ -153,6 +153,6 @@
 		}
 	};
 
-	Lightbox.navigation.button('nav__prev', 'fa fa-caret-right');
+	Lightbox.navigation.button('nav__prev', 'right');
 	Lightbox.init();
 })();

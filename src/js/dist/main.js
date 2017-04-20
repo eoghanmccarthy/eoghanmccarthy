@@ -15,6 +15,7 @@
 		// Bind
 		bind: function bind() {
 			Web.menu.toggle();
+			Web.lazy.init();
 		},
 		// Menu
 		menu: {
@@ -23,6 +24,13 @@
 				$('#menu-toggle').on('click', function () {
 					$('#menu').toggleClass('menu-nav__list--xs');
 				});
+			}
+		},
+		// Lazy load
+		lazy: {
+			// Initialise
+			init: function init() {
+				$("img.lazy").lazyload();
 			}
 		}
 	};
