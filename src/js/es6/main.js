@@ -13,7 +13,7 @@
 		// Bind
 		bind: () => {
 			Web.menu.toggle();
-			Web.lazy.init();
+			// Web.lazy.init();
 		},
 		// Menu
 		menu: {
@@ -23,14 +23,14 @@
 					$('#menu').toggleClass('menu-nav__list--xs');
 				});
 			}
-		},
-		// Lazy load
-		lazy: {
-			// Initialise
-			init: () => {
-				$("img.lazy").lazyload();
-			}
 		}
+		// Lazy load
+		// lazy: {
+		// 	// Initialise
+		// 	init: () => {
+		// 		$("img.lazy").lazyload();
+		// 	}
+		// }
 	};
 
 	Web.init();
