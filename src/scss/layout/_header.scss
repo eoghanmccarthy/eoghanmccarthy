@@ -1,5 +1,9 @@
 // Header
 header {
 	@extend %px-base;
-	padding: p(xl) 0 p(xl);
+	padding: p(lg) 0 p(xxxl);
+
+	.index & {
+		padding: 0;
+	}
 }

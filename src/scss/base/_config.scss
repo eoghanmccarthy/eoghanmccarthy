@@ -18,9 +18,6 @@ $breakpoints: (
 	xl: $bp-xl
 );
 
-// Asset paths
-$path-lbox: 'img';
-
 // Root font size
 %px-root {
 	font-size: 62.5%;
@@ -38,10 +35,16 @@ $base-line-height: 1;
 // Webfonts
 @import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+@import url('https://fonts.googleapis.com/css?family=Arbutus+Slab');
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
 
 // Font stacks
-$stack-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $stack-mono: 'Ubuntu Mono', Courier, monospace, sans-serif;
+$stack-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$stack-sans-slab: 'Bungee', sans-serif;
+$stack-serif-slab: 'Arbutus Slab', serif;
+$stack-cursive: 'Shrikhand', cursive;
 
 // Font weight
 $font-weight-light: 300;
@@ -59,7 +62,8 @@ $margin: (
 	md: $base-margin * 1.5,
 	lg: $base-margin * 2,
 	xl: $base-margin * 3,
-	xxl: $base-margin * 4
+	xxl: $base-margin * 4,
+	xxxl: $base-margin * 5
 );
 
 // Padding
@@ -72,8 +76,13 @@ $padding: (
 	md: $base-padding * 1.5,
 	lg: $base-padding * 2,
 	xl: $base-padding * 3,
-	xxl: $base-padding * 4
+	xxl: $base-padding * 4,
+	xxxl: $base-padding * 5
 );
 
+// Z-index
+$z-modal: 100;
+$z-nav-item: 1000;
+
 // Transitions
-$speed: 0.2s;
+$speed: 0.25s;

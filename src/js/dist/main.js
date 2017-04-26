@@ -14,15 +14,15 @@
 		},
 		// Bind
 		bind: function bind() {
-			Web.menu.toggle();
+			Web.nav.toggle();
 			// Web.lazy.init();
 		},
-		// Menu
-		menu: {
+		// Global navigation
+		nav: {
 			// Toggle
 			toggle: function toggle() {
-				$('#menu-toggle').on('click', function () {
-					$('#menu').toggleClass('menu-nav__list--xs');
+				$('#nav-global-toggle').on('click', function () {
+					$('#nav-global-modal').toggleClass('active');
 				});
 			}
 		}

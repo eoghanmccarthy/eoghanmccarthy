@@ -7,16 +7,11 @@
 		<?php include 'partials/scripts.php';?>
 	</head>
 
-	<body class="dark">
-		<div class="container">
-			<!-- Header -->
-			<?php include 'partials/header.php';?>
-			<!-- Main -->
-			<main>
-			</main>
-			<!-- Footer -->
-			<?php include 'partials/footer.php';?>
-		</div>
+	<body class="index">
+		<!-- Header -->
+		<?php include 'partials/header.php';?>
+		<!-- Main -->
+		<!-- Footer -->
 		<?php include 'partials/scripts-js.php';?>
 	</body>
 

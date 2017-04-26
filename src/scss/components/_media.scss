@@ -1,17 +1,23 @@
 // Media
 .media {
 	@extend %px-base;
-	margin: 0 0 m(lg);
-	@include breakpoint(md) {
-		margin: 0 0 m(xl);
+	width: 100%;
+	max-width: 780px;
+	margin: 0 auto;
+
+	@at-root {
+
+		.gallery {
+			width: 100%
+		}
 	}
 
 	&__content {
 		display: block;
 		width: 100%;
-		margin-bottom: m(md);
 		opacity: 1;
 		@include transition(opacity, $speed, ease);
+		cursor: pointer;
 
 		&:hover {
 			opacity: 0.9;
@@ -21,7 +27,7 @@
 	&__meta {
 		font-size: $base-font-size * 1.6;
 		line-height: $base-line-height * 2;
-		margin-bottom: m(sm);
+		margin: m(md) 0 m(sm);
 		border-bottom: 1px solid palette(grey, x-light);
 	}
 }

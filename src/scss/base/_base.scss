@@ -6,28 +6,9 @@ html {
 }
 
 body {
-	font-family: $stack-mono;
+	font-family: $stack-cursive;
 	font-weight: $font-weight-normal;
 	line-height: $base-line-height;
 	color: $black;
 	background: $white;
-
-	&.dark {
-		background: $grey;
-		color: $white;
-	}
-
-	&.feature {
-		background-size: 65%;
-		background-repeat: repeat;
-		color: $white;
-	}
-
-	&#japan-japan {
-		background-image: url('../img/japan-japan.jpg');
-	}
-}
-
-main {
-	padding: 0 0 p(lg);
 }

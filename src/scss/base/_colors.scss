@@ -3,14 +3,16 @@
 // Descriptive colors
 $white: #fff;
 $black: #000;
+$light-grey: #808080;
 $grey: #333;
+$dark-slate-grey: #2f4f4f;
 $supernova: #ccff00;
 $yellow: #ffff00;
 $persimmon: #ff6653;
 $green: #53ff66;
 
 // Brand colors
-$primary: $supernova;
+$primary: $persimmon;
 $dev: $yellow;
 $design: $persimmon;
 $photo: $green;
@@ -39,26 +41,5 @@ $palettes: (
 		base: $primary,
 		dark: darken($primary, 8%),
 		x-dark: darken($primary, 16%)
-	),
-	dev: (
-		x-light: lighten($dev, 25%),
-		light: lighten($dev, 12%),
-		base: $dev,
-		dark: darken($dev, 8%),
-		x-dark: darken($dev, 16%)
-	),
-	design: (
-		x-light: lighten($design, 25%),
-		light: lighten($design, 12%),
-		base: $design,
-		dark: darken($design, 8%),
-		x-dark: darken($design, 16%)
-	),
-	photo: (
-		x-light: lighten($photo, 25%),
-		light: lighten($photo, 12%),
-		base: $photo,
-		dark: darken($photo, 8%),
-		x-dark: darken($photo, 16%)
 	)
 );
