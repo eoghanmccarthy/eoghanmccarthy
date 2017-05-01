@@ -15,52 +15,81 @@
 	}
 
 	&__toggle {
-		display: block;
-		width: 40px;
-		height: 40px;
-		background-color: $dark-slate-grey;
-		@include transition(opacity, $speed, ease);
+		display: table;
 		border-radius: 50%;
-		opacity: .4;
 		cursor: pointer;
 
-		&:hover {
-			opacity: 1;
-		}
-
-		.index & {
-			width: 45px;
-			height: 45px;
-			background-color: $dark-slate-grey;
-			@include transition(background-color, $speed, ease);
-			opacity: 1;
-
-			&:hover {
-				background-color: palette(brand);
-			}
-		}
-
 		.bars {
-			padding-top: 14px;
-
-			.index & {
-				padding-top: 12px;
-			}
-
-			span:first-child {
-				margin-top: 0;
-			}
+			display: table-cell;
+			vertical-align: middle;
 
 			span {
 				display: block;
 				width: 50%;
 				height: 2px;
-				background-color: $white;
 				margin: 3px auto 0;
+				background-color: $white;
 
-				.index & {
-					height: 2px;
-					margin: 4px auto 0;
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&.open {
+			width: 40px;
+			height: 40px;
+			background-color: $dark-slate-grey;
+			opacity: .4;
+			@include transition(opacity, $speed, ease);
+
+			&:hover {
+				opacity: 1;
+			}
+
+			.index & {
+				width: 45px;
+				height: 45px;
+				background-color: $dark-slate-grey;
+				@include transition(background-color, $speed, ease);
+				opacity: 1;
+
+				&:hover {
+					background-color: palette(brand);
+				}
+			}
+		}
+
+		&.close {
+			width: 40px;
+			height: 40px;
+			background-color: rgba(0, 0, 0, 0.0);
+			opacity: .7;
+			@include transition(opacity, $speed, ease);
+
+			&:hover {
+				opacity: 1;
+			}
+
+			.bars {
+
+				span {
+					margin-top: 0;
+					background-color: $dark-slate-grey;
+
+					&:first-child {
+						-webkit-transform: rotate(45deg);
+						transform: rotate(45deg);
+					}
+
+					&:nth-child(2) {
+						-webkit-transform: rotate(-45deg);
+						transform: rotate(-45deg);
+					}
+
+					&:last-child {
+						display: none;
+					}
 				}
 			}
 		}
@@ -78,6 +107,7 @@
 
 		&.active {
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			opacity: .7;
@@ -98,6 +128,7 @@
 			padding: p(xxs) p(sm);
 
 			a {
+				font-family: $stack-cursive;
 				font-size: $base-font-size * 3;
 				line-height: $base-line-height;
 				letter-spacing: 5px;

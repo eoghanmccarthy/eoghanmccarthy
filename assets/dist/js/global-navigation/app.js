@@ -1,13 +1,13 @@
 var MENU = [{
 	id: 1,
-	link: "travel.php",
-	name: "travel"
+	href: "travel.php",
+	label: "travel"
 }];
 
 function Toggle(props) {
 	return React.createElement(
 		"div",
-		{ className: "nav-global__toggle", onClick: props.onClick },
+		{ className: "nav-global__toggle " + props.toggleClass, onClick: props.onClick },
 		React.createElement(
 			"div",
 			{ className: "bars" },
@@ -24,8 +24,8 @@ function Item(props) {
 		null,
 		React.createElement(
 			"a",
-			{ href: props.link },
-			props.name
+			{ href: props.href },
+			props.label
 		)
 	);
 }
@@ -41,14 +41,22 @@ var App = React.createClass({
 	},
 
 	openModal: function () {
-		this.setState({ active: "nav-global__modal active" });
+		this.setState({
+			active: "nav-global__modal active"
+		});
+	},
+
+	closeModal: function () {
+		this.setState({
+			active: "nav-global__modal"
+		});
 	},
 
 	render: function () {
 		return React.createElement(
 			"nav",
 			{ className: "nav nav-global" },
-			React.createElement(Toggle, { onClick: this.openModal }),
+			React.createElement(Toggle, { toggleClass: "open", onClick: this.openModal }),
 			React.createElement(
 				"div",
 				{ className: this.state.active },
@@ -58,10 +66,11 @@ var App = React.createClass({
 					this.props.menu.map(function (item) {
 						return React.createElement(Item, {
 							key: item.id,
-							link: item.link,
-							name: item.name });
+							href: item.href,
+							label: item.label });
 					}.bind(this))
-				)
+				),
+				React.createElement(Toggle, { toggleClass: "close", onClick: this.closeModal })
 			)
 		);
 	}

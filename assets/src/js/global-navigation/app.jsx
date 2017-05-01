@@ -1,14 +1,14 @@
 var MENU = [
 	{
 		id: 1,
-		link: "travel.php",
-		name: "travel"
+		href: "travel.php",
+		label: "travel"
 	}
 ]
 
 function Toggle(props) {
 	return (
-		<div className="nav-global__toggle" onClick={props.onClick}>
+		<div className={"nav-global__toggle " + props.toggleClass} onClick={props.onClick}>
  			<div className="bars">
  				<span></span>
  				<span></span>
@@ -20,7 +20,7 @@ function Toggle(props) {
 
 function Item(props) {
 	return (
-		<li><a href={props.link}>{props.name}</a></li>
+		<li><a href={props.href}>{props.label}</a></li>
 	)
 }
 
@@ -33,22 +33,31 @@ var App = React.createClass({
 	},
 
 	openModal: function() {
-		this.setState({ active: "nav-global__modal active" })
+		this.setState({
+			active: "nav-global__modal active"
+		})
+	},
+
+	closeModal: function() {
+		this.setState({
+			active: "nav-global__modal"
+		})
 	},
 
 	render: function() {
 		return (
 			<nav className="nav nav-global">
-				<Toggle onClick={this.openModal} />
+				<Toggle toggleClass="open" onClick={this.openModal} />
 				<div className={this.state.active}>
 					<ul className="nav-global__menu">
 						{this.props.menu.map(function(item){
 							return <Item
 										key={item.id}
-										link={item.link}
-										name={item.name} />
+										href={item.href}
+										label={item.label} />
 						}.bind(this))}
 					</ul>
+					<Toggle toggleClass="close" onClick={this.closeModal} />
 			 	</div>
 			</nav>
 		)

@@ -1,3 +1,3 @@
 <footer class="footer">
-	<p>2017</p>
+	<span>2017</span>
 </footer>

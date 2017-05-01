@@ -33,17 +33,11 @@ $base-line-height: 1;
 }
 
 // Webfonts
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i');
-@import url('https://fonts.googleapis.com/css?family=Bungee');
-@import url('https://fonts.googleapis.com/css?family=Arbutus+Slab');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
 @import url('https://fonts.googleapis.com/css?family=Shrikhand');
 
 // Font stacks
-$stack-mono: 'Ubuntu Mono', Courier, monospace, sans-serif;
-$stack-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$stack-sans-slab: 'Bungee', sans-serif;
-$stack-serif-slab: 'Arbutus Slab', serif;
+$stack-sans: 'Open Sans', Helvetica, sans-serif;
 $stack-cursive: 'Shrikhand', cursive;
 
 // Font weight
