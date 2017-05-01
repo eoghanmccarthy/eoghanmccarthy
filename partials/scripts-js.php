@@ -5,8 +5,6 @@
 <!-- React -->
 <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
 <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-<!-- Lazy Load -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/e6985d2f93.js"></script>
 <!-- Custom JavaScript -->
