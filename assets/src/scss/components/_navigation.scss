@@ -74,17 +74,16 @@
 			.bars {
 
 				span {
-					margin-top: 0;
 					background-color: $dark-slate-grey;
 
 					&:first-child {
-						-webkit-transform: rotate(45deg);
-						transform: rotate(45deg);
+						margin-top: 0;
+						@include rotate(45deg);
 					}
 
 					&:nth-child(2) {
-						-webkit-transform: rotate(-45deg);
-						transform: rotate(-45deg);
+						margin-top: -2px;
+						@include rotate(-45deg);
 					}
 
 					&:last-child {

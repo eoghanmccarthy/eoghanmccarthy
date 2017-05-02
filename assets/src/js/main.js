@@ -13,7 +13,6 @@
 		// Bind
 		bind: () => {
 			// Web.nav.toggle();
-			Web.lazy.init();
 		},
 		// Global navigation
 		// nav: {
@@ -24,13 +23,6 @@
 		// 		});
 		// 	}
 		// }
-		// Lazy Load
-		lazy: {
-			// Initialise
-			init: () => {
-				$("img.lazy").lazyload();
-			}
-		}
 	};
 
 	Web.init();

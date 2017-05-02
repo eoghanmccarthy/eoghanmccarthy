@@ -47,7 +47,10 @@
 	animation: $args;
 }
 
-@mixin v-center {
-	top: 50%;
-	transform: translateY(-50%);
+// Shorthand transform with vendor prefixes
+@mixin rotate($args...) {
+	-webkit-transform: rotate($args);
+	-moz-transform: rotate($args);
+	-o-transform: rotate($args);
+	transform: rotate($args);
 }

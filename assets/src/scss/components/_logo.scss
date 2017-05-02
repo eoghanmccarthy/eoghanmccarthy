@@ -16,7 +16,11 @@
 	header & {
 
 		svg {
-			width: 150px;
+			width: 120px;
+
+			@include breakpoint(md) {
+				width: 150px;
+			}
 		}
 	}
 

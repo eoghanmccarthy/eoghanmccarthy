@@ -110,13 +110,18 @@ p {
       .nav-global__toggle.close:hover {
         opacity: 1; }
       .nav-global__toggle.close .bars span {
-        margin-top: 0;
         background-color: #2f4f4f; }
         .nav-global__toggle.close .bars span:first-child {
+          margin-top: 0;
           -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
           transform: rotate(45deg); }
         .nav-global__toggle.close .bars span:nth-child(2) {
+          margin-top: -2px;
           -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
           transform: rotate(-45deg); }
         .nav-global__toggle.close .bars span:last-child {
           display: none; }
@@ -178,7 +183,10 @@ p {
     .logo path:hover {
       fill: #ff422a; }
   header .logo svg {
-    width: 150px; }
+    width: 120px; }
+    @media screen and (min-width: 768px) {
+      header .logo svg {
+        width: 150px; } }
   .index header .logo {
     height: 75vh;
     padding: 0 3em; }
@@ -196,7 +204,7 @@ p {
   .media__content {
     display: block;
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 0.2em;
     opacity: 1;
     -webkit-transition: opacity, 0.25s, ease;
     -moz-transition: opacity, 0.25s, ease;

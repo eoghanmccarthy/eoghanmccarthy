@@ -16,7 +16,7 @@
 	&__content {
 		display: block;
 		width: 100%;
-		margin-bottom: m(sm);
+		margin-bottom: m(xxs);
 		opacity: 1;
 		@include transition(opacity, $speed, ease);
 		cursor: pointer;

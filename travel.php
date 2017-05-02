@@ -2,7 +2,7 @@
 <html lang="en">
 
 	<head>
-		<title>eoghanmccarthy / photography</title>
+		<title>eoghanmccarthy / travel</title>
 		<?php include 'partials/meta.php';?>
 		<?php include 'partials/scripts.php';?>
 	</head>
