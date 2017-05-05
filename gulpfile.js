@@ -7,7 +7,7 @@ const imagemin = require('gulp-imagemin');
 
 // Gulp dependencies go here
 gulp.task('default', () => {
-	return gulp.src('assets/src/js/**/**')
+	return gulp.src('assets/src/js/main.js')
 		.pipe(babel({
 			presets: ['es2015'],
 			presets: ['react']

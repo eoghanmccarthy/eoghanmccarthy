@@ -1,3 +1,12 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// Import components
+import Toggle from './components/toggle';
+import MenuItem from './components/menu-item';
+
+
+// Navigation menu items
 var MENU = [
 	{
 		id: 1,
@@ -6,63 +15,45 @@ var MENU = [
 	}
 ]
 
-function Toggle(props) {
-	return (
-		<div className={"nav-global__toggle " + props.toggleClass} onClick={props.onClick}>
- 			<div className="bars">
- 				<span></span>
- 				<span></span>
- 				<span></span>
- 			</div>
-	 	</div>
-	)
-}
-
-function Item(props) {
-	return (
-		<li><a href={props.href}>{props.label}</a></li>
-	)
-}
-
-var App = React.createClass({
-
-	getInitialState: function() {
-		return {
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 			active: "nav-global__modal"
 		};
-	},
-
-	openModal: function() {
+	}
+	// Add active class to open
+	openModal() {
 		this.setState({
 			active: "nav-global__modal active"
 		})
-	},
-
-	closeModal: function() {
+	}
+	// Remove active class to close
+	closeModal() {
 		this.setState({
 			active: "nav-global__modal"
 		})
-	},
+	}
 
-	render: function() {
+	render(){
 		return (
 			<nav className="nav nav-global">
-				<Toggle toggleClass="open" onClick={this.openModal} />
+				<Toggle toggleClass="open" onClick={this.openModal.bind(this)} />
 				<div className={this.state.active}>
 					<ul className="nav-global__menu">
 						{this.props.menu.map(function(item){
-							return <Item
+							return <MenuItem
 										key={item.id}
 										href={item.href}
 										label={item.label} />
 						}.bind(this))}
 					</ul>
-					<Toggle toggleClass="close" onClick={this.closeModal} />
+					<Toggle toggleClass="close" onClick={this.closeModal.bind(this)} />
 			 	</div>
 			</nav>
 		)
 	}
-});
+}
 
 // Render the UI
 ReactDOM.render(
