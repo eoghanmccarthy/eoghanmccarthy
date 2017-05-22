@@ -39,10 +39,10 @@
 				</figure>
 			</div>
 		</main>
+		<div id="lightbox"></div>
 		<!-- Footer -->
 		<?php include 'partials/footer.php';?>
 		<?php include 'partials/scripts-js.php';?>
-		<script src="assets/dist/js/lightbox.js"></script>
 	</body>
 
 </html>

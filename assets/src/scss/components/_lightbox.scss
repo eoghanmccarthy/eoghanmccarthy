@@ -11,11 +11,14 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: $black;
+	background-color: grey;
 	overflow: hidden;
 
+	&.active {
+		display: block;
+	}
+
 	.slide {
-		display: none;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -38,43 +41,85 @@
 		}
 	}
 
-	&__close {
+	.ops {
 		position: absolute;
-		top: 10px;
-		right: 20px;
-		z-index: 1;
-		font-size: $base-font-size * 5;
-		color: $white;
-		opacity: 1;
-		@include transition(opacity, $speed, ease);
-		user-select: none;
-		-webkit-user-select: none;
-		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: green;
 
-		&:hover {
-			opacity: 0.8;
-		}
-	}
-
-	&__nav {
-		position: absolute;
-		bottom: 20px;
-		right: 20px;
-		color: palette(brand);
-
-		.nav__prev,
-		.nav__next {
-			float: left;
-			margin: 0 m(xxs);
-			font-size: $base-font-size * 5;
-			user-select: none;
-			-webkit-user-select: none;
+		.btn {
+			width: 40px;
+			height: 40px;
+			background-color: $white;
 			cursor: pointer;
-			opacity: .6;
-			@include transition(opacity, $speed, ease);
 
-			&:hover {
-				opacity: 1;
+			.bars {
+
+				span {
+					display: block;
+					width: 50%;
+					height: 2px;
+					background-color: $grey;
+				}
+			}
+		}
+
+		&__close {
+			top: 20px;
+			right: 20px;
+
+			.btn__close {
+
+				.bars {
+
+					span {
+
+						&:first-child {
+							@include rotate(-45deg);
+						}
+
+						&:last-child {
+							@include rotate(45deg);
+						}
+					}
+				}
+			}
+		}
+
+		&__nav {
+			bottom: 20px;
+			right: 20px;
+
+			.btn__nav {
+			}
+
+			.btn__nav--prev .bars {
+
+				span {
+
+					&:first-child {
+						@include rotate(-45deg);
+					}
+
+					&:last-child {
+						@include rotate(45deg);
+					}
+				}
+			}
+
+			.btn__nav--next .bars {
+
+				span {
+
+					&:first-child {
+						@include rotate(45deg);
+					}
+
+					&:last-child {
+						@include rotate(-45deg);
+					}
+				}
 			}
 		}
 	}

@@ -1,5 +1,8 @@
 module.exports = {
-	entry: './assets/src/js/global-navigation/app.jsx',
+	entry: [
+		'./assets/src/js/global-navigation/app.jsx',
+		'./assets/src/js/lightbox/index.jsx'
+	],
 	output: {
 		path: __dirname,
 		filename: './assets/dist/js/bundle.js'
