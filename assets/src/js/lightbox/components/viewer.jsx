@@ -11,7 +11,7 @@ export default class Viewer extends React.Component {
 		this.incrementIndex = this.incrementIndex.bind(this);
 		this.state = {
 			index: 0,
-			status: 'slide'
+			status: 'slide active'
 		};
 	}
 	// Navigate to previous slide
@@ -24,6 +24,12 @@ export default class Viewer extends React.Component {
 	incrementIndex() {
 		this.setState({
 			index: (this.state.index + 1)
+		})
+	}
+	// Navigate to next slide
+	toTop(i) {
+		this.setState({
+			index: i
 		})
 	}
 
@@ -41,6 +47,8 @@ export default class Viewer extends React.Component {
 				background: src,
 				caption: title
 			}
+			gallery[i].onclick = this.toTop.bind(this, i);
+			// Append slide
 			SLIDES.push(img);
 		}
 
@@ -61,7 +69,7 @@ export default class Viewer extends React.Component {
 		return (
 			<div className="viewer">
 				<SlideShow gallery={SLIDES} status={this.state.status}/>
-				<div className={"ops ops__nav"}>
+				<div className={"btn-group btn-group__nav"}>
 		 			<Button buttonClass={"btn__nav btn__nav--prev"} onClick={this.decrementIndex} />
 					<Button buttonClass={"btn__nav btn__nav--next"} onClick={this.incrementIndex} />
 			 	</div>

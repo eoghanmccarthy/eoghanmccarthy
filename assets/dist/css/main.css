@@ -235,12 +235,15 @@ p {
   .lightbox.active {
     display: block; }
   .lightbox .slide {
+    display: none;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh; }
-    .lightbox .slide__meta {
+    .lightbox .slide.active {
+      display: block; }
+    .lightbox .slide__caption {
       position: absolute;
       bottom: 25px;
       left: 25px;
@@ -250,56 +253,73 @@ p {
       color: #000;
       background-color: #fff; }
       @media screen and (min-width: 576px) {
-        .lightbox .slide__meta {
+        .lightbox .slide__caption {
           font-size: 2.5rem; } }
-  .lightbox .ops {
+  .lightbox .btn-group {
     position: absolute;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: green; }
-    .lightbox .ops .btn {
-      width: 40px;
-      height: 40px;
+    align-items: center; }
+    .lightbox .btn-group .btn {
+      display: table;
+      width: 50px;
+      height: 50px;
       background-color: #fff;
+      opacity: .8;
       cursor: pointer; }
-      .lightbox .ops .btn .bars span {
-        display: block;
-        width: 50%;
-        height: 2px;
-        background-color: #333; }
-    .lightbox .ops__close {
+      .lightbox .btn-group .btn .bars {
+        display: table-cell;
+        vertical-align: middle; }
+        .lightbox .btn-group .btn .bars span {
+          display: block;
+          height: 2px;
+          margin-right: auto;
+          margin-left: auto;
+          background-color: #333; }
+    .lightbox .btn-group__close {
       top: 20px;
       right: 20px; }
-      .lightbox .ops__close .btn__close .bars span:first-child {
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        transform: rotate(-45deg); }
-      .lightbox .ops__close .btn__close .bars span:last-child {
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        transform: rotate(45deg); }
-    .lightbox .ops__nav {
+      .lightbox .btn-group__close .btn__close .bars span {
+        width: 50%; }
+        .lightbox .btn-group__close .btn__close .bars span:first-child {
+          margin-top: 0;
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+        .lightbox .btn-group__close .btn__close .bars span:last-child {
+          margin-top: -2px;
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg); }
+    .lightbox .btn-group__nav {
       bottom: 20px;
       right: 20px; }
-      .lightbox .ops__nav .btn__nav--prev .bars span:first-child {
+      .lightbox .btn-group__nav .btn__nav {
+        margin-left: 5px; }
+        .lightbox .btn-group__nav .btn__nav span {
+          width: 30%; }
+      .lightbox .btn-group__nav .btn__nav--prev .bars span:first-child {
+        margin-top: 0;
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg); }
-      .lightbox .ops__nav .btn__nav--prev .bars span:last-child {
+      .lightbox .btn-group__nav .btn__nav--prev .bars span:last-child {
+        margin-top: 8px;
         -webkit-transform: rotate(45deg);
         -moz-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg); }
-      .lightbox .ops__nav .btn__nav--next .bars span:first-child {
+      .lightbox .btn-group__nav .btn__nav--next .bars span:first-child {
+        margin-top: 0;
         -webkit-transform: rotate(45deg);
         -moz-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg); }
-      .lightbox .ops__nav .btn__nav--next .bars span:last-child {
+      .lightbox .btn-group__nav .btn__nav--next .bars span:last-child {
+        margin-top: 8px;
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);

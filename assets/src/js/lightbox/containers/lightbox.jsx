@@ -14,13 +14,10 @@ class Lightbox extends React.Component {
 		};
 	}
 	// Add active class to open modal
-	openModal() {
-		const gallery = document.querySelectorAll('figure img');
-		gallery.onclick = function() {
-			this.setState({
-				active: "lightbox open"
-			}.bind(this))
-		};
+	openModal(i) {
+		this.setState({
+			active: "lightbox open"
+		})
 	}
 	// Remove active class to close modal
 	closeModal() {
@@ -30,10 +27,16 @@ class Lightbox extends React.Component {
 	}
 
 	render(){
+
+		let gallery = document.querySelectorAll('figure img');
+		for (let i = 0; i < gallery.length; i++) {
+			 gallery[i].onclick = this.openModal.bind(this, i);
+		}
+
 		return (
 			<div className={this.state.active}>
 				<Viewer />
-				<div className={"ops ops__close"}>
+				<div className={"btn-group btn-group__close"}>
 					<Button buttonClass={"btn__close"} onClick={this.closeModal} />
 				</div>
 			</div>

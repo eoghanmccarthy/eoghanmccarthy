@@ -19,14 +19,19 @@
 	}
 
 	.slide {
+		display: none;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
 		width: 100%;
 		height: 100vh;
 
+		&.active {
+			display: block;
+		}
+
 		// Slide meta
-		&__meta {
+		&__caption {
 			position: absolute;
 			bottom: 25px;
 			left: 25px;
@@ -41,25 +46,29 @@
 		}
 	}
 
-	.ops {
+	.btn-group {
 		position: absolute;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: green;
 
 		.btn {
-			width: 40px;
-			height: 40px;
+			display: table;
+			width: 50px;
+			height: 50px;
 			background-color: $white;
+			opacity: .8;
 			cursor: pointer;
 
 			.bars {
+				display: table-cell;
+				vertical-align: middle;
 
 				span {
 					display: block;
-					width: 50%;
 					height: 2px;
+					margin-right: auto;
+					margin-left: auto;
 					background-color: $grey;
 				}
 			}
@@ -69,19 +78,20 @@
 			top: 20px;
 			right: 20px;
 
-			.btn__close {
+			.btn__close
+			.bars {
 
-				.bars {
+				span {
+					width: 50%;
 
-					span {
+					&:first-child {
+						margin-top: 0;
+						@include rotate(-45deg);
+					}
 
-						&:first-child {
-							@include rotate(-45deg);
-						}
-
-						&:last-child {
-							@include rotate(45deg);
-						}
+					&:last-child {
+						margin-top: -2px;
+						@include rotate(45deg);
 					}
 				}
 			}
@@ -92,31 +102,42 @@
 			right: 20px;
 
 			.btn__nav {
+				margin-left: 5px;
+
+				span {
+					width: 30%;
+				}
 			}
 
-			.btn__nav--prev .bars {
+			.btn__nav--prev
+			.bars {
 
 				span {
 
 					&:first-child {
+						margin-top: 0;
 						@include rotate(-45deg);
 					}
 
 					&:last-child {
+						margin-top: 8px;
 						@include rotate(45deg);
 					}
 				}
 			}
 
-			.btn__nav--next .bars {
+			.btn__nav--next
+			.bars {
 
 				span {
 
 					&:first-child {
+						margin-top: 0;
 						@include rotate(45deg);
 					}
 
 					&:last-child {
+						margin-top: 8px;
 						@include rotate(-45deg);
 					}
 				}

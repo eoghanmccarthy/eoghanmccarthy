@@ -11480,7 +11480,7 @@ var Slide = function (_React$Component) {
 				{ className: this.props.status, style: { backgroundImage: "url(" + this.props.background + ")" } },
 				_react2.default.createElement(
 					"span",
-					{ className: "slide__meta" },
+					{ className: "slide__caption" },
 					this.props.caption
 				)
 			);
@@ -11603,7 +11603,7 @@ var Viewer = function (_React$Component) {
 		_this.incrementIndex = _this.incrementIndex.bind(_this);
 		_this.state = {
 			index: 0,
-			status: 'slide'
+			status: 'slide active'
 		};
 		return _this;
 	}
@@ -11626,6 +11626,15 @@ var Viewer = function (_React$Component) {
 				index: this.state.index + 1
 			});
 		}
+		// Navigate to next slide
+
+	}, {
+		key: 'toTop',
+		value: function toTop(i) {
+			this.setState({
+				index: i
+			});
+		}
 	}, {
 		key: 'render',
 		value: function render() {
@@ -11642,6 +11651,8 @@ var Viewer = function (_React$Component) {
 					background: src,
 					caption: title
 				};
+				gallery[i].onclick = this.toTop.bind(this, i);
+				// Append slide
 				SLIDES.push(img);
 			}
 
@@ -11665,7 +11676,7 @@ var Viewer = function (_React$Component) {
 				_react2.default.createElement(_slideshow2.default, { gallery: SLIDES, status: this.state.status }),
 				_react2.default.createElement(
 					'div',
-					{ className: "ops ops__nav" },
+					{ className: "btn-group btn-group__nav" },
 					_react2.default.createElement(_button2.default, { buttonClass: "btn__nav btn__nav--prev", onClick: this.decrementIndex }),
 					_react2.default.createElement(_button2.default, { buttonClass: "btn__nav btn__nav--next", onClick: this.incrementIndex })
 				)
@@ -11735,13 +11746,10 @@ var Lightbox = function (_React$Component) {
 
 	_createClass(Lightbox, [{
 		key: 'openModal',
-		value: function openModal() {
-			var gallery = document.querySelectorAll('figure img');
-			gallery.onclick = function () {
-				this.setState({
-					active: "lightbox open"
-				}.bind(this));
-			};
+		value: function openModal(i) {
+			this.setState({
+				active: "lightbox open"
+			});
 		}
 		// Remove active class to close modal
 
@@ -11755,13 +11763,19 @@ var Lightbox = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+
+			var gallery = document.querySelectorAll('figure img');
+			for (var i = 0; i < gallery.length; i++) {
+				gallery[i].onclick = this.openModal.bind(this, i);
+			}
+
 			return _react2.default.createElement(
 				'div',
 				{ className: this.state.active },
 				_react2.default.createElement(_viewer2.default, null),
 				_react2.default.createElement(
 					'div',
-					{ className: "ops ops__close" },
+					{ className: "btn-group btn-group__close" },
 					_react2.default.createElement(_button2.default, { buttonClass: "btn__close", onClick: this.closeModal })
 				)
 			);
