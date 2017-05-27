@@ -14,7 +14,7 @@ export default class SlideShow extends React.Component {
 				{this.props.gallery.map(function(img){
 					return <Slide
 								key={img.id}
-								status={this.props.status}
+								class={img.class}
 								background={img.background}
 								caption={img.caption} />
 				}.bind(this))}

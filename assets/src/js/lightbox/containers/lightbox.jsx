@@ -10,31 +10,33 @@ class Lightbox extends React.Component {
 		super(props);
 		this.closeModal = this.closeModal.bind(this);
 		this.state = {
-			active: "lightbox active",
+			active: true
 		};
 	}
 	// Add active class to open modal
-	openModal(i) {
+	openModal() {
 		this.setState({
-			active: "lightbox open"
+			active: true
 		})
 	}
 	// Remove active class to close modal
 	closeModal() {
 		this.setState({
-			active: "lightbox"
+			active: false
 		})
 	}
 
 	render(){
 
-		let gallery = document.querySelectorAll('figure img');
-		for (let i = 0; i < gallery.length; i++) {
-			 gallery[i].onclick = this.openModal.bind(this, i);
+		let lightboxClass;
+		if (this.state.active) {
+			lightboxClass = 'lightbox active';
+		} else {
+			lightboxClass = 'lightbox';
 		}
 
 		return (
-			<div className={this.state.active}>
+			<div className={lightboxClass}>
 				<Viewer />
 				<div className={"btn-group btn-group__close"}>
 					<Button buttonClass={"btn__close"} onClick={this.closeModal} />

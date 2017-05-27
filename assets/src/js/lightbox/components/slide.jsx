@@ -7,7 +7,7 @@ export default class Slide extends React.Component {
 
 	render(){
 		return (
-			<div className={this.props.status} style={{backgroundImage: `url(${this.props.background})`}}>
+			<div className={this.props.class} style={{backgroundImage: `url(${this.props.background})`}}>
 				<span className="slide__caption">{this.props.caption}</span>
 			</div>
 		);

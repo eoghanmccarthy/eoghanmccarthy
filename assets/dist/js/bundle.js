@@ -11477,7 +11477,7 @@ var Slide = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				"div",
-				{ className: this.props.status, style: { backgroundImage: "url(" + this.props.background + ")" } },
+				{ className: this.props.class, style: { backgroundImage: "url(" + this.props.background + ")" } },
 				_react2.default.createElement(
 					"span",
 					{ className: "slide__caption" },
@@ -11542,7 +11542,7 @@ var SlideShow = function (_React$Component) {
 				this.props.gallery.map(function (img) {
 					return _react2.default.createElement(_slide2.default, {
 						key: img.id,
-						status: this.props.status,
+						'class': img.class,
 						background: img.background,
 						caption: img.caption });
 				}.bind(this))
@@ -11602,8 +11602,7 @@ var Viewer = function (_React$Component) {
 		_this.decrementIndex = _this.decrementIndex.bind(_this);
 		_this.incrementIndex = _this.incrementIndex.bind(_this);
 		_this.state = {
-			index: 0,
-			status: 'slide active'
+			index: 0
 		};
 		return _this;
 	}
@@ -11626,7 +11625,7 @@ var Viewer = function (_React$Component) {
 				index: this.state.index + 1
 			});
 		}
-		// Navigate to next slide
+		// Open slideshow on clicked gallery image
 
 	}, {
 		key: 'toTop',
@@ -11648,6 +11647,7 @@ var Viewer = function (_React$Component) {
 				var title = gallery[i].getAttribute('title');
 				img = {
 					id: i,
+					class: 'slide',
 					background: src,
 					caption: title
 				};
@@ -11668,12 +11668,13 @@ var Viewer = function (_React$Component) {
 				});
 			}
 
-			console.log(SLIDES[this.state.index]);
+			var j = this.state.index;
+			SLIDES[j].class = 'slide active';
 
 			return _react2.default.createElement(
 				'div',
 				{ className: 'viewer' },
-				_react2.default.createElement(_slideshow2.default, { gallery: SLIDES, status: this.state.status }),
+				_react2.default.createElement(_slideshow2.default, { gallery: SLIDES }),
 				_react2.default.createElement(
 					'div',
 					{ className: "btn-group btn-group__nav" },
@@ -11737,7 +11738,7 @@ var Lightbox = function (_React$Component) {
 
 		_this.closeModal = _this.closeModal.bind(_this);
 		_this.state = {
-			active: "lightbox active"
+			active: true
 		};
 		return _this;
 	}
@@ -11746,9 +11747,9 @@ var Lightbox = function (_React$Component) {
 
 	_createClass(Lightbox, [{
 		key: 'openModal',
-		value: function openModal(i) {
+		value: function openModal() {
 			this.setState({
-				active: "lightbox open"
+				active: true
 			});
 		}
 		// Remove active class to close modal
@@ -11757,21 +11758,23 @@ var Lightbox = function (_React$Component) {
 		key: 'closeModal',
 		value: function closeModal() {
 			this.setState({
-				active: "lightbox"
+				active: false
 			});
 		}
 	}, {
 		key: 'render',
 		value: function render() {
 
-			var gallery = document.querySelectorAll('figure img');
-			for (var i = 0; i < gallery.length; i++) {
-				gallery[i].onclick = this.openModal.bind(this, i);
+			var lightboxClass = void 0;
+			if (this.state.active) {
+				lightboxClass = 'lightbox active';
+			} else {
+				lightboxClass = 'lightbox';
 			}
 
 			return _react2.default.createElement(
 				'div',
-				{ className: this.state.active },
+				{ className: lightboxClass },
 				_react2.default.createElement(_viewer2.default, null),
 				_react2.default.createElement(
 					'div',
