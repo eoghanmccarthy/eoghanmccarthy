@@ -11539,7 +11539,7 @@ var SlideShow = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				this.props.gallery.map(function (img) {
+				this.props.slides.map(function (img) {
 					return _react2.default.createElement(_slide2.default, {
 						key: img.id,
 						'class': img.class,
@@ -11602,6 +11602,7 @@ var Viewer = function (_React$Component) {
 		_this.decrementIndex = _this.decrementIndex.bind(_this);
 		_this.incrementIndex = _this.incrementIndex.bind(_this);
 		_this.state = {
+			gallery: _this.props.gallery,
 			index: 0
 		};
 		return _this;
@@ -11635,12 +11636,27 @@ var Viewer = function (_React$Component) {
 			});
 		}
 	}, {
+		key: 'componentWillUpdate',
+		value: function componentWillUpdate(nextProps, nextState) {
+			var gallery = this.state.gallery;
+			if (nextState.index > gallery.length - 1) {
+				this.setState({
+					index: 0
+				});
+			}
+			if (nextState.index < 0) {
+				this.setState({
+					index: gallery.length - 1
+				});
+			}
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 
 			var i = void 0;
 			var SLIDES = new Array();
-			var gallery = document.querySelectorAll('figure img');
+			var gallery = this.state.gallery;
 			for (i = 0; i < gallery.length; i++) {
 				var img = void 0;
 				var src = gallery[i].getAttribute('src');
@@ -11656,25 +11672,13 @@ var Viewer = function (_React$Component) {
 				SLIDES.push(img);
 			}
 
-			if (this.state.index > gallery.length - 1) {
-				this.setState({
-					index: 0
-				});
-			}
-
-			if (this.state.index < 0) {
-				this.setState({
-					index: gallery.length - 1
-				});
-			}
-
 			var j = this.state.index;
 			SLIDES[j].class = 'slide active';
 
 			return _react2.default.createElement(
 				'div',
 				{ className: 'viewer' },
-				_react2.default.createElement(_slideshow2.default, { gallery: SLIDES }),
+				_react2.default.createElement(_slideshow2.default, { slides: SLIDES }),
 				_react2.default.createElement(
 					'div',
 					{ className: "btn-group btn-group__nav" },
@@ -11738,6 +11742,7 @@ var Lightbox = function (_React$Component) {
 
 		_this.closeModal = _this.closeModal.bind(_this);
 		_this.state = {
+			gallery: document.querySelectorAll('figure img'),
 			active: true
 		};
 		return _this;
@@ -11775,7 +11780,7 @@ var Lightbox = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: lightboxClass },
-				_react2.default.createElement(_viewer2.default, null),
+				_react2.default.createElement(_viewer2.default, { gallery: this.state.gallery }),
 				_react2.default.createElement(
 					'div',
 					{ className: "btn-group btn-group__close" },

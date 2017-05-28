@@ -297,7 +297,7 @@ p {
       bottom: 20px;
       right: 20px; }
       .lightbox .btn-group__nav .btn__nav {
-        margin-left: 5px; }
+        margin-left: 1em; }
         .lightbox .btn-group__nav .btn__nav span {
           width: 30%; }
       .lightbox .btn-group__nav .btn__nav--prev .bars span:first-child {

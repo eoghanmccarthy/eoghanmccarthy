@@ -10,7 +10,8 @@ export default class Viewer extends React.Component {
 		this.decrementIndex = this.decrementIndex.bind(this);
 		this.incrementIndex = this.incrementIndex.bind(this);
 		this.state = {
-			index: 0,
+			gallery: this.props.gallery,
+			index: 0
 		};
 	}
 	// Navigate to previous slide
@@ -32,11 +33,25 @@ export default class Viewer extends React.Component {
 		})
 	}
 
+	componentWillUpdate(nextProps, nextState) {
+		let gallery = this.state.gallery;
+		if (nextState.index > gallery.length -1) {
+			this.setState({
+				index: 0
+			})
+		}
+		if (nextState.index < 0) {
+			this.setState({
+				index: gallery.length -1
+			})
+		}
+	}
+
 	render(){
 
 		let i;
 		let SLIDES = new Array();
-		let gallery = document.querySelectorAll('figure img');
+		let gallery = this.state.gallery;
 		for (i = 0; i < gallery.length; i++) {
 			let img;
 			let src = gallery[i].getAttribute('src');
@@ -52,24 +67,12 @@ export default class Viewer extends React.Component {
 			SLIDES.push(img);
 		}
 
-		if (this.state.index > gallery.length -1) {
-			this.setState({
-				index: 0
-			})
-		}
-
-		if (this.state.index < 0) {
-			this.setState({
-				index: gallery.length -1
-			})
-		}
-
 		let j = this.state.index;
 		SLIDES[j].class = 'slide active'
 
 		return (
 			<div className="viewer">
-				<SlideShow gallery={SLIDES} />
+				<SlideShow slides={SLIDES} />
 				<div className={"btn-group btn-group__nav"}>
 		 			<Button buttonClass={"btn__nav btn__nav--prev"} onClick={this.decrementIndex} />
 					<Button buttonClass={"btn__nav btn__nav--next"} onClick={this.incrementIndex} />

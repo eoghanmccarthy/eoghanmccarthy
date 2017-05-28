@@ -10,6 +10,7 @@ class Lightbox extends React.Component {
 		super(props);
 		this.closeModal = this.closeModal.bind(this);
 		this.state = {
+			gallery: document.querySelectorAll('figure img'),
 			active: true
 		};
 	}
@@ -37,7 +38,7 @@ class Lightbox extends React.Component {
 
 		return (
 			<div className={lightboxClass}>
-				<Viewer />
+				<Viewer gallery={this.state.gallery} />
 				<div className={"btn-group btn-group__close"}>
 					<Button buttonClass={"btn__close"} onClick={this.closeModal} />
 				</div>
