@@ -11599,34 +11599,23 @@ var Viewer = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (Viewer.__proto__ || Object.getPrototypeOf(Viewer)).call(this, props));
 
-		_this.decrementIndex = _this.decrementIndex.bind(_this);
-		_this.incrementIndex = _this.incrementIndex.bind(_this);
 		_this.state = {
 			gallery: _this.props.gallery,
 			index: 0
 		};
 		return _this;
 	}
-	// Navigate to previous slide
+	// Navigate through slides
 
 
 	_createClass(Viewer, [{
-		key: 'decrementIndex',
-		value: function decrementIndex() {
+		key: 'indexChange',
+		value: function indexChange(i) {
 			this.setState({
-				index: this.state.index - 1
+				index: this.state.index + i
 			});
 		}
-		// Navigate to next slide
-
-	}, {
-		key: 'incrementIndex',
-		value: function incrementIndex() {
-			this.setState({
-				index: this.state.index + 1
-			});
-		}
-		// Open slideshow on clicked gallery image
+		// Open on clicked gallery image
 
 	}, {
 		key: 'toTop',
@@ -11682,8 +11671,12 @@ var Viewer = function (_React$Component) {
 				_react2.default.createElement(
 					'div',
 					{ className: "btn-group btn-group__nav" },
-					_react2.default.createElement(_button2.default, { buttonClass: "btn__nav btn__nav--prev", onClick: this.decrementIndex }),
-					_react2.default.createElement(_button2.default, { buttonClass: "btn__nav btn__nav--next", onClick: this.incrementIndex })
+					_react2.default.createElement(_button2.default, { buttonClass: "btn__nav btn__nav--prev", onClick: function () {
+							this.indexChange(-1);
+						}.bind(this) }),
+					_react2.default.createElement(_button2.default, { buttonClass: "btn__nav btn__nav--next", onClick: function () {
+							this.indexChange(1);
+						}.bind(this) })
 				)
 			);
 		}
@@ -11769,22 +11762,17 @@ var Lightbox = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-
-			var lightboxClass = void 0;
-			if (this.state.active) {
-				lightboxClass = 'lightbox active';
-			} else {
-				lightboxClass = 'lightbox';
-			}
-
 			return _react2.default.createElement(
 				'div',
-				{ className: lightboxClass },
+				{ className: this.state.active ? "lightbox active" : "lightbox" },
 				_react2.default.createElement(_viewer2.default, { gallery: this.state.gallery }),
 				_react2.default.createElement(
 					'div',
 					{ className: "btn-group btn-group__close" },
-					_react2.default.createElement(_button2.default, { buttonClass: "btn__close", onClick: this.closeModal })
+					_react2.default.createElement(_button2.default, {
+						buttonClass: "btn__close",
+						onClick: this.closeModal
+					})
 				)
 			);
 		}

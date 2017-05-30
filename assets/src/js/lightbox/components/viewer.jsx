@@ -7,26 +7,18 @@ import Button from './button';
 export default class Viewer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.decrementIndex = this.decrementIndex.bind(this);
-		this.incrementIndex = this.incrementIndex.bind(this);
 		this.state = {
 			gallery: this.props.gallery,
 			index: 0
 		};
 	}
-	// Navigate to previous slide
-	decrementIndex() {
+	// Navigate through slides
+	indexChange(i) {
 		this.setState({
-			index: (this.state.index - 1)
+			index: (this.state.index + i)
 		})
 	}
-	// Navigate to next slide
-	incrementIndex() {
-		this.setState({
-			index: (this.state.index + 1)
-		})
-	}
-	// Open slideshow on clicked gallery image
+	// Open on clicked gallery image
 	toTop(i) {
 		this.setState({
 			index: i
@@ -50,7 +42,7 @@ export default class Viewer extends React.Component {
 	render(){
 
 		let i;
-		let SLIDES = new Array();
+		const SLIDES = new Array();
 		let gallery = this.state.gallery;
 		for (i = 0; i < gallery.length; i++) {
 			let img;
@@ -68,14 +60,14 @@ export default class Viewer extends React.Component {
 		}
 
 		let j = this.state.index;
-		SLIDES[j].class = 'slide active'
+		SLIDES[j].class = 'slide active';
 
 		return (
 			<div className="viewer">
 				<SlideShow slides={SLIDES} />
 				<div className={"btn-group btn-group__nav"}>
-		 			<Button buttonClass={"btn__nav btn__nav--prev"} onClick={this.decrementIndex} />
-					<Button buttonClass={"btn__nav btn__nav--next"} onClick={this.incrementIndex} />
+		 			<Button buttonClass={"btn__nav btn__nav--prev"} onClick={function() {this.indexChange(-1)}.bind(this)} />
+					<Button buttonClass={"btn__nav btn__nav--next"} onClick={function() {this.indexChange(1)}.bind(this)} />
 			 	</div>
 		 	</div>
 		);

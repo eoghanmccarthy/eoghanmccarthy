@@ -28,19 +28,15 @@ class Lightbox extends React.Component {
 	}
 
 	render(){
-
-		let lightboxClass;
-		if (this.state.active) {
-			lightboxClass = 'lightbox active';
-		} else {
-			lightboxClass = 'lightbox';
-		}
-
 		return (
-			<div className={lightboxClass}>
+			<div className={this.state.active ?
+				"lightbox active" : "lightbox"}>
 				<Viewer gallery={this.state.gallery} />
 				<div className={"btn-group btn-group__close"}>
-					<Button buttonClass={"btn__close"} onClick={this.closeModal} />
+					<Button
+						buttonClass={"btn__close"}
+						onClick={this.closeModal}
+					/>
 				</div>
 			</div>
 		)
