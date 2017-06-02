@@ -11,7 +11,7 @@ class App extends React.Component {
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 		this.state = {
-			active: "nav-global__modal",
+			active: false,
 			menu: [
 				{
 					id: 1,
@@ -24,23 +24,30 @@ class App extends React.Component {
 	// Add active class to open modal
 	openModal() {
 		this.setState({
-			active: "nav-global__modal active"
+			active: true
 		})
 	}
 	// Remove active class to close modal
 	closeModal() {
 		this.setState({
-			active: "nav-global__modal"
+			active: false
 		})
 	}
 
 	render(){
 		return (
 			<div className="nav nav-global">
-				<Toggle toggleClass="open" onClick={this.openModal} />
-				<div className={this.state.active}>
+				<Toggle
+					toggleClass="open"
+					onClick={this.openModal}
+				/>
+				<div className={this.state.active ?
+					"nav-global__modal active" : "nav-global__modal"}>
 					<NavMenu menu={this.state.menu} />
-					<Toggle toggleClass="close" onClick={this.closeModal} />
+					<Toggle
+						toggleClass="close"
+						onClick={this.closeModal}
+					/>
 			 	</div>
 			</div>
 		)

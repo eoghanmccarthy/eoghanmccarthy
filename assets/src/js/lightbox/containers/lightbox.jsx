@@ -8,10 +8,11 @@ import Button from '../components/button';
 class Lightbox extends React.Component {
 	constructor(props) {
 		super(props);
+		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 		this.state = {
 			gallery: document.querySelectorAll('figure img'),
-			active: true
+			active: false
 		};
 	}
 	// Add active class to open modal
@@ -31,7 +32,9 @@ class Lightbox extends React.Component {
 		return (
 			<div className={this.state.active ?
 				"lightbox active" : "lightbox"}>
-				<Viewer gallery={this.state.gallery} />
+				<Viewer
+					onClick={this.openModal}
+					gallery={this.state.gallery} />
 				<div className={"btn-group btn-group__close"}>
 					<Button
 						buttonClass={"btn__close"}

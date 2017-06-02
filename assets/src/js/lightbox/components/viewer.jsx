@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Import components
-import SlideShow from './slideshow';
+import SlideStack from './slidestack';
 import Button from './button';
 
 export default class Viewer extends React.Component {
@@ -54,7 +54,8 @@ export default class Viewer extends React.Component {
 				background: src,
 				caption: title
 			}
-			gallery[i].onclick = this.toTop.bind(this, i);
+			gallery[i].addEventListener("click", this.toTop.bind(this, i));
+			gallery[i].addEventListener("click", this.props.onClick);
 			// Append slide
 			SLIDES.push(img);
 		}
@@ -64,10 +65,16 @@ export default class Viewer extends React.Component {
 
 		return (
 			<div className="viewer">
-				<SlideShow slides={SLIDES} />
+				<SlideStack slides={SLIDES} />
 				<div className={"btn-group btn-group__nav"}>
-		 			<Button buttonClass={"btn__nav btn__nav--prev"} onClick={function() {this.indexChange(-1)}.bind(this)} />
-					<Button buttonClass={"btn__nav btn__nav--next"} onClick={function() {this.indexChange(1)}.bind(this)} />
+		 			<Button
+						buttonClass={"btn__nav btn__nav--prev"}
+						onClick={function() {this.indexChange(-1)}.bind(this)}
+					/>
+					<Button
+						buttonClass={"btn__nav btn__nav--next"}
+						onClick={function() {this.indexChange(1)}.bind(this)}
+					/>
 			 	</div>
 		 	</div>
 		);

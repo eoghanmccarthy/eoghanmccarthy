@@ -3,7 +3,7 @@ import React from 'react';
 // Import components
 import Slide from './slide';
 
-export default class SlideShow extends React.Component {
+export default class SlideStack extends React.Component {
 	constructor(props) {
 		super(props);
 	}

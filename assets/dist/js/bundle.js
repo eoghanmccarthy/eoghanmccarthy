@@ -11153,7 +11153,7 @@ var App = function (_React$Component) {
 		_this.openModal = _this.openModal.bind(_this);
 		_this.closeModal = _this.closeModal.bind(_this);
 		_this.state = {
-			active: "nav-global__modal",
+			active: false,
 			menu: [{
 				id: 1,
 				href: "travel.php",
@@ -11169,7 +11169,7 @@ var App = function (_React$Component) {
 		key: 'openModal',
 		value: function openModal() {
 			this.setState({
-				active: "nav-global__modal active"
+				active: true
 			});
 		}
 		// Remove active class to close modal
@@ -11178,7 +11178,7 @@ var App = function (_React$Component) {
 		key: 'closeModal',
 		value: function closeModal() {
 			this.setState({
-				active: "nav-global__modal"
+				active: false
 			});
 		}
 	}, {
@@ -11187,12 +11187,18 @@ var App = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'nav nav-global' },
-				_react2.default.createElement(_toggle2.default, { toggleClass: 'open', onClick: this.openModal }),
+				_react2.default.createElement(_toggle2.default, {
+					toggleClass: 'open',
+					onClick: this.openModal
+				}),
 				_react2.default.createElement(
 					'div',
-					{ className: this.state.active },
+					{ className: this.state.active ? "nav-global__modal active" : "nav-global__modal" },
 					_react2.default.createElement(_navMenu2.default, { menu: this.state.menu }),
-					_react2.default.createElement(_toggle2.default, { toggleClass: 'close', onClick: this.closeModal })
+					_react2.default.createElement(_toggle2.default, {
+						toggleClass: 'close',
+						onClick: this.closeModal
+					})
 				)
 			);
 		}
@@ -11524,16 +11530,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // Import components
 
 
-var SlideShow = function (_React$Component) {
-	_inherits(SlideShow, _React$Component);
+var SlideStack = function (_React$Component) {
+	_inherits(SlideStack, _React$Component);
 
-	function SlideShow(props) {
-		_classCallCheck(this, SlideShow);
+	function SlideStack(props) {
+		_classCallCheck(this, SlideStack);
 
-		return _possibleConstructorReturn(this, (SlideShow.__proto__ || Object.getPrototypeOf(SlideShow)).call(this, props));
+		return _possibleConstructorReturn(this, (SlideStack.__proto__ || Object.getPrototypeOf(SlideStack)).call(this, props));
 	}
 
-	_createClass(SlideShow, [{
+	_createClass(SlideStack, [{
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
@@ -11550,10 +11556,10 @@ var SlideShow = function (_React$Component) {
 		}
 	}]);
 
-	return SlideShow;
+	return SlideStack;
 }(_react2.default.Component);
 
-exports.default = SlideShow;
+exports.default = SlideStack;
 
 /***/ }),
 /* 107 */
@@ -11572,9 +11578,9 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _slideshow = __webpack_require__(106);
+var _slidestack = __webpack_require__(106);
 
-var _slideshow2 = _interopRequireDefault(_slideshow);
+var _slidestack2 = _interopRequireDefault(_slidestack);
 
 var _button = __webpack_require__(55);
 
@@ -11656,7 +11662,8 @@ var Viewer = function (_React$Component) {
 					background: src,
 					caption: title
 				};
-				gallery[i].onclick = this.toTop.bind(this, i);
+				gallery[i].addEventListener("click", this.toTop.bind(this, i));
+				gallery[i].addEventListener("click", this.props.onClick);
 				// Append slide
 				SLIDES.push(img);
 			}
@@ -11667,16 +11674,22 @@ var Viewer = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'viewer' },
-				_react2.default.createElement(_slideshow2.default, { slides: SLIDES }),
+				_react2.default.createElement(_slidestack2.default, { slides: SLIDES }),
 				_react2.default.createElement(
 					'div',
 					{ className: "btn-group btn-group__nav" },
-					_react2.default.createElement(_button2.default, { buttonClass: "btn__nav btn__nav--prev", onClick: function () {
+					_react2.default.createElement(_button2.default, {
+						buttonClass: "btn__nav btn__nav--prev",
+						onClick: function () {
 							this.indexChange(-1);
-						}.bind(this) }),
-					_react2.default.createElement(_button2.default, { buttonClass: "btn__nav btn__nav--next", onClick: function () {
+						}.bind(this)
+					}),
+					_react2.default.createElement(_button2.default, {
+						buttonClass: "btn__nav btn__nav--next",
+						onClick: function () {
 							this.indexChange(1);
-						}.bind(this) })
+						}.bind(this)
+					})
 				)
 			);
 		}
@@ -11733,10 +11746,11 @@ var Lightbox = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (Lightbox.__proto__ || Object.getPrototypeOf(Lightbox)).call(this, props));
 
+		_this.openModal = _this.openModal.bind(_this);
 		_this.closeModal = _this.closeModal.bind(_this);
 		_this.state = {
 			gallery: document.querySelectorAll('figure img'),
-			active: true
+			active: false
 		};
 		return _this;
 	}
@@ -11765,7 +11779,9 @@ var Lightbox = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: this.state.active ? "lightbox active" : "lightbox" },
-				_react2.default.createElement(_viewer2.default, { gallery: this.state.gallery }),
+				_react2.default.createElement(_viewer2.default, {
+					onClick: this.openModal,
+					gallery: this.state.gallery }),
 				_react2.default.createElement(
 					'div',
 					{ className: "btn-group btn-group__close" },
