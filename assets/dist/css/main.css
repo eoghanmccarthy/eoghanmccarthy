@@ -59,8 +59,11 @@ p {
   align-items: center;
   padding: 0.5em 0; }
   .index .nav-global {
-    height: 25vh;
+    height: 30vh;
     padding: 0; }
+    @media screen and (min-width: 576px) {
+      .index .nav-global {
+        height: 25vh; } }
   .nav-global__toggle {
     display: table;
     border-radius: 50%;
@@ -188,19 +191,24 @@ p {
       header .logo svg {
         width: 150px; } }
   .index header .logo {
-    height: 75vh;
+    height: 70vh;
     padding: 0 3em; }
+    @media screen and (min-width: 576px) {
+      .index header .logo {
+        height: 75vh; } }
     .index header .logo svg {
       width: 100%;
-      height: 65vh; }
+      height: 60vh; }
+      @media screen and (min-width: 576px) {
+        .index header .logo svg {
+          height: 65vh; } }
 
 .media {
   width: 100%;
   max-width: 780px;
   margin: 0 auto; }
   .gallery {
-    width: 100%;
-    padding: 0 15px; }
+    width: 100%; }
   .media__content {
     display: block;
     width: 100%;
@@ -230,17 +238,20 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: grey;
+  background-color: #000;
   overflow: hidden; }
   .lightbox.active {
     display: block; }
   .lightbox .slide {
     display: none;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh; }
+    @media screen and (min-width: 576px) {
+      .lightbox .slide {
+        background-size: cover; } }
     .lightbox .slide.active {
       display: block; }
     .lightbox .slide__caption {
@@ -262,11 +273,15 @@ p {
     align-items: center; }
     .lightbox .btn-group .btn {
       display: table;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       background-color: #fff;
       opacity: .8;
       cursor: pointer; }
+      @media screen and (min-width: 576px) {
+        .lightbox .btn-group .btn {
+          width: 50px;
+          height: 50px; } }
       .lightbox .btn-group .btn .bars {
         display: table-cell;
         vertical-align: middle; }
@@ -297,7 +312,10 @@ p {
       bottom: 20px;
       right: 20px; }
       .lightbox .btn-group__nav .btn__nav {
-        margin-left: 1em; }
+        margin-left: 0.5em; }
+        @media screen and (min-width: 576px) {
+          .lightbox .btn-group__nav .btn__nav {
+            margin-left: 1em; } }
         .lightbox .btn-group__nav .btn__nav span {
           width: 30%; }
       .lightbox .btn-group__nav .btn__nav--prev .bars span:first-child {
@@ -307,11 +325,14 @@ p {
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg); }
       .lightbox .btn-group__nav .btn__nav--prev .bars span:last-child {
-        margin-top: 8px;
+        margin-top: 6px;
         -webkit-transform: rotate(45deg);
         -moz-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg); }
+        @media screen and (min-width: 576px) {
+          .lightbox .btn-group__nav .btn__nav--prev .bars span:last-child {
+            margin-top: 8px; } }
       .lightbox .btn-group__nav .btn__nav--next .bars span:first-child {
         margin-top: 0;
         -webkit-transform: rotate(45deg);
@@ -319,11 +340,14 @@ p {
         -o-transform: rotate(45deg);
         transform: rotate(45deg); }
       .lightbox .btn-group__nav .btn__nav--next .bars span:last-child {
-        margin-top: 8px;
+        margin-top: 6px;
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg); }
+        @media screen and (min-width: 576px) {
+          .lightbox .btn-group__nav .btn__nav--next .bars span:last-child {
+            margin-top: 8px; } }
 
 header {
   padding: 2em 0 5em; }

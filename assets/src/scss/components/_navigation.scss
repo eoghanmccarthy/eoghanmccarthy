@@ -10,8 +10,11 @@
 	padding: p(xs) 0;
 
 	.index & {
-		height: 25vh;
+		height: 30vh;
 		padding: 0;
+		@include breakpoint(sm) {
+			height: 25vh;
+		}
 	}
 
 	&__toggle {

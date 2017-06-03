@@ -25,12 +25,18 @@
 	}
 
 	.index header & {
-		height: 75vh;
+		height: 70vh;
 		padding: 0 p(xl);
+		@include breakpoint(sm) {
+			height: 75vh;
+		}
 
 		svg {
 			width: 100%;
-			height: 65vh;
+			height: 60vh;
+			@include breakpoint(sm) {
+				height: 65vh;
+			}
 		}
 	}
 }
