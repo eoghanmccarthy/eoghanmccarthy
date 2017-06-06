@@ -11663,7 +11663,7 @@ var Viewer = function (_React$Component) {
 					caption: title
 				};
 				gallery[i].addEventListener("click", this.toTop.bind(this, i));
-				gallery[i].addEventListener("click", this.props.onClick);
+				gallery[i].addEventListener("click", this.props.openModal);
 				// Append slide
 				SLIDES.push(img);
 			}
@@ -11780,7 +11780,7 @@ var Lightbox = function (_React$Component) {
 				'div',
 				{ className: this.state.active ? "lightbox active" : "lightbox" },
 				_react2.default.createElement(_viewer2.default, {
-					onClick: this.openModal,
+					openModal: this.openModal,
 					gallery: this.state.gallery }),
 				_react2.default.createElement(
 					'div',

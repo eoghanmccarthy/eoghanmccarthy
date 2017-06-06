@@ -1,7 +1,7 @@
 // Header
 header {
 	@extend %px-base;
-	padding: p(lg) 0 p(xxxl);
+	padding: p(md) 0 p(xxl);
 
 	.index & {
 		padding: 0;

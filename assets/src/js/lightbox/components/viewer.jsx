@@ -55,7 +55,7 @@ export default class Viewer extends React.Component {
 				caption: title
 			}
 			gallery[i].addEventListener("click", this.toTop.bind(this, i));
-			gallery[i].addEventListener("click", this.props.onClick);
+			gallery[i].addEventListener("click", this.props.openModal);
 			// Append slide
 			SLIDES.push(img);
 		}

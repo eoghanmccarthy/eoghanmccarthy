@@ -17,49 +17,49 @@
 					<div class="col-md-6">
 						<figure class="media">
 							<img class="media__content" src="assets/dist/img/img_0111-folio.jpg" title="abashiri, japan">
-							<figcaption class="media__meta">abashiri, japan</figcaption>
+							<figcaption class="media__caption">abashiri, japan</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-6">
 						<figure class="media">
 							<img class="media__content" src="assets/dist/img/img_0243-folio.jpg" title="sapporo, japan">
-							<figcaption class="media__meta">sapporo, japan</figcaption>
+							<figcaption class="media__caption">sapporo, japan</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-6">
 						<figure class="media">
 							<img class="media__content" src="assets/dist/img/img_0359-folio.jpg" title="abashiri, japan">
-							<figcaption class="media__meta">abashiri, japan</figcaption>
+							<figcaption class="media__caption">abashiri, japan</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-6">
 						<figure class="media">
 							<img class="media__content" src="assets/dist/img/img_0387-folio.jpg" title="abashiri, japan">
-							<figcaption class="media__meta">abashiri, japan</figcaption>
+							<figcaption class="media__caption">abashiri, japan</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-6">
 						<figure class="media">
 							<img class="media__content" src="assets/dist/img/img_4453-folio.jpg" title="shizuoka, japan">
-							<figcaption class="media__meta">shizuoka, japan</figcaption>
+							<figcaption class="media__caption">shizuoka, japan</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-6">
 						<figure class="media">
 							<img class="media__content" src="assets/dist/img/img_4480-folio.jpg" title="shizuoka, japan">
-							<figcaption class="media__meta">shizuoka, japan</figcaption>
+							<figcaption class="media__caption">shizuoka, japan</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-6">
 						<figure class="media">
 							<img class="media__content" src="assets/dist/img/img_3889-folio.jpg" title="tokyo, japan">
-							<figcaption class="media__meta">tokyo, japan</figcaption>
+							<figcaption class="media__caption">tokyo, japan</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-6">
 						<figure class="media">
 							<img class="media__content" src="assets/dist/img/img_3251-folio.jpg" title="izu, japan">
-							<figcaption class="media__meta">izu, japan</figcaption>
+							<figcaption class="media__caption">izu, japan</figcaption>
 						</figure>
 					</div>
 				</div>

@@ -33,7 +33,7 @@ class Lightbox extends React.Component {
 			<div className={this.state.active ?
 				"lightbox active" : "lightbox"}>
 				<Viewer
-					onClick={this.openModal}
+					openModal={this.openModal}
 					gallery={this.state.gallery} />
 				<div className={"btn-group btn-group__close"}>
 					<Button
