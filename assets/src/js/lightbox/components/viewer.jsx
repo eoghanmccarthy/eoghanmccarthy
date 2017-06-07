@@ -69,11 +69,11 @@ export default class Viewer extends React.Component {
 				<div className={"btn-group btn-group__nav"}>
 		 			<Button
 						buttonClass={"btn__nav btn__nav--prev"}
-						onClick={function() {this.indexChange(-1)}.bind(this)}
+						onClick={() => {this.indexChange(-1)}}
 					/>
 					<Button
 						buttonClass={"btn__nav btn__nav--next"}
-						onClick={function() {this.indexChange(1)}.bind(this)}
+						onClick={() => {this.indexChange(1)}}
 					/>
 			 	</div>
 		 	</div>

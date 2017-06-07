@@ -11648,6 +11648,7 @@ var Viewer = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
 
 			var i = void 0;
 			var SLIDES = new Array();
@@ -11680,15 +11681,15 @@ var Viewer = function (_React$Component) {
 					{ className: "btn-group btn-group__nav" },
 					_react2.default.createElement(_button2.default, {
 						buttonClass: "btn__nav btn__nav--prev",
-						onClick: function () {
-							this.indexChange(-1);
-						}.bind(this)
+						onClick: function onClick() {
+							_this2.indexChange(-1);
+						}
 					}),
 					_react2.default.createElement(_button2.default, {
 						buttonClass: "btn__nav btn__nav--next",
-						onClick: function () {
-							this.indexChange(1);
-						}.bind(this)
+						onClick: function onClick() {
+							_this2.indexChange(1);
+						}
 					})
 				)
 			);
