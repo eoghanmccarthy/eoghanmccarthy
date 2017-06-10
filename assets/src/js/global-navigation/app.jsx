@@ -8,8 +8,6 @@ import NavMenu from './components/nav-menu';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.openModal = this.openModal.bind(this);
-		this.closeModal = this.closeModal.bind(this);
 		this.state = {
 			active: false,
 			menu: [
@@ -21,16 +19,10 @@ class App extends React.Component {
 			]
 		};
 	}
-	// Add active class to open modal
-	openModal() {
+	// Toggle modal visibilty
+	toggleModal(event) {
 		this.setState({
-			active: true
-		})
-	}
-	// Remove active class to close modal
-	closeModal() {
-		this.setState({
-			active: false
+			active: event
 		})
 	}
 
@@ -39,16 +31,17 @@ class App extends React.Component {
 			<div className="nav nav-global">
 				<Toggle
 					toggleClass="open"
-					onClick={this.openModal}
+					onClick={ ()=> this.toggleModal(true) }
 				/>
-				<div className={this.state.active ?
-					"nav-global__modal active" : "nav-global__modal"}>
-					<NavMenu menu={this.state.menu} />
-					<Toggle
-						toggleClass="close"
-						onClick={this.closeModal}
-					/>
-			 	</div>
+				{ this.state.active === true &&
+					<div className="nav-global__modal">
+						<NavMenu menu={ this.state.menu } />
+						<Toggle
+							toggleClass="close"
+							onClick={ ()=> this.toggleModal(false) }
+						/>
+				 	</div>
+				}
 			</div>
 		)
 	}

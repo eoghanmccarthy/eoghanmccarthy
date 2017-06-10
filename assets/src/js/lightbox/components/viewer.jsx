@@ -65,15 +65,15 @@ export default class Viewer extends React.Component {
 
 		return (
 			<div className="viewer">
-				<SlideStack slides={SLIDES} />
-				<div className={"btn-group btn-group__nav"}>
+				<SlideStack slides={ SLIDES } />
+				<div className="btn-group btn-group__nav">
 		 			<Button
-						buttonClass={"btn__nav btn__nav--prev"}
-						onClick={() => {this.indexChange(-1)}}
+						buttonClass="btn__nav btn__nav--prev"
+						onClick={ () => {this.indexChange(-1)} }
 					/>
 					<Button
-						buttonClass={"btn__nav btn__nav--next"}
-						onClick={() => {this.indexChange(1)}}
+						buttonClass="btn__nav btn__nav--next"
+						onClick={ () => {this.indexChange(1)} }
 					/>
 			 	</div>
 		 	</div>

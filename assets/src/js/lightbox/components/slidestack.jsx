@@ -11,13 +11,13 @@ export default class SlideStack extends React.Component {
 	render(){
 		return (
 			<div>
-				{this.props.slides.map(function(img){
+				{ this.props.slides.map(function(img){
 					return <Slide
-								key={img.id}
-								class={img.class}
-								background={img.background}
-								caption={img.caption} />
-				}.bind(this))}
+								key={ img.id }
+								class={ img.class }
+								background={ img.background }
+								caption={ img.caption } />
+				}.bind(this)) }
 			</div>
 		);
 	}

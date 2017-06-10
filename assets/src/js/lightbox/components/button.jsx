@@ -1,14 +1,18 @@
 import React from 'react';
 
-const Button = props => {
-	return (
-		<div className={"btn " + props.buttonClass} onClick={props.onClick}>
- 			<div className="bars">
- 				<span></span>
- 				<span></span>
- 			</div>
-	 	</div>
-	);
-}
+export default class Button extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-export default Button;
+	render(){
+		return (
+			<div className={ "btn " + this.props.buttonClass } onClick={ this.props.onClick }>
+	 			<div className="bars">
+	 				<span></span>
+	 				<span></span>
+	 			</div>
+		 	</div>
+		);
+	}
+}

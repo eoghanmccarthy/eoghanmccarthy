@@ -6890,8 +6890,10 @@ module.exports = ReactNoopUpdateQueue;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(10);
 
@@ -6899,18 +6901,39 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Button = function Button(props) {
-  return _react2.default.createElement(
-    "div",
-    { className: "btn " + props.buttonClass, onClick: props.onClick },
-    _react2.default.createElement(
-      "div",
-      { className: "bars" },
-      _react2.default.createElement("span", null),
-      _react2.default.createElement("span", null)
-    )
-  );
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Button = function (_React$Component) {
+	_inherits(Button, _React$Component);
+
+	function Button(props) {
+		_classCallCheck(this, Button);
+
+		return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+	}
+
+	_createClass(Button, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "btn " + this.props.buttonClass, onClick: this.props.onClick },
+				_react2.default.createElement(
+					"div",
+					{ className: "bars" },
+					_react2.default.createElement("span", null),
+					_react2.default.createElement("span", null)
+				)
+			);
+		}
+	}]);
+
+	return Button;
+}(_react2.default.Component);
 
 exports.default = Button;
 
@@ -11150,8 +11173,6 @@ var App = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-		_this.openModal = _this.openModal.bind(_this);
-		_this.closeModal = _this.closeModal.bind(_this);
 		_this.state = {
 			active: false,
 			menu: [{
@@ -11162,42 +11183,39 @@ var App = function (_React$Component) {
 		};
 		return _this;
 	}
-	// Add active class to open modal
+	// Toggle modal visibilty
 
 
 	_createClass(App, [{
-		key: 'openModal',
-		value: function openModal() {
+		key: 'toggleModal',
+		value: function toggleModal(event) {
 			this.setState({
-				active: true
-			});
-		}
-		// Remove active class to close modal
-
-	}, {
-		key: 'closeModal',
-		value: function closeModal() {
-			this.setState({
-				active: false
+				active: event
 			});
 		}
 	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
 			return _react2.default.createElement(
 				'div',
 				{ className: 'nav nav-global' },
 				_react2.default.createElement(_toggle2.default, {
 					toggleClass: 'open',
-					onClick: this.openModal
+					onClick: function onClick() {
+						return _this2.toggleModal(true);
+					}
 				}),
-				_react2.default.createElement(
+				this.state.active === true && _react2.default.createElement(
 					'div',
-					{ className: this.state.active ? "nav-global__modal active" : "nav-global__modal" },
+					{ className: 'nav-global__modal' },
 					_react2.default.createElement(_navMenu2.default, { menu: this.state.menu }),
 					_react2.default.createElement(_toggle2.default, {
 						toggleClass: 'close',
-						onClick: this.closeModal
+						onClick: function onClick() {
+							return _this2.toggleModal(false);
+						}
 					})
 				)
 			);
@@ -11678,15 +11696,15 @@ var Viewer = function (_React$Component) {
 				_react2.default.createElement(_slidestack2.default, { slides: SLIDES }),
 				_react2.default.createElement(
 					'div',
-					{ className: "btn-group btn-group__nav" },
+					{ className: 'btn-group btn-group__nav' },
 					_react2.default.createElement(_button2.default, {
-						buttonClass: "btn__nav btn__nav--prev",
+						buttonClass: 'btn__nav btn__nav--prev',
 						onClick: function onClick() {
 							_this2.indexChange(-1);
 						}
 					}),
 					_react2.default.createElement(_button2.default, {
-						buttonClass: "btn__nav btn__nav--next",
+						buttonClass: 'btn__nav btn__nav--next',
 						onClick: function onClick() {
 							_this2.indexChange(1);
 						}
@@ -11747,48 +11765,43 @@ var Lightbox = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (Lightbox.__proto__ || Object.getPrototypeOf(Lightbox)).call(this, props));
 
-		_this.openModal = _this.openModal.bind(_this);
-		_this.closeModal = _this.closeModal.bind(_this);
 		_this.state = {
 			gallery: document.querySelectorAll('figure img'),
 			active: false
 		};
 		return _this;
 	}
-	// Add active class to open modal
+	// Toggle modal
 
 
 	_createClass(Lightbox, [{
-		key: 'openModal',
-		value: function openModal() {
+		key: 'toggleModal',
+		value: function toggleModal(event) {
 			this.setState({
-				active: true
-			});
-		}
-		// Remove active class to close modal
-
-	}, {
-		key: 'closeModal',
-		value: function closeModal() {
-			this.setState({
-				active: false
+				active: event
 			});
 		}
 	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
 			return _react2.default.createElement(
 				'div',
 				{ className: this.state.active ? "lightbox active" : "lightbox" },
 				_react2.default.createElement(_viewer2.default, {
-					openModal: this.openModal,
+					openModal: function openModal() {
+						return _this2.toggleModal(true);
+					},
 					gallery: this.state.gallery }),
 				_react2.default.createElement(
 					'div',
-					{ className: "btn-group btn-group__close" },
+					{ className: 'btn-group btn-group__close' },
 					_react2.default.createElement(_button2.default, {
-						buttonClass: "btn__close",
-						onClick: this.closeModal
+						buttonClass: 'btn__close',
+						onClick: function onClick() {
+							return _this2.toggleModal(false);
+						}
 					})
 				)
 			);

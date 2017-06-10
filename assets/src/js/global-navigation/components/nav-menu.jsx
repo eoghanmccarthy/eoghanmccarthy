@@ -12,12 +12,12 @@ export default class NavMenu extends React.Component {
 		return (
 			<nav>
 				<ul className="nav-global__menu">
-					{this.props.menu.map(function(item){
+					{ this.props.menu.map(function(item){
 						return <MenuItem
-									key={item.id}
-									href={item.href}
-									label={item.label} />
-					}.bind(this))}
+									key={ item.id }
+									href={ item.href }
+									label={ item.label } />
+					}.bind(this)) }
 				</ul>
 			</nav>
 		);

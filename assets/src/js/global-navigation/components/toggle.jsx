@@ -8,7 +8,7 @@ export default class Toggle extends React.Component {
 
 	render(){
 		return (
-			<div className={"nav-global__toggle " + this.props.toggleClass} onClick={this.props.onClick}>
+			<div className={ "nav-global__toggle " + this.props.toggleClass } onClick={ this.props.onClick }>
 	 			<div className="bars">
 	 				<span></span>
 	 				<span></span>

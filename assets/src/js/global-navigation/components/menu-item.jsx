@@ -7,7 +7,7 @@ export default class MenuItem extends React.Component {
 
 	render(){
 		return (
-			<li><a href={this.props.href}>{this.props.label}</a></li>
+			<li><a href={ this.props.href }>{ this.props.label }</a></li>
 		);
 	}
 }
