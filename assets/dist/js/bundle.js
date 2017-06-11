@@ -11681,8 +11681,10 @@ var Viewer = function (_React$Component) {
 					background: src,
 					caption: title
 				};
-				gallery[i].addEventListener("click", this.toTop.bind(this, i));
-				gallery[i].addEventListener("click", this.props.openModal);
+				gallery[i].addEventListener('click', function () {
+					_this2.toTop.bind(_this2, i);
+					_this2.props.openModal;
+				});
 				// Append slide
 				SLIDES.push(img);
 			}
