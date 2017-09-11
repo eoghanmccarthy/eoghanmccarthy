@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 // Import components
-import MenuItem from './menu-item';
+import MenuItem from './MenuItem';
 
-export default class NavMenu extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+export default class Menu extends Component {
 
 	render(){
+
 		return (
+
 			<nav>
+
 				<ul className="nav-global__menu">
 					{ this.props.menu.map(function(item){
 						return <MenuItem
@@ -19,7 +19,9 @@ export default class NavMenu extends React.Component {
 									label={ item.label } />
 					}.bind(this)) }
 				</ul>
+				
 			</nav>
+
 		);
 	}
 }
