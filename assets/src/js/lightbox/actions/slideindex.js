@@ -1,8 +1,15 @@
 import * as SlideIndexActionTypes from '../actiontypes/slideindex';
 
-export const updateSlideIndex = slideIndex => {
+export const decrementSlideIndex = slideIndex => {
 	return {
-		type: SlideIndexActionTypes.UPDATE_SLIDE_INDEX,
+		type: SlideIndexActionTypes.DECREMENT_SLIDE_INDEX,
+		slideIndex
+	};
+};
+
+export const incrementSlideIndex = slideIndex => {
+	return {
+		type: SlideIndexActionTypes.INCREMENT_SLIDE_INDEX,
 		slideIndex
 	};
 };

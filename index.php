@@ -4,7 +4,7 @@
 	<head>
 		<title>eoghan mccarthy</title>
 		<?php include 'partials/meta.php';?>
-		<?php include 'partials/scripts.php';?>
+		<?php include 'partials/scripts/css.php';?>
 	</head>
 
 	<body class="index">
@@ -12,7 +12,7 @@
 		<?php include 'partials/header.php';?>
 		<!-- Main -->
 		<!-- Footer -->
-		<?php include 'partials/scripts-js.php';?>
+		<?php include 'partials/scripts/js.php';?>
 	</body>
 
 </html>

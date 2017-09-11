@@ -4,7 +4,7 @@
 	<head>
 		<title>eoghanmccarthy / travel</title>
 		<?php include 'partials/meta.php';?>
-		<?php include 'partials/scripts.php';?>
+		<?php include 'partials/scripts/css.php';?>
 	</head>
 
 	<body>
@@ -42,7 +42,7 @@
 		<div id="lightbox"></div>
 		<!-- Footer -->
 		<?php include 'partials/footer.php';?>
-		<?php include 'partials/scripts-js.php';?>
+		<?php include 'partials/scripts/js.php';?>
 	</body>
 
 </html>

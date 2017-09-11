@@ -8,11 +8,18 @@ const initialState = [
 
 export default function SlideIndexReducer(state=initialState, action) {
 	switch (action.type) {
-		case SlideIndexActionTypes.UPDATE_SLIDE_INDEX:
+		case SlideIndexActionTypes.DECREMENT_SLIDE_INDEX:
 			return [
 				...state,
 				{
-					slideIndex: action.slideIndex,
+					slideIndex: action.slideIndex -1,
+				}
+			];
+		case SlideIndexActionTypes.INCREMENT_SLIDE_INDEX:
+			return [
+				...state,
+				{
+					slideIndex: action.slideIndex +1,
 				}
 			];
 		default:

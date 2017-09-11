@@ -19,7 +19,7 @@ export default class Viewer extends React.Component {
 		})
 	}
 	// Open on clicked gallery image
-	toTop(i) {
+	setIndex(i) {
 		this.setState({
 			index: i
 		})
@@ -54,7 +54,7 @@ export default class Viewer extends React.Component {
 				background: src,
 				caption: title
 			}
-			gallery[i].addEventListener('click', this.toTop.bind(this, i));
+			gallery[i].addEventListener('click', this.setIndex.bind(this, i));
 			gallery[i].addEventListener('click', this.props.openModal);
 			// Append slide
 			SLIDES.push(img);

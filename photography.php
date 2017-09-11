@@ -4,7 +4,7 @@
 	<head>
 		<title>eoghanmccarthy / photography</title>
 		<?php include 'partials/meta.php';?>
-		<?php include 'partials/scripts.php';?>
+		<?php include 'partials/scripts/css.php';?>
 	</head>
 
 	<body>
@@ -67,7 +67,7 @@
 			<!-- Footer -->
 			<?php include 'partials/footer.php';?>
 		</div>
-		<?php include 'partials/scripts-js.php';?>
+		<?php include 'partials/scripts/js.php';?>
 		<script src="assets/dist/js/lightbox.js"></script>
 	</body>
 
