@@ -1,3 +1,6 @@
 <footer class="footer">
-	<span>2017</span>
+	<div class="scroll-to-top">
+		<span></span>
+		<span></span>
+	</div>
 </footer>
