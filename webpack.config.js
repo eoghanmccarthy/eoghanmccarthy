@@ -1,6 +1,6 @@
 module.exports = {
 	entry: [
-		'./assets/src/js/global-navigation/app.jsx',
+		'./assets/src/js/global-navigation/index.jsx',
 		'./assets/src/js/lightbox/index.jsx'
 	],
 	output: {
