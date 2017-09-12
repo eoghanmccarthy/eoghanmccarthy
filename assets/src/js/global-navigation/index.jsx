@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 // Import components
-import App from './components/App';
+import App from './containers/App';
 
 // Render the UI
 render(
