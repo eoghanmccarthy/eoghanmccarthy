@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = ({ buttonClass, onClick }) => {
-
+	
 	return (
 		<div className={ "nav-global__toggle " + buttonClass } onClick={ onClick }>
 			<div className="bars">

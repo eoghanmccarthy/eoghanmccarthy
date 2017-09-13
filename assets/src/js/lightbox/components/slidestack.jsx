@@ -1,24 +1,21 @@
 import React from 'react';
 
 // Import components
-import Slide from './slide';
+import Slide from './Slide';
 
-export default class SlideStack extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+const SlideStack = ({ slides }) => {
 
-	render(){
-		return (
-			<div>
-				{ this.props.slides.map(function(img){
-					return <Slide
-								key={ img.id }
-								class={ img.class }
-								background={ img.background }
-								caption={ img.caption } />
-				}.bind(this)) }
-			</div>
-		);
-	}
+	return (
+		<div>
+			{ slides.map(function(img){
+				return <Slide
+							key={ img.id }
+							slideClass={ img.class }
+							background={ img.background }
+							caption={ img.caption } />
+			}.bind(this)) }
+		</div>
+	);
 }
+
+export default SlideStack;

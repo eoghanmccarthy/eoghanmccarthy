@@ -7,7 +7,9 @@ import Modal from '../components/Modal';
 
 const mapStateToProps = state => {
 	return {
-		globalNavActive: state.globalNavActive.globalNavActive
+		lightboxActive: state.lightboxActive.lightboxActive,
+		slideIndex: state.slideIndex.slideIndex,
+		gallery: state.slideIndex.gallery
 	}
 }
 

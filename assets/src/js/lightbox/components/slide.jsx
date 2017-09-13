@@ -1,15 +1,12 @@
 import React from 'react';
 
-export default class Slide extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+const Slide = ({ slideClass, background, caption }) => {
 
-	render(){
-		return (
-			<div className={ this.props.class } style={ {backgroundImage: `url(${this.props.background})`} }>
-				<span className="slide__caption">{ this.props.caption }</span>
-			</div>
-		);
-	}
+	return (
+		<div className={ slideClass } style={{ backgroundImage: `url(${ background })` }}>
+			<span className="slide__caption">{ caption }</span>
+		</div>
+	);
 }
+
+export default Slide;
