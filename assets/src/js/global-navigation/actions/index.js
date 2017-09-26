@@ -1,9 +1,9 @@
 import {
-	TOGGLE_GLOBAL_NAVIGATION
+	TOGGLE_VISIBILITY
 } from '../actiontypes/index';
 
-export const toggleGlobalNavigation = () => {
+export const toggleVisibility = () => {
 	return {
-		type: TOGGLE_GLOBAL_NAVIGATION
+		type: TOGGLE_VISIBILITY
 	};
 };

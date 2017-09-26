@@ -7,9 +7,8 @@ import Modal from '../components/Modal';
 
 const mapStateToProps = state => {
 	return {
-		lightboxActive: state.lightboxActive.lightboxActive,
-		slideIndex: state.slideIndex.slideIndex,
-		gallery: state.slideIndex.gallery
+		visible: state.visibility.visible,
+		gallery: state.slides.gallery
 	}
 }
 
@@ -17,7 +16,9 @@ const mapDispatchToProps = dispatch => {
     return bindActionCreators(actionCreators, dispatch);
 }
 
-export default connect(
+const App = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(Modal);
+
+export default App

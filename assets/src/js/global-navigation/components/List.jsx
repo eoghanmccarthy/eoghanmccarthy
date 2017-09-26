@@ -1,18 +1,22 @@
 import React from 'react';
 
-// Import components
-import ListItem from './ListItem';
+// Import data
+import listdata from 'json-loader!../data/listdata.json';
 
-const List = ({ list }) => {
+// List data
+const data = listdata.data;
+
+const List = () => {
 
 	return (
 		<nav>
 			<ul className="nav-global__menu">
-				{ list.map(function(item){
-					return <ListItem
-								key={ item.id }
-								href={ item.href }
-								label={ item.label } />
+				{ data.map(function(item){
+					return (
+						<li key={ item.id }>
+							<a href={ item.href }>{ item.label }</a>
+						</li>
+					);
 				}.bind(this)) }
 			</ul>
 		</nav>

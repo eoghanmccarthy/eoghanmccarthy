@@ -1,13 +1,13 @@
 import {
-	TOGGLE_LIGHTBOX,
+	TOGGLE_VISIBILITY,
 	SLIDE_INDEX_INCREMENT,
 	SLIDE_INDEX_DECREMENT,
 	SLIDE_INDEX_SET
 } from '../actiontypes/index';
 
-export const toggleLightbox = () => {
+export const toggleVisibility = () => {
 	return {
-		type: TOGGLE_LIGHTBOX
+		type: TOGGLE_VISIBILITY
 	};
 };
 

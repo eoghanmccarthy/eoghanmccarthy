@@ -1,16 +1,16 @@
 import {
-	TOGGLE_GLOBAL_NAVIGATION
+	TOGGLE_VISIBILITY
 } from '../actiontypes/index';
 
 const initialState = {
-	globalNavActive: false
+	visible: false
 }
 
 function visibilityReducer(state = initialState, action) {
 	switch (action.type) {
-		case TOGGLE_GLOBAL_NAVIGATION:
+		case TOGGLE_VISIBILITY:
 			return Object.assign({}, state, {
-				globalNavActive: !state.globalNavActive
+				visible: !state.visible
 			})
 		default:
 			return state;

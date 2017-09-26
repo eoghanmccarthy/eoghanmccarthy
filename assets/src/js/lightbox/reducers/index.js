@@ -3,9 +3,8 @@ import visibilityReducer from './visibility'
 import slideShowReducer from './slideshow'
 
 const rootReducer = combineReducers({
-    lightboxActive: visibilityReducer,
-    slideIndex: slideShowReducer,
-    slideIndexSet: slideShowReducer
+    visibility: visibilityReducer,
+    slides: slideShowReducer
 })
 
 export default rootReducer

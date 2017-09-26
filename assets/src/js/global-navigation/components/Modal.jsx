@@ -1,35 +1,35 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actionCreators from '../actions/index'
 
 // Import components
 import Button from '../components/Button';
 import List from '../components/List';
 
-// Import data
-import listdata from 'json-loader!../data/listdata.json';
-
-const Modal = ({ globalNavActive, toggleGlobalNavigation }) => {
+const Modal = ({ toggleVisibility }) => {
 
     return (
-        <div className="nav nav-global">
+
+        <div className="nav-global__modal">
+            <List />
             <Button
-                buttonClass="open"
-                onClick={ toggleGlobalNavigation }
+                buttonClass="close"
+                onClick={ toggleVisibility }
             />
-
-            { globalNavActive === true &&
-
-                <div className="nav-global__modal">
-                    <List list={ listdata.data } />
-                    <Button
-                        buttonClass="close"
-                        onClick={ toggleGlobalNavigation }
-                    />
-                </div>
-                
-            }
-
-        </div>
+        </div>     
     )
 }
 
-export default Modal
+const mapStateToProps = state => {
+	return {}
+}
+
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators(actionCreators, dispatch);
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Modal);

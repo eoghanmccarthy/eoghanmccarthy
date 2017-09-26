@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react'
 
 // Import components
-import Viewer from './Viewer';
-import Button from './Button';
+import Slides from './Slides'
+import Navigation from './Navigation'
+import Button from './Button'
 
-const Modal = ({ lightboxActive, toggleLightbox, gallery, slideIndex, slideIndexSet, slideIndexDecrement, slideIndexIncrement }) => {
+export default class Modal extends Component {
+	
+	render() {
 
-	return (
-		<div className={ lightboxActive ? "lightbox active" : "lightbox" }>
-			<Viewer 
-				setIndex={ slideIndexSet }
-				openModal={ toggleLightbox }
-				slideIndexDecrement={ slideIndexDecrement }
-				slideIndexIncrement={ slideIndexIncrement }
-				gallery={ gallery }
-				slideIndex={ slideIndex }
-			/>
-			<div className="btn-group btn-group__close">
-				<Button
-					buttonClass="btn__close"
-					onClick={ toggleLightbox }
-				/>
+		const { visible, toggleVisibility, gallery, slideIndexSet } = this.props;
+
+		let i;
+		for (i = 0; i < gallery.length; i++) {
+			gallery[i].addEventListener('click', slideIndexSet.bind(null, i));
+			gallery[i].addEventListener('click', toggleVisibility);
+		}
+
+		return (
+
+			<div>
+
+			{ visible === true &&
+			
+				<div className="lightbox">
+					<Slides />
+					<Navigation />
+
+					<div className="btn-group btn-group__close">
+						<Button
+							buttonClass="btn__close"
+							onClick={ toggleVisibility }
+						/>
+					</div>
+				</div>
+			}
+
 			</div>
-		</div>
-	)
+		)
+	}
 }
-
-export default Modal

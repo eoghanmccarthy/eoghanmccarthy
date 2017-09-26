@@ -1,16 +1,16 @@
 import {
-	TOGGLE_LIGHTBOX
+	TOGGLE_VISIBILITY
 } from '../actiontypes/index';
 
 const initialState = {
-	lightboxActive: false
+	visible: false
 }
 
 function visibilityReducer(state = initialState, action) {
 	switch (action.type) {
-		case TOGGLE_LIGHTBOX:
+		case TOGGLE_VISIBILITY:
 			return Object.assign({}, state, {
-				lightboxActive: !state.lightboxActive
+				visible: !state.visible
 			})
 		default:
 			return state;

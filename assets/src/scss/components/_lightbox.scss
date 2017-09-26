@@ -4,7 +4,7 @@
 
 .lightbox {
 	@extend %px-base;
-	display: none;
+	display: block;
 	position: fixed;
 	z-index: 0;
 	top: 0;
@@ -13,10 +13,6 @@
 	height: 100%;
 	background-color: $black;
 	overflow: hidden;
-
-	&.active {
-		display: block;
-	}
 
 	.slide {
 		display: none;

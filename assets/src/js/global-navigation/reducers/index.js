@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import visibilityReducer from './visibility'
 
 const rootReducer = combineReducers({
-    globalNavActive: visibilityReducer
+    visibility: visibilityReducer
 })
 
 export default rootReducer
