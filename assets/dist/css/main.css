@@ -170,6 +170,46 @@ p {
           text-decoration: none;
           color: #ff6653; }
 
+/*
+ * Scroller
+ */
+.btn_scroll {
+  display: table;
+  margin: 30px auto;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #2f4f4f;
+  opacity: .7;
+  -webkit-transition: opacity, 0.25s, ease;
+  -moz-transition: opacity, 0.25s, ease;
+  -o-transition: opacity, 0.25s, ease;
+  transition: opacity, 0.25s, ease;
+  cursor: pointer; }
+  .btn_scroll:hover {
+    opacity: 1; }
+  .btn_scroll .bars {
+    display: table-cell;
+    vertical-align: middle; }
+    .btn_scroll .bars span {
+      display: block;
+      width: 50%;
+      height: 2px;
+      margin: 3px auto 0;
+      background-color: #fff; }
+      .btn_scroll .bars span:first-child {
+        margin-top: 0;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg); }
+      .btn_scroll .bars span:last-child {
+        margin-top: -2px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg); }
+
 .logo {
   display: flex;
   justify-content: center;
@@ -351,27 +391,3 @@ header {
 .footer {
   margin: 5em 0;
   text-align: center; }
-  .footer .scroll-to-top {
-    border: 1px solid #000;
-    border-radius: 50%; }
-    .footer .scroll-to-top .bars {
-      display: table-cell;
-      vertical-align: middle; }
-      .footer .scroll-to-top .bars span {
-        display: block;
-        width: 50%;
-        height: 2px;
-        margin: 3px auto 0;
-        background-color: #fff; }
-        .footer .scroll-to-top .bars span:first-child {
-          margin-top: 0;
-          -webkit-transform: rotate(-45deg);
-          -moz-transform: rotate(-45deg);
-          -o-transform: rotate(-45deg);
-          transform: rotate(-45deg); }
-        .footer .scroll-to-top .bars span:last-child {
-          margin-top: -2px;
-          -webkit-transform: rotate(45deg);
-          -moz-transform: rotate(45deg);
-          -o-transform: rotate(45deg);
-          transform: rotate(45deg); }

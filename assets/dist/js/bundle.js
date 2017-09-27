@@ -11769,6 +11769,7 @@ var Slides = function (_Component) {
 			var i = void 0;
 			var STACK = new Array();
 			var images = gallery;
+
 			for (i = 0; i < images.length; i++) {
 				var img = void 0;
 				var src = images[i].getAttribute('src');
@@ -11788,9 +11789,6 @@ var Slides = function (_Component) {
 					img.class = 'slide';
 				}
 			}
-
-			// let j = slideIndex;
-			// STACK[j].class = 'slide active';
 
 			return _react2.default.createElement(
 				'div',

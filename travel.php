@@ -39,7 +39,10 @@
 				</figure>
 			</div>
 		</main>
+		<!-- Lightbox -->
 		<div id="lightbox"></div>
+		<!-- Scroller -->
+		<?php include 'partials/scroller.php';?>
 		<!-- Footer -->
 		<?php include 'partials/footer.php';?>
 		<?php include 'partials/scripts/js.php';?>
