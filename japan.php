@@ -2,7 +2,7 @@
 <html lang="en">
 
 	<head>
-		<title>eoghanmccarthy / travel</title>
+		<title>eoghanmccarthy / japan</title>
 		<?php include 'partials/meta.php';?>
 		<?php include 'partials/scripts/css.php';?>
 	</head>
@@ -43,8 +43,7 @@
 		<div id="lightbox"></div>
 		<!-- Scroller -->
 		<?php include 'partials/scroller.php';?>
-		<!-- Footer -->
-		<?php include 'partials/footer.php';?>
+		<!-- Scripts -->
 		<?php include 'partials/scripts/js.php';?>
 	</body>
 

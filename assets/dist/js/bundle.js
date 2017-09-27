@@ -12873,8 +12873,8 @@ module.exports = {
 	"data": [
 		{
 			"id": 1,
-			"href": "travel.php",
-			"label": "travel"
+			"href": "japan.php",
+			"label": "japan"
 		}
 	]
 };

@@ -2,14 +2,14 @@
  * Scroller
  */
 
-.btn_scroll {
+.btn__scroll {
 	display: table;
-	margin: 30px auto;
+	margin: m(xxxl) auto;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
 	background-color: $dark-slate-grey;
-	opacity: .7;
+	opacity: .4;
 	@include transition(opacity, $speed, ease);
 	cursor: pointer;
 
@@ -23,18 +23,19 @@
 
 		span {
 			display: block;
-			width: 50%;
+			width: 28%;
 			height: 2px;
-			margin: 3px auto 0;
 			background-color: $white;
 
 			&:first-child {
 				margin-top: 0;
+				margin-left: 18px;
 				@include rotate(45deg);
 			}
 
 			&:last-child {
 				margin-top: -2px;
+				margin-left: 11px;
 				@include rotate(-45deg);
 			}
 		}

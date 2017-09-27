@@ -173,38 +173,39 @@ p {
 /*
  * Scroller
  */
-.btn_scroll {
+.btn__scroll {
   display: table;
-  margin: 30px auto;
+  margin: 5em auto;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   background-color: #2f4f4f;
-  opacity: .7;
+  opacity: .4;
   -webkit-transition: opacity, 0.25s, ease;
   -moz-transition: opacity, 0.25s, ease;
   -o-transition: opacity, 0.25s, ease;
   transition: opacity, 0.25s, ease;
   cursor: pointer; }
-  .btn_scroll:hover {
+  .btn__scroll:hover {
     opacity: 1; }
-  .btn_scroll .bars {
+  .btn__scroll .bars {
     display: table-cell;
     vertical-align: middle; }
-    .btn_scroll .bars span {
+    .btn__scroll .bars span {
       display: block;
-      width: 50%;
+      width: 28%;
       height: 2px;
-      margin: 3px auto 0;
       background-color: #fff; }
-      .btn_scroll .bars span:first-child {
+      .btn__scroll .bars span:first-child {
         margin-top: 0;
+        margin-left: 18px;
         -webkit-transform: rotate(45deg);
         -moz-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg); }
-      .btn_scroll .bars span:last-child {
+      .btn__scroll .bars span:last-child {
         margin-top: -2px;
+        margin-left: 11px;
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);

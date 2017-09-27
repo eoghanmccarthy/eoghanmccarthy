@@ -1,4 +1,4 @@
-<div id="myBtn" class="btn__scroll" onclick="topFunction()">
+<div class="btn__scroll" onclick="toTop()">
 	<div class="bars">
 		<span></span>
 		<span></span>

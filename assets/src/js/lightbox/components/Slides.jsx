@@ -10,7 +10,7 @@ class Slides extends Component {
 		const { gallery, slideIndex } = this.props;
 		
 		let i;
-		const STACK = new Array();
+		let STACK = new Array();
 		let images = gallery;
 		
 		for (i = 0; i < images.length; i++) {
