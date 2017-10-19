@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import visibilityReducer from './visibility'
-import slideShowReducer from './slideshow'
+import galleryReducer from './gallery'
+import slideIndexReducer from './slideIndex'
 
 const rootReducer = combineReducers({
-    visibility: visibilityReducer,
-    slides: slideShowReducer
+    visible: visibilityReducer,
+    gallery: galleryReducer,
+    slideIndex: slideIndexReducer
 })
 
 export default rootReducer

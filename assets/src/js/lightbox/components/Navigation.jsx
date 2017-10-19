@@ -6,25 +6,27 @@ import * as actionCreators from '../actions/index'
 // Import components
 import Button from './Button'
 
-const Navigation = ({ slideIndexIncrement, slideIndexDecrement }) => {
+const Navigation = ({ gallery, slideIndexIncrement, slideIndexDecrement }) => {
 
 	return (
 
 		<div className="btn-group btn-group__nav">
 			<Button
 				buttonClass="btn__nav btn__nav--prev"
-				onClick={ slideIndexDecrement }
+				onClick={ () => slideIndexDecrement(gallery) }
 			/>
 			<Button
 				buttonClass="btn__nav btn__nav--next"
-				onClick={ slideIndexIncrement }
+				onClick={ () => slideIndexIncrement(gallery) }
 			/>
 		</div>
 	)
 }
 
 const mapStateToProps = (state) => {
-	return {}
+	return {
+        gallery: state.gallery
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {

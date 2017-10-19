@@ -7,8 +7,8 @@ import Modal from '../components/Modal';
 
 const mapStateToProps = state => {
 	return {
-		visible: state.visibility.visible,
-		gallery: state.slides.gallery
+        visible: state.visible,
+        gallery: state.gallery
 	}
 }
 

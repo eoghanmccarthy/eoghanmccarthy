@@ -11,13 +11,11 @@ const List = () => {
 	return (
 		<nav>
 			<ul className="nav-global__menu">
-				{ data.map(function(item){
-					return (
-						<li key={ item.id }>
-							<a href={ item.href }>{ item.label }</a>
-						</li>
-					);
-				}.bind(this)) }
+				{ data.map((item) =>
+                    <li key={ item.id }>
+                        <a href={ item.href }>{ item.label }</a>
+                    </li>
+                )}
 			</ul>
 		</nav>
 	);

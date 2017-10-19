@@ -1,5 +1,6 @@
 import {
-	TOGGLE_VISIBILITY,
+    TOGGLE_VISIBILITY,
+    INITIALISE_GALLERY,
 	SLIDE_INDEX_INCREMENT,
 	SLIDE_INDEX_DECREMENT,
 	SLIDE_INDEX_SET
@@ -9,23 +10,32 @@ export const toggleVisibility = () => {
 	return {
 		type: TOGGLE_VISIBILITY
 	};
-};
+}
 
-export const slideIndexIncrement = () => {
+export const initialiseGallery = data => {
 	return {
-		type: SLIDE_INDEX_INCREMENT
+        type: INITIALISE_GALLERY,
+        data
 	};
-};
+}
 
-export const slideIndexDecrement = () => {
+export const slideIndexIncrement = gallery => {
 	return {
-		type: SLIDE_INDEX_DECREMENT
+        type: SLIDE_INDEX_INCREMENT,
+        gallery
 	};
-};
+}
 
-export const slideIndexSet = i => {
+export const slideIndexDecrement = gallery => {
+	return {
+        type: SLIDE_INDEX_DECREMENT,
+        gallery
+	};
+}
+
+export const slideIndexSet = index => {
 	return {
 		type: SLIDE_INDEX_SET,
-		i
+		index
 	};
-};
+}

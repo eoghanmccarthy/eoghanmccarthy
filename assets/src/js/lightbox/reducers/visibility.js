@@ -2,19 +2,11 @@ import {
 	TOGGLE_VISIBILITY
 } from '../actiontypes/index';
 
-const initialState = {
-	visible: false
-}
-
-function visibilityReducer(state = initialState, action) {
+export default function visibilityReducer(state = false, action) {
 	switch (action.type) {
 		case TOGGLE_VISIBILITY:
-			return Object.assign({}, state, {
-				visible: !state.visible
-			})
+			return !state;
 		default:
 			return state;
 	}
 }
-  
-export default visibilityReducer

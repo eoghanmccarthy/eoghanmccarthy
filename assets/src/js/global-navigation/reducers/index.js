@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import visibilityReducer from './visibility'
 
 const rootReducer = combineReducers({
-    visibility: visibilityReducer
+    visible: visibilityReducer
 })
 
 export default rootReducer

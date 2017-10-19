@@ -29,7 +29,7 @@ const App = ({ visible, toggleVisibility }) => {
 
 const mapStateToProps = state => {
 	return {
-		visible: state.visibility.visible
+		visible: state.visible
 	}
 }
 

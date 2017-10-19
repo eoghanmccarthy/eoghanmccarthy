@@ -11,14 +11,20 @@ module.exports = {
 		extensions: ['.js', '.jsx']
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
-				loader: 'babel-loader',
-				query: {
-					presets: ['react', 'es2015']
-				},
-				test: /\.jsx?$/,
-				exclude: /(node_modules)/
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: [
+                            'transform-class-properties',
+                            'transform-es2015-classes',
+                            'transform-object-rest-spread'
+                        ]
+                    }
+                }
 			}
 		]
 	}

@@ -9,14 +9,12 @@ class Slides extends Component {
 
 		const { gallery, slideIndex } = this.props;
 		
-		let i;
 		let STACK = new Array();
-		let images = gallery;
 		
-		for (i = 0; i < images.length; i++) {
+		for (let i = 0; i < gallery.length; i++) {
 			let img;
-			let src = images[i].getAttribute('src');
-			let title = images[i].getAttribute('title');
+			let src = gallery[i].getAttribute('src');
+			let title = gallery[i].getAttribute('title');
 			img = {
 				id: i,
 				class: '',
@@ -35,13 +33,22 @@ class Slides extends Component {
 
 		return (
 			<div>
-				{ STACK.map(function(img){
-					return (
-						<div key={ img.id } className={ img.class } style={{ backgroundImage: `url(${ img.background })` }}>
-							<span className="slide__caption">{ img.caption }</span>
-						</div>
-					);
-				}.bind(this)) }
+				{ STACK.map((img) =>
+                    <div
+                        key={ img.id }
+                        className={ img.class }
+                        style={{ backgroundImage: `url(${ img.background })` }} >
+                        <span className="slide__caption">{ img.caption }</span>
+                    </div>
+                )}
+                {/* { gallery.map((item, index) =>
+                    <div
+                        key={ index }
+                        className={ 'slide' + index === slideIndex && ' active' }
+                        style={{ backgroundImage: `url(${ item[i].getAttribute('src') })` }} >
+                        <span className="slide__caption">{ item[i].getAttribute('title') }</span>
+                    </div>
+                )} */}
 			</div>
 		);
 	}
@@ -49,8 +56,8 @@ class Slides extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		gallery: state.slides.gallery,
-		slideIndex: state.slides.slideIndex
+        gallery: state.gallery,
+		slideIndex: state.slideIndex
 	}
 }
 

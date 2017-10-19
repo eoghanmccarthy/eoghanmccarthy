@@ -5,7 +5,14 @@ import Slides from './Slides'
 import Navigation from './Navigation'
 import Button from './Button'
 
+// Import content
+const content = document.querySelectorAll('figure img');
+
 export default class Modal extends Component {
+
+    componentWillMount() {
+        this.props.initialiseGallery(content);
+    }
 	
 	render() {
 
