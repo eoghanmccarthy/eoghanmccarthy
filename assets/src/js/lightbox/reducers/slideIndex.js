@@ -7,14 +7,14 @@ import {
 export default function slideIndexReducer(state = 0, action) {
 	switch (action.type) {
 		case SLIDE_INDEX_INCREMENT:
-			if (state > action.gallery.length - 2) {
+			if (state > action.length - 2) {
 				return state = 0;
 			} else {
 				return state + 1;
 			}
 		case SLIDE_INDEX_DECREMENT:
 			if (state < 1) {
-				return action.gallery.length - 1;
+				return action.length - 1;
 			} else {
 				return state - 1;
 			}

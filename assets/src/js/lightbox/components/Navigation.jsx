@@ -13,11 +13,11 @@ const Navigation = ({ gallery, slideIndexIncrement, slideIndexDecrement }) => {
 		<div className="btn-group btn-group__nav">
 			<Button
 				buttonClass="btn__nav btn__nav--prev"
-				onClick={ () => slideIndexDecrement(gallery) }
+				onClick={ () => slideIndexDecrement(gallery.length) }
 			/>
 			<Button
 				buttonClass="btn__nav btn__nav--next"
-				onClick={ () => slideIndexIncrement(gallery) }
+				onClick={ () => slideIndexIncrement(gallery.length) }
 			/>
 		</div>
 	)

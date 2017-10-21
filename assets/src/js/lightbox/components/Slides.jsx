@@ -7,48 +7,21 @@ class Slides extends Component {
 
 	render() {
 
-		const { gallery, slideIndex } = this.props;
-		
-		let STACK = new Array();
-		
-		for (let i = 0; i < gallery.length; i++) {
-			let img;
-			let src = gallery[i].getAttribute('src');
-			let title = gallery[i].getAttribute('title');
-			img = {
-				id: i,
-				class: '',
-				background: src,
-				caption: title
-			}
-
-			STACK.push(img);
-
-			if (i === slideIndex) {
-				img.class = 'slide active'
-			} else {
-				img.class = 'slide'
-			}
-		}
+        const { gallery, slideIndex } = this.props;
 
 		return (
+
 			<div>
-				{ STACK.map((img) =>
-                    <div
-                        key={ img.id }
-                        className={ img.class }
-                        style={{ backgroundImage: `url(${ img.background })` }} >
-                        <span className="slide__caption">{ img.caption }</span>
-                    </div>
-                )}
-                {/* { gallery.map((item, index) =>
+				{ gallery.map((item, index) =>
                     <div
                         key={ index }
-                        className={ 'slide' + index === slideIndex && ' active' }
-                        style={{ backgroundImage: `url(${ item[i].getAttribute('src') })` }} >
-                        <span className="slide__caption">{ item[i].getAttribute('title') }</span>
+                        className={ index !== slideIndex ? 'slide' : 'slide active' }
+                        style={{ backgroundImage: `url(${ item.src })` }} >
+                        <span className="slide__caption">
+                            { item.title }
+                        </span>
                     </div>
-                )} */}
+                )}
 			</div>
 		);
 	}

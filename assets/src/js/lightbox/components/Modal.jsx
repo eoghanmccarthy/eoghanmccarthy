@@ -16,12 +16,13 @@ export default class Modal extends Component {
 	
 	render() {
 
-		const { visible, toggleVisibility, gallery, slideIndexSet } = this.props;
+        const { visible, toggleVisibility, gallery, slideIndexSet } = this.props;
 
-		let i;
-		for (i = 0; i < gallery.length; i++) {
-			gallery[i].addEventListener('click', slideIndexSet.bind(null, i));
-			gallery[i].addEventListener('click', toggleVisibility);
+        console.log(gallery);
+
+		for (let i = 0; i < content.length; i++) {
+			content[i].addEventListener('click', slideIndexSet.bind(null, i));
+			content[i].addEventListener('click', toggleVisibility);
 		}
 
 		return (

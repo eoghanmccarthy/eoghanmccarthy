@@ -6790,17 +6790,17 @@ var initialiseGallery = exports.initialiseGallery = function initialiseGallery(d
 	};
 };
 
-var slideIndexIncrement = exports.slideIndexIncrement = function slideIndexIncrement(gallery) {
+var slideIndexIncrement = exports.slideIndexIncrement = function slideIndexIncrement(length) {
 	return {
 		type: _index.SLIDE_INDEX_INCREMENT,
-		gallery: gallery
+		length: length
 	};
 };
 
-var slideIndexDecrement = exports.slideIndexDecrement = function slideIndexDecrement(gallery) {
+var slideIndexDecrement = exports.slideIndexDecrement = function slideIndexDecrement(length) {
 	return {
 		type: _index.SLIDE_INDEX_DECREMENT,
-		gallery: gallery
+		length: length
 	};
 };
 
@@ -25280,22 +25280,32 @@ function visibilityReducer() {
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 exports.default = galleryReducer;
 
 var _index = __webpack_require__(35);
 
 function galleryReducer() {
-	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	var action = arguments[1];
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments[1];
 
-	switch (action.type) {
-		case _index.INITIALISE_GALLERY:
-			return action.data;
-		default:
-			return state;
-	}
+  switch (action.type) {
+    case _index.INITIALISE_GALLERY:
+      var imageStack = new Array();
+
+      for (var i = 0; i < action.data.length; i++) {
+        var item = {
+          src: action.data[i].src,
+          title: action.data[i].title
+        };
+
+        imageStack.push(item);
+      }
+      return imageStack;
+    default:
+      return state;
+  }
 }
 
 /***/ }),
@@ -25318,14 +25328,14 @@ function slideIndexReducer() {
 
 	switch (action.type) {
 		case _index.SLIDE_INDEX_INCREMENT:
-			if (state > action.gallery.length - 2) {
+			if (state > action.length - 2) {
 				return state = 0;
 			} else {
 				return state + 1;
 			}
 		case _index.SLIDE_INDEX_DECREMENT:
 			if (state < 1) {
-				return action.gallery.length - 1;
+				return action.length - 1;
 			} else {
 				return state - 1;
 			}
@@ -25448,10 +25458,11 @@ var Modal = function (_Component) {
 			    slideIndexSet = _props.slideIndexSet;
 
 
-			var i = void 0;
-			for (i = 0; i < gallery.length; i++) {
-				gallery[i].addEventListener('click', slideIndexSet.bind(null, i));
-				gallery[i].addEventListener('click', toggleVisibility);
+			console.log(gallery);
+
+			for (var i = 0; i < content.length; i++) {
+				content[i].addEventListener('click', slideIndexSet.bind(null, i));
+				content[i].addEventListener('click', toggleVisibility);
 			}
 
 			return _react2.default.createElement(
@@ -25532,42 +25543,20 @@ var Slides = function (_Component) {
 			    slideIndex = _props.slideIndex;
 
 
-			var STACK = new Array();
-
-			for (var i = 0; i < gallery.length; i++) {
-				var img = void 0;
-				var src = gallery[i].getAttribute('src');
-				var title = gallery[i].getAttribute('title');
-				img = {
-					id: i,
-					class: '',
-					background: src,
-					caption: title
-				};
-
-				STACK.push(img);
-
-				if (i === slideIndex) {
-					img.class = 'slide active';
-				} else {
-					img.class = 'slide';
-				}
-			}
-
 			return _react2.default.createElement(
 				'div',
 				null,
-				STACK.map(function (img) {
+				gallery.map(function (item, index) {
 					return _react2.default.createElement(
 						'div',
 						{
-							key: img.id,
-							className: img.class,
-							style: { backgroundImage: 'url(' + img.background + ')' } },
+							key: index,
+							className: index !== slideIndex ? 'slide' : 'slide active',
+							style: { backgroundImage: 'url(' + item.src + ')' } },
 						_react2.default.createElement(
 							'span',
 							{ className: 'slide__caption' },
-							img.caption
+							item.title
 						)
 					);
 				})
@@ -25634,13 +25623,13 @@ var Navigation = function Navigation(_ref) {
 		_react2.default.createElement(_Button2.default, {
 			buttonClass: 'btn__nav btn__nav--prev',
 			onClick: function onClick() {
-				return slideIndexDecrement(gallery);
+				return slideIndexDecrement(gallery.length);
 			}
 		}),
 		_react2.default.createElement(_Button2.default, {
 			buttonClass: 'btn__nav btn__nav--next',
 			onClick: function onClick() {
-				return slideIndexIncrement(gallery);
+				return slideIndexIncrement(gallery.length);
 			}
 		})
 	);

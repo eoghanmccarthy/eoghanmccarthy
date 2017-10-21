@@ -19,17 +19,17 @@ export const initialiseGallery = data => {
 	};
 }
 
-export const slideIndexIncrement = gallery => {
+export const slideIndexIncrement = length => {
 	return {
         type: SLIDE_INDEX_INCREMENT,
-        gallery
+        length
 	};
 }
 
-export const slideIndexDecrement = gallery => {
+export const slideIndexDecrement = length => {
 	return {
         type: SLIDE_INDEX_DECREMENT,
-        gallery
+        length
 	};
 }
 
