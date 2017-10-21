@@ -18,8 +18,6 @@ export default class Modal extends Component {
 
         const { visible, toggleVisibility, gallery, slideIndexSet } = this.props;
 
-        console.log(gallery);
-
 		for (let i = 0; i < content.length; i++) {
 			content[i].addEventListener('click', slideIndexSet.bind(null, i));
 			content[i].addEventListener('click', toggleVisibility);

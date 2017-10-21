@@ -25294,14 +25294,36 @@ function galleryReducer() {
     case _index.INITIALISE_GALLERY:
       var imageStack = new Array();
 
-      for (var i = 0; i < action.data.length; i++) {
-        var item = {
-          src: action.data[i].src,
-          title: action.data[i].title
-        };
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
 
-        imageStack.push(item);
+      try {
+        for (var _iterator = action.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var elem = _step.value;
+
+          var item = {
+            src: elem.src,
+            title: elem.title
+          };
+
+          imageStack.push(item);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
       }
+
       return imageStack;
     default:
       return state;
@@ -25457,8 +25479,9 @@ var Modal = function (_Component) {
 			    gallery = _props.gallery,
 			    slideIndexSet = _props.slideIndexSet;
 
+			// Array.from(content);
 
-			console.log(gallery);
+			console.log(content);
 
 			for (var i = 0; i < content.length; i++) {
 				content[i].addEventListener('click', slideIndexSet.bind(null, i));

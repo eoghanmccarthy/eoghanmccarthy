@@ -6,11 +6,11 @@ export default function galleryReducer(state = null, action) {
 	switch (action.type) {
         case INITIALISE_GALLERY:
             const imageStack = new Array();
-            
-            for (let i = 0; i < action.data.length; i++) {
+
+            for (let elem of action.data) {
                 let item = {
-                    src: action.data[i].src,
-                    title: action.data[i].title
+                    src: elem.src,
+                    title: elem.title
                 }
 
                 imageStack.push(item);
