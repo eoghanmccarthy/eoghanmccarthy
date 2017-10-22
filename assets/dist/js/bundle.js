@@ -11406,7 +11406,8 @@ exports.default = Button;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(106);
-module.exports = __webpack_require__(242);
+__webpack_require__(242);
+module.exports = __webpack_require__(252);
 
 
 /***/ }),
@@ -25479,9 +25480,6 @@ var Modal = function (_Component) {
 			    gallery = _props.gallery,
 			    slideIndexSet = _props.slideIndexSet;
 
-			// Array.from(content);
-
-			console.log(content);
 
 			for (var i = 0; i < content.length; i++) {
 				content[i].addEventListener('click', slideIndexSet.bind(null, i));
@@ -25672,6 +25670,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Navigation);
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
