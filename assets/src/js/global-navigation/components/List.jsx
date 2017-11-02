@@ -11,9 +11,9 @@ const List = () => {
 	return (
 		<nav>
 			<ul className="nav-global__menu">
-				{ data.map((item) =>
-                    <li key={ item.id }>
-                        <a href={ item.href }>{ item.label }</a>
+				{ data.map((item, index) =>
+                    <li key={ index }>
+                        <a href={ item.href } data-text={ item.label }>{ item.label }</a>
                     </li>
                 )}
 			</ul>

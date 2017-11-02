@@ -5,7 +5,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 	entry: [
-		'./assets/src/js/global-navigation/index.jsx',
+        './assets/src/js/global-navigation/index.jsx',
         './assets/src/js/lightbox/index.jsx',
         './assets/src/scss/main.scss'
 	],
@@ -36,8 +36,10 @@ module.exports = {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
+                    use: [
+                        'style-loader',
+                        'css-loader'
+                    ]
                 })
             },
             {
@@ -46,9 +48,31 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     use: [
                         'css-loader',
+                        { loader: 'postcss-loader',
+                            options: {
+                                ident: 'postcss',
+                                config: {
+                                    path: './postcss.config.js'
+                                },
+                                plugins: (loader) => [
+                                    require('autoprefixer')()
+                                ]
+                            }
+                        },
                         'sass-loader'
                     ]
                 })
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: './assets/dist/media/'
+                        }  
+                    }
+                ]
             }
 		]
     },

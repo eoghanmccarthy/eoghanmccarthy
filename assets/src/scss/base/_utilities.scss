@@ -1,4 +1,4 @@
-// Mixins
+/// Utilities
 
 // Media queries
 @mixin breakpoint($breakpoint) {
@@ -31,26 +31,7 @@
 	}
 }
 
-// Shorthand transition with vendor prefixes
-@mixin transition($args...) {
-	-webkit-transition: $args;
-	-moz-transition: $args;
-	-o-transition: $args;
-	transition: $args;
-}
-
-// Shorthand animation with vendor prefixes
-@mixin animation($args...) {
-	-webkit-animation: $args;
-	-moz-animation: $args;
-	-o-animation: $args;
-	animation: $args;
-}
-
-// Shorthand transform with vendor prefixes
+// Rotate
 @mixin rotate($args...) {
-	-webkit-transform: rotate($args);
-	-moz-transform: rotate($args);
-	-o-transform: rotate($args);
 	transform: rotate($args);
 }

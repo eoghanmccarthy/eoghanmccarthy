@@ -1,4 +1,5 @@
-// Base
+/// Base
+
 html {
 	@extend %px-root;
 	text-size-adjust: 100%;
@@ -6,8 +7,8 @@ html {
 }
 
 body {
-	font-family: $stack-sans;
-	font-weight: $font-weight-normal;
+	font-family: $stack-primary;
+	font-weight: $font-weight-thin;
 	line-height: $base-line-height;
 	color: $black;
 	background: $white;

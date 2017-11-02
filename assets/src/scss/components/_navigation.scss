@@ -1,6 +1,4 @@
-/*
- * Navigation
- */
+/// Navigation
 
 .nav-global {
 	@extend %px-base;
@@ -44,7 +42,7 @@
 			height: 40px;
 			background-color: $dark-slate-grey;
 			opacity: .4;
-			@include transition(opacity, $speed, ease);
+			transition: all $speed ease;
 
 			&:hover {
 				opacity: 1;
@@ -54,7 +52,7 @@
 				width: 45px;
 				height: 45px;
 				background-color: $dark-slate-grey;
-				@include transition(background-color, $speed, ease);
+				transition: all $speed ease;
 				opacity: 1;
 
 				&:hover {
@@ -64,11 +62,12 @@
 		}
 
 		&.close {
+            @include anim__fade-in;
 			width: 40px;
 			height: 40px;
-			background-color: rgba(0, 0, 0, 0.0);
-			opacity: .7;
-			@include transition(opacity, $speed, ease);
+            background-color: rgba(0, 0, 0, 0.0);
+            opacity: 0;
+			transition: all $speed ease;
 
 			&:hover {
 				opacity: 1;
@@ -113,6 +112,7 @@
 	}
 
 	&__menu {
+        @include anim__slide-up-fade-in;
 		display: block;
 		list-style-type: none;
 		overflow: hidden;
@@ -123,18 +123,27 @@
 
 		li {
 			display: block;
-			padding: p(xxs) p(sm);
+            padding: p(xxs) p(sm);
+            transform: skewX(-12deg);
+            // background-color: $light-grey;
+            // background: repeating-linear-gradient(
+            //     -78deg,
+            //     rgba(0, 0, 0, 0.0),
+            //     rgba(0, 0, 0, 0.0) 2px,
+            //     #d4d4d4 2px,
+            //     #d4d4d4 4px
+            //   );
 
 			a {
-				font-family: $stack-cursive;
-				font-size: $base-font-size * 3;
-				line-height: $base-line-height;
-				letter-spacing: 5px;
+				font-family: $stack-primary;
+				font-size: $base-font-size * 3.6;
+				line-height: $base-line-height * 1.2;
+				letter-spacing: 3px;
 				color: $black;
 				text-decoration: none;
-				@include transition(color, $speed, ease);
+                transition: all $speed ease;
 
-				@include breakpoint(md) {
+				@include breakpoint(sm) {
 					font-size: $base-font-size * 5;
 				}
 

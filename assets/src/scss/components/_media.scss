@@ -1,4 +1,5 @@
-// Media
+/// Media
+
 .media {
 	@extend %px-base;
 	width: 100%;
@@ -17,7 +18,7 @@
 		width: 100%;
 		margin-bottom: m(xxs);
 		opacity: 1;
-		@include transition(opacity, $speed, ease);
+		transition: all $speed ease;
 		cursor: pointer;
 
 		&:hover {

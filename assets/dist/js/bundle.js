@@ -25131,13 +25131,13 @@ var List = function List() {
 		_react2.default.createElement(
 			'ul',
 			{ className: 'nav-global__menu' },
-			data.map(function (item) {
+			data.map(function (item, index) {
 				return _react2.default.createElement(
 					'li',
-					{ key: item.id },
+					{ key: index },
 					_react2.default.createElement(
 						'a',
-						{ href: item.href },
+						{ href: item.href, 'data-text': item.label },
 						item.label
 					)
 				);
@@ -25152,7 +25152,7 @@ exports.default = List;
 /* 241 */
 /***/ (function(module, exports) {
 
-module.exports = {"data":[{"id":1,"href":"japan.php","label":"japan"}]}
+module.exports = {"data":[{"href":"japan.php","label":"JAPAN"}]}
 
 /***/ }),
 /* 242 */

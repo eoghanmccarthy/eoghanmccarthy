@@ -1,6 +1,4 @@
-/*
- * Scroller
- */
+/// Scroller
 
 .btn__scroll {
 	display: table;
@@ -10,7 +8,7 @@
 	height: 40px;
 	background-color: $dark-slate-grey;
 	opacity: .4;
-	@include transition(opacity, $speed, ease);
+	transition: all $speed ease;
 	cursor: pointer;
 
 	&:hover {
