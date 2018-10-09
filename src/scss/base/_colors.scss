@@ -1,0 +1,45 @@
+/// Colors
+
+// Descriptive colors
+$white: #fff;
+$black: #000;
+$light-grey: #808080;
+$grey: #333;
+$dark-slate-grey: #2f4f4f;
+$supernova: #ccff00;
+$yellow: #ffff00;
+$persimmon: #ff6653;
+$green: #53ff66;
+
+// Brand colors
+$primary: $persimmon;
+$dev: $yellow;
+$design: $persimmon;
+$photo: $green;
+
+// UI colors map
+$ui-colors: (
+	brand: $primary,
+	white: $white,
+	dev: $dev,
+	design: $design,
+	photo: $photo
+);
+
+// Color palette modifiers
+$palettes: (
+	grey: (
+		x-light: lighten($grey, 25%),
+		light: lighten($grey, 12%),
+		base: $grey,
+		dark: darken($grey, 8%),
+		x-dark: darken($grey, 16%)
+	),
+	brand: (
+		x-light: lighten($primary, 25%),
+		light: lighten($primary, 12%),
+		base: $primary,
+		dark: darken($primary, 8%),
+		x-dark: darken($primary, 16%)
+	)
+);

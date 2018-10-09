@@ -259,19 +259,12 @@ p {
     vertical-align: middle; }
     .btn__scroll .bars span {
       display: block;
-      width: 28%;
+      width: 36%;
       height: 2px;
-      background-color: #fff; }
-      .btn__scroll .bars span:first-child {
-        margin-top: 0;
-        margin-left: 18px;
-        -webkit-transform: rotate(45deg);
-                transform: rotate(45deg); }
-      .btn__scroll .bars span:last-child {
-        margin-top: -2px;
-        margin-left: 11px;
-        -webkit-transform: rotate(-45deg);
-                transform: rotate(-45deg); }
+      margin: 0 auto;
+      background-color: #fff;
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg); }
 
 .logo {
   display: -webkit-box;

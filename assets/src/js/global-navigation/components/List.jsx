@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Import data
-import listdata from 'json-loader!../data/listdata.json';
+import listdata from '../data/listdata.json';
 
 // List data
 const data = listdata.data;

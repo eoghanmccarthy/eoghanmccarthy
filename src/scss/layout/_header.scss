@@ -1,0 +1,10 @@
+/// Header
+
+header {
+	@extend %px-base;
+	padding: p(md) 0 p(xxl);
+
+	.index & {
+		padding: 0;
+	}
+}
