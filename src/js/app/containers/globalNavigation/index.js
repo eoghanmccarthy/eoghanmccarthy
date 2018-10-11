@@ -1,32 +1,30 @@
-import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as actionCreators from "actions/globalNavigation";
+import React, { Component } from "react";
 
 import Button from "components/globalNavigation/button";
 import Modal from "components/globalNavigation/modal";
 
-const GlobalNavigation = ({ visible, toggleVisibility }) => {
-  return (
-    <div className="nav nav-global">
-      <Button buttonClass="open" onClick={toggleVisibility} />
+export default class GlobalNavigation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: false
+    };
+  }
 
-      {visible === true && <Modal />}
-    </div>
-  );
-};
-
-const mapStateToProps = state => {
-  return {
-    visible: state.globalNavigation.visible
+  handleToggleVisibility = () => {
+    this.setState({
+      isVisible: !this.state.isVisible
+    });
   };
-};
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actionCreators, dispatch);
-};
+  render() {
+    const { isVisible } = this.state;
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(GlobalNavigation);
+    return (
+      <div className="nav nav-global">
+        <Button buttonClass="open" onClick={this.handleToggleVisibility} />
+        {isVisible && <Modal toggleVisibility={this.handleToggleVisibility} />}
+      </div>
+    );
+  }
+}

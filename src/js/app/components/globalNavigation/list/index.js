@@ -5,7 +5,7 @@ import listdata from "app/config/globalNavigationList.json";
 
 const data = listdata.data;
 
-const List = () => {
+const List = ({ toggleVisibility }) => {
   return (
     <nav>
       <ul className="nav-global__menu">
