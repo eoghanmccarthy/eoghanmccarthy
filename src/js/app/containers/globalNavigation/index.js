@@ -18,7 +18,7 @@ const GlobalNavigation = ({ visible, toggleVisibility }) => {
 
 const mapStateToProps = state => {
   return {
-    visible: state.visible
+    visible: state.globalNavigation.visible
   };
 };
 

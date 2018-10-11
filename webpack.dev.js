@@ -7,14 +7,12 @@ module.exports = merge(common, {
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
-    publicPath: "./src",
-    contentBase: path.resolve(__dirname, "assets/"),
-    // publicPath: "/",
-    // contentBase: path.resolve(__dirname, "dist/"),
+    publicPath: "/",
+    contentBase: path.resolve(__dirname, "dist/"),
     watchContentBase: true,
     historyApiFallback: true,
     port: 9000
-  }
+  },
   plugins: [
     new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/,

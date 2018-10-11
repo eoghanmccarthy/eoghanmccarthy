@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import listdata from "app/config/globalNavigationList.json";
 
@@ -10,9 +11,9 @@ const List = () => {
       <ul className="nav-global__menu">
         {data.map((item, index) => (
           <li key={index}>
-            <a href={item.href} data-text={item.label}>
-              {item.label}
-            </a>
+            <Link to="/japan">
+              <span>{item.label}</span>
+            </Link>
           </li>
         ))}
       </ul>

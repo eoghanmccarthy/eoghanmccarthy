@@ -1,3 +1,5 @@
+import { combineReducers } from "redux";
+
 import {
   INITIALISE_GALLERY,
   TOGGLE_VISIBILITY,

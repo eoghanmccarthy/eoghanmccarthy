@@ -1,18 +1,13 @@
 const path = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: [
-    "babel-polyfill",
-    "./assets/src/js/global-navigation/index.jsx",
-    "./assets/src/js/lightbox/index.jsx",
-    "./assets/src/scss/main.scss"
-  ],
+  entry: { main: "./src/js/index.js" },
   output: {
-    path: path.join(__dirname, "./assets/dist/js"),
+    path: path.join(__dirname, "/dist"),
     publicPath: "/",
-    filename: "bundle.js"
+    filename: "[name].[chunkhash].js"
   },
   resolve: {
     alias: {
@@ -48,24 +43,24 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            { loader: "css-loader", options: { minimize: true } },
-            {
-              loader: "postcss-loader",
-              options: {
-                ident: "postcss",
-                config: {
-                  path: "./postcss.config.js"
-                },
-                plugins: loader => [require("autoprefixer")()]
-              }
-            },
-            "sass-loader"
-          ]
-        })
+        use: [
+          "style-loader",
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              config: {
+                path: "./postcss.config.js"
+              },
+              plugins: loader => [require("autoprefixer")()]
+            }
+          },
+          "sass-loader"
+        ]
       },
       {
         test: /\.(png|jpg|svg|gif|mp3|mp4|ttf|eot|woff)$/,
@@ -73,7 +68,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              outputPath: "./assets/dist/media/"
+              outputPath: "./assets/media/"
             }
           }
         ]
@@ -81,10 +76,14 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: "./assets/dist/css/main.css",
-      disable: false,
-      allChunks: true
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: "./src/index.html",
+      filename: "index.html"
+    }),
+    new MiniCssExtractPlugin({
+      filename: "main.[contenthash].css"
     })
   ]
 };

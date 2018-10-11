@@ -7,9 +7,14 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: $stack-primary;
   font-weight: $font-weight-thin;
   line-height: $base-line-height;
   color: $black;
   background: $white;
+}
+
+* {
+  box-sizing: border-box;
 }
