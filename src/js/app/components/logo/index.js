@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 
-export default class Logo extends Component {
+class Logo extends Component {
   render() {
     return (
-      <div className="logo">
+      <div className="logo" onClick={() => this.props.history.push("/")}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 300 285"
@@ -15,3 +16,5 @@ export default class Logo extends Component {
     );
   }
 }
+
+export default withRouter(Logo);

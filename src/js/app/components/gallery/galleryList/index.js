@@ -7,10 +7,10 @@ export default class GalleryList extends Component {
     const { data } = this.props;
 
     return (
-      <div class="gallery">
-        {data.map((item, index) => {
-          <GalleryItem src={item.src} label={item.label} />;
-        })}
+      <div className={"gallery"}>
+        {data.map((item, index) => (
+          <GalleryItem key={index} src={item.src} label={item.label} />
+        ))}
       </div>
     );
   }
