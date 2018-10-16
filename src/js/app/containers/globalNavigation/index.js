@@ -12,8 +12,8 @@ export default class GlobalNavigation extends Component {
   }
 
   handleToggleVisibility = () => {
-    this.setState({
-      isVisible: !this.state.isVisible
+    this.setState(state => {
+      return { isVisible: !state.isVisible };
     });
   };
 

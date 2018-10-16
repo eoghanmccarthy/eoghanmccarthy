@@ -9,7 +9,12 @@ export default class GalleryList extends Component {
     return (
       <div className={"gallery"}>
         {data.map((item, index) => (
-          <GalleryItem key={index} src={item.src} label={item.label} />
+          <GalleryItem
+            key={index}
+            src={item.src}
+            label={item.label}
+            selectItem={() => selectItem(index)}
+          />
         ))}
       </div>
     );

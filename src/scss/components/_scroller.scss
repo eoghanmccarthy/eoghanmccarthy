@@ -1,31 +1,31 @@
 /// Scroller
 
 .btn__scroll {
-	display: table;
-	margin: m(xxxl) auto;
-	border-radius: 50%;
-	width: 40px;
-	height: 40px;
-	background-color: $dark-slate-grey;
-	opacity: .4;
-	transition: all $speed ease;
-	cursor: pointer;
+  display: table;
+  margin: m(xl) auto;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: $dark-slate-grey;
+  opacity: 0.4;
+  transition: all $speed ease;
+  cursor: pointer;
 
-	&:hover {
-		opacity: 1;
-	}
+  &:hover {
+    opacity: 1;
+  }
 
-	.bars {
-		display: table-cell;
-		vertical-align: middle;
+  .bars {
+    display: table-cell;
+    vertical-align: middle;
 
-		span {
-			display: block;
-			width: 36%;
-            height: 2px;
-            margin: 0 auto;
-            background-color: $white;
-            @include rotate(90deg);
-		}
-	}
+    span {
+      display: block;
+      width: 36%;
+      height: 2px;
+      margin: 0 auto;
+      background-color: $white;
+      @include rotate(90deg);
+    }
+  }
 }
