@@ -13,33 +13,29 @@ $green: #53ff66;
 
 // Brand colors
 $primary: $persimmon;
-$dev: $yellow;
-$design: $persimmon;
-$photo: $green;
+
+$modal-background: rgba(255, 255, 255, 0.8);
 
 // UI colors map
 $ui-colors: (
-	brand: $primary,
-	white: $white,
-	dev: $dev,
-	design: $design,
-	photo: $photo
+  brand: $primary,
+  white: $white
 );
 
 // Color palette modifiers
 $palettes: (
-	grey: (
-		x-light: lighten($grey, 25%),
-		light: lighten($grey, 12%),
-		base: $grey,
-		dark: darken($grey, 8%),
-		x-dark: darken($grey, 16%)
-	),
-	brand: (
-		x-light: lighten($primary, 25%),
-		light: lighten($primary, 12%),
-		base: $primary,
-		dark: darken($primary, 8%),
-		x-dark: darken($primary, 16%)
-	)
+  grey: (
+    x-light: lighten($grey, 25%),
+    light: lighten($grey, 12%),
+    base: $grey,
+    dark: darken($grey, 8%),
+    x-dark: darken($grey, 16%)
+  ),
+  brand: (
+    x-light: lighten($primary, 25%),
+    light: lighten($primary, 12%),
+    base: $primary,
+    dark: darken($primary, 8%),
+    x-dark: darken($primary, 16%)
+  )
 );

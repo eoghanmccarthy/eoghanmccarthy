@@ -251,12 +251,12 @@ p {
 
 .btn__scroll {
   display: table;
-  margin: 5em auto;
+  margin: 3em auto;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   background-color: #2f4f4f;
-  opacity: .4;
+  opacity: 0.4;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   cursor: pointer; }
@@ -446,8 +446,8 @@ header {
     padding: 0; }
 
 .footer {
-  margin: 5em 0;
+  padding: 3em 0;
   text-align: center; }
 
 
-/*# sourceMappingURL=main.972fa6e56f81871bb2c6.css.map*/
+/*# sourceMappingURL=main.e69e37a45d76de9a2729.css.map*/
