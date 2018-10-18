@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { ConnectedRouter } from "connected-react-router";
-import createHistory from "history/createHashHistory";
+import createHistory from "history/createBrowserHistory";
 
 import configureStore from "./configureStore";
 
