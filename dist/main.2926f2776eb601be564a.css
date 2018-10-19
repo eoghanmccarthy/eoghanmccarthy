@@ -326,7 +326,7 @@ p {
 .lightbox {
   display: block;
   position: fixed;
-  z-index: 0;
+  z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
@@ -371,7 +371,7 @@ p {
       width: 40px;
       height: 40px;
       background-color: #fff;
-      opacity: .8;
+      opacity: 0.8;
       cursor: pointer; }
       @media screen and (min-width: 576px) {
         .lightbox .btn-group .btn {
@@ -442,4 +442,4 @@ header {
   text-align: center; }
 
 
-/*# sourceMappingURL=main.bf349956998eb5ac0705.css.map*/
+/*# sourceMappingURL=main.2926f2776eb601be564a.css.map*/

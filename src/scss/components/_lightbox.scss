@@ -1,155 +1,147 @@
 /// Lightbox
 
 .lightbox {
-	@extend %px-base;
-	display: block;
-	position: fixed;
-	z-index: 0;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: $black;
-	overflow: hidden;
+  @extend %px-base;
+  display: block;
+  position: fixed;
+  z-index: $z-modal;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black;
+  overflow: hidden;
 
-	.slide {
-		display: none;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		width: 100%;
-		height: 100vh;
+  .slide {
+    display: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
 
-		&.active {
-			display: block;
-		}
+    &.active {
+      display: block;
+    }
 
-		// Slide meta
-		&__caption {
-			display: none;
-			position: absolute;
-			bottom: 20px;
-			left: 20px;
-			padding: 0 p(xxs) p(xxs);
-			text-align: left;
-			color: $black;
-			background-color: $white;
-			@include breakpoint(sm) {
-				display: inline-block;
-				font-size: $base-font-size * 2.5;
-			}
-		}
-	}
+    // Slide meta
+    &__caption {
+      display: none;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      padding: 0 p(xxs) p(xxs);
+      text-align: left;
+      color: $black;
+      background-color: $white;
+      @include breakpoint(sm) {
+        display: inline-block;
+        font-size: $base-font-size * 2.5;
+      }
+    }
+  }
 
-	.btn-group {
-		position: absolute;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+  .btn-group {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-		.btn {
-			display: table;
-			width: 40px;
-			height: 40px;
-			background-color: $white;
-			opacity: .8;
-			cursor: pointer;
-			@include breakpoint(sm) {
-				width: 50px;
-				height: 50px;
-			}
+    .btn {
+      display: table;
+      width: 40px;
+      height: 40px;
+      background-color: $white;
+      opacity: 0.8;
+      cursor: pointer;
+      @include breakpoint(sm) {
+        width: 50px;
+        height: 50px;
+      }
 
-			.bars {
-				display: table-cell;
-				vertical-align: middle;
+      .bars {
+        display: table-cell;
+        vertical-align: middle;
 
-				span {
-					display: block;
-					height: 2px;
-					margin-right: auto;
-					margin-left: auto;
-					background-color: $grey;
-				}
-			}
-		}
+        span {
+          display: block;
+          height: 2px;
+          margin-right: auto;
+          margin-left: auto;
+          background-color: $grey;
+        }
+      }
+    }
 
-		&__close {
-			top: 20px;
-			right: 20px;
+    &__close {
+      top: 20px;
+      right: 20px;
 
-			.btn__close
-			.bars {
+      .btn__close .bars {
+        span {
+          width: 50%;
 
-				span {
-					width: 50%;
+          &:first-child {
+            margin-top: 0;
+            @include rotate(-45deg);
+          }
 
-					&:first-child {
-						margin-top: 0;
-						@include rotate(-45deg);
-					}
+          &:last-child {
+            margin-top: -2px;
+            @include rotate(45deg);
+          }
+        }
+      }
+    }
 
-					&:last-child {
-						margin-top: -2px;
-						@include rotate(45deg);
-					}
-				}
-			}
-		}
+    &__nav {
+      bottom: 20px;
+      right: 20px;
 
-		&__nav {
-			bottom: 20px;
-			right: 20px;
+      .btn__nav {
+        margin-left: m(xs);
+        @include breakpoint(sm) {
+          margin-left: m(sm);
+        }
 
-			.btn__nav {
-				margin-left: m(xs);
-				@include breakpoint(sm) {
-					margin-left: m(sm);
-				}
+        span {
+          width: 30%;
+        }
+      }
 
-				span {
-					width: 30%;
-				}
-			}
+      .btn__nav--prev .bars {
+        span {
+          &:first-child {
+            margin-top: 0;
+            @include rotate(-45deg);
+          }
 
-			.btn__nav--prev
-			.bars {
+          &:last-child {
+            margin-top: 6px;
+            @include rotate(45deg);
+            @include breakpoint(sm) {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
 
-				span {
+      .btn__nav--next .bars {
+        span {
+          &:first-child {
+            margin-top: 0;
+            @include rotate(45deg);
+          }
 
-					&:first-child {
-						margin-top: 0;
-						@include rotate(-45deg);
-					}
-
-					&:last-child {
-						margin-top: 6px;
-						@include rotate(45deg);
-						@include breakpoint(sm) {
-							margin-top: 8px;
-						}
-					}
-				}
-			}
-
-			.btn__nav--next
-			.bars {
-
-				span {
-
-					&:first-child {
-						margin-top: 0;
-						@include rotate(45deg);
-					}
-
-					&:last-child {
-						margin-top: 6px;
-						@include rotate(-45deg);
-						@include breakpoint(sm) {
-							margin-top: 8px;
-						}
-					}
-				}
-			}
-		}
-	}
+          &:last-child {
+            margin-top: 6px;
+            @include rotate(-45deg);
+            @include breakpoint(sm) {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
