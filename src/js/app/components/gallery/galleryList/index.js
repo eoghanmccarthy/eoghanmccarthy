@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as lightboxActions from "actions/lightbox";
 
 import GalleryItem from "components/gallery/galleryItem";
 
-export default class GalleryList extends Component {
+class GalleryList extends Component {
+  _openLightbox = (data, index) => {
+    this.props.openLightbox(data, index);
+  };
+
   render() {
     const { data } = this.props;
 
@@ -13,10 +20,19 @@ export default class GalleryList extends Component {
             key={index}
             src={item.src}
             label={item.label}
-            selectItem={() => selectItem(index)}
+            selectItem={() => this._openLightbox(data, index)}
           />
         ))}
       </div>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(lightboxActions, dispatch);
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(GalleryList);

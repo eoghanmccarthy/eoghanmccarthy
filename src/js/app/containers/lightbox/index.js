@@ -6,8 +6,9 @@ import Modal from "components/lightbox/modal";
 
 const mapStateToProps = state => {
   return {
-    visible: state.visible,
-    gallery: state.gallery
+    isVisible: state.lightbox.isVisible,
+    data: state.lightbox.data,
+    index: state.lightbox.index
   };
 };
 

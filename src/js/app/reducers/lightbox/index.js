@@ -1,66 +1,55 @@
 import { combineReducers } from "redux";
 
 import {
-  INITIALISE_GALLERY,
-  TOGGLE_VISIBILITY,
+  OPEN_LIGHTBOX,
+  CLOSE_LIGHTBOX,
   SLIDE_INDEX_INCREMENT,
-  SLIDE_INDEX_DECREMENT,
-  SLIDE_INDEX_SET
+  SLIDE_INDEX_DECREMENT
 } from "types/lightbox";
 
-const galleryReducer = (state = null, action) => {
-  switch (action.type) {
-    case INITIALISE_GALLERY:
-      const imageStack = new Array();
-
-      for (let elem of action.data) {
-        let item = {
-          src: elem.src,
-          title: elem.title
-        };
-
-        imageStack.push(item);
-      }
-      return imageStack;
-    default:
-      return state;
-  }
+const initialState = {
+  isVisible: false,
+  data: [],
+  index: null
 };
 
-const visibilityReducer = (state = false, action) => {
+const lightbox = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_VISIBILITY:
-      return !state;
-    default:
-      return state;
-  }
-};
-
-const slideIndexReducer = (state = 0, action) => {
-  switch (action.type) {
+    case OPEN_LIGHTBOX:
+      return {
+        isVisible: true,
+        data: action.data,
+        index: action.index
+      };
+    case CLOSE_LIGHTBOX:
+      return initialState;
     case SLIDE_INDEX_INCREMENT:
-      if (state > action.length - 2) {
-        return (state = 0);
+      if (state.index > state.data.length - 2) {
+        return {
+          ...state,
+          index: 0
+        };
       } else {
-        return state + 1;
+        return {
+          ...state,
+          index: state.index + 1
+        };
       }
     case SLIDE_INDEX_DECREMENT:
-      if (state < 1) {
-        return action.length - 1;
+      if (state.index < 1) {
+        return {
+          ...state,
+          index: state.data.length - 1
+        };
       } else {
-        return state - 1;
+        return {
+          ...state,
+          index: state.index - 1
+        };
       }
-    case SLIDE_INDEX_SET:
-      return action.index;
     default:
       return state;
   }
 };
 
-const lightboxReducer = combineReducers({
-  gallery: galleryReducer,
-  visible: visibilityReducer,
-  slideIndex: slideIndexReducer
-});
-
-export default lightboxReducer;
+export default lightbox;

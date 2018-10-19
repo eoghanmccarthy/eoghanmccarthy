@@ -1,37 +1,31 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import Slides from "components/lightbox/slides";
 import Navigation from "components/lightbox/navigation";
 import Button from "components/lightbox/button";
 
-const content = document.querySelectorAll("figure img");
-
 export default class Modal extends Component {
-  componentWillMount() {
-    this.props.initialiseGallery(content);
-  }
-
   render() {
-    const { visible, toggleVisibility, gallery, slideIndexSet } = this.props;
+    const {
+      isVisible,
+      data,
+      index,
+      closeLightbox,
+      slideIndexIncrement,
+      slideIndexDecrement
+    } = this.props;
 
-    for (let i = 0; i < content.length; i++) {
-      content[i].addEventListener("click", slideIndexSet.bind(null, i));
-      content[i].addEventListener("click", toggleVisibility);
-    }
-
-    return (
-      <div>
-        {visible === true && (
-          <div className="lightbox">
-            <Slides />
-            <Navigation />
-
-            <div className="btn-group btn-group__close">
-              <Button buttonClass="btn__close" onClick={toggleVisibility} />
-            </div>
-          </div>
-        )}
+    return isVisible ? (
+      <div className="lightbox">
+        <Slides data={data} slideIndex={index} />
+        <Navigation
+          slideIndexIncrement={slideIndexIncrement}
+          slideIndexDecrement={slideIndexDecrement}
+        />
+        <div className="btn-group btn-group__close">
+          <Button buttonClass="btn__close" onClick={closeLightbox} />
+        </div>
       </div>
-    );
+    ) : null;
   }
 }

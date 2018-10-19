@@ -1,21 +1,21 @@
 import {
-  TOGGLE_VISIBILITY,
-  INITIALISE_GALLERY,
+  OPEN_LIGHTBOX,
+  CLOSE_LIGHTBOX,
   SLIDE_INDEX_INCREMENT,
-  SLIDE_INDEX_DECREMENT,
-  SLIDE_INDEX_SET
+  SLIDE_INDEX_DECREMENT
 } from "types/lightbox";
 
-export const toggleVisibility = () => {
+export const openLightbox = (data, index) => {
   return {
-    type: TOGGLE_VISIBILITY
+    type: OPEN_LIGHTBOX,
+    data,
+    index
   };
 };
 
-export const initialiseGallery = data => {
+export const closeLightbox = () => {
   return {
-    type: INITIALISE_GALLERY,
-    data
+    type: CLOSE_LIGHTBOX
   };
 };
 
@@ -30,12 +30,5 @@ export const slideIndexDecrement = length => {
   return {
     type: SLIDE_INDEX_DECREMENT,
     length
-  };
-};
-
-export const slideIndexSet = index => {
-  return {
-    type: SLIDE_INDEX_SET,
-    index
   };
 };
