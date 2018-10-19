@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Button from "components/globalNavigation/button";
-import List from "components/globalNavigation/list";
+import Button from "components/navigation/button";
+import List from "components/navigation/list";
 
 export default class Modal extends Component {
   render() {

@@ -1,6 +1,6 @@
 const data = [
   {
-    link: "/japan",
+    route: "/japan",
     label: "japan"
   }
 ];

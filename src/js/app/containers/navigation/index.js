@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Button from "components/globalNavigation/button";
-import Modal from "components/globalNavigation/modal";
+import Button from "components/navigation/button";
+import Modal from "components/navigation/modal";
 
 export default class GlobalNavigation extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class GlobalNavigation extends Component {
     };
   }
 
-  handleToggleVisibility = () => {
+  _toggleVisibility = () => {
     this.setState(state => {
       return { isVisible: !state.isVisible };
     });
@@ -22,8 +22,8 @@ export default class GlobalNavigation extends Component {
 
     return (
       <div className="nav nav-global">
-        <Button buttonClass="open" onClick={this.handleToggleVisibility} />
-        {isVisible && <Modal toggleVisibility={this.handleToggleVisibility} />}
+        <Button buttonClass="open" onClick={this._toggleVisibility} />
+        {isVisible && <Modal toggleVisibility={this._toggleVisibility} />}
       </div>
     );
   }
