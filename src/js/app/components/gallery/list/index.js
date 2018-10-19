@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as lightboxActions from "actions/lightbox";
 
-import GalleryItem from "components/gallery/galleryItem";
+import GalleryItem from "components/gallery/item";
 
 class GalleryList extends Component {
   _openLightbox = (data, index) => {
@@ -20,7 +20,7 @@ class GalleryList extends Component {
             key={index}
             src={item.src}
             label={item.label}
-            selectItem={() => this._openLightbox(data, index)}
+            onClick={() => this._openLightbox(data, index)}
           />
         ))}
       </div>
