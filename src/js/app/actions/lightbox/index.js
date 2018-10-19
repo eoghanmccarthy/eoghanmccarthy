@@ -19,16 +19,14 @@ export const closeLightbox = () => {
   };
 };
 
-export const slideIndexIncrement = length => {
+export const slideIndexIncrement = () => {
   return {
-    type: SLIDE_INDEX_INCREMENT,
-    length
+    type: SLIDE_INDEX_INCREMENT
   };
 };
 
-export const slideIndexDecrement = length => {
+export const slideIndexDecrement = () => {
   return {
-    type: SLIDE_INDEX_DECREMENT,
-    length
+    type: SLIDE_INDEX_DECREMENT
   };
 };

@@ -24,7 +24,7 @@ const lightbox = (state = initialState, action) => {
     case CLOSE_LIGHTBOX:
       return initialState;
     case SLIDE_INDEX_INCREMENT:
-      if (state.index > state.data.length - 2) {
+      if (state.index >= state.data.length - 1) {
         return {
           ...state,
           index: 0
@@ -36,7 +36,7 @@ const lightbox = (state = initialState, action) => {
         };
       }
     case SLIDE_INDEX_DECREMENT:
-      if (state.index < 1) {
+      if (state.index <= 0) {
         return {
           ...state,
           index: state.data.length - 1
