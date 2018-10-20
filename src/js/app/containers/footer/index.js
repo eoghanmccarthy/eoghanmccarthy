@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import ScrollToTop from "components/scrollToTop";
+import TopScroll from "components/topScroll";
 
 export default class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        <ScrollToTop />
+        <TopScroll />
       </footer>
     );
   }

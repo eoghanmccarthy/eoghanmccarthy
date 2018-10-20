@@ -7,7 +7,7 @@ import {
   scroller
 } from "react-scroll";
 
-export default class ScrollToTop extends Component {
+export default class TopScroll extends Component {
   componentDidMount = () => {
     Events.scrollEvent.register("begin");
     Events.scrollEvent.register("end");

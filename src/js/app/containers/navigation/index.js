@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Button from "components/navigation/button";
 import Modal from "components/navigation/modal";
 
-export default class GlobalNavigation extends Component {
+export default class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {

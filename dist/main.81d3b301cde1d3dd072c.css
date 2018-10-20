@@ -225,7 +225,7 @@ p {
       display: block;
       padding: 0.2em 1em; }
       .nav-global__menu li a {
-        font-family: "Shrikhand", cursive;
+        font-family: "Shrikhand", sans-serif;
         font-size: 3.6rem;
         line-height: 1.2;
         text-transform: lowercase;
@@ -442,4 +442,4 @@ header {
   text-align: center; }
 
 
-/*# sourceMappingURL=main.f67e9ad674ac47af4590.css.map*/
+/*# sourceMappingURL=main.81d3b301cde1d3dd072c.css.map*/
