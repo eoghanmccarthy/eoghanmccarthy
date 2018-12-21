@@ -1,5 +1,9 @@
 /// Base
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   @extend %px-root;
   text-size-adjust: 100%;
@@ -8,13 +12,29 @@ html {
 
 body {
   margin: 0;
-  font-family: $stack-primary;
-  font-weight: $font-weight-thin;
-  line-height: $base-line-height;
   color: $black;
+  font-family: $base__font-primary;
+  font-weight: fw(thin);
+  line-height: $base__line-height;
   background: $white;
 }
 
-* {
-  box-sizing: border-box;
+.me {
+  display: grid;
+  grid-template-rows: 220px auto 110px;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  height: 100%;
+  min-height: 100vh;
+
+  @include breakpoint(md) {
+    grid-template-rows: 280px auto 140px;
+  }
+
+  &.me__index {
+    grid-template-rows: auto;
+    grid-template-areas: "header";
+  }
 }

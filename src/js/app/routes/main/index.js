@@ -7,12 +7,12 @@ import Lightbox from "containers/lightbox";
 import Japan from "pages/japan";
 
 export default () => (
-  <Fragment>
+  <div className="me">
     <Header />
     <Lightbox />
     <Switch>
       <Route path="/japan" render={() => <Japan />} />
     </Switch>
     <Footer />
-  </Fragment>
+  </div>
 );

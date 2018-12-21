@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragmen } from "react";
 
 import Button from "components/navigation/button";
 import Modal from "components/navigation/modal";
@@ -21,7 +21,7 @@ export default class Navigation extends Component {
     const { isVisible } = this.state;
 
     return (
-      <div className="nav nav-global">
+      <div className="nav-global">
         <Button buttonClass="open" onClick={this._toggleVisibility} />
         {isVisible && <Modal toggleVisibility={this._toggleVisibility} />}
       </div>

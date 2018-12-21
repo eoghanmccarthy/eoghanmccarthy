@@ -16,7 +16,7 @@
 	&__content {
 		display: block;
 		width: 100%;
-		margin-bottom: m(xxs);
+		margin-bottom: mg(xxs);
 		opacity: 1;
 		transition: all $speed ease;
 		cursor: pointer;
@@ -27,9 +27,9 @@
 	}
 
 	&__caption {
-		font-size: $base-font-size * 1.6;
-		line-height: $base-line-height * 2;
-		margin: m(md) 0 m(sm);
+		font-size: $base__font-size * 1.6;
+		line-height: $base__line-height * 2;
+		margin: mg(md) 0 mg(sm);
 		border-bottom: 1px solid palette(grey, x-light);
 	}
 }

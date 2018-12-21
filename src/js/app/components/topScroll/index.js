@@ -25,7 +25,7 @@ export default class TopScroll extends Component {
 
   render() {
     return (
-      <div className={"btn__scroll"} onClick={this.scrollToTop}>
+      <div className={"btn btn__round btn__scroll"} onClick={this.scrollToTop}>
         <div className={"bars"}>
           <span />
         </div>

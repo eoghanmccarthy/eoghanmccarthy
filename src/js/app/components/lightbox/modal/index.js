@@ -17,14 +17,15 @@ export default class Modal extends Component {
 
     return isVisible ? (
       <div className="lightbox">
+        <Button
+          buttonClass="btn__round btn__lightbox close"
+          onClick={closeLightbox}
+        />
         <Slides data={data} slideIndex={index} />
         <Navigation
-          slideIndexIncrement={slideIndexIncrement}
-          slideIndexDecrement={slideIndexDecrement}
+          increment={slideIndexIncrement}
+          decrement={slideIndexDecrement}
         />
-        <div className="btn-group btn-group__close">
-          <Button buttonClass="btn__close" onClick={closeLightbox} />
-        </div>
       </div>
     ) : null;
   }

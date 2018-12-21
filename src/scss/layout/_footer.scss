@@ -1,7 +1,10 @@
 /// Footer
 
-.footer {
+.me__footer {
   @extend %px-base;
-  padding: p(xl) 0;
-  text-align: center;
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

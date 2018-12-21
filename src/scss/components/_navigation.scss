@@ -2,24 +2,8 @@
 
 .nav-global {
   @extend %px-base;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: p(xs) 0;
-
-  .index & {
-    height: 30vh;
-    padding: 0;
-    @include breakpoint(sm) {
-      height: 25vh;
-    }
-  }
 
   &__toggle {
-    display: table;
-    border-radius: 50%;
-    cursor: pointer;
-
     .bars {
       display: table-cell;
       vertical-align: middle;
@@ -121,12 +105,12 @@
 
     li {
       display: block;
-      padding: p(xxs) p(sm);
+      padding: pd(xxs) pd(sm);
 
       a {
-        font-family: $stack-secondary;
-        font-size: $base-font-size * 3.6;
-        line-height: $base-line-height * 1.2;
+        font-family: $base__font-secondary;
+        font-size: $base__font-size * 3.6;
+        line-height: $base__line-height * 1.2;
         text-transform: lowercase;
         letter-spacing: 5px;
         color: $black;
@@ -134,7 +118,7 @@
         transition: all $speed ease;
 
         @include breakpoint(sm) {
-          font-size: $base-font-size * 5;
+          font-size: $base__font-size * 5;
         }
 
         &:hover {

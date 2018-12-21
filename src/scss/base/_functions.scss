@@ -1,16 +1,31 @@
 /// Functions
 
-// Call the color palette modifiers
-@function palette($color, $shade: 'base') {
-	@return map-get(map-get($palettes, $color), $shade);
+// Breakpoint
+@function bpd($value) {
+  @return map-get($breakpoints, $value);
 }
 
-// Call margin size
-@function m($value) {
-	@return map-get($margin, $value);
+// Z-index
+@function zi($value) {
+  @return map-get($z-index, $value);
 }
 
-// Call padding size
-@function p($value) {
-	@return map-get($padding, $value);
+// Margin
+@function mg($value) {
+  @return map-get($margin, $value);
+}
+
+// Padding
+@function pd($value) {
+  @return map-get($padding, $value);
+}
+
+// Font weight
+@function fw($value: "normal") {
+  @return map-get($font-weight, $value);
+}
+
+// Palette
+@function palette($color, $shade: "base") {
+  @return map-get(map-get($palettes, $color), $shade);
 }

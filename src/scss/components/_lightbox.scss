@@ -2,11 +2,13 @@
 
 .lightbox {
   @extend %px-base;
-  display: block;
+  display: flex;
   position: fixed;
   z-index: $z-modal;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background-color: $black;
@@ -21,112 +23,76 @@
     height: 100vh;
 
     &.active {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 20px;
     }
 
-    // Slide meta
     &__caption {
       display: none;
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      padding: 0 p(xxs) p(xxs);
-      text-align: left;
+      padding: pd(xxs);
+      text-align: center;
+      line-height: 1;
       color: $black;
-      background-color: $white;
-      @include breakpoint(sm) {
+      background-color: rgba(256, 256, 256, 0.95);
+      border-left: 3px solid $primary;
+      border-radius: 3px;
+      transform-origin: bottom left;
+      transform: skewY(-6deg);
+      @include breakpoint(md) {
         display: inline-block;
-        font-size: $base-font-size * 2.5;
+        font-size: $base__font-size * 3.8;
       }
     }
   }
 
-  .btn-group {
+  .btn__lightbox {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(256, 256, 256, 0.25);
 
-    .btn {
-      display: table;
-      width: 40px;
-      height: 40px;
-      background-color: $white;
-      opacity: 0.8;
-      cursor: pointer;
-      @include breakpoint(sm) {
-        width: 50px;
-        height: 50px;
-      }
+    &:hover {
+      background-color: rgba(256, 256, 256, 0.9);
+    }
 
-      .bars {
-        display: table-cell;
-        vertical-align: middle;
+    .bars {
+      display: table-cell;
+      vertical-align: middle;
 
-        span {
-          display: block;
-          height: 2px;
-          margin-right: auto;
-          margin-left: auto;
-          background-color: $grey;
-        }
+      span {
+        display: block;
+        height: 2px;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: $primary;
+        width: 50%;
       }
     }
 
-    &__close {
+    &.close {
       top: 20px;
       right: 20px;
 
-      .btn__close .bars {
-        span {
-          width: 50%;
+      .bars span {
+        &:first-child {
+          margin-top: 0;
+          @include rotate(-45deg);
+        }
 
-          &:first-child {
-            margin-top: 0;
-            @include rotate(-45deg);
-          }
-
-          &:last-child {
-            margin-top: -2px;
-            @include rotate(45deg);
-          }
+        &:last-child {
+          margin-top: -2px;
+          @include rotate(45deg);
         }
       }
     }
 
-    &__nav {
-      bottom: 20px;
-      right: 20px;
+    &.up {
+      align-self: flex-start;
 
-      .btn__nav {
-        margin-left: m(xs);
-        @include breakpoint(sm) {
-          margin-left: m(sm);
-        }
-
-        span {
-          width: 30%;
-        }
-      }
-
-      .btn__nav--prev .bars {
-        span {
-          &:first-child {
-            margin-top: 0;
-            @include rotate(-45deg);
-          }
-
-          &:last-child {
-            margin-top: 6px;
-            @include rotate(45deg);
-            @include breakpoint(sm) {
-              margin-top: 8px;
-            }
-          }
-        }
-      }
-
-      .btn__nav--next .bars {
+      .bars {
         span {
           &:first-child {
             margin-top: 0;
@@ -143,5 +109,30 @@
         }
       }
     }
+
+    &.down {
+      align-self: flex-end;
+
+      .bars {
+        span {
+          &:first-child {
+            margin-top: 0;
+            @include rotate(-45deg);
+          }
+
+          &:last-child {
+            margin-top: 6px;
+            @include rotate(45deg);
+            @include breakpoint(sm) {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__nav {
+    align-self: center;
   }
 }

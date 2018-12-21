@@ -1,15 +1,10 @@
 /// Scroller
 
 .btn__scroll {
-  display: table;
-  margin: m(xl) auto;
-  border-radius: 50%;
   width: 40px;
   height: 40px;
   background-color: $dark-slate-grey;
   opacity: 0.4;
-  transition: all $speed ease;
-  cursor: pointer;
 
   &:hover {
     opacity: 1;

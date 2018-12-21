@@ -26,26 +26,28 @@ $breakpoints: (
 }
 
 // Base font size and line height
-$base-font-size: 1rem;
-$base-line-height: 1;
+$base__font-size: 1rem;
+$base__line-height: 1;
+
 // Local font size
 %px-base {
-  font-size: $base-font-size;
+  font-size: $base__font-size;
 }
 // Webfonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,300");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400");
 @import url("https://fonts.googleapis.com/css?family=Shrikhand");
 // Font stacks
-$stack-primary: "Roboto", sans-serif;
-$stack-secondary: "Shrikhand", sans-serif;
+$base__font-primary: "Roboto", sans-serif;
+$base__font-secondary: "Shrikhand", sans-serif;
 // Font weight
-$font-weight-thin: 100;
-$font-weight-extra-light: 200;
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-semibold: 500;
-$font-weight-bold: 700;
+$font-weight: (
+  thin: 100,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  bold: 700
+);
 // Margin
 $base-margin: 1em;
 $margin: (

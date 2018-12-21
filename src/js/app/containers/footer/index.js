@@ -5,7 +5,7 @@ import TopScroll from "components/topScroll";
 export default class Footer extends Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className={"me__footer"}>
         <TopScroll />
       </footer>
     );
