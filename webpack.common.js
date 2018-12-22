@@ -3,12 +3,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: { main: "./src/js/index.js" },
+  entry: { main: "./src/js/index.tsx" },
   output: {
     path: path.join(__dirname, "/dist"),
     publicPath: "/",
     filename: "[name].[chunkhash].js"
   },
+  devtool: 'source-map',
   resolve: {
     alias: {
       src: path.resolve(__dirname, "src/"),
@@ -23,24 +24,18 @@ module.exports = {
       selectors: path.resolve(__dirname, "src/js/app/selectors/"),
       types: path.resolve(__dirname, "src/js/app/types/")
     },
-    extensions: [".js", ".jsx"]
+    extensions: [".ts", ".tsx", ".js",".jsx"]
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            plugins: [
-              "transform-class-properties",
-              "transform-es2015-classes",
-              "transform-object-rest-spread",
-              "transform-async-to-generator"
-            ]
+        use: [
+          {
+            loader: "babel-loader"
           }
-        }
+        ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
