@@ -15,7 +15,7 @@ const GalleryList: React.FunctionComponent<{
 
   return (
     <div className={"gallery"}>
-      {listData.map((item: object, index: number) => (
+      {listData.map((item: { src: string; label?: string }, index: number) => (
         <GalleryItem
           key={index}
           src={item.src}
