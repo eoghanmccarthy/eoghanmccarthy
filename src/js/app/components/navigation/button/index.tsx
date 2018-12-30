@@ -1,6 +1,9 @@
 import React from "react";
 
-const Button = ({ buttonClass, onClick }) => {
+const Button: React.FunctionComponent<{
+  buttonClass?: string;
+  onClick: () => void;
+}> = ({ buttonClass, onClick }) => {
   return (
     <div
       className={"btn btn__round nav-global__toggle " + buttonClass}

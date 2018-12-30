@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import * as Scroll from "react-scroll";
 import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
 const TopScroll = () => {
