@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from "containers/header";
+import Header from "components/header";
 
 const Home = () => (
   <div className="me me__index">

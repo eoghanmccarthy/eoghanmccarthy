@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
+import Button from "components/button";
+
 const TopScroll = () => {
   useEffect(() => {
     Events.scrollEvent.register("begin", null);
@@ -17,11 +19,9 @@ const TopScroll = () => {
   };
 
   return (
-    <div className={"btn btn__round btn__scroll"} onClick={_scrollToTop}>
-      <div className={"bars"}>
-        <span />
-      </div>
-    </div>
+    <Button addClass={`btn__round btn__scroll`} onClick={_scrollToTop}>
+      <span />
+    </Button>
   );
 };
 

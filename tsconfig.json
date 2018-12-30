@@ -12,11 +12,13 @@
       "assets/*": ["src/assets/*"],
       "app/*": ["src/js/app/*"],
       "actions/*": ["src/js/app/actions/*"],
-      "reducers/*": ["src/js/app/reducers/*"],
       "components/*": ["src/js/app/components/*"],
       "containers/*": ["src/js/app/containers/*"],
       "pages/*": ["src/js/app/pages/*"],
-      "routes/*": ["src/js/app/routes/*"]
+      "reducers/*": ["src/js/app/reducers/*"],
+      "routes/*": ["src/js/app/routes/*"],
+      "selectors/*": ["src/js/app/selectors/*"],
+      "types/*": ["src/js/app/types/*"]
     }
   }
 }

@@ -10,17 +10,12 @@
     opacity: 1;
   }
 
-  .bars {
-    display: table-cell;
-    vertical-align: middle;
-
-    span {
-      display: block;
-      width: 36%;
-      height: 2px;
-      margin: 0 auto;
-      background-color: $white;
-      @include rotate(90deg);
-    }
+  span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 0 auto;
+    background-color: $white;
+    transform: rotate(90deg);
   }
 }

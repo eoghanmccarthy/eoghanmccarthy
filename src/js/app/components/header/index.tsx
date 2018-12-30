@@ -1,7 +1,7 @@
 import React from "react";
 
 import Logo from "components/logo";
-import Navigation from "components/navigation";
+import Navigation from "components/globalNavigation";
 
 const Header: React.FunctionComponent<{}> = () => (
   <header className={"me__header"}>

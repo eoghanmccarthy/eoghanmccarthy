@@ -1,17 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Slides extends Component {
-  render() {
-    const { data, slideIndex } = this.props;
+const Slides: React.FunctionComponent<{
+  data: Array<object>;
+  slideIndex: number;
+}> = ({ data, slideIndex }) => {
+  return data.map((item: { src: string; label?: string }, index: number) => (
+    <div
+      key={index}
+      className={index !== slideIndex ? "slide" : "slide active"}
+      style={{ backgroundImage: `url(${item.src})` }}
+    >
+      <span className="slide__caption">{item.label}</span>
+    </div>
+  ));
+};
 
-    return data.map((item, index) => (
-      <div
-        key={index}
-        className={index !== slideIndex ? "slide" : "slide active"}
-        style={{ backgroundImage: `url(${item.src})` }}
-      >
-        <span className="slide__caption">{item.label}</span>
-      </div>
-    ));
-  }
-}
+export default Slides;
