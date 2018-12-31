@@ -1,12 +1,12 @@
 import React from "react";
 
-import GalleryList from "components/gallery/list";
+import Gallery from "components/gallery";
 
 import galleryData from "app/config/galleries/japan";
 
 const Japan = () => (
   <main>
-    <GalleryList listData={galleryData} />
+    <Gallery listData={galleryData} />
   </main>
 );
 

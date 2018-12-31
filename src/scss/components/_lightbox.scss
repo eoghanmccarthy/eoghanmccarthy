@@ -4,79 +4,87 @@
   @extend %px-base;
   display: flex;
   position: fixed;
-  z-index: $z-modal;
+  z-index: zi(modal);
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: $black;
-  overflow: hidden;
 
-  .slide {
-    display: none;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
+  .lightbox__viewer {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
 
-    &.active {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      padding: 20px;
-    }
+    ul.slides {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      white-space: nowrap;
 
-    &__caption {
-      display: none;
-      padding: pd(xxs);
-      text-align: center;
-      line-height: 1;
-      color: $black;
-      background-color: rgba(256, 256, 256, 0.95);
-      border-left: 3px solid $primary;
-      border-radius: 3px;
-      transform-origin: bottom left;
-      transform: skewY(-6deg);
-      @include breakpoint(md) {
+      li.slide {
         display: inline-block;
-        font-size: $base__font-size * 3.8;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        white-space: normal;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        .slide__caption {
+          display: none;
+          position: absolute;
+          left: 20px;
+          bottom: 20px;
+          padding: pd(xxs);
+          text-align: center;
+          line-height: 1;
+          color: $black;
+          background-color: rgba(256, 256, 256, 0.95);
+          border-left: 3px solid $primary;
+          border-radius: 3px;
+          transform-origin: bottom left;
+          transform: skewY(-6deg);
+          @include breakpoint(md) {
+            display: inline-block;
+            font-size: $base__font-size * 3.8;
+          }
+        }
       }
     }
   }
 
   .btn__lightbox {
-    position: absolute;
+    z-index: zi(modal) + 1;
     width: 50px;
     height: 50px;
-    background-color: rgba(256, 256, 256, 0.25);
 
-    &:hover {
-      background-color: rgba(256, 256, 256, 0.9);
-    }
-
-    .bars {
-      display: table-cell;
-      vertical-align: middle;
-
-      span {
-        display: block;
-        height: 2px;
-        margin-right: auto;
-        margin-left: auto;
-        background-color: $primary;
-        width: 50%;
-      }
+    span {
+      display: block;
+      height: 2px;
+      margin-right: auto;
+      margin-left: auto;
+      background-color: $white;
+      width: 25px;
     }
 
     &.close {
+      position: absolute;
       top: 20px;
       right: 20px;
+      background-color: rgba(256, 256, 256, 0.25);
 
-      .bars span {
+      &:hover {
+        background-color: rgba(256, 256, 256, 0.9);
+      }
+
+      span {
         &:first-child {
           margin-top: 0;
           @include rotate(-45deg);
@@ -89,51 +97,44 @@
       }
     }
 
-    &.up {
-      align-self: flex-start;
+    &.nav__prev,
+    &.nav__next {
+      span {
+        &:first-child {
+          margin-top: 0;
+        }
 
-      .bars {
-        span {
-          &:first-child {
-            margin-top: 0;
-            @include rotate(45deg);
-          }
-
-          &:last-child {
-            margin-top: 6px;
-            @include rotate(-45deg);
-            @include breakpoint(sm) {
-              margin-top: 8px;
-            }
+        &:last-child {
+          margin-top: 6px;
+          @include breakpoint(sm) {
+            margin-top: 8px;
           }
         }
       }
     }
 
-    &.down {
-      align-self: flex-end;
+    &.nav__next {
+      span {
+        &:first-child {
+          @include rotate(45deg);
+        }
 
-      .bars {
-        span {
-          &:first-child {
-            margin-top: 0;
-            @include rotate(-45deg);
-          }
-
-          &:last-child {
-            margin-top: 6px;
-            @include rotate(45deg);
-            @include breakpoint(sm) {
-              margin-top: 8px;
-            }
-          }
+        &:last-child {
+          @include rotate(-45deg);
         }
       }
     }
-  }
 
-  &__nav {
-    position: absolute;
-    align-self: center;
+    &.nav__prev {
+      span {
+        &:first-child {
+          @include rotate(-45deg);
+        }
+
+        &:last-child {
+          @include rotate(45deg);
+        }
+      }
+    }
   }
 }

@@ -1,11 +1,6 @@
-import {
-  OPEN_LIGHTBOX,
-  CLOSE_LIGHTBOX,
-  SLIDE_INDEX_INCREMENT,
-  SLIDE_INDEX_DECREMENT
-} from "types/lightbox";
+import { OPEN_LIGHTBOX, CLOSE_LIGHTBOX } from "types/lightbox";
 
-export const openLightbox = (data, index) => {
+export const openLightbox = (data: Array<object>, index: number) => {
   return {
     type: OPEN_LIGHTBOX,
     data,
@@ -16,17 +11,5 @@ export const openLightbox = (data, index) => {
 export const closeLightbox = () => {
   return {
     type: CLOSE_LIGHTBOX
-  };
-};
-
-export const slideIndexIncrement = () => {
-  return {
-    type: SLIDE_INDEX_INCREMENT
-  };
-};
-
-export const slideIndexDecrement = () => {
-  return {
-    type: SLIDE_INDEX_DECREMENT
   };
 };

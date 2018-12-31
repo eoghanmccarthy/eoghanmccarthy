@@ -1,30 +1,48 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as lightboxActions from "actions/lightbox";
+import React, { useState } from "react";
 
-import {
-  selectLightboxIsVisible,
-  selectLightboxData,
-  selectLightboxIndex
-} from "selectors/lightbox";
+import Viewer from "components/lightbox/viewer";
+import LightboxButton from "components/lightbox/button";
 
-import Modal from "components/lightbox/modal";
+import { LightboxContext } from "app/context";
 
-const mapStateToProps = state => {
-  return {
-    isVisible: selectLightboxIsVisible(state),
-    data: selectLightboxData(state),
-    index: selectLightboxIndex(state)
+const Lightbox: React.FunctionComponent<{ children?: JSX.Element }> = ({
+  children
+}) => {
+  const [isVisible, toggleVisibility] = useState(false);
+  const [data, setData] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const _openLightbox = async (d: Array<object>, i: number) => {
+    await setData(d);
+    await setActiveIndex(i);
+    toggleVisibility(!isVisible);
   };
+
+  const _closeLightbox = async () => {
+    await toggleVisibility(!isVisible);
+    setActiveIndex(0);
+    setData([]);
+  };
+
+  return (
+    <LightboxContext.Provider
+      value={{
+        openLightbox: _openLightbox
+      }}
+    >
+      {isVisible ? (
+        <div className={"lightbox"}>
+          <LightboxButton addClass={"close"} onClick={_closeLightbox} />
+          <Viewer
+            data={data}
+            setActiveIndex={setActiveIndex}
+            activeIndex={activeIndex}
+          />
+        </div>
+      ) : null}
+      {children}
+    </LightboxContext.Provider>
+  );
 };
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(lightboxActions, dispatch);
-};
-
-const App = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Modal);
-
-export default App;
+export default Lightbox;

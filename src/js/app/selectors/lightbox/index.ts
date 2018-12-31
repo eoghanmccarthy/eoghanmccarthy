@@ -12,9 +12,13 @@ const selectLightboxData = createSelector(
   lightbox => lightbox.data
 );
 
-const selectLightboxIndex = createSelector(
+const selectLightboxInitialIndex = createSelector(
   [selectLightbox],
-  lightbox => lightbox.index
+  lightbox => lightbox.initialIndex
 );
 
-export { selectLightboxIsVisible, selectLightboxData, selectLightboxIndex };
+export {
+  selectLightboxIsVisible,
+  selectLightboxData,
+  selectLightboxInitialIndex
+};

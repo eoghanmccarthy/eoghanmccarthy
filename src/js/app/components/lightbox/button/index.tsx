@@ -1,15 +1,20 @@
 import React from "react";
 
-const Button: React.FunctionComponent<{
-  buttonClass?: string;
+import Button from "components/button";
+
+const LightboxButton: React.FunctionComponent<{
+  disabled?: boolean | false;
+  addClass?: string;
   onClick: () => void;
-}> = ({ buttonClass, onClick }) => (
-  <div className={"btn " + buttonClass} onClick={onClick}>
-    <div className="bars">
-      <span />
-      <span />
-    </div>
-  </div>
+}> = ({ disabled, addClass, onClick }) => (
+  <Button
+    disabled={disabled}
+    addClass={`btn__round btn__lightbox ${addClass}`}
+    onClick={onClick}
+  >
+    <span />
+    <span />
+  </Button>
 );
 
-export default Button;
+export default LightboxButton;
