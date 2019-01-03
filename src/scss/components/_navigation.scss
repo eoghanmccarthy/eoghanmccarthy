@@ -9,6 +9,7 @@
 
   > nav {
     a {
+      @include set-pointer();
       font-family: $base__font-secondary;
       font-size: $base__font-size * 3.6;
       line-height: $base__line-height * 1.2;

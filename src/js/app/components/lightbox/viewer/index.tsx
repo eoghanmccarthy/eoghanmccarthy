@@ -10,44 +10,42 @@ const Viewer: React.FunctionComponent<{
 }> = ({ data, setActiveIndex, activeIndex }) => {
   const [transitionVal, setTransitionVal] = useState(-100);
   const [isMoving, setIsMoving] = useState("");
-  const [animDisabled, setAnimDisabled] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
 
-  const _getPrevIndex = (index: number, n = 1) =>
-    index - n < 0 ? data.length - n : index - n;
+  const _getPrevIndex = (index: number) =>
+    index - 1 < 0 ? data.length - 1 : index - 1;
 
-  const _getNextIndex = (index: number, n = 1) =>
-    index + n >= data.length ? 0 : index + n;
+  const _getNextIndex = (index: number) =>
+    index + 1 >= data.length ? 0 : index + 1;
 
   const _navPrev = () => {
     setIsMoving("prev");
-    _move(+100);
+    _shift(+100);
   };
 
   const _navNext = () => {
     setIsMoving("next");
-    _move(-100);
+    _shift(-100);
   };
 
-  const _move = (val: number) => {
+  const _shift = (val: number) => {
     setTransitionVal(transitionVal + val);
   };
 
-  const _resetShift = (index: number) => {
-    setTransitionVal(-100);
-    setActiveIndex(index);
+  const _reset = async (index: number) => {
+    await setIsResetting(true);
+    await Promise.all([setTransitionVal(-100), setActiveIndex(index)]);
+    await setIsResetting(false);
   };
 
   const _onEnd = () => {
     if (isMoving) {
-      setAnimDisabled(true);
       if (isMoving === "next") {
-        _resetShift(_getNextIndex(activeIndex));
+        _reset(_getNextIndex(activeIndex)).then(() => setIsMoving(""));
       }
       if (isMoving === "prev") {
-        _resetShift(_getPrevIndex(activeIndex));
+        _reset(_getPrevIndex(activeIndex)).then(() => setIsMoving(""));
       }
-      setAnimDisabled(false);
-      setIsMoving("");
     }
   };
 
@@ -77,7 +75,7 @@ const Viewer: React.FunctionComponent<{
         to={{
           transform: `translateX(${transitionVal}%`
         }}
-        immediate={animDisabled}
+        immediate={isResetting}
         onRest={_onEnd}
       >
         {props => (
