@@ -32,19 +32,29 @@ const Viewer: React.FunctionComponent<{
     setTransitionVal(transitionVal + val);
   };
 
-  const _reset = async (index: number) => {
-    await setIsResetting(true);
-    await Promise.all([setTransitionVal(-100), setActiveIndex(index)]);
-    await setIsResetting(false);
+  const _test = (index: number) => {
+    setIsResetting(true);
+    return _reset(index);
+  };
+
+  const _reset = (index: number) => {
+    setTransitionVal(-100);
+    setActiveIndex(index);
+    return _re();
+  };
+
+  const _re = () => {
+    setIsResetting(false);
+    setIsMoving("");
   };
 
   const _onEnd = () => {
     if (isMoving) {
       if (isMoving === "next") {
-        _reset(_getNextIndex(activeIndex)).then(() => setIsMoving(""));
+        _test(_getNextIndex(activeIndex));
       }
       if (isMoving === "prev") {
-        _reset(_getPrevIndex(activeIndex)).then(() => setIsMoving(""));
+        _test(_getPrevIndex(activeIndex));
       }
     }
   };
@@ -60,16 +70,18 @@ const Viewer: React.FunctionComponent<{
 
   return (
     <div className={"lightbox__viewer"}>
-      <LightboxButton
-        disabled={isMoving !== ""}
-        addClass={"nav__prev"}
-        onClick={_navPrev}
-      />
-      <LightboxButton
-        disabled={isMoving !== ""}
-        addClass={"nav__next"}
-        onClick={_navNext}
-      />
+      <div className={"viewer__nav"}>
+        <LightboxButton
+          disabled={isMoving !== ""}
+          addClass={"nav__prev"}
+          onClick={_navPrev}
+        />
+        <LightboxButton
+          disabled={isMoving !== ""}
+          addClass={"nav__next"}
+          onClick={_navNext}
+        />
+      </div>
       <Spring
         native
         to={{
@@ -79,7 +91,7 @@ const Viewer: React.FunctionComponent<{
         onRest={_onEnd}
       >
         {props => (
-          <animated.ul style={props} className={"slides"}>
+          <animated.ul style={props} className={"list__slides"}>
             {items.map(
               (item: { src: string; label?: string }, index: number) => (
                 <li
