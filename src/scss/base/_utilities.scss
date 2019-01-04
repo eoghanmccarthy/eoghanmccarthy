@@ -21,15 +21,6 @@
   }
 }
 
-// Generate background color modifier classes
-@mixin mod-bgcolor($map) {
-  @each $name, $value in $map {
-    &--#{$name} {
-      background-color: $value;
-    }
-  }
-}
-
 // Rotate
 @mixin rotate($args...) {
   transform: rotate($args);

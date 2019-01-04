@@ -3,27 +3,20 @@
 // Descriptive colors
 $white: #fff;
 $black: #000;
-$light-grey: #808080;
 $grey: #333;
 $dark-slate-grey: #2f4f4f;
+$transparent: rgba(0, 0, 0, 0);
+
 $supernova: #ccff00;
 $yellow: #ffff00;
 $persimmon: #ff6653;
 $green: #53ff66;
+$fuchsia: #ff00ff;
 
-// Brand colors
-$primary: $persimmon;
+$color__primary: $fuchsia;
 
 $modal-background: rgba(255, 255, 255, 0.8);
-$transparent: rgba(0, 0, 0, 0);
 
-// UI colors map
-$ui-colors: (
-  brand: $primary,
-  white: $white
-);
-
-// Color palette modifiers
 $palettes: (
   grey: (
     x-light: lighten($grey, 25%),
@@ -33,10 +26,10 @@ $palettes: (
     x-dark: darken($grey, 16%)
   ),
   brand: (
-    x-light: lighten($primary, 25%),
-    light: lighten($primary, 12%),
-    base: $primary,
-    dark: darken($primary, 8%),
-    x-dark: darken($primary, 16%)
+    x-light: lighten($color__primary, 25%),
+    light: lighten($color__primary, 12%),
+    base: $color__primary,
+    dark: darken($color__primary, 8%),
+    x-dark: darken($color__primary, 16%)
   )
 );

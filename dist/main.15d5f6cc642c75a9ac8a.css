@@ -29,10 +29,6 @@ p {
 
 .mark {
   padding: 0.2em 0; }
-  .mark--brand {
-    background-color: #ff6653; }
-  .mark--white {
-    background-color: #fff; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -133,7 +129,7 @@ body {
           font-size: 5rem; } }
       .nav-global > nav a:hover {
         text-decoration: none;
-        color: #ff6653; }
+        color: #ff00ff; }
 
 .btn__toggle-nav-global {
   width: 40px;
@@ -212,11 +208,11 @@ svg.logo {
   width: auto;
   cursor: pointer; }
   svg.logo path {
-    fill: #ff6653;
+    fill: #ff00ff;
     -webkit-transition: fill 0.3s ease;
     transition: fill 0.3s ease; }
     svg.logo path:hover {
-      fill: #ff422a; }
+      fill: #d600d6; }
   .me__header svg.logo {
     height: 100px; }
     @media screen and (min-width: 768px) {
@@ -316,7 +312,8 @@ svg.logo {
           left: 20px;
           bottom: 20px;
           padding: 0.2em;
-          color: #000;
+          color: #ff00ff;
+          font-family: "Shrikhand", sans-serif;
           font-size: 2rem;
           text-align: center;
           line-height: 1;
@@ -421,4 +418,4 @@ svg.logo {
           justify-content: center; }
 
 
-/*# sourceMappingURL=main.5b65e645d29cf5f670e2.css.map*/
+/*# sourceMappingURL=main.15d5f6cc642c75a9ac8a.css.map*/
