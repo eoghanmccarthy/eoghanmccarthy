@@ -315,6 +315,7 @@ svg.logo {
           bottom: 20px;
           padding: 0.2em;
           color: #000;
+          font-size: 2rem;
           text-align: center;
           line-height: 1;
           background-color: rgba(255, 255, 255, 0.95);
@@ -325,46 +326,54 @@ svg.logo {
           @media screen and (min-width: 768px) {
             .lightbox .lightbox__viewer ul.list__slides li.slide .slide__caption {
               font-size: 3.8rem; } }
-  .lightbox .btn__lightbox {
+  .lightbox button.btn {
     z-index: 101;
-    width: 50px;
-    height: 50px; }
-    .lightbox .btn__lightbox span {
+    width: 42px;
+    height: 42px; }
+    @media screen and (min-width: 768px) {
+      .lightbox button.btn {
+        width: 50px;
+        height: 50px; } }
+    .lightbox button.btn span {
       display: block;
       width: 25px;
       height: 1px;
       margin: 0 auto;
       background-color: #737373;
       border-radius: 2px; }
-    .lightbox .btn__lightbox.close {
+    .lightbox button.btn.close {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 15px;
+      right: 15px;
       background-color: rgba(255, 255, 255, 0.25); }
-      .lightbox .btn__lightbox.close:hover {
+      @media screen and (min-width: 768px) {
+        .lightbox button.btn.close {
+          top: 20px;
+          right: 20px; } }
+      .lightbox button.btn.close:hover {
         background-color: rgba(255, 255, 255, 0.9); }
-      .lightbox .btn__lightbox.close span:first-child {
+      .lightbox button.btn.close span:first-child {
         margin-top: 0;
         -webkit-transform: rotate(-45deg);
                 transform: rotate(-45deg); }
-      .lightbox .btn__lightbox.close span:last-child {
+      .lightbox button.btn.close span:last-child {
         margin-top: -1px;
         -webkit-transform: rotate(45deg);
                 transform: rotate(45deg); }
-    .lightbox .btn__lightbox.nav__prev span:first-child, .lightbox .btn__lightbox.nav__next span:first-child {
+    .lightbox button.btn.nav__prev span:first-child, .lightbox button.btn.nav__next span:first-child {
       margin-top: 0; }
-    .lightbox .btn__lightbox.nav__prev span:last-child, .lightbox .btn__lightbox.nav__next span:last-child {
+    .lightbox button.btn.nav__prev span:last-child, .lightbox button.btn.nav__next span:last-child {
       margin-top: 16px; }
-    .lightbox .btn__lightbox.nav__next span:first-child {
+    .lightbox button.btn.nav__next span:first-child {
       -webkit-transform: rotate(45deg);
               transform: rotate(45deg); }
-    .lightbox .btn__lightbox.nav__next span:last-child {
+    .lightbox button.btn.nav__next span:last-child {
       -webkit-transform: rotate(-45deg);
               transform: rotate(-45deg); }
-    .lightbox .btn__lightbox.nav__prev span:first-child {
+    .lightbox button.btn.nav__prev span:first-child {
       -webkit-transform: rotate(-45deg);
               transform: rotate(-45deg); }
-    .lightbox .btn__lightbox.nav__prev span:last-child {
+    .lightbox button.btn.nav__prev span:last-child {
       -webkit-transform: rotate(45deg);
               transform: rotate(45deg); }
 
@@ -435,4 +444,4 @@ svg.logo {
           justify-content: center; }
 
 
-/*# sourceMappingURL=main.1eea8a358eea81495ef5.css.map*/
+/*# sourceMappingURL=main.7730da6a29b47f67ddfd.css.map*/

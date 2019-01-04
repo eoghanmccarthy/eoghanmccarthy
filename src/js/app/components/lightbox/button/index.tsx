@@ -9,7 +9,7 @@ const LightboxButton: React.FunctionComponent<{
 }> = ({ disabled, addClass, onClick }) => (
   <Button
     disabled={disabled}
-    addClass={`btn__round btn__lightbox ${addClass}`}
+    addClass={`btn__round ${addClass}`}
     onClick={onClick}
   >
     <span />
