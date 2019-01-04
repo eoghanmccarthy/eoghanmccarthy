@@ -32,7 +32,7 @@ const Viewer: React.FunctionComponent<{
     setTransitionVal(transitionVal + val);
   };
 
-  const _test = (index: number) => {
+  const _resetStart = (index: number) => {
     setIsResetting(true);
     return _reset(index);
   };
@@ -40,10 +40,10 @@ const Viewer: React.FunctionComponent<{
   const _reset = (index: number) => {
     setTransitionVal(-100);
     setActiveIndex(index);
-    return _re();
+    return _resetEnd();
   };
 
-  const _re = () => {
+  const _resetEnd = () => {
     setIsResetting(false);
     setIsMoving("");
   };
@@ -51,10 +51,10 @@ const Viewer: React.FunctionComponent<{
   const _onEnd = () => {
     if (isMoving) {
       if (isMoving === "next") {
-        _test(_getNextIndex(activeIndex));
+        _resetStart(_getNextIndex(activeIndex));
       }
       if (isMoving === "prev") {
-        _test(_getPrevIndex(activeIndex));
+        _resetStart(_getPrevIndex(activeIndex));
       }
     }
   };
