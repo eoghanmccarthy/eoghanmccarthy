@@ -8,6 +8,8 @@
   align-items: center;
 
   > nav {
+    margin: 20px 0;
+
     a {
       @include set-pointer();
       font-family: $base__font-secondary;
@@ -37,7 +39,7 @@
   span {
     display: block;
     width: 20px;
-    height: 2px;
+    height: 1px;
     margin: 3px auto 0;
     background-color: $white;
 
@@ -57,6 +59,7 @@
 
   &.close {
     background-color: $transparent;
+    border: 1px solid palette(grey, x-light);
 
     span {
       background-color: $dark-slate-grey;
@@ -66,7 +69,7 @@
       }
 
       &:nth-child(2) {
-        margin-top: -2px;
+        margin-top: -1px;
         @include rotate(-45deg);
       }
 
