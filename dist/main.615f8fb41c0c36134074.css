@@ -123,7 +123,9 @@ body {
       text-transform: lowercase;
       letter-spacing: 5px;
       color: #000;
-      text-decoration: none; }
+      text-decoration: none;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
       @media screen and (min-width: 576px) {
         .nav-global > nav a {
           font-size: 5rem; } }
@@ -418,4 +420,4 @@ svg.logo {
           justify-content: center; }
 
 
-/*# sourceMappingURL=main.15d5f6cc642c75a9ac8a.css.map*/
+/*# sourceMappingURL=main.615f8fb41c0c36134074.css.map*/
