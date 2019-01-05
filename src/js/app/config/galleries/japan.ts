@@ -1,11 +1,11 @@
-const IMG_01 = require("assets/images/img_0359-folio.jpg");
-const IMG_02 = require("assets/images/img_0243-folio.jpg");
-const IMG_03 = require("assets/images/img_0111-folio.jpg");
-const IMG_04 = require("assets/images/img_0387-folio.jpg");
-const IMG_05 = require("assets/images/img_4453-folio.jpg");
-const IMG_06 = require("assets/images/img_4480-folio.jpg");
-const IMG_07 = require("assets/images/img_3889-folio.jpg");
-const IMG_08 = require("assets/images/img_3251-folio.jpg");
+import IMG_01 from "assets/images/img_0359-folio.jpg";
+import IMG_02 from "assets/images/img_0243-folio.jpg";
+import IMG_03 from "assets/images/img_0111-folio.jpg";
+import IMG_04 from "assets/images/img_0387-folio.jpg";
+import IMG_05 from "assets/images/img_4453-folio.jpg";
+import IMG_06 from "assets/images/img_4480-folio.jpg";
+import IMG_07 from "assets/images/img_3889-folio.jpg";
+import IMG_08 from "assets/images/img_3251-folio.jpg";
 
 const data = [
   {
