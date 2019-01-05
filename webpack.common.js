@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: { main: "./src/js/index.tsx" },
+  entry: "./src/js/index.tsx",
   output: {
     path: path.join(__dirname, "/dist"),
     publicPath: "/",
@@ -73,13 +73,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: true,
       hash: true,
-      template: "./src/index.html",
-      filename: "index.html"
+      template: "./src/index.html"
     }),
     new MiniCssExtractPlugin({
-      filename: "main.[contenthash].css"
+      filename: "[name].[contenthash].css"
     })
   ]
 };
