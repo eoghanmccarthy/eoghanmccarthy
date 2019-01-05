@@ -34,11 +34,10 @@ $base__line-height: 1;
   font-size: $base__font-size;
 }
 // Webfonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:200,300");
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i");
 @import url("https://fonts.googleapis.com/css?family=Shrikhand");
 // Font stacks
-$base__font-primary: "Roboto", sans-serif;
+$base__font-primary: "Roboto Mono", sans-serif;
 $base__font-secondary: "Shrikhand", sans-serif;
 // Font weight
 $font-weight: (

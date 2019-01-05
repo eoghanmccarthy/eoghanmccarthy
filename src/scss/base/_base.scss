@@ -21,7 +21,7 @@ body {
 
 .me {
   display: grid;
-  grid-template-rows: 220px auto 110px;
+  grid-template-rows: 220px auto 180px;
   grid-template-areas:
     "header"
     "main"
@@ -30,7 +30,7 @@ body {
   min-height: 100vh;
 
   @include breakpoint(md) {
-    grid-template-rows: 280px auto 140px;
+    grid-template-rows: 280px auto 180px;
   }
 
   &.me__index {

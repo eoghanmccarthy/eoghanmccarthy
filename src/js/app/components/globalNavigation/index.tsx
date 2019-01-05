@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, lazy, Suspense } from "react";
 
-import ModalOverlay from "components/modalOverlay";
+const ModalOverlay = lazy(() => import("components/modalOverlay"));
+const Modal = lazy(() => import("components/globalNavigation/modal"));
 import NavButton from "components/globalNavigation/button";
-import Modal from "components/globalNavigation/modal";
 
-const Navigation: React.FunctionComponent<{}> = () => {
+const GlobalNavigation: React.FunctionComponent<{}> = () => {
   const [isVisible, toggleVisibility] = useState(false);
 
   const _toggleVisibility = () => {
@@ -14,11 +14,13 @@ const Navigation: React.FunctionComponent<{}> = () => {
   return (
     <Fragment>
       <NavButton addClass="open" onClick={_toggleVisibility} />
-      <ModalOverlay isVisible={isVisible}>
-        <Modal isVisible={isVisible} toggleVisibility={_toggleVisibility} />
-      </ModalOverlay>
+      <Suspense fallback={null}>
+        <ModalOverlay isVisible={isVisible}>
+          <Modal isVisible={isVisible} toggleVisibility={_toggleVisibility} />
+        </ModalOverlay>
+      </Suspense>
     </Fragment>
   );
 };
 
-export default Navigation;
+export default GlobalNavigation;
