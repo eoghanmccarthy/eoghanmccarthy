@@ -1,7 +1,7 @@
-import React, { Fragment, useState, lazy, Suspense } from "react";
+import React, { Fragment, useState } from "react";
 
-const ModalOverlay = lazy(() => import("components/modalOverlay"));
-const Modal = lazy(() => import("components/globalNavigation/modal"));
+import ModalOverlay from "components/modalOverlay";
+import Modal from "components/globalNavigation/modal";
 import NavButton from "components/globalNavigation/button";
 
 const GlobalNavigation: React.FunctionComponent<{}> = () => {
@@ -14,11 +14,9 @@ const GlobalNavigation: React.FunctionComponent<{}> = () => {
   return (
     <Fragment>
       <NavButton addClass="open" onClick={_toggleVisibility} />
-      <Suspense fallback={null}>
-        <ModalOverlay isVisible={isVisible}>
-          <Modal isVisible={isVisible} toggleVisibility={_toggleVisibility} />
-        </ModalOverlay>
-      </Suspense>
+      <ModalOverlay isVisible={isVisible}>
+        <Modal isVisible={isVisible} toggleVisibility={_toggleVisibility} />
+      </ModalOverlay>
     </Fragment>
   );
 };
