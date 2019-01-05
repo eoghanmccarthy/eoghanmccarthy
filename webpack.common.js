@@ -7,9 +7,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist"),
     publicPath: "/",
-    filename: "[name].[chunkhash].js"
+    filename: "[name].[chunkhash].js",
+    chunkFilename: "[name].bundle.js"
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   resolve: {
     alias: {
       src: path.resolve(__dirname, "src/"),
@@ -24,7 +25,7 @@ module.exports = {
       selectors: path.resolve(__dirname, "src/js/app/selectors/"),
       types: path.resolve(__dirname, "src/js/app/types/")
     },
-    extensions: [".ts", ".tsx", ".js",".jsx"]
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
   module: {
     rules: [
