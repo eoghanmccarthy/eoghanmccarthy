@@ -5,10 +5,9 @@ import LightboxButton from "components/lightbox/button";
 
 const Viewer: React.FunctionComponent<{
   data: Array<object>;
-  setActiveIndex: any;
-  activeIndex: number;
-}> = ({ data, setActiveIndex, activeIndex }) => {
-  const [lightboxIndex, setLightboxIndex] = useState(activeIndex);
+  initialIndex: number;
+}> = ({ data, initialIndex }) => {
+  const [lightboxIndex, setLightboxIndex] = useState(initialIndex);
   const [shiftValue, setShiftValue] = useState("");
 
   const _shift = async (val: string) => {
@@ -26,25 +25,16 @@ const Viewer: React.FunctionComponent<{
     }
   };
 
-  const lightboxItem = (props, item) => (
-    <animated.div
-      style={{ ...props, backgroundImage: `url(${item.src})` }}
-      className={`slide`}
-    >
-      <span className="slide__caption">{item.label}</span>
-    </animated.div>
-  );
-
-  const slides = [
-    (props: any) => lightboxItem(props, data[0]),
-    (props: any) => lightboxItem(props, data[1]),
-    (props: any) => lightboxItem(props, data[2]),
-    (props: any) => lightboxItem(props, data[3]),
-    (props: any) => lightboxItem(props, data[4]),
-    (props: any) => lightboxItem(props, data[5]),
-    (props: any) => lightboxItem(props, data[6]),
-    (props: any) => lightboxItem(props, data[7])
-  ];
+  const slides = (props: any) =>
+    data.map((item: { src: string; label: string }, index: number) => (
+      <animated.div
+        key={index}
+        style={{ ...props, backgroundImage: `url(${item.src})` }}
+        className={`slide`}
+      >
+        <span className="slide__caption">{item.label}</span>
+      </animated.div>
+    ));
 
   return (
     <div className={"lightbox__viewer"}>
@@ -68,7 +58,7 @@ const Viewer: React.FunctionComponent<{
             transform: `translateX(${shiftValue === "next" ? -100 : +100}%)`
           }}
         >
-          {index => slides[index]}
+          {index => props => slides(props)[index]}
         </Transition>
       </div>
     </div>

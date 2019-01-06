@@ -10,17 +10,17 @@ const Lightbox: React.FunctionComponent<{ children?: JSX.Element }> = ({
 }) => {
   const [isVisible, toggleVisibility] = useState(false);
   const [data, setData] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [initialIndex, setInitialIndex] = useState(0);
 
   const _openLightbox = async (d: Array<object>, i: number) => {
     await setData(d);
-    await setActiveIndex(i);
+    await setInitialIndex(i);
     toggleVisibility(!isVisible);
   };
 
   const _closeLightbox = async () => {
     await toggleVisibility(!isVisible);
-    setActiveIndex(0);
+    setInitialIndex(0);
     setData([]);
   };
 
@@ -33,11 +33,7 @@ const Lightbox: React.FunctionComponent<{ children?: JSX.Element }> = ({
       {isVisible ? (
         <div className={"lightbox"}>
           <LightboxButton addClass={"close"} onClick={_closeLightbox} />
-          <Viewer
-            data={data}
-            setActiveIndex={setActiveIndex}
-            activeIndex={activeIndex}
-          />
+          <Viewer data={data} initialIndex={initialIndex} />
         </div>
       ) : null}
 
