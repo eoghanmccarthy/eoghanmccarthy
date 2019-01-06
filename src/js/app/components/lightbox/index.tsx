@@ -1,6 +1,6 @@
-import React, { useState, Suspense, lazy } from "react";
+import React, { useState } from "react";
 
-const Viewer = lazy(() => import("components/lightbox/viewer"));
+import Viewer from "components/lightbox/viewer";
 import LightboxButton from "components/lightbox/button";
 
 import { LightboxContext } from "app/context";
@@ -31,12 +31,10 @@ const Lightbox: React.FunctionComponent<{ children?: JSX.Element }> = ({
       }}
     >
       {isVisible ? (
-        <Suspense fallback={null}>
-          <div className={"lightbox"}>
-            <LightboxButton addClass={"close"} onClick={_closeLightbox} />
-            <Viewer data={data} initialIndex={initialIndex} />
-          </div>
-        </Suspense>
+        <div className={"lightbox"}>
+          <LightboxButton addClass={"close"} onClick={_closeLightbox} />
+          <Viewer data={data} initialIndex={initialIndex} />
+        </div>
       ) : null}
 
       {children}
