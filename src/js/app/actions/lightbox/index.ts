@@ -1,4 +1,8 @@
-import { OPEN_LIGHTBOX, CLOSE_LIGHTBOX } from "types/lightbox";
+import {
+  OPEN_LIGHTBOX,
+  CLOSE_LIGHTBOX,
+  SET_LIGHTBOX_INDEX
+} from "types/lightbox";
 
 export const openLightbox = (data: Array<object>, index: number) => {
   return {
@@ -11,5 +15,12 @@ export const openLightbox = (data: Array<object>, index: number) => {
 export const closeLightbox = () => {
   return {
     type: CLOSE_LIGHTBOX
+  };
+};
+
+export const setLightboxIndex = (index: number) => {
+  return {
+    type: SET_LIGHTBOX_INDEX,
+    index
   };
 };

@@ -1,26 +1,31 @@
-import { combineReducers } from "redux";
+import produce from "immer";
 
-import { OPEN_LIGHTBOX, CLOSE_LIGHTBOX } from "types/lightbox";
+import {
+  OPEN_LIGHTBOX,
+  CLOSE_LIGHTBOX,
+  SET_LIGHTBOX_INDEX
+} from "types/lightbox";
 
 const initialState = {
   isVisible: false,
   data: [],
-  initialIndex: null
+  index: null
 };
 
-const lightbox = (state = initialState, action) => {
-  switch (action.type) {
-    case OPEN_LIGHTBOX:
-      return {
-        isVisible: true,
-        data: action.data,
-        initialIndex: action.index
-      };
-    case CLOSE_LIGHTBOX:
-      return initialState;
-    default:
-      return state;
-  }
-};
+const lightbox = (state = initialState, action: any) =>
+  produce(state, draft => {
+    switch (action.type) {
+      case OPEN_LIGHTBOX:
+        return (draft = {
+          isVisible: true,
+          data: action.data,
+          index: action.index
+        });
+      case CLOSE_LIGHTBOX:
+        return (draft = initialState);
+      case SET_LIGHTBOX_INDEX:
+        draft.index = action.index;
+    }
+  });
 
 export default lightbox;
