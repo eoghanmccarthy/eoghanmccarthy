@@ -6,8 +6,8 @@ import axios from "axios";
 
 const config = {
   headers: {
-    "Access-Control-Allow-Origin": "*",
-    "X-Content-Type-Options": "nosniff"
+    "Access-Control-Allow-Methods": "GET",
+    "Content-Type": "application/json"
   }
 };
 
@@ -17,7 +17,7 @@ export default (action$, state$) =>
   action$.pipe(
     ofType("FETCH_GLOBAL_CONFIG"),
     mergeMap(() =>
-      from(axios.get(`http://eoghan.io/data/config`, config)).pipe(
+      from(axios.get(`http://eoghan.io/data/config`)).pipe(
         timeout(60000),
         map(response => {
           console.log(response);
