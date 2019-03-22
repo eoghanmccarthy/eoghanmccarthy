@@ -17,6 +17,7 @@ module.exports = {
       assets: path.resolve(__dirname, "src/assets/"),
       app: path.resolve(__dirname, "src/js/app/"),
       actions: path.resolve(__dirname, "src/js/app/actions/"),
+      epics: path.resolve(__dirname, "src/js/app/epics/"),
       components: path.resolve(__dirname, "src/js/app/components/"),
       containers: path.resolve(__dirname, "src/js/app/containers/"),
       pages: path.resolve(__dirname, "src/js/app/pages/"),

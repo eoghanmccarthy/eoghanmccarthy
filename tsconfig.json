@@ -16,6 +16,7 @@
       "actions/*": ["src/js/app/actions/*"],
       "components/*": ["src/js/app/components/*"],
       "containers/*": ["src/js/app/containers/*"],
+      "epics/*": ["src/js/app/epics/*"],
       "pages/*": ["src/js/app/pages/*"],
       "reducers/*": ["src/js/app/reducers/*"],
       "routes/*": ["src/js/app/routes/*"],

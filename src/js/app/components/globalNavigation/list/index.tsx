@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
 
-import data from "app/config/navigationData";
+import data from "app/data/navigationData";
 
 const List: React.FunctionComponent<{
   history: any;

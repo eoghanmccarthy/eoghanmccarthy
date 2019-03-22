@@ -22,9 +22,11 @@ const lightbox = (state = initialState, action: any) =>
           index: action.index
         });
       case CLOSE_LIGHTBOX:
-        return (draft = initialState);
+        draft = initialState;
+        return;
       case SET_LIGHTBOX_INDEX:
         draft.index = action.index;
+        return;
     }
   });
 
