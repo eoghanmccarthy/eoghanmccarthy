@@ -21,7 +21,6 @@ const config = (state = initialState, action: any) =>
         draft.error = "";
         return;
       case FETCH_GLOBAL_CONFIG_SUCCESS:
-        console.log(action);
         draft.isFetching = false;
         draft.isLoaded = true;
         draft.data = action.data;

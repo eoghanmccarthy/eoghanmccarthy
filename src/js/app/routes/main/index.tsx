@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Header from "components/header";
-import Footer from "components/footer";
+import Footer from "containers/footer";
 import Lightbox from "components/lightbox";
 const Japan = lazy(() => import("pages/japan"));
 

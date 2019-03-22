@@ -4,15 +4,6 @@ import { map, mergeMap, catchError, timeout } from "rxjs/operators";
 
 import axios from "axios";
 
-const config = {
-  headers: {
-    "Access-Control-Allow-Methods": "GET",
-    "Content-Type": "application/json"
-  }
-};
-
-//http://api.icndb.com/jokes/random
-
 export default (action$, state$) =>
   action$.pipe(
     ofType("FETCH_GLOBAL_CONFIG"),
