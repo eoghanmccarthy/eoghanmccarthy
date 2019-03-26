@@ -6,7 +6,7 @@ import data from "app/data/navigationData";
 const List: React.FunctionComponent<{
   history: any;
   toggleVisibility: () => void;
-}> = ({ history, toggleVisibility }) => {
+}> = ({ history, toggleVisibility = null }) => {
   const _route = (route: string) => {
     history.push(route);
     toggleVisibility();

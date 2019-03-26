@@ -5,7 +5,7 @@ import Button from "components/button";
 const NavButton: React.FunctionComponent<{
   addClass?: string;
   onClick: () => void;
-}> = ({ addClass, onClick }) => {
+}> = ({ addClass = "", onClick = null }) => {
   return (
     <Button
       addClass={`btn__round btn__toggle-nav-global ${addClass}`}

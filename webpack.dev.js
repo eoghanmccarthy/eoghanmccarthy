@@ -10,8 +10,7 @@ module.exports = merge(common, {
     publicPath: "/",
     contentBase: path.resolve(__dirname, "dist/"),
     watchContentBase: true,
-    historyApiFallback: true,
-    port: 9000
+    historyApiFallback: true
   },
   plugins: [
     new CircularDependencyPlugin({

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Transition, animated } from "react-spring";
+import { useTransition, animated } from "react-spring";
 
 import LightboxButton from "components/lightbox/button";
 
@@ -9,6 +9,20 @@ const Viewer: React.FunctionComponent<{
 }> = ({ data, initialIndex }) => {
   const [lightboxIndex, setLightboxIndex] = useState(initialIndex);
   const [shiftValue, setShiftValue] = useState("");
+  const transitions = useTransition(lightboxIndex, null, {
+    native: true,
+    unique: true,
+    initial: null,
+    from: {
+      transform: `translateX(${shiftValue === "next" ? +100 : -100}%)`
+    },
+    enter: {
+      transform: `translateX(0%)`
+    },
+    leave: {
+      transform: `translateX(${shiftValue === "next" ? -100 : +100}%)`
+    }
+  });
 
   const _shift = async (val: string) => {
     if (val === "next") {
@@ -43,23 +57,7 @@ const Viewer: React.FunctionComponent<{
         <LightboxButton addClass={"nav__next"} onClick={() => _shift("next")} />
       </div>
       <div className={"list__slides"}>
-        <Transition
-          native
-          unique
-          initial={null}
-          items={lightboxIndex}
-          from={{
-            transform: `translateX(${shiftValue === "next" ? +100 : -100}%)`
-          }}
-          enter={{
-            transform: `translateX(0%)`
-          }}
-          leave={{
-            transform: `translateX(${shiftValue === "next" ? -100 : +100}%)`
-          }}
-        >
-          {index => props => slides(props)[index]}
-        </Transition>
+        {transitions.map(({ item, props, key }) => slides(props)[item])}
       </div>
     </div>
   );

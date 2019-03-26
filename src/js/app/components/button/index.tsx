@@ -5,7 +5,13 @@ const Button: React.FunctionComponent<{
   disabled?: boolean;
   addClass?: string;
   onClick: () => void;
-}> = ({ children, type, disabled, addClass, onClick }) => {
+}> = ({
+  children,
+  type = "",
+  disabled = false,
+  addClass = "",
+  onClick = null
+}) => {
   return (
     <button
       type={type}
@@ -16,13 +22,6 @@ const Button: React.FunctionComponent<{
       {children}
     </button>
   );
-};
-
-Button.defaultProps = {
-  type: "",
-  disabled: false,
-  addClass: "",
-  onClick: null
 };
 
 export default Button;

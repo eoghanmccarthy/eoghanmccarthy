@@ -11,7 +11,6 @@ export default (action$, state$) =>
       from(axios.get(`http://eoghan.io/data/config`)).pipe(
         timeout(60000),
         map(response => {
-          console.log(response);
           return {
             type: "FETCH_GLOBAL_CONFIG_SUCCESS",
             data: response.data
