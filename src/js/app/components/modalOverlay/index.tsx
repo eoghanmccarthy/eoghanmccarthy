@@ -1,5 +1,5 @@
 import React from "react";
-import { Transition, animated } from "react-spring/renderprops";
+import { useTransition, animated } from "react-spring";
 
 interface Props {
   children?: JSX.Element | null;
@@ -8,30 +8,27 @@ interface Props {
 
 const ModalOverlay: React.FunctionComponent<Props> = ({
   children,
-  isVisible
+  isVisible = false
 }) => {
-  return (
-    <Transition
-      native
-      items={isVisible}
-      from={{ opacity: 0 }}
-      enter={{ opacity: 1 }}
-      leave={{ opacity: 0 }}
-      config={{
-        tension: 220,
-        friction: 20,
-        clamp: true
-      }}
-    >
-      {isVisible =>
-        isVisible &&
-        (props => (
-          <animated.div style={props} className={"modal-overlay"}>
-            {children}
-          </animated.div>
-        ))
-      }
-    </Transition>
+  const transitions = useTransition(isVisible, null, {
+    native: true,
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: {
+      tension: 220,
+      friction: 20,
+      clamp: true
+    }
+  });
+
+  return transitions.map(
+    ({ item, key, props }) =>
+      item && (
+        <animated.div style={props} className={"modal-overlay"}>
+          {children}
+        </animated.div>
+      )
   );
 };
 
