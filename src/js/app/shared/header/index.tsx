@@ -1,6 +1,6 @@
 import React from "react";
 
-import Logo from "components/logo";
+import Logo from "shared/logo";
 import GlobalNavigation from "components/globalNavigation";
 
 const Header: React.FunctionComponent<{}> = () => (

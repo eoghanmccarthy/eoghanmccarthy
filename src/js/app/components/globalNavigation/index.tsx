@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-import ModalOverlay from "components/modalOverlay";
+import ModalOverlay from "shared/modalOverlay";
 import Modal from "components/globalNavigation/modal";
 import NavButton from "components/globalNavigation/button";
 

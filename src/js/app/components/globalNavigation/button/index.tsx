@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "components/button";
+import Button from "shared/button";
 
 const NavButton: React.FunctionComponent<{
   addClass?: string;

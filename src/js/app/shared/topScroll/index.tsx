@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
-import Button from "components/button";
+import Button from "shared/button";
 
 const TopScroll = () => {
   useEffect(() => {

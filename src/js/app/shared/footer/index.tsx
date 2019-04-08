@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { selectConfigData } from "selectors/config";
 
-import TopScroll from "components/topScroll";
+import TopScroll from "shared/topScroll";
 
 const Footer: React.FunctionComponent<{
   config: {
