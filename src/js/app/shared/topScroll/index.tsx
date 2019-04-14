@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
-import Button from "shared/button";
+import { Button } from "eoghandotio-ui";
 
 const TopScroll = () => {
   useEffect(() => {
@@ -19,7 +19,7 @@ const TopScroll = () => {
   };
 
   return (
-    <Button addClass={`btn__round btn__scroll`} onClick={_scrollToTop}>
+    <Button className={`btn__round btn__scroll`} onClick={_scrollToTop}>
       <span />
     </Button>
   );

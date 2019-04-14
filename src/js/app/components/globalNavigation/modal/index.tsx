@@ -23,7 +23,7 @@ const Modal: React.FunctionComponent<{
   return transitions.map(
     ({ item, key, props }) =>
       item && (
-        <animated.div style={props} className="nav-global">
+        <animated.div key={key} style={props} className="nav-global">
           <List toggleVisibility={toggleVisibility} />
           <NavButton addClass="close" onClick={toggleVisibility} />
         </animated.div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "shared/button";
+import { Button } from "eoghandotio-ui";
 
 const NavButton: React.FunctionComponent<{
   addClass?: string;
@@ -8,7 +8,7 @@ const NavButton: React.FunctionComponent<{
 }> = ({ addClass = "", onClick = null }) => {
   return (
     <Button
-      addClass={`btn__round btn__toggle-nav-global ${addClass}`}
+      className={`btn__round btn__toggle-nav-global ${addClass}`}
       onClick={onClick}
     >
       <span />

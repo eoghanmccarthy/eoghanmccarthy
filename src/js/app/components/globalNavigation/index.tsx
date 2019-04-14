@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-import ModalOverlay from "shared/modalOverlay";
+import { ContentOverlay } from "eoghandotio-ui";
 import Modal from "components/globalNavigation/modal";
 import NavButton from "components/globalNavigation/button";
 
@@ -14,9 +14,9 @@ const GlobalNavigation: React.FunctionComponent<{}> = () => {
   return (
     <Fragment>
       <NavButton addClass="open" onClick={_toggleVisibility} />
-      <ModalOverlay isVisible={isVisible}>
+      <ContentOverlay isVisible={isVisible}>
         <Modal isVisible={isVisible} toggleVisibility={_toggleVisibility} />
-      </ModalOverlay>
+      </ContentOverlay>
     </Fragment>
   );
 };

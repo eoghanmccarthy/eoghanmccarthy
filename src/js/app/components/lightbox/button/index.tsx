@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "shared/button";
+import { Button } from "eoghandotio-ui";
 
 const LightboxButton: React.FunctionComponent<{
   disabled?: boolean | false;
@@ -9,7 +9,7 @@ const LightboxButton: React.FunctionComponent<{
 }> = ({ disabled, addClass, onClick }) => (
   <Button
     disabled={disabled}
-    addClass={`btn__round ${addClass}`}
+    className={`btn__round ${addClass}`}
     onClick={onClick}
   >
     <span />

@@ -1,13 +1,14 @@
 import React from "react";
+import { withRouter } from "react-router";
 
-import Logo from "shared/logo";
+import { Logo } from "eoghandotio-ui";
 import GlobalNavigation from "components/globalNavigation";
 
-const Header: React.FunctionComponent<{}> = () => (
+const Header: React.FunctionComponent<{ history: any }> = ({ history }) => (
   <header className={"me__header"}>
-    <Logo />
+    <Logo onClick={() => history.push("/")} />
     <GlobalNavigation />
   </header>
 );
 
-export default Header;
+export default withRouter(Header);
