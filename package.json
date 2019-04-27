@@ -34,7 +34,7 @@
     "circular-dependency-plugin": "^5.0.2",
     "classnames": "^2.2.6",
     "connected-react-router": "^4.5.0",
-    "eoghandotio-ui": "^1.0.11",
+    "eoghandotio-ui": "^1.0.39",
     "history": "^4.7.2",
     "immer": "^1.10.0",
     "react": "^16.8.6",

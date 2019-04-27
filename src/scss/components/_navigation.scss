@@ -49,22 +49,8 @@
     }
   }
 
-  &.open {
-    background-color: $dark-slate-grey;
-    opacity: 0.4;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
   &.close {
-    background-color: $transparent;
-    border: 1px solid palette(grey, x-light);
-
     span {
-      background-color: $dark-slate-grey;
-
       &:first-child {
         @include rotate(45deg);
       }

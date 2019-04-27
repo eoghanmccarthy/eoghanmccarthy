@@ -4,15 +4,6 @@ svg.logo {
   width: auto;
   cursor: pointer;
 
-  path {
-    fill: palette(brand);
-    transition: fill $speed ease;
-
-    &:hover {
-      fill: palette(brand, dark);
-    }
-  }
-
   .me__header & {
     height: 100px;
 

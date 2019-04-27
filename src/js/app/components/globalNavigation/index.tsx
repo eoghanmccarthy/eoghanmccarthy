@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 
-import { ContentOverlay } from "eoghandotio-ui";
-import Modal from "components/globalNavigation/modal";
+import { Dialog } from "eoghandotio-ui";
 import NavButton from "components/globalNavigation/button";
+import List from "components/globalNavigation/list";
 
 const GlobalNavigation: React.FunctionComponent<{}> = () => {
   const [isVisible, toggleVisibility] = useState(false);
@@ -13,10 +13,22 @@ const GlobalNavigation: React.FunctionComponent<{}> = () => {
 
   return (
     <Fragment>
-      <NavButton addClass="open" onClick={_toggleVisibility} />
-      <ContentOverlay isVisible={isVisible}>
-        <Modal isVisible={isVisible} toggleVisibility={_toggleVisibility} />
-      </ContentOverlay>
+      <NavButton onClick={_toggleVisibility} />
+      <Dialog
+        id={"navGlobal"}
+        className={"nav-global"}
+        isVisible={isVisible}
+        disableClickableOverlay
+        closeDialog={_toggleVisibility}
+      >
+        <List toggleVisibility={_toggleVisibility} />
+        <NavButton
+          addClass="close"
+          onClick={_toggleVisibility}
+          colour={"#343434"}
+          tier={"outlined"}
+        />
+      </Dialog>
     </Fragment>
   );
 };

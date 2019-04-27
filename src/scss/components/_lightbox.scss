@@ -68,7 +68,7 @@
     }
   }
 
-  button.btn {
+  .btn__lightbox {
     z-index: zi(modal) + 1;
     width: 42px;
     height: 42px;
@@ -83,7 +83,6 @@
       width: 25px;
       height: 1px;
       margin: 0 auto;
-      background-color: palette(grey, x-light);
       border-radius: 2px;
     }
 

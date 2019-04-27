@@ -6,7 +6,7 @@ import GlobalNavigation from "components/globalNavigation";
 
 const Header: React.FunctionComponent<{ history: any }> = ({ history }) => (
   <header className={"me__header"}>
-    <Logo onClick={() => history.push("/")} />
+    <Logo className={"logo"} fill={"#f0f"} onClick={() => history.push("/")} />
     <GlobalNavigation />
   </header>
 );
