@@ -19,6 +19,10 @@ body {
   background: $white;
 }
 
+#app-root {
+  min-height: 100vh;
+}
+
 .me {
   display: grid;
   grid-template-rows: 220px auto 180px;
