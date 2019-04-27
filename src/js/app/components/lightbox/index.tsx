@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
+import { Button, Icons } from "eoghandotio-ui";
 import Viewer from "components/lightbox/viewer";
-import LightboxButton from "components/lightbox/button";
 
 import { LightboxContext } from "app/context";
 
@@ -32,11 +32,17 @@ const Lightbox: React.FunctionComponent<{ children?: JSX.Element }> = ({
     >
       {isVisible ? (
         <div className={"lightbox"}>
-          <LightboxButton addClass={"close"} onClick={_closeLightbox} />
+          <Button
+            className={"btn__lightbox close"}
+            onClick={_closeLightbox}
+            colour={"#333333"}
+            shape={"circle"}
+          >
+            <Icons.Close />
+          </Button>
           <Viewer data={data} initialIndex={initialIndex} />
         </div>
       ) : null}
-
       {children}
     </LightboxContext.Provider>
   );

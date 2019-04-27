@@ -33,36 +33,12 @@
   }
 }
 
-.btn__toggle-nav-global {
+button.btn__nav-global {
   width: 40px;
   height: 40px;
-
-  span {
-    display: block;
-    width: 20px;
-    height: 1px;
-    margin: 3px auto 0;
-    background-color: $white;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
+  padding: 14px 8px;
 
   &.close {
-    span {
-      &:first-child {
-        @include rotate(45deg);
-      }
-
-      &:nth-child(2) {
-        margin-top: -1px;
-        @include rotate(-45deg);
-      }
-
-      &:last-child {
-        display: none;
-      }
-    }
+    padding: 11px;
   }
 }

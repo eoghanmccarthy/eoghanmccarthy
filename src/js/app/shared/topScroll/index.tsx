@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
-import { Button } from "eoghandotio-ui";
+import { Button, Icons } from "eoghandotio-ui";
 
 const TopScroll = () => {
   useEffect(() => {
@@ -26,7 +26,7 @@ const TopScroll = () => {
       tier={"contained"}
       shape={"circle"}
     >
-      <span />
+      <Icons.ScrollUp />
     </Button>
   );
 };

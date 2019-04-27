@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTransition, animated } from "react-spring";
 
-import LightboxButton from "components/lightbox/button";
+import { Button, Icons } from "eoghandotio-ui";
 
 const Viewer: React.FunctionComponent<{
   data: Array<object>;
@@ -53,8 +53,22 @@ const Viewer: React.FunctionComponent<{
   return (
     <div className={"lightbox__viewer"}>
       <div className={"viewer__nav"}>
-        <LightboxButton addClass={"nav__prev"} onClick={() => _shift("prev")} />
-        <LightboxButton addClass={"nav__next"} onClick={() => _shift("next")} />
+        <Button
+          className={"btn__lightbox"}
+          onClick={() => _shift("prev")}
+          colour={"#333333"}
+          shape={"circle"}
+        >
+          <Icons.ArrowLeft />
+        </Button>
+        <Button
+          className={"btn__lightbox"}
+          onClick={() => _shift("next")}
+          colour={"#333333"}
+          shape={"circle"}
+        >
+          <Icons.ArrowRight />
+        </Button>
       </div>
       <div className={"list__slides"}>
         {transitions.map(({ item, props, key }) => slides(props)[item])}

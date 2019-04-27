@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-import { Dialog } from "eoghandotio-ui";
-import NavButton from "components/globalNavigation/button";
+import { Button, Dialog, Icons } from "eoghandotio-ui";
 import List from "components/globalNavigation/list";
 
 const GlobalNavigation: React.FunctionComponent<{}> = () => {
@@ -13,7 +12,15 @@ const GlobalNavigation: React.FunctionComponent<{}> = () => {
 
   return (
     <Fragment>
-      <NavButton onClick={_toggleVisibility} />
+      <Button
+        className={"btn__nav-global"}
+        onClick={_toggleVisibility}
+        colour={"#666666"}
+        tier={"contained"}
+        shape={"circle"}
+      >
+        <Icons.Menu />
+      </Button>
       <Dialog
         id={"navGlobal"}
         className={"nav-global"}
@@ -22,12 +29,15 @@ const GlobalNavigation: React.FunctionComponent<{}> = () => {
         closeDialog={_toggleVisibility}
       >
         <List toggleVisibility={_toggleVisibility} />
-        <NavButton
-          addClass="close"
+        <Button
+          className={"btn__nav-global close"}
           onClick={_toggleVisibility}
           colour={"#343434"}
           tier={"outlined"}
-        />
+          shape={"circle"}
+        >
+          <Icons.Close />
+        </Button>
       </Dialog>
     </Fragment>
   );

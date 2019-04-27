@@ -68,28 +68,22 @@
     }
   }
 
-  .btn__lightbox {
+  button.btn__lightbox {
     z-index: zi(modal) + 1;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+    padding: 0 10px;
 
     @include breakpoint(md) {
       width: 50px;
       height: 50px;
     }
 
-    span {
-      display: block;
-      width: 25px;
-      height: 1px;
-      margin: 0 auto;
-      border-radius: 2px;
-    }
-
     &.close {
       position: absolute;
       top: 15px;
       right: 15px;
+      padding: 15px;
       background-color: rgba(256, 256, 256, 0.25);
 
       @include breakpoint(md) {
@@ -99,55 +93,6 @@
 
       &:hover {
         background-color: rgba(256, 256, 256, 0.9);
-      }
-
-      span {
-        &:first-child {
-          margin-top: 0;
-          @include rotate(-45deg);
-        }
-
-        &:last-child {
-          margin-top: -1px;
-          @include rotate(45deg);
-        }
-      }
-    }
-
-    &.nav__prev,
-    &.nav__next {
-      span {
-        &:first-child {
-          margin-top: 0;
-        }
-
-        &:last-child {
-          margin-top: 16px;
-        }
-      }
-    }
-
-    &.nav__next {
-      span {
-        &:first-child {
-          @include rotate(45deg);
-        }
-
-        &:last-child {
-          @include rotate(-45deg);
-        }
-      }
-    }
-
-    &.nav__prev {
-      span {
-        &:first-child {
-          @include rotate(-45deg);
-        }
-
-        &:last-child {
-          @include rotate(45deg);
-        }
       }
     }
   }
