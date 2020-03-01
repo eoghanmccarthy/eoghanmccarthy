@@ -18,6 +18,7 @@ const GlobalNavigation: React.FunctionComponent<{}> = () => {
         colour={"#666666"}
         tier={"contained"}
         shape={"circle"}
+        size={"small"}
       >
         <Icons.Menu />
       </Button>
@@ -35,6 +36,7 @@ const GlobalNavigation: React.FunctionComponent<{}> = () => {
           colour={"#343434"}
           tier={"outlined"}
           shape={"circle"}
+          size={"small"}
         >
           <Icons.Close />
         </Button>
