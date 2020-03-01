@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/js/index.tsx",
+  entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "/dist"),
     publicPath: "/",
@@ -15,17 +15,13 @@ module.exports = {
     alias: {
       src: path.resolve(__dirname, "src/"),
       assets: path.resolve(__dirname, "src/assets/"),
-      app: path.resolve(__dirname, "src/js/app/"),
-      actions: path.resolve(__dirname, "src/js/app/actions/"),
-      epics: path.resolve(__dirname, "src/js/app/epics/"),
-      shared: path.resolve(__dirname, "src/js/app/shared/"),
-      components: path.resolve(__dirname, "src/js/app/components/"),
-      containers: path.resolve(__dirname, "src/js/app/containers/"),
-      pages: path.resolve(__dirname, "src/js/app/pages/"),
-      reducers: path.resolve(__dirname, "src/js/app/reducers/"),
-      routes: path.resolve(__dirname, "src/js/app/routes/"),
-      selectors: path.resolve(__dirname, "src/js/app/selectors/"),
-      types: path.resolve(__dirname, "src/js/app/types/")
+      app: path.resolve(__dirname, "src/app/"),
+      authentication: path.resolve(__dirname, "src/app/authentication/"),
+      componentLib: path.resolve(__dirname, "src/app/componentLib/"),
+      features: path.resolve(__dirname, "src/app/features/"),
+      global: path.resolve(__dirname, "src/app/global/"),
+      pages: path.resolve(__dirname, "src/app/pages/"),
+      routes: path.resolve(__dirname, "src/app/routes/")
     },
     extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
