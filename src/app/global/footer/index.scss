@@ -1,10 +1,12 @@
-/// Footer
-
 .me__footer {
-  @extend %px-base;
   grid-area: footer;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  padding: 30px;
+}
+
+.me__footer a {
+  margin-top: 15px;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import { Provider } from "react-redux";
+import { Provider, ReactReduxContext } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { ConnectedRouter } from "connected-react-router";
 import createHistory from "history/createBrowserHistory";
@@ -18,12 +18,12 @@ const history = createHistory();
 
 const { store, persistor } = configureStore(initialState, history);
 
-const MOUNT_NODE = document.getElementById("app-root");
+const MOUNT_NODE = document.getElementById("root");
 
 render(
-  <Provider store={store}>
+  <Provider store={store} context={ReactReduxContext}>
     <PersistGate loading={null} persistor={persistor}>
-      <ConnectedRouter history={history}>
+      <ConnectedRouter history={history} context={ReactReduxContext}>
         <ErrorBoundary>
           <App />
         </ErrorBoundary>

@@ -1,5 +1,6 @@
 import produce from "immer";
 
+export const RESET_STORE = "RESET_STORE";
 const AUTH_FETCH_CONFIG = "auth/FETCH_CONFIG";
 const AUTH_FETCH_CONFIG_SUCCESS = "auth/FETCH_CONFIG_SUCCESS";
 const AUTH_FETCH_CONFIG_ERROR = "auth/FETCH_CONFIG_ERROR";
@@ -22,7 +23,7 @@ const reducer = (state = initialState, action) =>
       case AUTH_FETCH_CONFIG_SUCCESS:
         draft.isFetching = false;
         draft.isLoaded = true;
-        draft.data = action.data;
+        draft.data = action.payload;
         return;
       case AUTH_FETCH_CONFIG_ERROR:
         draft.isFetching = false;

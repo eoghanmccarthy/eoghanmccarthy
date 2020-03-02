@@ -1,22 +1,18 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage/session";
-import { connectRouter, routerMiddleware } from "connected-react-router";
-
-import { ajax } from "rxjs/ajax";
+import { routerMiddleware } from "connected-react-router";
 import { createEpicMiddleware } from "redux-observable";
+import { ajax } from "rxjs/ajax";
 
-import rootReducer from "app/reducers";
+import createRootReducer from "app/reducers";
+import { rootEpic } from "app/epics";
 
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["lightbox"]
+  whitelist: [""]
 };
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-import { rootEpic } from "app/epics";
 
 const epicMiddleware = createEpicMiddleware({
   dependencies: { getJSON: ajax.getJSON }
@@ -31,7 +27,8 @@ export default (initialState = {}, history) => {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   const store = createStore(
-    connectRouter(history)(persistedReducer),
+    persistReducer(persistConfig, createRootReducer(history)),
+    undefined,
     composeEnhancers(...enhancers)
   );
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTransition, animated } from "react-spring";
 
-import { Button, Icons } from "eoghandotio-ui";
+import { Button } from "@eoghanmccarthy/ui";
 
 const Viewer: React.FunctionComponent<{
   data: Array<object>;
@@ -59,7 +59,6 @@ const Viewer: React.FunctionComponent<{
           colour={"#333333"}
           shape={"circle"}
         >
-          <Icons.ArrowLeft />
         </Button>
         <Button
           className={"btn__lightbox"}
@@ -67,7 +66,6 @@ const Viewer: React.FunctionComponent<{
           colour={"#333333"}
           shape={"circle"}
         >
-          <Icons.ArrowRight />
         </Button>
       </div>
       <div className={"list__slides"}>

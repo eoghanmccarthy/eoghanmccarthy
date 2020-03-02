@@ -1,34 +1,24 @@
 import React, { useState, useLayoutEffect } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 
-import { selectConfigIsLoaded } from "selectors/config";
-
-import * as configActions from "actions/config";
+import { fetchAuthConfig } from "authentication/redux";
 
 import Routes from "routes";
 
-const App = ({ fetchGlobalConfig, configIsLoaded }) => {
+const App = ({ fetchAuthConfig }) => {
+  const auth = useSelector(state => state.app.authentication);
   const [appReady, setAppReady] = useState(false);
 
   useLayoutEffect(() => {
     _bootstrapAsync();
-  }, [configIsLoaded]);
+  }, [auth.isLoaded]);
 
   const _bootstrapAsync = async () => {
-    configIsLoaded ? setAppReady(true) : fetchGlobalConfig();
+    auth.isLoaded ? setAppReady(true) : fetchAuthConfig();
   };
 
   return !appReady ? null : <Routes />;
 };
 
-const mapStateToProps = state => ({
-  configIsLoaded: selectConfigIsLoaded(state)
-});
-
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(configActions, dispatch);
-};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(connect(null, { fetchAuthConfig })(App));

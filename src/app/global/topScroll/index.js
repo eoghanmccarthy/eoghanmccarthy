@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 
-import { Button, Icons } from "eoghandotio-ui";
+import { Button } from "@eoghanmccarthy/ui";
 
 const TopScroll = () => {
   useEffect(() => {
@@ -14,20 +14,14 @@ const TopScroll = () => {
     };
   });
 
-  const _scrollToTop = () => {
-    scroll.scrollToTop();
-  };
-
   return (
     <Button
       className={`btn__scroll`}
-      onClick={_scrollToTop}
+      onClick={() => scroll.scrollToTop()}
       colour={"#999999"}
       tier={"contained"}
       shape={"circle"}
-    >
-      <Icons.ScrollUp />
-    </Button>
+    />
   );
 };
 

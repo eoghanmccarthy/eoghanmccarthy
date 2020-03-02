@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 
 import { Button, Dialog } from "@eoghanmccarthy/ui";
 
-const GlobalNavigation = ({ history }) => {
+const GlobalNavigation = () => {
   const [showDialog, toggleDialog] = useState(false);
   const open = () => toggleDialog(true);
   const close = () => toggleDialog(false);
@@ -11,50 +11,52 @@ const GlobalNavigation = ({ history }) => {
 
   return (
     <Fragment>
-      <Button
-        className={"btn__nav-global"}
-        onClick={toggle}
-        colour={"#666666"}
-        tier={"contained"}
-        shape={"circle"}
-        size={"small"}
-      />
+      <Button size={"lg"} shape={"circle"} onClick={toggle}>
+        <span />
+        <span />
+      </Button>
       <Dialog
         id={"navGlobal"}
         className={"nav-global"}
         isVisible={showDialog}
-        disableClickableOverlay
         closeDialog={toggle}
       >
-        <List toggleVisibility={toggle} />
+        <ListWithRouter toggleVisibility={toggle} />
         <Button
+          size={"sm"}
+          shape={"circle"}
           className={"btn__nav-global close"}
           onClick={toggle}
-          colour={"#343434"}
-          tier={"outlined"}
-          shape={"circle"}
-          size={"small"}
         />
       </Dialog>
     </Fragment>
   );
 };
 
-export default withRouter(GlobalNavigation);
+export default GlobalNavigation;
 
-const List = ({ toggleVisibility = null }) => {
-  const _route = (route: string) => {
+const data = [
+  {
+    route: "/japan",
+    label: "japan"
+  }
+];
+
+const List = ({ history, toggleVisibility = null }) => {
+  const handleOnClick = route => {
     history.push(route);
     toggleVisibility();
   };
 
   return (
     <nav>
-      {data.map((item: { route: string, label: string }, index: number) => (
-        <a key={index} onClick={() => _route(item.route)}>
+      {data.map((item, index) => (
+        <a key={index} onClick={() => handleOnClick(item.route)}>
           {item.label}
         </a>
       ))}
     </nav>
   );
 };
+
+const ListWithRouter = withRouter(List);
