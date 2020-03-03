@@ -1,18 +1,26 @@
-/// Config
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i");
+@import url("https://fonts.googleapis.com/css?family=Shrikhand");
 
-// Named breakpoints
+:root {
+  --font-primary: "Roboto Mono", sans-serif;
+  --font-secondary: "Shrikhand", sans-serif;
+}
+
+:root {
+  --color-primary: #ff1458;
+  --color-secondary: #0000ff;
+}
+
 $mobile-landscape: 576px;
 $tablet-portrait: 768px;
 $tablet-landscape: 992px;
 $desktop: 1200px;
 
-// Breakpoints
 $bp-sm: #{$mobile-landscape};
 $bp-md: #{$tablet-portrait};
 $bp-lg: #{$tablet-landscape};
 $bp-xl: #{$desktop};
 
-// Breakpoints map
 $breakpoints: (
   sm: $bp-sm,
   md: $bp-md,
@@ -20,26 +28,17 @@ $breakpoints: (
   xl: $bp-xl
 );
 
-// Root font size
 %px-root {
   font-size: 62.5%;
 }
 
-// Base font size and line height
 $base__font-size: 1rem;
 $base__line-height: 1;
 
-// Local font size
 %px-base {
   font-size: $base__font-size;
 }
-// Webfonts
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i");
-@import url("https://fonts.googleapis.com/css?family=Shrikhand");
-// Font stacks
-$base__font-primary: "Roboto Mono", sans-serif;
-$base__font-secondary: "Shrikhand", sans-serif;
-// Font weight
+
 $font-weight: (
   thin: 100,
   light: 300,
@@ -47,8 +46,9 @@ $font-weight: (
   medium: 500,
   bold: 700
 );
-// Margin
+
 $base-margin: 1em;
+
 $margin: (
   xxs: $base-margin / 5,
   xs: $base-margin / 2,

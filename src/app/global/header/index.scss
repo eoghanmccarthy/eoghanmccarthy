@@ -13,19 +13,6 @@
   cursor: pointer;
 }
 
-.me__header button {
-  margin-top: 30px;
-  background-color: #0000ff;
-}
-
-.me__header button span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: white;
-  transform: skew(15deg, 15deg);
-}
-
-.me__header button span:last-child {
-  margin-top: 4px;
+.me__header svg path {
+  fill: var(--color-primary);
 }

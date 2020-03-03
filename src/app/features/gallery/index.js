@@ -8,7 +8,7 @@ const Gallery = ({ listData }) => {
 
   const trail = useTrail(listData.length, {
     config: { ...config.gentle },
-    from: { opacity: 0, y: 320 },
+    from: { opacity: 0, y: 100 },
     to: { opacity: 1, y: 0 },
     delay: 400
   });
@@ -21,7 +21,7 @@ const Gallery = ({ listData }) => {
           className={"media"}
           style={{
             ...rest,
-            transform: y.interpolate(y => `translateY(${y}px)`)
+            transform: y.interpolate(y => `translateY(${y}%)`)
           }}
           onClick={() => lightboxContext.open(listData, index)}
         >

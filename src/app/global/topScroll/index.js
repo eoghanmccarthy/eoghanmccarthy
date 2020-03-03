@@ -16,12 +16,14 @@ const TopScroll = () => {
 
   return (
     <Button
-      className={`btn__scroll`}
-      onClick={() => scroll.scrollToTop()}
-      colour={"#999999"}
-      tier={"contained"}
+      size={"lg"}
       shape={"circle"}
-    />
+      className={"btn-scroll"}
+      onClick={() => scroll.scrollToTop()}
+    >
+      <span />
+      <span />
+    </Button>
   );
 };
 

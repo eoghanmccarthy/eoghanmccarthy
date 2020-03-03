@@ -1,13 +1,13 @@
 import React from "react";
 import { animated, config, interpolate, useSpring } from "react-spring";
 
-import AnimatedLogo from "componentLib/logo";
+import Logo from "componentLib/logo";
 import GlobalNavigation from "global/navigation";
 
 const Header = () => {
   const { height } = useSpring({
     height: location.pathname === "/" ? window.innerHeight : 280,
-    config: { ...config.stiff, clamp: true }
+    config: { mass: 2, tension: 398, friction: 64, clamp: true }
   });
 
   return (
@@ -15,7 +15,7 @@ const Header = () => {
       style={{ height: interpolate([height], h => `${h}px`) }}
       className={"me__header"}
     >
-      <AnimatedLogo />
+      <Logo />
       <GlobalNavigation />
     </animated.header>
   );

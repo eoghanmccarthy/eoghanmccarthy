@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { withRouter } from "react-router";
 
+import "./index.scss";
+
 import { Button, Dialog } from "@eoghanmccarthy/ui";
 
 const GlobalNavigation = () => {
@@ -11,22 +13,22 @@ const GlobalNavigation = () => {
 
   return (
     <Fragment>
-      <Button size={"lg"} shape={"circle"} onClick={toggle}>
+      <Button
+        size={"lg"}
+        shape={"circle"}
+        className={"btn-nav-global"}
+        onClick={open}
+      >
         <span />
         <span />
       </Button>
-      <Dialog
-        id={"navGlobal"}
-        className={"nav-global"}
-        isVisible={showDialog}
-        closeDialog={toggle}
-      >
-        <ListWithRouter toggleVisibility={toggle} />
+      <Dialog id={"nav-global"} isVisible={showDialog} closeDialog={close}>
+        <ListWithRouter closeDialog={close} />
         <Button
-          size={"sm"}
+          size={"lg"}
           shape={"circle"}
-          className={"btn__nav-global close"}
-          onClick={toggle}
+          className={"btn-nav-global"}
+          onClick={close}
         />
       </Dialog>
     </Fragment>
@@ -42,10 +44,10 @@ const data = [
   }
 ];
 
-const List = ({ history, toggleVisibility = null }) => {
+const List = ({ history, closeDialog }) => {
   const handleOnClick = route => {
     history.push(route);
-    toggleVisibility();
+    closeDialog();
   };
 
   return (
