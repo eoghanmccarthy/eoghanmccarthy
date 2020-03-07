@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { withRouter } from "react-router";
+import "./styles.css";
 
 import { fetchAuthConfig } from "authentication/redux";
 

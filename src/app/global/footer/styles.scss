@@ -2,11 +2,7 @@
   grid-area: footer;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding: 30px;
-}
-
-.me__footer a {
-  margin-top: 15px;
+  padding: var( --spacing-md);
 }

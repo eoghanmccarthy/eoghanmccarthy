@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
+import "./styles.scss";
 
 import { Button } from "@eoghanmccarthy/ui";
 

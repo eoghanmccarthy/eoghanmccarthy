@@ -42,7 +42,7 @@
           position: absolute;
           left: 20px;
           bottom: 20px;
-          padding: pd(xxs);
+          padding: .2em;
           color: var(--color-primary);
           font-family: var(--font-secondary);
           font-size: 20px;
@@ -72,7 +72,7 @@
       @media screen and (min-width: 768px) {
         top: 20px;
         right: 20px;
-        padding: 15px;
+        padding: var( --spacing-md);
       }
       &:hover {
         background-color: rgba(256, 256, 256, 0.9);

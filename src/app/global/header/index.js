@@ -1,9 +1,11 @@
 import React from "react";
+import { withRouter } from "react-router";
+import "./styles.scss";
 
 import Logo from "componentLib/logo";
 import GlobalNavigation from "global/navigation";
 
-const Header = () => {
+const Header = ({ location }) => {
   return (
     <header
       style={{ height: location.pathname === "/" ? window.innerHeight : 280 }}
@@ -15,4 +17,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);
