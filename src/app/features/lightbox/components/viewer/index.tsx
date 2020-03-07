@@ -8,9 +8,9 @@ const Viewer: React.FunctionComponent<{
   initialIndex: number;
 }> = ({ data, initialIndex }) => {
   const [lightboxIndex, setLightboxIndex] = useState(initialIndex);
+
   const [shiftValue, setShiftValue] = useState("");
   const transitions = useTransition(lightboxIndex, null, {
-    native: true,
     unique: true,
     initial: null,
     from: {
@@ -54,17 +54,19 @@ const Viewer: React.FunctionComponent<{
     <div className={"lightbox__viewer"}>
       <div className={"viewer__nav"}>
         <Button
+          size={'lg'}
+          shape={"circle"}
           className={"btn__lightbox"}
           onClick={() => _shift("prev")}
           colour={"#333333"}
-          shape={"circle"}
         >
         </Button>
         <Button
+          size={'lg'}
+          shape={"circle"}
           className={"btn__lightbox"}
           onClick={() => _shift("next")}
           colour={"#333333"}
-          shape={"circle"}
         >
         </Button>
       </div>

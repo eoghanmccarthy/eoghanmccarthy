@@ -32,10 +32,11 @@ const Lightbox = ({ children }) => {
       {isVisible ? (
         <div className={"lightbox"}>
           <Button
+            size={"xl"}
+            shape={"circle"}
             className={"btn__lightbox close"}
             onClick={handleClose}
             colour={"#333333"}
-            shape={"circle"}
           />
           <Viewer data={data} initialIndex={initialIndex} />
         </div>

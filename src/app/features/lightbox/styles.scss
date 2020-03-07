@@ -51,9 +51,9 @@
           background-color: rgba(256, 256, 256, 0.95);
           transform-origin: bottom left;
           transform: skewY(-6deg);
-          //@include breakpoint(md) {
-          //  font-size: 38px;
-          //}
+          @media screen and (min-width: 768px) {
+            font-size: 38px;
+          }
         }
       }
     }
