@@ -9,25 +9,24 @@ const GlobalNavigation = () => {
   const [showDialog, toggleDialog] = useState(false);
   const open = () => toggleDialog(true);
   const close = () => toggleDialog(false);
-  const toggle = () => toggleDialog(vis => !vis);
 
   return (
     <Fragment>
       <Button
         size={"lg"}
         shape={"circle"}
-        className={"btn-nav-global"}
+        className={"toggle-global-nav"}
         onClick={open}
       >
         <span />
         <span />
       </Button>
-      <Dialog id={"nav-global"} isVisible={showDialog} closeDialog={close}>
+      <Dialog id={"global-nav"} isVisible={showDialog} closeDialog={close}>
         <ListWithRouter closeDialog={close} />
         <Button
           size={"lg"}
           shape={"circle"}
-          className={"btn-nav-global"}
+          className={"toggle-global-nav"}
           onClick={close}
         />
       </Dialog>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles.scss";
 
 import { Button } from "@eoghanmccarthy/ui";
 import Viewer from "./components/viewer";

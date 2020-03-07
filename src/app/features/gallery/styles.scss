@@ -1,35 +1,26 @@
-/// Media
+.gallery {
+	width: 100%;
+}
 
 .media {
-	@extend %px-base;
 	width: 100%;
 	max-width: 780px;
 	margin: 0 auto;
-
-	@at-root {
-
-		.gallery {
-			width: 100%;
-		}
-	}
-
 	&__content {
 		display: block;
 		width: 100%;
 		margin-bottom: mg(xxs);
 		opacity: 1;
-		transition: all $speed ease;
+		transition: all 0.3s ease;
 		cursor: pointer;
-
 		&:hover {
 			opacity: 0.8;
 		}
 	}
-
 	&__caption {
-		font-size: $base__font-size * 1.6;
-		line-height: $base__line-height * 2;
+		font-size: 16px;
+		line-height: 2;
 		margin: mg(md) 0 mg(sm);
-		border-bottom: 1px solid palette(grey, x-light);
+		border-bottom: 1px solid var(--color-mid-grey);
 	}
 }

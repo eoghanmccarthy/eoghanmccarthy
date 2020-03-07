@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useTrail, animated, config } from "react-spring";
+import "./styles.scss";
 
 import { LightboxContext } from "app/context";
 
