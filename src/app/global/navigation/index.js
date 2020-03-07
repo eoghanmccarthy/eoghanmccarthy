@@ -5,10 +5,16 @@ import "./index.scss";
 
 import { Button, Dialog } from "@eoghanmccarthy/ui";
 
-const GlobalNavigation = () => {
+const GlobalNavigation = ({ history }) => {
   const [showDialog, toggleDialog] = useState(false);
   const open = () => toggleDialog(true);
   const close = () => toggleDialog(false);
+
+  const [next, setNext] = useState([]);
+
+  const handleOnClick = async route => {
+    !next.length && (await setNext([route]));
+  };
 
   return (
     <Fragment>
@@ -21,8 +27,18 @@ const GlobalNavigation = () => {
         <span />
         <span />
       </Button>
-      <Dialog id={"global-nav"} isVisible={showDialog} closeDialog={close}>
-        <ListWithRouter closeDialog={close} />
+      <Dialog
+        id={"global-nav"}
+        isVisible={showDialog}
+        closeDialog={close}
+        onDestroy={() => {
+          if (next.length) {
+            let r = next.shift();
+            history.push(r);
+          }
+        }}
+      >
+        <List onClick={r => handleOnClick(r).then(() => close())} />
         <Button
           size={"lg"}
           shape={"circle"}
@@ -37,7 +53,7 @@ const GlobalNavigation = () => {
   );
 };
 
-export default GlobalNavigation;
+export default withRouter(GlobalNavigation);
 
 const data = [
   {
@@ -46,21 +62,14 @@ const data = [
   }
 ];
 
-const List = ({ history, closeDialog }) => {
-  const handleOnClick = route => {
-    history.push(route);
-    closeDialog();
-  };
-
+const List = ({ onClick }) => {
   return (
     <nav>
       {data.map((item, index) => (
-        <a key={index} tabIndex={"0"} onClick={() => handleOnClick(item.route)}>
+        <a key={index} tabIndex={"0"} onClick={() => onClick(item.route)}>
           {item.label}
         </a>
       ))}
     </nav>
   );
 };
-
-const ListWithRouter = withRouter(List);
