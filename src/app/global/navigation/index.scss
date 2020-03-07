@@ -24,19 +24,31 @@
   }
 }
 
-button.toggle-global-nav {
+button.global-nav {
   margin-top: 30px;
   background-color: var(--color-secondary);
 }
 
-button.toggle-global-nav span {
-  display: block;
+button.global-nav span {
   width: 25px;
   height: 2px;
   background-color: white;
+}
+
+button.global-nav.open span {
   transform: skew(15deg, 15deg);
 }
 
-button.toggle-global-nav span:last-child {
+button.global-nav.open span:last-child {
   margin-top: 4px;
+}
+
+button.global-nav.close span {
+  height: 1px;
+  transform: rotate(45deg);
+}
+
+button.global-nav.close span:last-child {
+  margin-top: -1px;
+  transform: rotate(135deg);
 }

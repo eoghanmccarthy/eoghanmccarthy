@@ -15,7 +15,7 @@ const GlobalNavigation = () => {
       <Button
         size={"lg"}
         shape={"circle"}
-        className={"toggle-global-nav"}
+        className={"global-nav open"}
         onClick={open}
       >
         <span />
@@ -26,9 +26,12 @@ const GlobalNavigation = () => {
         <Button
           size={"lg"}
           shape={"circle"}
-          className={"toggle-global-nav"}
+          className={"global-nav close"}
           onClick={close}
-        />
+        >
+          <span />
+          <span />
+        </Button>
       </Dialog>
     </Fragment>
   );
