@@ -4,10 +4,10 @@ import "./styles.scss";
 
 import { LightboxContext } from "app/context";
 
-const Gallery = ({ listData }) => {
+const Gallery = ({ list }) => {
   const lightboxContext = useContext(LightboxContext);
 
-  const trail = useTrail(listData.length, {
+  const trail = useTrail(list.length, {
     config: { ...config.gentle },
     from: { opacity: 0, y: 100 },
     to: { opacity: 1, y: 0 },
@@ -16,21 +16,19 @@ const Gallery = ({ listData }) => {
 
   return (
     <div className={"gallery"}>
-      {trail.map(({ y, ...rest }, index) => (
+      {trail.map(({ y, ...rest }, i) => (
         <animated.figure
-          key={index}
-          className={"media"}
+          key={i}
           style={{
             ...rest,
             transform: y.interpolate(y => `translateY(${y}%)`)
           }}
-          onClick={() => lightboxContext.open(listData, index)}
+          onClick={() => lightboxContext.open(list, i)}
         >
           <animated.img
             loading={"lazy"}
-            className={"media__content"}
-            src={listData[index].src}
-            title={listData[index].label}
+            src={list[i].src}
+            title={list[i].label}
           />
         </animated.figure>
       ))}

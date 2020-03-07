@@ -5,7 +5,7 @@ import galleries from "app/utils/galleries";
 
 const Japan = () => (
   <main>
-    <Gallery listData={galleries.japan} />
+    <Gallery list={galleries.japan} />
   </main>
 );
 

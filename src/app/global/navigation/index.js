@@ -52,7 +52,7 @@ const List = ({ history, closeDialog }) => {
   return (
     <nav>
       {data.map((item, index) => (
-        <a key={index} onClick={() => handleOnClick(item.route)}>
+        <a key={index} tabIndex={"0"} onClick={() => handleOnClick(item.route)}>
           {item.label}
         </a>
       ))}
