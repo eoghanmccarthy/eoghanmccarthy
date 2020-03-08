@@ -26,7 +26,7 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
           colour={"#333333"}
           onClick={() => {
             setDir("prev");
-            setCurrentIndex(i => i - 1);
+            setCurrentIndex(i => (i - 1 < 0 ? list.length - 1 : i - 1));
           }}
         />
         <Button
@@ -36,7 +36,7 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
           colour={"#333333"}
           onClick={() => {
             setDir("next");
-            setCurrentIndex(i => i + 1);
+            setCurrentIndex(i => (i + 1 > list.length - 1 ? 0 : i + 1));
           }}
         />
       </div>

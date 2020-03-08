@@ -1,5 +1,5 @@
 import React from "react";
-import { useTransition, animated } from "react-spring";
+import { useTransition, animated, config } from "react-spring";
 import "./styles.scss";
 
 import { Button } from "@eoghanmccarthy/ui";
@@ -9,7 +9,8 @@ const Lightbox = ({ currentIndex, setCurrentIndex, isOpen, list, onClose }) => {
   const transitions = useTransition(isOpen, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 }
+    leave: { opacity: 0 },
+    config: config.stiff
   });
 
   return transitions.map(
