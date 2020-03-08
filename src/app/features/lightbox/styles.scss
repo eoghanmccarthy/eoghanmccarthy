@@ -1,4 +1,4 @@
-.lightbox {
+#lightbox {
   display: flex;
   position: fixed;
   z-index: 99;
@@ -8,75 +8,69 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #000000;
-  .lightbox__viewer {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .viewer__nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: 0 10px;
-    }
-    .list__slides {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      .slide {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        will-change: transform;
-        @media screen and (min-width: 768px) {
-          background-size: cover;
-        }
-        .slide__caption {
-          display: block;
-          position: absolute;
-          left: 20px;
-          bottom: 20px;
-          padding: .2em;
-          color: var(--color-primary);
-          font-family: var(--font-secondary);
-          font-size: 20px;
-          text-align: center;
-          line-height: 1;
-          background-color: rgba(256, 256, 256, 0.95);
-          transform-origin: bottom left;
-          transform: skewY(-6deg);
-          @media screen and (min-width: 768px) {
-            font-size: 38px;
-          }
-        }
-      }
+  background-color: white;
+  button {
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.25);
+    &:hover {
+      background-color: rgba(256, 256, 256, 0.9);
     }
   }
-  button.btn__lightbox {
-    z-index: 100;
-    width: 40px;
-    height: 40px;
-    padding: 0 10px;
-    &.close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      padding: 10px;
-      background-color: rgba(256, 256, 256, 0.25);
-      @media screen and (min-width: 768px) {
-        top: 20px;
-        right: 20px;
-        padding: var( --spacing-md);
-      }
-      &:hover {
-        background-color: rgba(256, 256, 256, 0.9);
-      }
+  button.close {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+  }
+}
+
+.lightbox-viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .viewer__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+.lightbox-slides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  @media screen and (min-width: 768px) {
+    background-size: cover;
+  }
+  > span {
+    display: block;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    padding: .2em;
+    color: white;
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    text-align: center;
+    line-height: 1;
+    background-color: var(--color-tertiary);
+    transform-origin: bottom left;
+    transform: skewY(-6deg);
+    @media screen and (min-width: 768px) {
+      font-size: 38px;
     }
   }
 }
