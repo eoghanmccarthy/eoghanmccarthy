@@ -1,12 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useTrail, animated, config } from "react-spring";
 import "./styles.scss";
 
-import { LightboxContext } from "app/context";
-
-const Gallery = ({ list }) => {
-  const lightboxContext = useContext(LightboxContext);
-
+const Gallery = ({ list, onClick }) => {
   const trail = useTrail(list.length, {
     config: { ...config.gentle },
     from: { opacity: 0, y: 100 },
@@ -23,7 +19,7 @@ const Gallery = ({ list }) => {
             ...rest,
             transform: y.interpolate(y => `translateY(${y}%)`)
           }}
-          onClick={() => lightboxContext.open(list, i)}
+          onClick={() => onClick(i)}
         >
           <animated.img
             loading={"lazy"}

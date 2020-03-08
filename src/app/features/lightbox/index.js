@@ -1,48 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
+import { useTransition, animated } from "react-spring";
 import "./styles.scss";
 
 import { Button } from "@eoghanmccarthy/ui";
 import Viewer from "./components/viewer";
 
-import { LightboxContext } from "app/context";
+const Lightbox = ({ currentIndex, setCurrentIndex, isOpen, list, onClose }) => {
+  const transitions = useTransition(isOpen, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 }
+  });
 
-const Lightbox = ({ children }) => {
-  const [isVisible, toggleVisibility] = useState(false);
-  const [data, setData] = useState([]);
-  const [initialIndex, setInitialIndex] = useState(0);
-
-  const handleOpen = async (d, i) => {
-    await setData(d);
-    await setInitialIndex(i);
-    toggleVisibility(!isVisible);
-  };
-
-  const handleClose = async () => {
-    await toggleVisibility(!isVisible);
-    setInitialIndex(0);
-    setData([]);
-  };
-
-  return (
-    <LightboxContext.Provider
-      value={{
-        open: handleOpen
-      }}
-    >
-      {isVisible ? (
-        <div className={"lightbox"}>
+  return transitions.map(
+    ({ item, key, props }) =>
+      item && (
+        <animated.div key={key} style={props} className={"lightbox"}>
           <Button
             size={"xl"}
             shape={"circle"}
             className={"btn__lightbox close"}
-            onClick={handleClose}
+            onClick={onClose}
             colour={"#333333"}
           />
-          <Viewer data={data} initialIndex={initialIndex} />
-        </div>
-      ) : null}
-      {children}
-    </LightboxContext.Provider>
+          <Viewer
+            list={list}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+          />
+        </animated.div>
+      )
   );
 };
 
