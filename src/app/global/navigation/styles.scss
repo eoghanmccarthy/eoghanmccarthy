@@ -42,13 +42,3 @@ button.global-nav.open span {
 button.global-nav.open span:last-child {
   margin-top: 4px;
 }
-
-button.global-nav.close span {
-  height: 1px;
-  transform: rotate(45deg);
-}
-
-button.global-nav.close span:last-child {
-  margin-top: -1px;
-  transform: rotate(135deg);
-}

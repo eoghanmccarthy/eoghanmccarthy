@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { withRouter } from "react-router";
-
-import "./index.scss";
-
 import { Button, Dialog } from "@eoghanmccarthy/ui";
+
+import "./styles.scss";
+
+import * as IconButtons from "componentLib/iconButtons";
 
 const GlobalNavigation = ({ history }) => {
   const [showDialog, toggleDialog] = useState(false);
@@ -39,15 +40,7 @@ const GlobalNavigation = ({ history }) => {
         }}
       >
         <List onClick={r => handleOnClick(r).then(() => close())} />
-        <Button
-          size={"lg"}
-          shape={"circle"}
-          className={"global-nav close"}
-          onClick={close}
-        >
-          <span />
-          <span />
-        </Button>
+        <IconButtons.Close className={"global-nav"} onClick={close} />
       </Dialog>
     </Fragment>
   );

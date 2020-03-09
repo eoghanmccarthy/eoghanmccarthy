@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .viewer__nav {
+  .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,8 +58,8 @@
   > span {
     display: block;
     position: absolute;
-    left: 20px;
-    bottom: 20px;
+    left: var(--spacing-sm);
+    bottom: var(--spacing-sm);
     padding: .2em;
     color: white;
     font-family: var(--font-secondary);

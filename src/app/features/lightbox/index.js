@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useTransition, animated, config } from "react-spring";
+import { Button } from "@eoghanmccarthy/ui";
+
 import "./styles.scss";
 
-import { Button } from "@eoghanmccarthy/ui";
+import * as IconButtons from "componentLib/iconButtons";
 
 const Lightbox = ({ currentIndex, setCurrentIndex, isOpen, list, onClose }) => {
   const transitions = useTransition(isOpen, null, {
@@ -16,12 +18,7 @@ const Lightbox = ({ currentIndex, setCurrentIndex, isOpen, list, onClose }) => {
     ({ item, key, props }) =>
       item && (
         <animated.div id={"lightbox"} key={key} style={props}>
-          <Button
-            size={"xl"}
-            shape={"circle"}
-            className={"close"}
-            onClick={onClose}
-          />
+          <IconButtons.Close onClick={onClose} />
           <Viewer
             list={list}
             currentIndex={currentIndex}
@@ -33,8 +30,6 @@ const Lightbox = ({ currentIndex, setCurrentIndex, isOpen, list, onClose }) => {
 };
 
 export default Lightbox;
-
-const trans = x => `translateX(${x}%)`;
 
 const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
   const [dir, setDir] = useState("");
@@ -49,7 +44,7 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
 
   return (
     <div className={"lightbox-viewer"}>
-      <div className={"viewer__nav"}>
+      <div className={"nav-container"}>
         <Button
           size={"lg"}
           shape={"circle"}
@@ -72,7 +67,7 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
           <animated.div
             key={key}
             style={{
-              transform: props.x.interpolate(trans),
+              transform: props.x.interpolate(x => `translateX(${x}%)`),
               backgroundImage: `url(${list[item].src})`
             }}
             className={`lightbox-slide`}
