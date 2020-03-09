@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTransition, animated, config } from "react-spring";
+import shortid from "shortid";
 import { Button } from "@eoghanmccarthy/ui";
 
 import "./styles.scss";
@@ -49,9 +50,9 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
   const transitions = useTransition(currentIndex, null, {
     unique: true,
     initial: null,
-    from: { x: dir === "next" ? +100 : -100 },
+    from: { x: dir.startsWith("n") ? +100 : -100 },
     enter: { x: 0 },
-    leave: { x: dir === "next" ? -100 : +100 }
+    leave: { x: dir.startsWith("n") ? -100 : +100 }
   });
 
   useKeyDownEvent(e => {
@@ -67,15 +68,18 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
     }
   });
 
-  const handlePrev = () => {
-    setDir("prev");
-    setCurrentIndex(i => (i - 1 < 0 ? list.length - 1 : i - 1));
-  };
+  useEffect(() => {
+    if (dir.startsWith("p")) {
+      setCurrentIndex(i => (i - 1 < 0 ? list.length - 1 : i - 1));
+    }
 
-  const handleNext = () => {
-    setDir("next");
-    setCurrentIndex(i => (i + 1 > list.length - 1 ? 0 : i + 1));
-  };
+    if (dir.startsWith("n")) {
+      setCurrentIndex(i => (i + 1 > list.length - 1 ? 0 : i + 1));
+    }
+  }, [dir]);
+
+  const handlePrev = () => setDir(`p${shortid.generate()}`);
+  const handleNext = () => setDir(`n${shortid.generate()}`);
 
   return (
     <div className={"lightbox-viewer"}>
