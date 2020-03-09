@@ -3,13 +3,11 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 
 import authentication from "authentication/redux";
-import lightbox from "features/lightbox/redux";
 
 import { RESET_STORE } from "authentication/redux";
 
 const appReducer = combineReducers({
-  authentication,
-  lightbox
+  authentication
 });
 
 const rootReducer = (state, action) => {
