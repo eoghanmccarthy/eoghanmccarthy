@@ -4,6 +4,8 @@ import { Button } from "@eoghanmccarthy/ui";
 
 import "./styles.scss";
 
+import useKeyDownEvent from "features/lightbox/useKeyDownEvent";
+
 import * as IconButtons from "componentLib/iconButtons";
 
 const Lightbox = ({ currentIndex, setCurrentIndex, isOpen, list, onClose }) => {
@@ -12,6 +14,16 @@ const Lightbox = ({ currentIndex, setCurrentIndex, isOpen, list, onClose }) => {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: config.stiff
+  });
+
+  useKeyDownEvent(e => {
+    switch (e.code) {
+      case "Escape":
+        onClose();
+        break;
+      default:
+        break;
+    }
   });
 
   return transitions.map(
@@ -42,25 +54,34 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
     leave: { x: dir === "next" ? -100 : +100 }
   });
 
+  useKeyDownEvent(e => {
+    switch (e.code) {
+      case "ArrowLeft":
+        handlePrev();
+        break;
+      case "ArrowRight":
+        handleNext();
+        break;
+      default:
+        break;
+    }
+  });
+
+  const handlePrev = () => {
+    setDir("prev");
+    setCurrentIndex(i => (i - 1 < 0 ? list.length - 1 : i - 1));
+  };
+
+  const handleNext = () => {
+    setDir("next");
+    setCurrentIndex(i => (i + 1 > list.length - 1 ? 0 : i + 1));
+  };
+
   return (
     <div className={"lightbox-viewer"}>
       <div className={"nav-container"}>
-        <Button
-          size={"lg"}
-          shape={"circle"}
-          onClick={() => {
-            setDir("prev");
-            setCurrentIndex(i => (i - 1 < 0 ? list.length - 1 : i - 1));
-          }}
-        />
-        <Button
-          size={"lg"}
-          shape={"circle"}
-          onClick={() => {
-            setDir("next");
-            setCurrentIndex(i => (i + 1 > list.length - 1 ? 0 : i + 1));
-          }}
-        />
+        <Button size={"lg"} shape={"circle"} onClick={handlePrev} />
+        <Button size={"lg"} shape={"circle"} onClick={handleNext} />
       </div>
       <div className={"lightbox-slides"}>
         {transitions.map(({ item, props, key }) => (
