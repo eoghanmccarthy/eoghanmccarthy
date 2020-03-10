@@ -21,11 +21,13 @@
     top: var(--spacing-sm);
     right: var(--spacing-sm);
   }
-  .ui-button.prev span {
-    transform: rotate(45deg);
+  .ui-button.prev {
+    align-items: flex-start;
+    padding-left: 10px;
   }
-  .ui-button.next span {
-    transform: rotate(135deg);
+  .ui-button.next {
+    align-items: flex-end;
+    padding-right: 10px;
   }
 }
 

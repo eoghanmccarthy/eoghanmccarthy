@@ -33,7 +33,7 @@ const data = {
       label: "izu, japan"
     },
   ],
-  other: [
+  etc: [
     {
       src: require("assets/images/IMG_4006.jpg"),
       label: "tokyo, japan"

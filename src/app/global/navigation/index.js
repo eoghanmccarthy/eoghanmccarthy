@@ -54,8 +54,8 @@ const data = [
     label: "japan"
   },
   {
-    route: "/other",
-    label: "other"
+    route: "/etc",
+    label: "etc"
   }
 ];
 

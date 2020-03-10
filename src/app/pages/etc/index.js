@@ -5,14 +5,14 @@ import Lightbox from "features/lightbox";
 
 import galleries from "app/utils/galleries";
 
-const Japan2 = () => {
+const Etc = () => {
   const [isOpen, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <Fragment>
       <Gallery
-        list={galleries.other}
+        list={galleries.etc}
         onClick={index => {
           setCurrentIndex(index);
           setOpen(true);
@@ -23,10 +23,10 @@ const Japan2 = () => {
         setCurrentIndex={setCurrentIndex}
         isOpen={isOpen}
         onClose={() => setOpen(false)}
-        list={galleries.other}
+        list={galleries.etc}
       />
     </Fragment>
   );
 };
 
-export default Japan2;
+export default Etc;
