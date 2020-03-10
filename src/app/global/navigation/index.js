@@ -55,7 +55,7 @@ const data = [
   },
   {
     route: "/etc",
-    label: "etc"
+    label: "..."
   }
 ];
 
