@@ -5,11 +5,15 @@
   align-items: center;
   overflow: visible;
   > nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 20px 0;
     > a {
+      margin-bottom: var(--spacing-sm);
       color: var(--color-tertiary);
       font-size: 2.5rem;
-      line-height: 1.2;
+      line-height: 1;
       font-family: var(--font-secondary);
       text-transform: lowercase;
       letter-spacing: 5px;

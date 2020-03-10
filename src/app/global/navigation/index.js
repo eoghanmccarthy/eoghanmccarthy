@@ -52,6 +52,10 @@ const data = [
   {
     route: "/japan",
     label: "japan"
+  },
+  {
+    route: "/other",
+    label: "other"
   }
 ];
 
