@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTransition, animated, config } from "react-spring";
 import shortid from "shortid";
-import { Button } from "@eoghanmccarthy/ui";
 
 import "./styles.scss";
 
@@ -82,12 +81,16 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
   const handleNext = () => setDir(`n${shortid.generate()}`);
 
   return (
-    <div className={"lightbox-viewer"}>
+    <div id={"lightbox-viewer"}>
       <div className={"nav-container"}>
-        <Button size={"lg"} shape={"circle"} onClick={handlePrev} />
-        <Button size={"lg"} shape={"circle"} onClick={handleNext} />
+        <IconButtons.Base className={"prev"} onClick={handlePrev}>
+          <span />
+        </IconButtons.Base>
+        <IconButtons.Base className={"next"} onClick={handleNext}>
+          <span />
+        </IconButtons.Base>
       </div>
-      <div className={"lightbox-slides"}>
+      <div id={"lightbox-slides"}>
         {transitions.map(({ item, props, key }) => (
           <animated.div
             key={key}
