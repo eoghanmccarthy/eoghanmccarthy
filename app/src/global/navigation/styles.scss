@@ -1,0 +1,48 @@
+#global-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  > nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 16px 0;
+    > a {
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-tertiary);
+      font-size: 2.5rem;
+      line-height: 1;
+      font-family: var(--font-secondary);
+      text-transform: lowercase;
+      letter-spacing: 5px;
+      @media (min-width: 30em) {
+        font-size: calc(2.5rem + ((1vw - 0.30rem) * 2.5));
+        /* Where: * 2.5 = 100 * font size difference / viewport width difference */
+      }
+      @media (min-width: 80em) {
+        font-size: 3.75rem;
+      }
+    }
+  }
+}
+
+button.global-nav {
+  margin-top: 16px;
+  background-color: var(--color-secondary);
+}
+
+button.global-nav span {
+  width: 25px;
+  height: 2px;
+  background-color: white;
+}
+
+button.global-nav.open span {
+  transform: skew(15deg, 15deg);
+}
+
+button.global-nav.open span:last-child {
+  margin-top: 4px;
+}
