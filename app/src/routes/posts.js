@@ -36,15 +36,12 @@ const Posts = () => (
         <Route exact path={`/posts`} render={() => null} />
         {postsData.map((post) => {
           const { id, slug } = post;
-          const Component = contentImports[post.content];
 
           return (
             <Route
               key={id}
               path={`/posts/${slug}`}
-              render={() => (
-                <Post post={post}>{Component ? <Component /> : null}</Post>
-              )}
+              render={() => <Post post={post} />}
             />
           );
         })}

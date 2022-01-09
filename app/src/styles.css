@@ -24,12 +24,12 @@
 }
 
 .me.content {
-	grid-template-rows: min-content auto min-content;
-	grid-template-columns: min-content auto;
+	grid-template-rows: 280px auto 140px;
+	grid-template-columns: 2fr 3fr;
 	grid-template-areas:
         "header main"
         "sidebar main"
-		"sidebar footer";
+		"footer footer";
 }
 
 .me__header {
@@ -38,7 +38,6 @@
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	height: 280px;
 	padding: 24px;
 }
 
@@ -58,13 +57,11 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	height: 140px;
 	padding: var( --spacing-md);
 }
 
 .me__sidebar {
 	grid-area: sidebar;
-	width: 220px;
 	background-color: white;
 }
 

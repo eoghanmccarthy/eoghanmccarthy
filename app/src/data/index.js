@@ -129,7 +129,7 @@ export const posts = [
     id: "6",
     title: "yamanote line video",
     slug: "yamanote-line-video",
-    text: "a video taken on the yamanote subway line, tokyo, 2021",
+    text: "a video taken from the yamanote subway line, tokyo, 2021",
     media: [
       {
         type: "video",
