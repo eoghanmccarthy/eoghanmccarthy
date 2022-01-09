@@ -78,14 +78,27 @@
 	flex-direction: column;
 }
 
-.media video {
+.gallery video {
 	width: 100%;
 	max-width: 780px;
 	margin: 0;
 }
 
-.media figure {
+.gallery figure {
 	width: 100%;
 	max-width: 780px;
 	margin: 0;
+}
+
+.gallery figure img  {
+	display: block;
+	width: 100%;
+	margin-bottom: 5px;
+	opacity: 1;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.gallery figure img:hover  {
+	opacity: 0.8;
 }

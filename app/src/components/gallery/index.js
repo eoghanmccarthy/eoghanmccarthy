@@ -1,6 +1,5 @@
 import React from "react";
 import { useTrail, animated, config } from "react-spring";
-import "./styles.scss";
 
 const Gallery = ({ list, onClick }) => {
   const trail = useTrail(list.length, {
@@ -24,9 +23,9 @@ const Gallery = ({ list, onClick }) => {
             onClick={() => onClick(i)}
           >
             {type === "image" ? (
-              <animated.img loading={"lazy"} src={src} title={label} />
+              <img width="780" loading={"lazy"} src={src} title={label} />
             ) : type === "video" ? (
-              <video width="400" src={src} controls autoPlay />
+              <video width="780" src={src} controls autoPlay />
             ) : null}
           </animated.figure>
         );
