@@ -94,7 +94,7 @@ export const posts = [
   },
   {
     id: "FeEr0YMe",
-    title: "chinese year",
+    title: "chinese zodiac",
     text: "Tiger",
   },
   {

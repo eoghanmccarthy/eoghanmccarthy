@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTransition, animated, config } from "react-spring";
-import shortid from "shortid";
+import { generateId } from "../../utils/generateId";
 
 import "./styles.scss";
 
@@ -77,8 +77,8 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
     }
   }, [dir]);
 
-  const handlePrev = () => setDir(`p${shortid.generate()}`);
-  const handleNext = () => setDir(`n${shortid.generate()}`);
+  const handlePrev = () => setDir(`p${generateId()}`);
+  const handleNext = () => setDir(`n${generateId()}`);
 
   return (
     <div id={"lightbox-viewer"}>
