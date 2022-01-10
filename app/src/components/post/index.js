@@ -1,20 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
 import "./styles.css";
 
 import Media from "../media";
 
-export const Post = ({ children, post }) => {
-  const { id, text, content } = post;
-  return (
-    <article data-post-id={id} className={"me__post"}>
-      <Media post={post} />
-      {children}
-      <span dangerouslySetInnerHTML={{ __html: text.toLowerCase() }} />
-    </article>
-  );
-};
+import { useGetPost } from "../../utils/api";
 
-Post.propTypes = {
-  post: PropTypes.shape({ description: PropTypes.string }).isRequired,
+export const Post = () => {
+  const { postId } = useParams();
+  const { data } = useGetPost({ postId });
+
+  return data ? (
+    <article data-post-id={data.id} className={"me__post"}>
+      <Media post={data} />
+      <span dangerouslySetInnerHTML={{ __html: data.text.toLowerCase() }} />
+    </article>
+  ) : null;
 };

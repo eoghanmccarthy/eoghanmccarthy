@@ -24,7 +24,7 @@ const Posts = () => (
         {postsData.map((post) => {
           const { id, slug, title } = post;
           return (
-            <NavLink key={id} to={`/posts/${slug.toLowerCase()}`}>
+            <NavLink key={id} to={`/posts/${id}`}>
               {title}
             </NavLink>
           );
@@ -34,17 +34,7 @@ const Posts = () => (
     <Main>
       <Switch>
         <Route exact path={`/posts`} render={() => null} />
-        {postsData.map((post) => {
-          const { id, slug } = post;
-
-          return (
-            <Route
-              key={id}
-              path={`/posts/${slug}`}
-              render={() => <Post post={post} />}
-            />
-          );
-        })}
+        <Route exact path={`/posts/:postId`} render={() => <Post />} />
       </Switch>
     </Main>
     <Footer />
