@@ -84,8 +84,13 @@ button.global-nav.open span:last-child {
 	margin-top: 4px;
 }
 
+.side-nav {
+	display: flex;
+	flex-direction: column;
+}
+
 .side-nav a {
-	display: block;
+	width: max-content;
 }
 
 .side-nav a:not(:last-child) {
