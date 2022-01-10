@@ -22,12 +22,16 @@ const Posts = () => (
     <Sidebar>
       <nav className={"side-nav"}>
         {postsData.map((post) => {
-          const { id, slug, title } = post;
-          return (
-            <NavLink key={id} to={`/posts/${id}`}>
-              {title}
-            </NavLink>
-          );
+          const { id, status, title } = post;
+          if (status !== "draft") {
+            return (
+              <NavLink key={id} to={`/posts/${id}`}>
+                {title}
+              </NavLink>
+            );
+          } else {
+            return null;
+          }
         })}
       </nav>
     </Sidebar>

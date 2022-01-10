@@ -4,7 +4,7 @@ export const posts = [
   {
     id: "6n1EOTol",
     title: "japan with canon kiss x3",
-    text: "some shots in japan taken with a canon kiss x3",
+    text: "some shots in japan taken with a canon kiss x3.",
     media: [
       {
         type: "image",
@@ -83,7 +83,7 @@ export const posts = [
   {
     id: "2ovZOQmQ",
     title: "baseball game in tokyo, japan",
-    text: "a baseball game in tokyo, japan",
+    text: "a baseball game in tokyo, japan.",
     media: [
       {
         type: "image",
@@ -100,7 +100,7 @@ export const posts = [
   {
     id: "OdOcgBi7",
     title: "ai weiwei in london",
-    text: `ai weiwei exhibition in piccadilly circus, <mark>london, 2020</mark>.`,
+    text: `ai weiwei exhibition in piccadilly circus, <mark>london, uk, 2020</mark>.`,
     media: [
       {
         type: "image",
@@ -112,7 +112,7 @@ export const posts = [
   {
     id: "UOcuwt3P",
     title: "cherry blossoms along meguro river",
-    text: `a row of cherry blossoms along the meguro river, <mark>tokyo, 2021</mark>.`,
+    text: `a row of cherry blossoms along the meguro river, <mark>tokyo, japan, 2021</mark>.`,
     media: [
       {
         type: "image",
@@ -124,7 +124,7 @@ export const posts = [
   {
     id: "YaMAaXIz",
     title: "yamanote line video",
-    text: `video taken from the yamanote subway line, <mark>tokyo, 2021</mark>.`,
+    text: `video taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.`,
     media: [
       {
         type: "video",
@@ -136,7 +136,7 @@ export const posts = [
   {
     id: "KS0IgMLJ",
     title: "shibuya crossing yamanote line video",
-    text: `video of shibuya crossing taken from the yamanote subway line, <mark>tokyo, 2021</mark>.`,
+    text: `video of shibuya crossing taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.`,
     media: [
       {
         type: "video",
@@ -148,8 +148,7 @@ export const posts = [
   {
     id: "DgBgHDXP",
     title: "narita airport quarantine hotel view",
-    text: `view from narita airport quarantine hotel, <mark>tokyo,
-        2021</mark>.`,
+    text: `view from narita airport quarantine hotel, <mark>tokyo, japan, 2021</mark>.`,
     media: [
       {
         type: "image",
@@ -167,6 +166,51 @@ export const posts = [
         type: "image",
         src: require("assets/images/tb-logo-blue.png"),
         label: "theseboys logo",
+      },
+    ],
+  },
+  {
+    id: "TW92JnS4",
+    title: "wedding in nagano",
+    text: `a wedding in <mark>nagano, japan, 2004</mark>.`,
+    media: [
+      {
+        type: "image",
+        src: require("app/assets/images/2004-12-23 13.09.20-12.jpg"),
+        label: "nagano, japan",
+      },
+      {
+        type: "image",
+        src: require("app/assets/images/2004-12-23 13.09.11-5.jpg"),
+        label: "nagano, japan",
+      },
+      {
+        type: "image",
+        src: require("assets/images/2004-12-23 13.09.04-10.jpg"),
+        label: "nagano, japan",
+      },
+      {
+        type: "image",
+        src: require("app/assets/images/2004-12-23 13.09.14-9.jpg"),
+        label: "nagano, japan",
+      },
+      {
+        type: "image",
+        src: require("app/assets/images/2004-12-23 13.09.23-7.jpg"),
+        label: "nagano, japan",
+      },
+    ],
+  },
+  {
+    id: "EwqvVAsK",
+    status: "draft",
+    title: "snow hokkaido",
+    text: `video of snow, <mark>hokkaido, japan</mark>.`,
+    media: [
+      {
+        type: "video",
+        src: require("assets/video/final_61dc61552423620030ff7823_211763.mp4"),
+        label: "hokkaido, japan",
       },
     ],
   },

@@ -27,22 +27,3 @@
     }
   }
 }
-
-button.global-nav {
-  margin-top: 16px;
-  background-color: var(--color-secondary);
-}
-
-button.global-nav span {
-  width: 25px;
-  height: 2px;
-  background-color: white;
-}
-
-button.global-nav.open span {
-  transform: skew(15deg, 15deg);
-}
-
-button.global-nav.open span:last-child {
-  margin-top: 4px;
-}

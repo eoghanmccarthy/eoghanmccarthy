@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Logo from "components/logo";
-import GlobalNavigation from "global/navigation";
+import Navigation from "components/navigation";
 
 export const Header = () => {
   const history = useHistory();
@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <header className={"me__header"}>
       <Logo onClick={() => history.push("/")} />
-      <GlobalNavigation />
+      <Navigation />
     </header>
   );
 };

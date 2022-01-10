@@ -44,7 +44,12 @@ a {
 	color: var(--color-mid-grey);
 	text-decoration: none;
 	letter-spacing: 0.1em;
-	&:hover {
-		text-decoration: none;
-	}
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a.active, a:hover {
+	color: black;
 }

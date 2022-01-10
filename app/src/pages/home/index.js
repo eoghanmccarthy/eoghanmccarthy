@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { Main } from "components/layout";
 import Logo from "components/animatedLogo";
-import GlobalNavigation from "global/navigation";
+import Navigation from "components/navigation";
 
 const Page = () => {
   const history = useHistory();
@@ -12,7 +12,7 @@ const Page = () => {
     <div className={"me index"}>
       <Main>
         <Logo onClick={() => history.push("/")} />
-        <GlobalNavigation />
+        <Navigation />
       </Main>
     </div>
   );
