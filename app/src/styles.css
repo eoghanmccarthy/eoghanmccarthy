@@ -89,10 +89,6 @@ button.global-nav.open span:last-child {
 	flex-direction: column;
 }
 
-.side-nav a {
-	width: max-content;
-}
-
 .side-nav a:not(:last-child) {
 	margin-bottom: 0.5ch;
 }
