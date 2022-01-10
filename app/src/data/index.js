@@ -214,4 +214,16 @@ export const posts = [
       },
     ],
   },
+  {
+    id: "n5VaX4Sg",
+    title: "breakfast on elbrus",
+    text: `breakfast on mount elbrus, <mark>russia, 2006</mark>.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/ELBRUS_2006_04.jpg"),
+        label: "mount elbrus, russia",
+      },
+    ],
+  },
 ];
