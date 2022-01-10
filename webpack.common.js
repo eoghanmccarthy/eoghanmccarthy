@@ -10,7 +10,6 @@ module.exports = {
     path: path.join(__dirname, "/dist"),
     publicPath: "/",
     assetModuleFilename: "assets/[hash][ext]",
-    clean: true,
   },
   devtool: "source-map",
   resolve: {
