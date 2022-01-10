@@ -36,7 +36,7 @@
     "axios": "^0.18.1",
     "classnames": "^2.2.6",
     "history": "^4.7.2",
-    "immer": "^1.10.0",
+    "immer": "^9.0.6",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-query": "^3.34.7",
