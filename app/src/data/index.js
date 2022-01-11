@@ -227,6 +227,18 @@ export const posts = [
     ],
   },
   {
+    id: "5AWKtaN7",
+    title: "flower shop in tokyo",
+    text: `a flower shop in <mark>tokyo, japan, 2021</mark>.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/IMG_6914.jpg"),
+        label: `tokyo, japan`,
+      },
+    ],
+  },
+  {
     id: "umIfb1wj",
     title: "flashing gif",
     text: `flashing gif.`,
