@@ -104,6 +104,21 @@ export const posts = [
     media: [
       {
         type: "image",
+        src: require("assets/images/IMG_3370.jpg"),
+        label: "london, uk",
+      },
+      {
+        type: "image",
+        src: require("assets/images/IMG_3353.jpg"),
+        label: "london, uk",
+      },
+      {
+        type: "image",
+        src: require("assets/images/IMG_3371.jpg"),
+        label: "london, uk",
+      },
+      {
+        type: "image",
         src: require("assets/images/IMG_2836.jpg"),
         label: "london, uk",
       },

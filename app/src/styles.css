@@ -138,12 +138,12 @@ button.global-nav.open span:last-child {
 	width: 100%;
 	opacity: 1;
 	transition: all 0.3s ease;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 
-.gallery figure img:hover  {
-	opacity: 0.8;
-}
+/*.gallery figure img:hover  {*/
+/*	opacity: 0.8;*/
+/*}*/
 
 button.btn-scroll {
 	background-color: var(--color-secondary);
