@@ -109,7 +109,7 @@ export const posts = [
       },
       {
         type: "image",
-        src: require("assets/images/IMG_3353.jpg"),
+        src: require("assets/images/IMG_2836.jpg"),
         label: "london, uk",
       },
       {
@@ -119,7 +119,7 @@ export const posts = [
       },
       {
         type: "image",
-        src: require("assets/images/IMG_2836.jpg"),
+        src: require("assets/images/IMG_3353.jpg"),
         label: "london, uk",
       },
     ],
@@ -161,6 +161,19 @@ export const posts = [
     ],
   },
   {
+    id: "MKC7CpU0",
+    status: "draft",
+    title: "los angeles itinerary",
+    text: `itinerary for short stay in <mark>los angeles, usa, 2003</mark>.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/Screenshot 2022-01-11 at 22.31.40.png"),
+        label: "los angeles, usa",
+      },
+    ],
+  },
+  {
     id: "DgBgHDXP",
     title: "narita airport quarantine hotel view",
     text: `view from narita airport quarantine hotel, <mark>tokyo, japan, 2021</mark>.`,
@@ -192,11 +205,6 @@ export const posts = [
       {
         type: "image",
         src: require("app/assets/images/2004-12-23 13.09.20-12.jpg"),
-        label: "nagano, japan",
-      },
-      {
-        type: "image",
-        src: require("app/assets/images/2004-12-23 13.09.11-5.jpg"),
         label: "nagano, japan",
       },
       {
