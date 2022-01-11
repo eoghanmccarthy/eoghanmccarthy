@@ -3,6 +3,7 @@ import { Switch, Route, NavLink } from "react-router-dom";
 
 import { Footer, Header, Main, Sidebar } from "components/layout";
 import { Post } from "components/post";
+import ScrollToTop from "components/scrollToTop";
 
 import { posts as postsData } from "src/data";
 
@@ -36,10 +37,12 @@ const Posts = () => (
       </nav>
     </Sidebar>
     <Main>
-      <Switch>
-        <Route exact path={`/posts`} render={() => null} />
-        <Route exact path={`/posts/:postId`} render={() => <Post />} />
-      </Switch>
+      <ScrollToTop>
+        <Switch>
+          <Route exact path={`/posts`} render={() => null} />
+          <Route exact path={`/posts/:postId`} render={() => <Post />} />
+        </Switch>
+      </ScrollToTop>
     </Main>
     <Footer />
   </div>
