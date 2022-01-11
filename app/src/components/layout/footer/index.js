@@ -10,7 +10,7 @@ export const Footer = () => {
     config: { ...config.gentle },
     to: { opacity: 1 },
     from: { opacity: 0 },
-    delay: 500,
+    delay: 250,
   });
 
   useEffect(() => {
