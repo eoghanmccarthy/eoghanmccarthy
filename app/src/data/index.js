@@ -226,4 +226,16 @@ export const posts = [
       },
     ],
   },
+  {
+    id: "umIfb1wj",
+    title: "flashing gif",
+    text: `flashing gif.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/flashing-logo.gif"),
+        label: "flashing gif",
+      },
+    ],
+  },
 ];
