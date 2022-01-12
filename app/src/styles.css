@@ -160,3 +160,8 @@ button.btn-scroll span {
 button.btn-scroll span:last-child {
 	margin-top: 4px;
 }
+
+mark.dark {
+	background-color: black;
+	color: white;
+}
