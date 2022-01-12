@@ -205,7 +205,7 @@ export const posts = [
   {
     id: "WfO7R3Kk",
     title: "japan japan",
-    text: `japan japan.`,
+    text: `japan japan photo collage.`,
     media: [
       {
         type: "image",
