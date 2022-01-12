@@ -168,7 +168,7 @@ export const posts = [
     media: [
       {
         type: "image",
-        src: require("assets/images/Screenshot 2022-01-11 at 22.31.40.png"),
+        src: require("assets/images/Screenshot 2022-01-11 at 23.18.47.png"),
         label: "los angeles, usa",
       },
     ],
@@ -194,6 +194,18 @@ export const posts = [
         type: "image",
         src: require("assets/images/tb-logo-blue.png"),
         label: "theseboys logo",
+      },
+    ],
+  },
+  {
+    id: "WfO7R3Kk",
+    title: "japan japan",
+    text: `japan japan.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/japan-japan-03.jpg"),
+        label: "japan",
       },
     ],
   },
@@ -274,3 +286,8 @@ export const posts = [
     ],
   },
 ];
+
+console.log(
+  "number of published posts",
+  posts.filter((p) => p.status !== "draft").length
+);
