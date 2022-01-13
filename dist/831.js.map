@@ -1,1 +1,0 @@
-{"version":3,"file":"831.js","mappings":"0IAMA,UAJoB,WAClB,OAAO","sources":["webpack://eoghanmccarthy/./app/src/content/ChineseYear/index.js"],"sourcesContent":["import React from \"react\";\n\nconst ChineseYear = () => {\n  return <div>tttiiiiiger</div>;\n};\n\nexport default ChineseYear;\n"],"names":[],"sourceRoot":""}
