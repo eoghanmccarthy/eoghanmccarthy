@@ -9,13 +9,13 @@ import { posts as postsData } from "src/data";
 
 const contentImports = {};
 
-postsData.forEach((post) => {
-  if (post.content) {
-    contentImports[post.content] = lazy(() =>
-      import(`../content/${post.content}`)
-    );
-  }
-});
+// postsData.forEach((post) => {
+//   if (post.content) {
+//     contentImports[post.content] = lazy(() =>
+//       import(`../content/${post.content}`)
+//     );
+//   }
+// });
 
 const Posts = () => (
   <div className={"me content"}>

@@ -6,7 +6,7 @@ import { ErrorBoundary } from "@eoghanmccarthy/ui";
 
 import App from "./routes";
 
-import "./styles.scss";
+import "./styles.css";
 
 const MOUNT_NODE = document.getElementById("root");
 

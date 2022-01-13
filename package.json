@@ -1,12 +1,12 @@
 {
-  "name": "eoghanmccarthy",
+  "name": "projects",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "start": "cd apps && cd eoghanmccarthy && npm run start",
     "build": "cd apps && cd eoghanmccarthy && npm run build",
-    "start eoghan": "cd apps && cd eoghan && npm run start",
-    "build eoghan": "cd apps && cd eoghan && npm run build",
+    "start-eoghan": "cd apps && cd eoghan && npm run start",
+    "build-eoghan": "cd apps && cd eoghan && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -46,6 +46,7 @@
     "react-router-dom": "^5.1.2",
     "react-scroll": "^1.7.10",
     "react-spring": "^8.0.19",
+    "react-with-gesture": "^4.0.8",
     "reselect": "^4.0.0"
   },
   "devDependencies": {

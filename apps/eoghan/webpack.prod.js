@@ -1,32 +1,49 @@
 const webpack = require("webpack");
-const merge = require("webpack-merge");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { merge } = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   mode: "production",
-  devtool: "source-map",
+  output: {
+    filename: "[name].[contenthash].bundle.js",
+    chunkFilename: "[id].js",
+    clean: true,
+  },
+  optimization: {
+    minimize: true,
+    minimizer: ["...", new CssMinimizerPlugin()],
+    moduleIds: "deterministic",
+    runtimeChunk: "single",
+    splitChunks: {
+      //https://webpack.js.org/plugins/split-chunks-plugin/#split-chunks-example-2
+      //https://webpack.js.org/plugins/split-chunks-plugin/#split-chunks-example-3
+      chunks: "all",
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
+  },
   plugins: [
-    new CleanWebpackPlugin("dist", {}),
-    new CopyWebpackPlugin(["./src/public"]),
-    new CopyWebpackPlugin([
-      {
-        from: "src/data/config.json",
-        to: "data/config",
-        toType: "file",
-      },
-    ]),
-    new UglifyJSPlugin({
-      sourceMap: true,
-      uglifyOptions: {
-        ecma: 8,
-        warnings: false,
-        mangle: true,
-      },
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "./public" },
+        {
+          from: "data/config.json",
+          to: "data/config",
+          toType: "file",
+        },
+      ],
     }),
-    new OptimizeCSSAssetsPlugin({}),
+    new webpack.ProgressPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+    }),
   ],
 });

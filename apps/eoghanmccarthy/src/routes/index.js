@@ -3,8 +3,6 @@ import { Switch, Route } from "react-router-dom";
 
 const Home = lazy(() => import("pages/home"));
 
-import styles from "./styles.css";
-
 import Posts from "./posts";
 
 const Routes = () => (

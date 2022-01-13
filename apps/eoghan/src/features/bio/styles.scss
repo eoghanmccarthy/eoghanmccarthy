@@ -1,0 +1,72 @@
+#bio {
+  display: grid;
+  grid-template-rows: auto auto 100px;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  .bio__header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    border-bottom: 1px solid grey;
+    transform-origin: bottom left;
+    transform: skewX(-8deg);
+    h1 {
+      width: calc(100% - 30px);
+      color: white;
+    }
+  }
+  .bio__main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px;
+    > a {
+      align-self: flex-start;
+      padding: 0 15px;
+      margin-bottom: 30px;
+      background-color: yellow;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    #skills {
+      align-self: flex-start;
+      margin: 30px 0;
+      padding: 0;
+      list-style-type: none;
+      text-align: left;
+      > li {
+        display: inline-block;
+        background-color: #80ff00;
+        &:after {
+          content: '/';
+          padding: 0 10px;
+        }
+        &:last-child:after {
+          content: none;
+          padding: 0;
+        }
+      }
+    }
+  }
+  .bio__footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 30px;
+    > a {
+      background-image: url('../../../assets/github.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
