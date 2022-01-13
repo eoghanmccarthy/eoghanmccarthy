@@ -221,7 +221,7 @@ export const posts = [
     media: [
       {
         type: "image",
-        src: require("app/assets/images/2004-12-23 13.09.20-12.jpg"),
+        src: require("assets/images/2004-12-23 13.09.20-12.jpg"),
         label: "nagano, japan",
       },
       {
@@ -231,12 +231,12 @@ export const posts = [
       },
       {
         type: "image",
-        src: require("app/assets/images/2004-12-23 13.09.14-9.jpg"),
+        src: require("assets/images/2004-12-23 13.09.14-9.jpg"),
         label: "nagano, japan",
       },
       {
         type: "image",
-        src: require("app/assets/images/2004-12-23 13.09.23-7.jpg"),
+        src: require("assets/images/2004-12-23 13.09.23-7.jpg"),
         label: "nagano, japan",
       },
     ],

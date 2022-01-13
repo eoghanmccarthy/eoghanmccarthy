@@ -1,9 +1,9 @@
 "use strict";
 (self.webpackChunkeoghanmccarthy_com =
   self.webpackChunkeoghanmccarthy_com || []).push([
-  [609],
+  [473],
   {
-    6609: function (e, n, t) {
+    8473: function (e, n, t) {
       t.r(n),
         t.d(n, {
           default: function () {
@@ -12,11 +12,11 @@
         });
       var r = t(2784),
         c = t(377),
-        o = t(2673),
+        o = t(8319),
         u = t(2867),
         a = t(7896),
         i = t(2212),
-        s = t(3564),
+        s = t(4620),
         l = function (e, n) {
           return [
             -(n - window.innerHeight / 2) / 20,
@@ -59,7 +59,7 @@
             )
           );
         },
-        h = t(8700),
+        h = t(6545),
         d = function () {
           var e = (0, c.k6)();
           return r.createElement(
@@ -80,4 +80,4 @@
     },
   },
 ]);
-//# sourceMappingURL=609.js.map
+//# sourceMappingURL=473.js.map
