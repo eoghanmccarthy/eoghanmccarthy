@@ -5,6 +5,8 @@
   "scripts": {
     "start": "cd apps && cd eoghanmccarthy && npm run start",
     "build": "cd apps && cd eoghanmccarthy && npm run build",
+    "start eoghan": "cd apps && cd eoghan && npm run start",
+    "build eoghan": "cd apps && cd eoghan && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -31,7 +31,7 @@ module.exports = merge(common, {
     },
   },
   plugins: [
-    new CopyWebpackPlugin({ patterns: [{ from: "./app/public" }] }),
+    new CopyWebpackPlugin({ patterns: [{ from: "./public" }] }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",

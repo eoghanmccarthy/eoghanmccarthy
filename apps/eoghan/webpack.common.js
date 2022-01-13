@@ -1,24 +1,25 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { NODE_ENV } = process.env;
-const isDev = NODE_ENV === "development";
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "/dist"),
     publicPath: "/",
-    assetModuleFilename: "assets/[hash][ext]",
+    filename: "[name].[chunkhash].js",
+    chunkFilename: "[name].bundle.js",
   },
   devtool: "source-map",
   resolve: {
     alias: {
-      assets: path.resolve(__dirname, "assets/"),
       src: path.resolve(__dirname, "src/"),
-      components: path.resolve(__dirname, "src/components/"),
-      pages: path.resolve(__dirname, "app/src/pages/"),
-      routes: path.resolve(__dirname, "app/src/routes/"),
+      assets: path.resolve(__dirname, "src/assets/"),
+      app: path.resolve(__dirname, "src/app/"),
+      componentLib: path.resolve(__dirname, "src/app/componentLib/"),
+      features: path.resolve(__dirname, "src/app/features/"),
+      global: path.resolve(__dirname, "src/app/global/"),
+      pages: path.resolve(__dirname, "src/app/pages/"),
     },
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
@@ -30,15 +31,6 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-            options: {
-              cacheDirectory: true,
-              presets: [["@babel/preset-env"], ["@babel/preset-react"]],
-              plugins: [
-                "@babel/plugin-syntax-dynamic-import",
-                "@babel/plugin-transform-runtime",
-                "@eoghanmccarthy/babel-plugin-remove-test-ids",
-              ],
-            },
           },
         ],
       },
@@ -46,29 +38,43 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [
-          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+          "style-loader",
+          MiniCssExtractPlugin.loader,
           "css-loader",
           {
             loader: "postcss-loader",
             options: {
-              postcssOptions: {
-                plugins: ["postcss-preset-env", "postcss-flexibility"],
+              ident: "postcss",
+              config: {
+                path: "./postcss.config.js",
               },
+              plugins: (loader) => [require("autoprefixer")()],
             },
           },
           "sass-loader",
         ],
       },
       {
-        test: /\.(png|jpg|svg|gif|mp3|mp4|mov|ttf|eot|woff)$/,
-        type: "asset/resource",
+        test: /\.(png|jpg|svg|gif|mp3|mp4|ttf|eot|woff)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "./assets/",
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
+      inject: true,
       hash: true,
       template: "./src/index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
     }),
   ],
 };
