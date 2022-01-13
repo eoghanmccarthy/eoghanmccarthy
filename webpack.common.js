@@ -40,6 +40,7 @@ module.exports = {
               plugins: [
                 "@babel/plugin-syntax-dynamic-import",
                 "@babel/plugin-transform-runtime",
+                "@eoghanmccarthy/babel-plugin-remove-test-ids",
               ],
             },
           },

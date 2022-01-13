@@ -188,7 +188,7 @@ export const posts = [
   {
     id: "IpX1UuJA",
     title: "to-do list item count",
-    text: `<mark class="dark">there are 34 items on this year's to-do list</mark>.`,
+    text: `<mark class="dark">34 items on this year's to-do list</mark>.`,
   },
   {
     id: "c7SzsMX4",
@@ -275,6 +275,23 @@ export const posts = [
         type: "image",
         src: require("assets/images/IMG_6914.jpg"),
         label: `tokyo, japan`,
+      },
+    ],
+  },
+  {
+    id: "jj0diCuc",
+    title: "detail 9/9a aungier street",
+    text: `detail from inside dublin's oldest domestic building at 9/9a aungier street.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/9_9aAungierStreet_19Oct2014_EoghanMcCarthy_02.jpg"),
+        label: "dublin, ireland",
+      },
+      {
+        type: "image",
+        src: require("assets/images/9_9aAungierStreet_19Oct2014_EoghanMcCarthy_01.jpg"),
+        label: "dublin, ireland",
       },
     ],
   },

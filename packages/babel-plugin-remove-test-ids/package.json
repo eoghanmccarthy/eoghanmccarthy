@@ -1,0 +1,13 @@
+{
+  "name": "@eoghanmccarthy/babel-plugin-remove-test-ids",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eoghanmccarthy/eoghanmccarthy.git"
+  }
+}
