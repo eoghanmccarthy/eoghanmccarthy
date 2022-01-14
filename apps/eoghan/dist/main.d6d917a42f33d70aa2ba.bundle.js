@@ -5,8 +5,8 @@
     388: function (e, n, t) {
       var c = t(784),
         r = t(316),
-        a = t(171),
-        l = t(617),
+        l = t(171),
+        a = t(617),
         o = t(790),
         i = t(130),
         m = t(212),
@@ -92,7 +92,6 @@
           { name: "typescript", category: "frontend" },
           { name: "react", category: "frontend" },
           { name: "react-native", category: "frontend" },
-          { name: "rx-js", category: "frontend" },
           { name: "ux", category: "frontend" },
           { name: "design systems", category: "frontend" },
           { name: "css", category: "frontend" },
@@ -104,15 +103,15 @@
             n = (0, o.Z)(e, 2),
             t = n[0],
             r = n[1],
-            a = r.delta,
-            l = r.down,
+            l = r.delta,
+            a = r.down,
             i = (0, m.q_)({
-              x: l ? a[0] : 0,
-              y: l ? a[1] : 0,
-              fill: l ? "#0000ff" : "#0000b3",
-              size: l ? 1.12 : 1,
+              x: a ? l[0] : 0,
+              y: a ? l[1] : 0,
+              fill: a ? "#0000ff" : "#0000b3",
+              size: a ? 1.12 : 1,
               immediate: function (e) {
-                return l && ("x" === e || "y" === e);
+                return a && ("x" === e || "y" === e);
               },
             }),
             s = i.x,
@@ -138,12 +137,12 @@
             })
           );
         },
-        y = function () {
+        v = function () {
           var e = (0, c.useState)(!1),
             n = (0, o.Z)(e, 2),
             t = n[0],
             r = n[1],
-            a = function () {
+            l = function () {
               return r(!1);
             };
           return c.createElement(
@@ -151,7 +150,7 @@
             null,
             c.createElement(
               i.Dialog,
-              { id: "bio-dialog", isVisible: t, closeDialog: a, onClick: a },
+              { id: "bio-dialog", isVisible: t, closeDialog: l, onClick: l },
               c.createElement(d, null)
             ),
             c.createElement(
@@ -176,34 +175,34 @@
             )
           );
         },
-        v = function () {
+        y = function () {
           return c.createElement(
             "div",
             { className: "me" },
             c.createElement("header", { className: "me__header" }),
             c.createElement(
-              a.rs,
+              l.rs,
               null,
-              c.createElement(a.AW, {
+              c.createElement(l.AW, {
                 exact: !0,
                 path: "/",
                 render: function () {
-                  return c.createElement(y, null);
+                  return c.createElement(v, null);
                 },
               }),
-              c.createElement(a.AW, {
+              c.createElement(l.AW, {
                 render: function () {
-                  return c.createElement(y, null);
+                  return c.createElement(v, null);
                 },
               })
             ),
             c.createElement("footer", { className: "me__footer" })
           );
         },
-        x = (0, l.Z)(),
+        x = (0, a.Z)(),
         _ = document.getElementById("root");
       (0, r.render)(
-        c.createElement(a.F0, { history: x }, c.createElement(v, null)),
+        c.createElement(l.F0, { history: x }, c.createElement(y, null)),
         _
       );
     },
@@ -215,4 +214,4 @@
       e.O();
   },
 ]);
-//# sourceMappingURL=main.9639db3b42b7126c1f18.bundle.js.map
+//# sourceMappingURL=main.d6d917a42f33d70aa2ba.bundle.js.map

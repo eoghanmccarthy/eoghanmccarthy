@@ -60,7 +60,6 @@ const data = [
   { name: "typescript", category: "frontend" },
   { name: "react", category: "frontend" },
   { name: "react-native", category: "frontend" },
-  { name: "rx-js", category: "frontend" },
   { name: "ux", category: "frontend" },
   { name: "design systems", category: "frontend" },
   { name: "css", category: "frontend" },
