@@ -91,15 +91,14 @@
           { name: "javascript", category: "frontend" },
           { name: "typescript", category: "frontend" },
           { name: "react", category: "frontend" },
-          { name: "react-native", category: "frontend" },
           { name: "ux", category: "frontend" },
           { name: "design systems", category: "frontend" },
           { name: "css", category: "frontend" },
         ],
-        g = t(896),
-        E = t(112),
+        E = t(896),
+        g = t(112),
         p = function () {
-          var e = (0, E.T2)(),
+          var e = (0, g.T2)(),
             n = (0, o.Z)(e, 2),
             t = n[0],
             r = n[1],
@@ -120,7 +119,7 @@
             d = i.size;
           return c.createElement(
             m.q.svg,
-            (0, g.Z)({}, t(), {
+            (0, E.Z)({}, t(), {
               style: {
                 transform: (0, m.sX)([s, u, d], function (e, n, t) {
                   return "translate3d("
@@ -214,4 +213,4 @@
       e.O();
   },
 ]);
-//# sourceMappingURL=main.d6d917a42f33d70aa2ba.bundle.js.map
+//# sourceMappingURL=main.7615859cb0d4ee4f3830.bundle.js.map

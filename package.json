@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "cd apps && cd eoghanmccarthy && npm run start",
-    "build": "cd apps && cd eoghanmccarthy && npm run build",
-    "start-eoghan": "cd apps && cd eoghan && npm run start",
-    "build-eoghan": "cd apps && cd eoghan && npm run build",
+    "start": "cd apps && cd eoghan && npm run start",
+    "build": "cd apps && cd eoghan && npm run build",
+    "start1": "cd apps && cd eoghanmccarthy && npm run start",
+    "build1": "cd apps && cd eoghanmccarthy && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
