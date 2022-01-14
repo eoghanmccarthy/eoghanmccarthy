@@ -472,7 +472,7 @@
         return e;
       }
       console.log(
-        "number of published posts",
+        "number of posts",
         g.filter(function (e) {
           return "draft" !== e.status;
         }).length
@@ -940,4 +940,4 @@
       e.O();
   },
 ]);
-//# sourceMappingURL=main.3c005422bb76d120afe0.bundle.js.map
+//# sourceMappingURL=main.7842cfa51822090698fa.bundle.js.map
