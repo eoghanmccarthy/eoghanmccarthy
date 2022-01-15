@@ -164,11 +164,11 @@ export const posts = [
     id: "MKC7CpU0",
     status: "draft",
     title: "los angeles itinerary",
-    text: `itinerary for short stay in <mark>los angeles, usa, 2003</mark>.`,
+    text: `los angeles itinerary, 2003.`,
     media: [
       {
         type: "image",
-        src: require("assets/images/Screenshot 2022-01-11 at 23.18.47.png"),
+        src: require("assets/images/Screenshot 2022-01-11 at 23.18.47-edit.jpg"),
         label: "los angeles, usa",
       },
     ],
@@ -261,7 +261,7 @@ export const posts = [
     media: [
       {
         type: "image",
-        src: require("assets/images/ELBRUS_2006_04.jpg"),
+        src: require("assets/images/ELBRUS_2006_04-edit.jpg"),
         label: "mount elbrus, russia",
       },
     ],
@@ -292,6 +292,59 @@ export const posts = [
         type: "image",
         src: require("assets/images/9_9aAungierStreet_19Oct2014_EoghanMcCarthy_01.jpg"),
         label: "dublin, ireland",
+      },
+    ],
+  },
+  {
+    id: "hrT6sHP9",
+    status: "draft",
+    title: "lockdown piccadilly circus",
+    text: `piccadilly circus during lockdown, <mark>london, 2020</mark>.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/IMG_0750-edit.jpg"),
+        label: "london, uk",
+      },
+    ],
+  },
+  {
+    id: "LwEmhBVL",
+    status: "draft",
+    title: "merry-go-round",
+    text: `a merry-go-round.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/F1010008.jpg"),
+        label: "tokyo, japan",
+      },
+    ],
+  },
+  {
+    id: "6lqwgtPJ",
+    title: "swiss alps",
+    text: `the alps, <mark>switzerland, 2019</mark>.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/IMG_8279.jpg"),
+        label: "switzerland",
+      },
+      {
+        type: "image",
+        src: require("assets/images/IMG_8600.jpg"),
+        label: "switzerland",
+      },
+      // {
+      //   type: "image",
+      //   src: require("assets/images/IMG_8442.jpg"),
+      //   label: "switzerland",
+      // },
+      {
+        type: "image",
+        src: require("assets/images/IMG_8284.jpg"),
+        label: "switzerland",
       },
     ],
   },
