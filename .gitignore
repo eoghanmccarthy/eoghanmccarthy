@@ -15,7 +15,7 @@ coverage
 .sass-cache/
 
 # assets
-**/**/assets
+apps/eoghan/assets/
 
 # turbo
 .turbo
