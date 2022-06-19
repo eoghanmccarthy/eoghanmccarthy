@@ -57,6 +57,7 @@ export default Bio;
 
 const data = [
   { name: "javascript", category: "frontend" },
+  { name: "ts", category: "frontend" },
   { name: "react", category: "frontend" },
   { name: "react-native", category: "frontend" },
   { name: "ux", category: "frontend" },
