@@ -15,11 +15,13 @@ const Media = ({ post }) => {
     }
   }, [post]);
 
+  if (!Array.isArray(galleryData) || !galleryData.length) {
+    return null
+  }
+
   return (
     <div className={"media"}>
-      {Array.isArray(galleryData) && !!galleryData.length ? (
-        <Gallery list={galleryData} />
-      ) : null}
+      <Gallery list={galleryData} />
     </div>
   );
 };

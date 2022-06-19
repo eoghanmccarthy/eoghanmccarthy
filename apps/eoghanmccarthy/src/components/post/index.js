@@ -22,7 +22,8 @@ export const Post = () => {
     <article data-post-id={data.id} className={"me__post"}>
       <Media post={data} />
       <animated.span
-        style={spring}
+        //style={spring}
+        className={"description"}
         dangerouslySetInnerHTML={{ __html: data.text.toLowerCase() }}
       />
     </article>

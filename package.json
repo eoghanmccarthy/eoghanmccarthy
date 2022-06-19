@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "cd apps && cd eoghan && npm run start",
-    "build": "cd apps && cd eoghan && npm run build",
-    "start1": "cd apps && cd eoghanmccarthy && npm run start",
-    "build1": "cd apps && cd eoghanmccarthy && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "turbo run build",
+    "start": "turbo run start"
   },
   "repository": {
     "type": "git",
@@ -16,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "workspaces": [
-    "./packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "bugs": {
     "url": "https://github.com/eoghanmccarthy/eoghanmccarthy/issues"
@@ -76,6 +74,7 @@
     "sass-loader": "^12.4.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^3.3.1",
+    "turbo": "^1.2.16",
     "typescript": "^3.2.2",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",

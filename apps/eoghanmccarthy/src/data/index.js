@@ -94,8 +94,8 @@ export const posts = [
   },
   {
     id: "FeEr0YMe",
-    title: "chinese zodiac",
-    text: "Tiger",
+    title: "year of the",
+    text: `<span class="text-large">tiger</span>`,
   },
   {
     id: "OdOcgBi7",
@@ -188,7 +188,7 @@ export const posts = [
   {
     id: "IpX1UuJA",
     title: "to-do list item count",
-    text: `<mark class="dark">34 items on this year's to-do list</mark>.`,
+    text: `<mark class="dark text-large">34 items on this year's to-do list</mark>.`,
   },
   {
     id: "c7SzsMX4",
@@ -292,6 +292,28 @@ export const posts = [
         type: "image",
         src: require("assets/images/9_9aAungierStreet_19Oct2014_EoghanMcCarthy_01.jpg"),
         label: "dublin, ireland",
+      },
+    ],
+  },
+  {
+    id: "e1Y1MUy4",
+    title: "bamboo",
+    text: `a bamboo forest in <mark>shizuoka, japan</mark>.`,
+    media: [
+      {
+        type: "image",
+        src: require("assets/images/IMG_4063.jpg"),
+        label: "shizuoka, japan",
+      },
+      {
+        type: "image",
+        src: require("assets/images/IMG_4063.jpg"),
+        label: "shizuoka, japan",
+      },
+      {
+        type: "image",
+        src: require("assets/images/IMG_4063.jpg"),
+        label: "shizuoka, japan",
       },
     ],
   },
