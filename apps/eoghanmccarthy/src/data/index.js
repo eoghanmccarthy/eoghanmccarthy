@@ -385,6 +385,6 @@ export const posts = [
 ];
 
 console.log(
-  "number of posts",
+  "number of live posts",
   posts.filter((p) => p.status !== "draft").length
 );
