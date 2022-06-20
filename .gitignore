@@ -16,6 +16,7 @@ coverage
 
 # assets
 apps/eoghan/assets/
+apps/eoghanmccarthy/assets/
 
 # turbo
 .turbo
