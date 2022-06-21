@@ -24,8 +24,7 @@ export const Post = () => {
       <animated.span
         //style={spring}
         className={"description"}
-        dangerouslySetInnerHTML={{ __html: data.text.toLowerCase() }}
-      />
+      >{typeof data?.text === 'function' ? <data.text /> : typeof data?.text === 'string' ? data.text : null}</animated.span>
     </article>
   ) : null;
 };

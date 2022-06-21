@@ -1,3 +1,4 @@
+import React from "react";
 import { generateId } from "../utils/generateId";
 
 export const posts = [
@@ -95,12 +96,18 @@ export const posts = [
   {
     id: "FeEr0YMe",
     title: "year of the",
-    text: `<span class="text-large">tiger</span>`,
+    text: () => {
+      const animals = ['rat','ox','tiger','rabbit', 'dragon', 'snake', 'horse', 'goat','monkey', 'rooster', 'dog', 'pig'];
+      const date = new Date();
+      const year = date.getFullYear();
+      const animal = animals[(year - 1948) % animals.length]
+      return <span className="text-large">{animal}</span>
+    },
   },
   {
     id: "OdOcgBi7",
     title: "ai weiwei in london",
-    text: `ai weiwei exhibition in piccadilly circus, <mark>london, uk, 2020</mark>.`,
+    text: () => <span>ai weiwei exhibition in piccadilly circus, <mark>london, uk, 2020</mark>.</span>,
     media: [
       {
         type: "image",
@@ -127,7 +134,7 @@ export const posts = [
   {
     id: "UOcuwt3P",
     title: "cherry blossoms along meguro river",
-    text: `a row of cherry blossoms along the meguro river, <mark>tokyo, japan, 2021</mark>.`,
+    text: () => <span>a row of cherry blossoms along the meguro river, <mark>tokyo, japan, 2021</mark>.</span>,
     media: [
       {
         type: "image",
@@ -139,7 +146,7 @@ export const posts = [
   {
     id: "YaMAaXIz",
     title: "yamanote line video",
-    text: `video taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.`,
+    text: () => <span>video taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.</span>,
     media: [
       {
         type: "video",
@@ -151,7 +158,7 @@ export const posts = [
   {
     id: "KS0IgMLJ",
     title: "shibuya crossing yamanote line video",
-    text: `video of shibuya crossing taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.`,
+    text: () => <span>video of shibuya crossing taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.</span>,
     media: [
       {
         type: "video",
@@ -176,7 +183,7 @@ export const posts = [
   {
     id: "DgBgHDXP",
     title: "narita airport quarantine hotel view",
-    text: `view from narita airport quarantine hotel, <mark>tokyo, japan, 2021</mark>.`,
+    text: () => <span>view from narita airport quarantine hotel, <mark>tokyo, japan, 2021</mark>.</span>,
     media: [
       {
         type: "image",
@@ -187,8 +194,9 @@ export const posts = [
   },
   {
     id: "IpX1UuJA",
+    status: 'draft',
     title: "to-do list item count",
-    text: `<mark class="dark text-large">34 items on this year's to-do list</mark>.`,
+    text: () => <span><mark className="dark text-large">34 items on this year's to-do list</mark>.</span>,
   },
   {
     id: "c7SzsMX4",
@@ -217,7 +225,7 @@ export const posts = [
   {
     id: "TW92JnS4",
     title: "wedding in nagano",
-    text: `a wedding in <mark>nagano, japan, 2004</mark>.`,
+    text: () => <span>a wedding in <mark>nagano, japan, 2004</mark>.</span>,
     media: [
       {
         type: "image",
@@ -245,7 +253,7 @@ export const posts = [
     id: "EwqvVAsK",
     status: "draft",
     title: "snow hokkaido",
-    text: `video of snow, <mark>hokkaido, japan</mark>.`,
+    text: () => <span>video of snow, <mark>hokkaido, japan</mark>.</span>,
     media: [
       {
         type: "video",
@@ -257,7 +265,7 @@ export const posts = [
   {
     id: "n5VaX4Sg",
     title: "breakfast on elbrus",
-    text: `breakfast on mount elbrus, <mark>russia, 2006</mark>.`,
+    text: () => <span>breakfast on mount elbrus, <mark>russia, 2006</mark>.</span>,
     media: [
       {
         type: "image",
@@ -269,7 +277,7 @@ export const posts = [
   {
     id: "5AWKtaN7",
     title: "flower shop in tokyo",
-    text: `a flower shop in <mark>tokyo, japan, 2021</mark>.`,
+    text: () => <span>a flower shop in <mark>tokyo, japan, 2021</mark>.</span>,
     media: [
       {
         type: "image",
@@ -298,7 +306,7 @@ export const posts = [
   {
     id: "e1Y1MUy4",
     title: "bamboo",
-    text: `a bamboo forest in <mark>shizuoka, japan</mark>.`,
+    text: () => <span>a bamboo forest in <mark>shizuoka, japan</mark>.</span>,
     media: [
       {
         type: "image",
@@ -321,7 +329,7 @@ export const posts = [
     id: "hrT6sHP9",
     status: "draft",
     title: "lockdown piccadilly circus",
-    text: `piccadilly circus during lockdown, <mark>london, 2020</mark>.`,
+    text: () => <span>piccadilly circus during lockdown, <mark>london, 2020</mark>.</span>,
     media: [
       {
         type: "image",
@@ -346,7 +354,7 @@ export const posts = [
   {
     id: "6lqwgtPJ",
     title: "swiss alps",
-    text: `the alps, <mark>switzerland, 2019</mark>.`,
+    text: () => <span>the alps, <mark>switzerland, 2019</mark>.</span>,
     media: [
       {
         type: "image",
@@ -371,6 +379,18 @@ export const posts = [
     ],
   },
   {
+    id: "hwzAk8Wx",
+    title: "list of coordinates",
+    text: () => {
+      const coordinates = ["24.3465531,123.7309762,12z"]
+
+      return <div style={{display:'flex',flexDirection: 'column'}}>{coordinates.map((coords,i) => {
+        const url = `https://www.google.com/maps/@${coords}`
+        return <a key={i} href={url} target={'_blank'}>{coords}</a>
+      })}</div>
+    }
+  },
+  {
     id: "umIfb1wj",
     title: "flashing gif",
     text: `flashing gif.`,
@@ -381,7 +401,7 @@ export const posts = [
         label: "flashing gif",
       },
     ],
-  },
+  }
 ];
 
 console.log(
