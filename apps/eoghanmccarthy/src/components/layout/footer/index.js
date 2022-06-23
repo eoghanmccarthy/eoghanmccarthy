@@ -26,7 +26,7 @@ export const Footer = () => {
   return (
     <animated.footer style={spring} className={"me__footer"}>
       <Button
-        size={"lg"}
+        size={48}
         shape={"circle"}
         className={"btn-scroll"}
         onClick={() => scroll.scrollToTop()}

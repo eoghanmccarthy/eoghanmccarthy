@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ErrorBoundary } from "@eoghanmccarthy/ui";
 
-import App from "./routes";
+import App from "./App";
 
 import "./styles.css";
 

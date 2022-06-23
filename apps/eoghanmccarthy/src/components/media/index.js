@@ -16,7 +16,7 @@ const Media = ({ post }) => {
   }, [post]);
 
   if (!Array.isArray(galleryData) || !galleryData.length) {
-    return null
+    return null;
   }
 
   return (

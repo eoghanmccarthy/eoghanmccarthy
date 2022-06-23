@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { withRouter, Link } from "react-router-dom";
-import { Button, Dialog } from "@eoghanmccarthy/ui";
+import { Button, Dialog, useDialog } from "@eoghanmccarthy/ui";
 
 import "./styles.scss";
 
@@ -14,9 +14,7 @@ const data = [
 ];
 
 const GlobalNavigation = ({ history }) => {
-  const [showDialog, toggleDialog] = useState(false);
-  const open = () => toggleDialog(true);
-  const close = () => toggleDialog(false);
+  const navDialog = useDialog();
 
   const [next, setNext] = useState([]);
 
@@ -27,18 +25,18 @@ const GlobalNavigation = ({ history }) => {
   return (
     <Fragment>
       <Button
-        size={"lg"}
+        size={48}
         shape={"circle"}
         className={"global-nav open"}
-        onClick={open}
+        onClick={navDialog.open}
       >
         <span />
         <span />
       </Button>
       <Dialog
         id={"global-nav"}
-        isVisible={showDialog}
-        closeDialog={close}
+        isOpen={navDialog.isOpen}
+        closeDialog={navDialog.close}
         onDestroy={() => {
           if (next.length) {
             let r = next.shift();
@@ -54,14 +52,14 @@ const GlobalNavigation = ({ history }) => {
                 key={route}
                 tabIndex={"0"}
                 to={route}
-                onClick={(r) => handleOnClick(r).then(() => close())}
+                onClick={(r) => handleOnClick(r).then(() => navDialog.close())}
               >
                 {label}
               </Link>
             );
           })}
         </nav>
-        <IconButtons.Close className={"global-nav"} onClick={close} />
+        <IconButtons.Close className={"global-nav"} onClick={navDialog.close} />
       </Dialog>
     </Fragment>
   );

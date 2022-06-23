@@ -5,7 +5,7 @@ import createHistory from "history/createBrowserHistory";
 
 import "./styles.scss";
 
-import App from "./routes";
+import App from "./App";
 
 const history = createHistory();
 

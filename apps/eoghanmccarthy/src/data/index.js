@@ -97,17 +97,35 @@ export const posts = [
     id: "FeEr0YMe",
     title: "year of the",
     text: () => {
-      const animals = ['rat','ox','tiger','rabbit', 'dragon', 'snake', 'horse', 'goat','monkey', 'rooster', 'dog', 'pig'];
+      const animals = [
+        "rat",
+        "ox",
+        "tiger",
+        "rabbit",
+        "dragon",
+        "snake",
+        "horse",
+        "goat",
+        "monkey",
+        "rooster",
+        "dog",
+        "pig",
+      ];
       const date = new Date();
       const year = date.getFullYear();
-      const animal = animals[(year - 1948) % animals.length]
-      return <span className="text-large">{animal}</span>
+      const animal = animals[(year - 1948) % animals.length];
+      return <span className="text-large">{animal}</span>;
     },
   },
   {
     id: "OdOcgBi7",
     title: "ai weiwei in london",
-    text: () => <span>ai weiwei exhibition in piccadilly circus, <mark>london, uk, 2020</mark>.</span>,
+    text: () => (
+      <span>
+        ai weiwei exhibition in piccadilly circus, <mark>london, uk, 2020</mark>
+        .
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -134,7 +152,12 @@ export const posts = [
   {
     id: "UOcuwt3P",
     title: "cherry blossoms along meguro river",
-    text: () => <span>a row of cherry blossoms along the meguro river, <mark>tokyo, japan, 2021</mark>.</span>,
+    text: () => (
+      <span>
+        a row of cherry blossoms along the meguro river,{" "}
+        <mark>tokyo, japan, 2021</mark>.
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -146,7 +169,12 @@ export const posts = [
   {
     id: "YaMAaXIz",
     title: "yamanote line video",
-    text: () => <span>video taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.</span>,
+    text: () => (
+      <span>
+        video taken from the yamanote subway line,{" "}
+        <mark>tokyo, japan, 2021</mark>.
+      </span>
+    ),
     media: [
       {
         type: "video",
@@ -158,7 +186,12 @@ export const posts = [
   {
     id: "KS0IgMLJ",
     title: "shibuya crossing yamanote line video",
-    text: () => <span>video of shibuya crossing taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.</span>,
+    text: () => (
+      <span>
+        video of shibuya crossing taken from the yamanote subway line,{" "}
+        <mark>tokyo, japan, 2021</mark>.
+      </span>
+    ),
     media: [
       {
         type: "video",
@@ -183,7 +216,12 @@ export const posts = [
   {
     id: "DgBgHDXP",
     title: "narita airport quarantine hotel view",
-    text: () => <span>view from narita airport quarantine hotel, <mark>tokyo, japan, 2021</mark>.</span>,
+    text: () => (
+      <span>
+        view from narita airport quarantine hotel,{" "}
+        <mark>tokyo, japan, 2021</mark>.
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -194,9 +232,16 @@ export const posts = [
   },
   {
     id: "IpX1UuJA",
-    status: 'draft',
+    status: "draft",
     title: "to-do list item count",
-    text: () => <span><mark className="dark text-large">34 items on this year's to-do list</mark>.</span>,
+    text: () => (
+      <span>
+        <mark className="dark text-large">
+          34 items on this year's to-do list
+        </mark>
+        .
+      </span>
+    ),
   },
   {
     id: "c7SzsMX4",
@@ -225,7 +270,11 @@ export const posts = [
   {
     id: "TW92JnS4",
     title: "wedding in nagano",
-    text: () => <span>a wedding in <mark>nagano, japan, 2004</mark>.</span>,
+    text: () => (
+      <span>
+        a wedding in <mark>nagano, japan, 2004</mark>.
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -253,7 +302,11 @@ export const posts = [
     id: "EwqvVAsK",
     status: "draft",
     title: "snow hokkaido",
-    text: () => <span>video of snow, <mark>hokkaido, japan</mark>.</span>,
+    text: () => (
+      <span>
+        video of snow, <mark>hokkaido, japan</mark>.
+      </span>
+    ),
     media: [
       {
         type: "video",
@@ -265,7 +318,11 @@ export const posts = [
   {
     id: "n5VaX4Sg",
     title: "breakfast on elbrus",
-    text: () => <span>breakfast on mount elbrus, <mark>russia, 2006</mark>.</span>,
+    text: () => (
+      <span>
+        breakfast on mount elbrus, <mark>russia, 2006</mark>.
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -277,7 +334,11 @@ export const posts = [
   {
     id: "5AWKtaN7",
     title: "flower shop in tokyo",
-    text: () => <span>a flower shop in <mark>tokyo, japan, 2021</mark>.</span>,
+    text: () => (
+      <span>
+        a flower shop in <mark>tokyo, japan, 2021</mark>.
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -306,7 +367,11 @@ export const posts = [
   {
     id: "e1Y1MUy4",
     title: "bamboo",
-    text: () => <span>a bamboo forest in <mark>shizuoka, japan</mark>.</span>,
+    text: () => (
+      <span>
+        a bamboo forest in <mark>shizuoka, japan</mark>.
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -329,7 +394,11 @@ export const posts = [
     id: "hrT6sHP9",
     status: "draft",
     title: "lockdown piccadilly circus",
-    text: () => <span>piccadilly circus during lockdown, <mark>london, 2020</mark>.</span>,
+    text: () => (
+      <span>
+        piccadilly circus during lockdown, <mark>london, 2020</mark>.
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -354,7 +423,11 @@ export const posts = [
   {
     id: "6lqwgtPJ",
     title: "swiss alps",
-    text: () => <span>the alps, <mark>switzerland, 2019</mark>.</span>,
+    text: () => (
+      <span>
+        the alps, <mark>switzerland, 2019</mark>.
+      </span>
+    ),
     media: [
       {
         type: "image",
@@ -382,13 +455,26 @@ export const posts = [
     id: "hwzAk8Wx",
     title: "list of coordinates",
     text: () => {
-      const coordinates = ["24.3465531,123.7309762,12z"]
+      const coordinates = ["24.3465531,123.7309762,12z"];
 
-      return <div style={{display:'flex',flexDirection: 'column'}}>{coordinates.map((coords,i) => {
-        const url = `https://www.google.com/maps/@${coords}`
-        return <a key={i} href={url} target={'_blank'}>{coords}</a>
-      })}</div>
-    }
+      return (
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {coordinates.map((coords, i) => {
+            const url = `https://www.google.com/maps/@${coords}`;
+            return (
+              <a
+                style={{ wordBreak: "break-all" }}
+                key={i}
+                href={url}
+                target={"_blank"}
+              >
+                {coords}
+              </a>
+            );
+          })}
+        </div>
+      );
+    },
   },
   {
     id: "umIfb1wj",
@@ -401,7 +487,7 @@ export const posts = [
         label: "flashing gif",
       },
     ],
-  }
+  },
 ];
 
 console.log(

@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
-const Home = lazy(() => import("pages/home"));
+const Home = lazy(() => import("pages/index"));
 
-import Posts from "./posts";
+import Posts from "pages/posts";
 
 const Routes = () => (
   <Switch>

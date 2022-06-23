@@ -5,7 +5,7 @@ import "./styles.scss";
 
 import { Button } from "@eoghanmccarthy/ui";
 
-export const Base = ({ children, className, size = "lg", onClick }) => {
+export const Base = ({ children, className, size = 48, onClick }) => {
   return (
     <Button
       size={size}
@@ -18,7 +18,7 @@ export const Base = ({ children, className, size = "lg", onClick }) => {
   );
 };
 
-export const Close = ({ className, size = "lg", onClick }) => {
+export const Close = ({ className, size = 48, onClick }) => {
   return (
     <Button
       size={size}

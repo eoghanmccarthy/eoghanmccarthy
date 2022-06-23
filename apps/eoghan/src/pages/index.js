@@ -2,8 +2,8 @@ import React, { Fragment, useState } from "react";
 import { Button, Dialog } from "@eoghanmccarthy/ui";
 import "./styles.css";
 
-import Bio from "src/features/bio";
-import AnimatedLogo from "src/features/animatedLogo";
+import Bio from "../components/bio";
+import AnimatedLogo from "../components/animatedLogo";
 
 const Home = () => {
   const [showDialog, toggleDialog] = useState(false);

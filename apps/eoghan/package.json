@@ -12,5 +12,18 @@
     "url": "git+https://github.com/eoghanmccarthy/eoghanmccarthy.git"
   },
   "license": "ISC",
-  "homepage": "https://github.com/eoghanmccarthy/eoghanmccarthy/apps/eoghan#readme"
+  "homepage": "https://github.com/eoghanmccarthy/eoghanmccarthy/apps/eoghan#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.54",
+    "@eoghanmccarthy/ui": "*",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "classnames": "^2.2.6",
+    "history": "^4.7.2",
+    "react-spring": "^8.0.19",
+    "react-with-gesture": "^4.0.8",
+    "reselect": "^4.0.0"
+  }
 }

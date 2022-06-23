@@ -24,7 +24,13 @@ export const Post = () => {
       <animated.span
         //style={spring}
         className={"description"}
-      >{typeof data?.text === 'function' ? <data.text /> : typeof data?.text === 'string' ? data.text : null}</animated.span>
+      >
+        {typeof data?.text === "function" ? (
+          <data.text />
+        ) : typeof data?.text === "string" ? (
+          data.text
+        ) : null}
+      </animated.span>
     </article>
   ) : null;
 };
