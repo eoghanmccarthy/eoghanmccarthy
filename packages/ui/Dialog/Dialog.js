@@ -1,88 +1,75 @@
 import * as React from "react";
-import { createPortal } from "react-dom";
-import { func, bool, number, node } from "prop-types";
+import PropTypes from "prop-types";
 import FocusLock from "react-focus-lock";
+import { css } from "@stitches/react";
+import { useSpring, animated, config } from "react-spring";
 import cx from "classnames";
-import { css } from "@emotion/core";
 
-const styles = ({ maxWidth }) => css`
-  position: relative;
-  width: 100%;
-  max-width: ${maxWidth}px;
-  max-height: calc(100vh - 140px);
-  padding: 0 30px;
-  background: transparent;
-  border-radius: 8px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    background: transparent;
-  }
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  &:focus {
-    outline: none;
-  }
-`;
+import DialogBackground from "../DialogBackground";
 
-import DialogOverlay from "./DialogOverlay";
-
-const attachToNode = document.getElementById("root");
-
-const Dialog = ({
-  children,
-  attachToNode = attachToNode,
-  bypassFocusLock = false,
-  className,
-  zIndex = 10000,
-  maxWidth = 720,
-  isOpen,
-  closeDialog,
-  ...rest
-}) => {
-  const handleClick = (e) => {
-    e.stopPropagation();
-  };
+const Dialog = ({ children, className, size = "md", close, ...rest }) => {
+  const props = useSpring({
+    from: { opacity: 0, transform: "translateY(+70px)" },
+    to: { opacity: 1, transform: "translateY(0px)" },
+    config: config.stiff,
+  });
 
   const handleKeyDown = (e) => {
     if (e.key === "Escape") {
       e.preventDefault();
-      closeDialog();
+      close();
     }
   };
 
-  return isOpen
-    ? createPortal(
-        <FocusLock returnFocus disabled={bypassFocusLock}>
-          <DialogOverlay zIndex={zIndex} closeDialog={closeDialog}>
-            <div
-              tabIndex={"-1"}
-              css={styles({ maxWidth })}
-              className={cx("ui-dialog", { "is-open": isOpen }, className)}
-              onClick={handleClick}
-              onKeyDown={handleKeyDown}
-              {...rest}
-            >
-              {children}
-            </div>
-          </DialogOverlay>
-        </FocusLock>,
-        attachToNode
-      )
-    : null;
+  return (
+    <FocusLock returnFocus>
+      <DialogBackground close={close}>
+        <animated.div
+          tabIndex={"-1"}
+          style={props}
+          className={cx("ui-dialog", className, styles({ size }).toString())}
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={handleKeyDown}
+          {...rest}
+        >
+          {children}
+        </animated.div>
+      </DialogBackground>
+    </FocusLock>
+  );
 };
+
 export default Dialog;
 
 Dialog.propTypes = {
-  attachToNode: node,
-  bypassFocusLock: bool,
-  zIndex: number,
-  maxWidth: number,
-  isOpen: bool.isRequired,
-  closeDialog: func.isRequired,
+  close: PropTypes.func.isRequired,
 };
+
+const styles = css({
+  position: "relative",
+  width: "100%",
+  maxWidth: " 720px",
+  maxHeight: "calc(100vh - 140px)",
+  padding: "0 30px",
+  background: "transparent",
+  overflowY: "auto",
+  overflowX: "hidden",
+  "&:focus": {
+    outline: "none",
+  },
+  "&::-webkit-scrollbar": {
+    display: "none",
+    width: 0,
+    background: "transparent",
+  },
+  "&::-webkit-scrollbar-track": {
+    background: "transparent",
+  },
+  variants: {
+    size: {
+      lg: {
+        maxWidth: "1040px",
+      },
+    },
+  },
+});

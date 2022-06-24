@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ErrorBoundary } from "@eoghanmccarthy/ui";
 
 import App from "./App";
+import DialogsProvider from "./components/dialogsProvider";
 
 import "./styles.css";
 
@@ -16,7 +17,9 @@ render(
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <ErrorBoundary>
-        <App />
+        <DialogsProvider>
+          <App />
+        </DialogsProvider>
       </ErrorBoundary>
     </BrowserRouter>
   </QueryClientProvider>,

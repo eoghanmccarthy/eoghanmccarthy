@@ -15,12 +15,6 @@
 	transform: skew(-15deg, -15deg);
 }
 
-.ui-button.close {
-	position: absolute;
-	top: var(--spacing-sm);
-	right: var(--spacing-sm);
-}
-
 .ui-button.prev {
 	align-items: flex-start;
 	padding-left: 10px;

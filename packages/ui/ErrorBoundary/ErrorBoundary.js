@@ -1,17 +1,5 @@
 import React, { Component } from "react";
-import { css } from "@emotion/core";
-
-const styles = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: fill-available;
-  padding: 0;
-  background-color: transparent;
-  transition: all 0.25s ease;
-`;
+import { css } from "@stitches/react";
 
 export default class ErrorBoundary extends Component {
   state = {
@@ -32,7 +20,7 @@ export default class ErrorBoundary extends Component {
 
     if (hasError) {
       return (
-        <section css={styles}>
+        <section className={styles()}>
           <span>something wrong.</span>
         </section>
       );
@@ -41,3 +29,10 @@ export default class ErrorBoundary extends Component {
     return children;
   }
 }
+
+const styles = css({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh",
+});
