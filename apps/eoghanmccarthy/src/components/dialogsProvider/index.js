@@ -76,8 +76,6 @@ const DialogsProvider = ({ children }) => {
 
   return (
     <>
-      {toRenderDialogs || null}
-      {Boolean(toRenderDialogs) ? <Blanket /> : null}
       <DialogsContext.Provider
         value={{
           state,
@@ -90,6 +88,8 @@ const DialogsProvider = ({ children }) => {
       >
         {children}
       </DialogsContext.Provider>
+      {toRenderDialogs || null}
+      {Boolean(toRenderDialogs) ? <Blanket /> : null}
     </>
   );
 };
