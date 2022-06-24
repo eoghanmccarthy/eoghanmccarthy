@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useSpring, animated, config } from "react-spring";
 import { Events, scrollSpy } from "react-scroll";
-
 import { animateScroll as scroll } from "react-scroll/modules";
-import { Button } from "@eoghanmccarthy/ui";
+import { Spacer } from "@eoghanmccarthy/ui";
+
+import * as IconButtons from "components/iconButtons";
 
 export const Footer = () => {
   const spring = useSpring({
@@ -25,15 +26,8 @@ export const Footer = () => {
 
   return (
     <animated.footer style={spring} className={"me__footer"}>
-      <Button
-        size={48}
-        shape={"circle"}
-        className={"btn-scroll"}
-        onClick={() => scroll.scrollToTop()}
-      >
-        <span />
-        <span />
-      </Button>
+      <IconButtons.Scroll onClick={() => scroll.scrollToTop()} />
+      <Spacer size={"md"} />
       <a href={"http://eoghan.io"} target={"_blank"}>
         eoghan.io
       </a>

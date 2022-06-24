@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { withRouter, Link } from "react-router-dom";
-import { Button, Dialog, useDialog } from "@eoghanmccarthy/ui";
+import { Dialog, useDialog } from "@eoghanmccarthy/ui";
 
 import "./styles.scss";
 
@@ -24,15 +24,7 @@ const GlobalNavigation = ({ history }) => {
 
   return (
     <Fragment>
-      <Button
-        size={48}
-        shape={"circle"}
-        className={"global-nav open"}
-        onClick={navDialog.open}
-      >
-        <span />
-        <span />
-      </Button>
+      <IconButtons.Open onClick={navDialog.open} />
       <Dialog
         id={"global-nav"}
         isOpen={navDialog.isOpen}
@@ -59,7 +51,7 @@ const GlobalNavigation = ({ history }) => {
             );
           })}
         </nav>
-        <IconButtons.Close className={"global-nav"} onClick={navDialog.close} />
+        <IconButtons.Close onClick={navDialog.close} />
       </Dialog>
     </Fragment>
   );

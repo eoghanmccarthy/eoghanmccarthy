@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Spacer } from "@eoghanmccarthy/ui";
 
 import { Main } from "components/layout";
 import Logo from "components/animatedLogo";
@@ -12,6 +13,7 @@ const Page = () => {
     <div className={"me index"}>
       <Main>
         <Logo onClick={() => history.push("/")} />
+        <Spacer size={"md"} />
         <Navigation />
       </Main>
     </div>

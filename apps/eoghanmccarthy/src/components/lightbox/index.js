@@ -83,12 +83,8 @@ const Viewer = ({ list, currentIndex, setCurrentIndex }) => {
   return (
     <div id={"lightbox-viewer"}>
       <div className={"nav-container"}>
-        <IconButtons.Base className={"prev"} onClick={handlePrev}>
-          <span />
-        </IconButtons.Base>
-        <IconButtons.Base className={"next"} onClick={handleNext}>
-          <span />
-        </IconButtons.Base>
+        <IconButtons.Prev onClick={handlePrev} />
+        <IconButtons.Next onClick={handleNext} />
       </div>
       <div id={"lightbox-slides"}>
         {transitions.map(({ item, props, key }) => (

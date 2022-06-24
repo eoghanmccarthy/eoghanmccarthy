@@ -118,7 +118,7 @@ a:hover {
 	grid-area: footer;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 	padding: var( --spacing-md);
 }
@@ -126,25 +126,6 @@ a:hover {
 .me__sidebar {
 	grid-area: sidebar;
 	background-color: white;
-}
-
-button.global-nav {
-	margin-top: 16px;
-	background-color: var(--color-secondary);
-}
-
-button.global-nav span {
-	width: 25px;
-	height: 2px;
-	background-color: white;
-}
-
-button.global-nav.open span {
-	transform: skew(15deg, 15deg);
-}
-
-button.global-nav.open span:last-child {
-	margin-top: 4px;
 }
 
 .side-nav {
@@ -209,26 +190,6 @@ button.global-nav.open span:last-child {
 	opacity: 1;
 	transition: all 0.3s ease;
 	/*cursor: pointer;*/
-}
-
-/*.gallery figure img:hover  {*/
-/*	opacity: 0.8;*/
-/*}*/
-
-button.btn-scroll {
-	background-color: var(--color-secondary);
-}
-
-button.btn-scroll span {
-	display: block;
-	width: 25px;
-	height: 2px;
-	background-color: white;
-	transform: skew(-15deg, -15deg);
-}
-
-button.btn-scroll span:last-child {
-	margin-top: 4px;
 }
 
 mark.dark {

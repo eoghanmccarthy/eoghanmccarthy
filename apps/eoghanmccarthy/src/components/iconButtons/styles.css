@@ -1,0 +1,32 @@
+.ui-button.open span {
+	transform: skew(15deg, 15deg);
+}
+
+.ui-button.close span {
+	transform: rotate(45deg);
+}
+
+.ui-button.close span:last-child {
+	margin-top: -1px;
+	transform: rotate(135deg);
+}
+
+.ui-button.scroll span {
+	transform: skew(-15deg, -15deg);
+}
+
+.ui-button.close {
+	position: absolute;
+	top: var(--spacing-sm);
+	right: var(--spacing-sm);
+}
+
+.ui-button.prev {
+	align-items: flex-start;
+	padding-left: 10px;
+}
+
+.ui-button.next {
+	align-items: flex-end;
+	padding-right: 10px;
+}
