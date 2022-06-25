@@ -1,36 +1,40 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { config, animated, useSpring } from "react-spring";
 
 import { useGetPost } from "../../utils/api";
 
-import Media from "../media";
+import Gallery from "components/gallery";
 
 export const Post = () => {
   const { postId } = useParams();
   const { data } = useGetPost({ postId });
 
-  const spring = useSpring({
-    config: { ...config.gentle },
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    delay: 250,
-    reset: true,
-  });
+  const gallery = React.useMemo(() => {
+    if (Array.isArray(data?.media)) {
+      return data.media.filter(
+        (item) => item.type === "image" || item.type === "video"
+      );
+    }
+  }, [data]);
 
-  return data ? (
+  if (!data) {
+    return null;
+  }
+
+  return (
     <article data-post-id={data.id} className={"me__post"}>
-      <Media post={data} />
-      <animated.span
-        //style={spring}
-        className={"description"}
-      >
+      {gallery?.length ? (
+        <div className={"media"}>
+          <Gallery list={gallery} />
+        </div>
+      ) : null}
+      <span className={"description"}>
         {typeof data?.text === "function" ? (
           <data.text />
         ) : typeof data?.text === "string" ? (
           data.text
         ) : null}
-      </animated.span>
+      </span>
     </article>
-  ) : null;
+  );
 };

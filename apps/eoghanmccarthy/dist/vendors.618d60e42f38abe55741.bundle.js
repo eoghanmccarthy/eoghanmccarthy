@@ -10974,12 +10974,10 @@
                       e(t.currentResult);
                     }),
                   e.cache &&
-                    t.client
-                      .getQueryCache()
-                      .notify({
-                        query: t.currentQuery,
-                        type: "observerResultsUpdated",
-                      });
+                    t.client.getQueryCache().notify({
+                      query: t.currentQuery,
+                      type: "observerResultsUpdated",
+                    });
               });
             }),
             t

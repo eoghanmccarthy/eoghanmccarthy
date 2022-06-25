@@ -5,7 +5,7 @@ import { css } from "@stitches/react";
 import { useSpring, animated, config } from "react-spring";
 import cx from "classnames";
 
-import DialogBackground from "../DialogBackground";
+import DialogBackground from "./DialogBackground";
 
 const Dialog = ({ children, className, size = "md", close, ...rest }) => {
   const props = useSpring({

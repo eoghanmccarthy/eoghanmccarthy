@@ -12,12 +12,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <Dialog
-        id={"bio-dialog"}
-        isVisible={showDialog}
-        closeDialog={close}
-        onClick={close}
-      >
+      <Dialog id={"bio-dialog"} close={close} onClick={close}>
         <Bio />
       </Dialog>
       <main className={"me__page page__index"}>

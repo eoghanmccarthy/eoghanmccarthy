@@ -1,10 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Spacer } from "@eoghanmccarthy/ui";
+import { useDialogsContext, Spacer } from "@eoghanmccarthy/ui";
 
-import { useDialogsContext } from "components/dialogsProvider/useDialogsContext";
 import * as IconButtons from "components/iconButtons";
 import Logo from "components/logo";
+import NavigationModal from "../../../modals/navigation";
 
 export const Header = () => {
   const history = useHistory();
@@ -14,7 +14,7 @@ export const Header = () => {
     <header className={"me__header"}>
       <Logo onClick={() => history.push("/")} />
       <Spacer size={"md"} />
-      <IconButtons.Open onClick={() => dialog.open("navigation")} />
+      <IconButtons.Open onClick={() => dialog.open(<NavigationModal />)} />
     </header>
   );
 };
