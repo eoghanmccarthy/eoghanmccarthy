@@ -7,7 +7,7 @@ import React, {
 
 import { generateId } from "../utils";
 
-//import Blanket from "../Blanket";
+import Blanket from "../Blanket";
 
 export const DialogsContext = createContext();
 
@@ -71,7 +71,7 @@ const DialogsProvider = ({ children }) => {
         {children}
       </DialogsContext.Provider>
       {elements || null}
-      {/*{Boolean(elements) ? <Blanket /> : null}*/}
+      {Boolean(elements) ? <Blanket /> : null}
     </>
   );
 };
