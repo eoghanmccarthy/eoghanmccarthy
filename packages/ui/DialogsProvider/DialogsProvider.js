@@ -1,11 +1,9 @@
 import React, {
   createContext,
   useReducer,
-  useEffect,
   useMemo,
   isValidElement,
 } from "react";
-import { useLocation } from "react-router";
 
 import { generateId } from "../utils";
 
@@ -30,7 +28,6 @@ const reducer = (state, action) => {
 };
 
 const DialogsProvider = ({ children }) => {
-  const location = useLocation();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const elements = useMemo(() => {
@@ -51,12 +48,6 @@ const DialogsProvider = ({ children }) => {
       });
     }
   }, [state]);
-
-  useEffect(() => {
-    if (location) {
-      dispatch({ type: "clear" });
-    }
-  }, [location]);
 
   return (
     <>
