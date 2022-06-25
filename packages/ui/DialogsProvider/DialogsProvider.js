@@ -7,7 +7,7 @@ import React, {
 
 import { generateId } from "../utils";
 
-import Blanket from "../Blanket";
+//import Blanket from "../Blanket";
 
 export const DialogsContext = createContext();
 
@@ -16,9 +16,9 @@ const initialState = {};
 const reducer = (state, action) => {
   switch (action.type) {
     case "open":
-      return { ...state, [action.payload.name]: { ...action.payload.props } };
+      return { ...state, [action.payload.id]: { ...action.payload.props } };
     case "close":
-      const { [action.payload.name]: cleared, ...rest } = { ...state };
+      const { [action.payload.id]: cleared, ...rest } = { ...state };
       return { ...rest };
     case "clear":
       return initialState;
@@ -32,7 +32,7 @@ const DialogsProvider = ({ children }) => {
 
   const elements = useMemo(() => {
     if (Object.keys(state).length > 0) {
-      return Object.entries(state).map(([name, props = {}]) => {
+      return Object.entries(state).map(([id, props = {}]) => {
         const { Component } = props;
 
         if (!isValidElement(Component)) {
@@ -40,8 +40,8 @@ const DialogsProvider = ({ children }) => {
         }
 
         const commonProps = {
-          key: name,
-          close: () => dispatch({ type: "close", payload: { name } }),
+          key: id,
+          close: () => dispatch({ type: "close", payload: { id } }),
         };
 
         return React.cloneElement(Component, { ...commonProps });
@@ -59,19 +59,19 @@ const DialogsProvider = ({ children }) => {
 
             dispatch({
               type: "open",
-              payload: { name: id, props: { Component } },
+              payload: { id, props: { Component } },
             });
 
-            return id;
+            return {id, close: () => dispatch({ type: "close", payload: { id } })};
           },
-          close: (name) => dispatch({ type: "close", payload: { name } }),
+          close: (id) => dispatch({ type: "close", payload: { id } }),
           clear: () => dispatch({ type: "clear" }),
         }}
       >
         {children}
       </DialogsContext.Provider>
       {elements || null}
-      {Boolean(elements) ? <Blanket /> : null}
+      {/*{Boolean(elements) ? <Blanket /> : null}*/}
     </>
   );
 };
