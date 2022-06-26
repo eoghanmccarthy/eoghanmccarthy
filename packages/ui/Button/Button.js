@@ -73,6 +73,9 @@ const styles = css({
   cursor: "pointer",
   padding: 0,
   borderRadius: 0,
+  "&:focus": {
+    boxShadow: "0 0 0 3px white",
+  },
   variants: {
     theme: {
       primary: {
