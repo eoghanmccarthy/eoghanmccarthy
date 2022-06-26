@@ -42,7 +42,7 @@ const Dialog = ({ children, className, size = "md", close, ...rest }) => {
 export default Dialog;
 
 Dialog.propTypes = {
-  close: PropTypes.func.isRequired,
+  close: PropTypes.func,
 };
 
 const styles = css({

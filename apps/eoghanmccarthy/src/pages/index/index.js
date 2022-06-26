@@ -16,7 +16,7 @@ const Page = () => {
     <div className={"me index"}>
       <Main>
         <Logo onClick={() => history.push("/")} />
-        <Spacer size={"md"} />
+        <Spacer />
         <IconButtons.Open onClick={() => dialog.open(<NavigationModal />)} />
       </Main>
     </div>

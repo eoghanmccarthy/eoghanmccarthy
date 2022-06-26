@@ -27,7 +27,7 @@ export const Footer = () => {
   return (
     <animated.footer style={spring} className={"me__footer"}>
       <IconButtons.Scroll onClick={() => scroll.scrollToTop()} />
-      <Spacer size={"md"} />
+      <Spacer />
       <a href={"http://eoghan.io"} target={"_blank"}>
         eoghan.io
       </a>

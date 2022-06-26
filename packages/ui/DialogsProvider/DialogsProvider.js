@@ -54,7 +54,9 @@ const DialogsProvider = ({ children }) => {
       <DialogsContext.Provider
         value={{
           state,
-          open: (Component, id) => {
+          open: (Component, options = {}) => {
+            let { id } = options;
+
             id = id ?? generateId();
 
             dispatch({
@@ -62,7 +64,10 @@ const DialogsProvider = ({ children }) => {
               payload: { id, props: { Component } },
             });
 
-            return {id, close: () => dispatch({ type: "close", payload: { id } })};
+            return {
+              id,
+              close: () => dispatch({ type: "close", payload: { id } }),
+            };
           },
           close: (id) => dispatch({ type: "close", payload: { id } }),
           clear: () => dispatch({ type: "clear" }),

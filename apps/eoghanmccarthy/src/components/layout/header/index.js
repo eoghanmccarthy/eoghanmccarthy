@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <header className={"me__header"}>
       <Logo onClick={() => history.push("/")} />
-      <Spacer size={"md"} />
+      <Spacer />
       <IconButtons.Open onClick={() => dialog.open(<NavigationModal />)} />
     </header>
   );

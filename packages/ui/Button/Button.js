@@ -6,39 +6,55 @@ import { css } from "@stitches/react";
 const Button = ({
   children,
   className,
+  as = "button",
   role = "button",
   type = "button",
   tabIndex = "0",
   disabled = false,
   onClick = () => null,
-  variant = "primary",
+  href = "",
+  target = "_blank",
+  variant = "contained",
+  theme = "primary",
   shape = "circle",
-  size = "lg",
+  size = 48,
   ...rest
 }) => {
+  const Element = as;
+
+  const buttonProps = {
+    role,
+    type,
+    disabled,
+    onClick,
+  };
+
+  const aProps = {
+    href,
+    target,
+  };
+
   return (
-    <button
+    <Element
       className={cx(
         "ui-button",
         className,
-        styles({ shape, size, variant }).toString()
+        styles({ shape, size, variant, theme }).toString()
       )}
-      role={role}
-      type={type}
       tabIndex={tabIndex}
-      disabled={disabled}
-      onClick={onClick}
+      {...(as === "button" ? { ...buttonProps } : { ...aProps })}
       {...rest}
     >
       {children}
-    </button>
+    </Element>
   );
 };
 
 export default Button;
 
 Button.propTypes = {
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
+  as: PropTypes.oneOf(["button", "a"]),
+  size: PropTypes.oneOf([32, 48, 60]),
   shape: PropTypes.oneOf(["square", "rounded", "circle", "capsule"]),
 };
 
@@ -58,24 +74,59 @@ const styles = css({
   padding: 0,
   borderRadius: 0,
   variants: {
-    variant: {
+    theme: {
       primary: {
         backgroundColor: "#0000ff",
+      },
+      transparent: {
+        backgroundColor: "transparent",
+      },
+      yellow: {
+        backgroundColor: "#ff0",
       },
     },
     shape: {
       rounded: {
-        borderRadius: "4px",
+        padding: "0 1em",
+        borderRadius: "3px",
       },
       circle: {
         borderRadius: "100%",
       },
     },
     size: {
-      lg: {
-        minWidth: "48px",
+      32: {
+        minHeight: `32px`,
+      },
+      48: {
         minHeight: `48px`,
+      },
+      60: {
+        minHeight: `60px`,
       },
     },
   },
+  compoundVariants: [
+    {
+      shape: "circle",
+      size: 32,
+      css: {
+        minWidth: "32px",
+      },
+    },
+    {
+      shape: "circle",
+      size: 48,
+      css: {
+        minWidth: "48px",
+      },
+    },
+    {
+      shape: "circle",
+      size: 60,
+      css: {
+        minWidth: "60px",
+      },
+    },
+  ],
 });

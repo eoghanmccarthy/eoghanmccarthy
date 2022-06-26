@@ -26,18 +26,14 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     padding: 30px;
     > a {
-      align-self: flex-start;
-      padding: 0 15px;
-      margin-bottom: 30px;
-      background-color: yellow;
       &:focus {
         box-shadow: none;
       }
     }
     #skills {
-      align-self: flex-start;
       margin: 30px 0;
       padding: 0;
       list-style-type: none;

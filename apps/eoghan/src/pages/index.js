@@ -1,33 +1,32 @@
-import React, { Fragment, useState } from "react";
-import { Button, Dialog } from "@eoghanmccarthy/ui";
+import React from "react";
+import { Button, Dialog, useDialogsContext } from "@eoghanmccarthy/ui";
 import "./styles.css";
 
 import Bio from "../components/bio";
 import AnimatedLogo from "../components/animatedLogo";
 
 const Home = () => {
-  const [showDialog, toggleDialog] = useState(false);
-  const close = () => toggleDialog(false);
-  const toggle = () => toggleDialog((vis) => !vis);
+  const dialog = useDialogsContext();
 
   return (
-    <Fragment>
-      <Dialog id={"bio-dialog"} close={close} onClick={close}>
-        <Bio />
-      </Dialog>
-      <main className={"me__page page__index"}>
-        <AnimatedLogo />
-        <Button
-          size={"xl"}
-          shape={"circle"}
-          className={"toggle-bio"}
-          onClick={toggle}
-        >
-          <span />
-          <span />
-        </Button>
-      </main>
-    </Fragment>
+    <main className={"me__page page__index"}>
+      <AnimatedLogo />
+      <Button
+        size={60}
+        shape={"circle"}
+        className={"toggle-bio"}
+        onClick={() =>
+          dialog.open(
+            <Dialog id={"bio-dialog"}>
+              <Bio />
+            </Dialog>
+          )
+        }
+      >
+        <span />
+        <span />
+      </Button>
+    </main>
   );
 };
 

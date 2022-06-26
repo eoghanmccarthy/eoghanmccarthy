@@ -1,17 +1,29 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Switch, Route, useLocation } from "react-router-dom";
+import { useDialogsContext } from "@eoghanmccarthy/ui";
 
 import Home from "./pages";
 
-const App = () => (
-  <div className="me">
-    <header className="me__header" />
-    <Switch>
-      <Route exact path="/" render={() => <Home />} />
-      <Route render={() => <Home />} />
-    </Switch>
-    <footer className="me__footer" />
-  </div>
-);
+const App = () => {
+  const dialog = useDialogsContext();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location) {
+      dialog.clear();
+    }
+  }, [location]);
+
+  return (
+    <div className="me">
+      <header className="me__header" />
+      <Switch>
+        <Route exact path="/" render={() => <Home />} />
+        <Route render={() => <Home />} />
+      </Switch>
+      <footer className="me__footer" />
+    </div>
+  );
+};
 
 export default App;
