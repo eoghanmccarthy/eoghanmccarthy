@@ -5,7 +5,7 @@ export const posts = [
   {
     id: "6n1EOTol",
     title: "japan with canon kiss x3",
-    text: "some shots in japan taken with a canon kiss x3.",
+    text: "ssssome shots in japan taken with a canon kiss x3.",
     media: [
       {
         type: "image",
