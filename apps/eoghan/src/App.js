@@ -5,12 +5,12 @@ import { useDialogsContext } from "@eoghanmccarthy/ui";
 import Home from "./pages";
 
 const App = () => {
-  const dialog = useDialogsContext();
+  const dialogCtx = useDialogsContext();
   const location = useLocation();
 
   useEffect(() => {
     if (location) {
-      dialog.clear();
+        dialogCtx.clear();
     }
   }, [location]);
 
