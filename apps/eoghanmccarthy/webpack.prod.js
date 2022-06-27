@@ -3,15 +3,13 @@ const { merge } = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
 const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   mode: "production",
+  devtool: "source-map",
   output: {
-    filename: "[name].[contenthash].bundle.js",
-    chunkFilename: "[id].js",
-    clean: true,
+    filename: "[name].[contenthash].bundle.js"
   },
   optimization: {
     minimize: true,
