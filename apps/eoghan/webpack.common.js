@@ -9,14 +9,14 @@ module.exports = merge(base, {
     path: path.join(__dirname, "/dist"),
     assetModuleFilename: "assets/[hash][ext]",
     publicPath: "/",
-    clean: true
+    clean: true,
   },
   resolve: {
     alias: {
       assets: path.resolve(__dirname, "assets/"),
       src: path.resolve(__dirname, "src/"),
       components: path.resolve(__dirname, "src/components/"),
-      pages: path.resolve(__dirname, "src/pages/")
+      pages: path.resolve(__dirname, "src/pages/"),
     },
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },

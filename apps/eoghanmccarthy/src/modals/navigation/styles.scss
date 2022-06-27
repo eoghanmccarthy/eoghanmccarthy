@@ -17,7 +17,7 @@
       text-transform: lowercase;
       letter-spacing: 5px;
       @media (min-width: 30em) {
-        font-size: calc(2.5rem + ((1vw - 0.30rem) * 2.5));
+        font-size: calc(2.5rem + ((1vw - 0.3rem) * 2.5));
         /* Where: * 2.5 = 100 * font size difference / viewport width difference */
       }
       @media (min-width: 80em) {

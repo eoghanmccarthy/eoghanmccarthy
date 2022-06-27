@@ -6,14 +6,14 @@ module.exports = merge(common, {
   mode: "development",
   devtool: "inline-source-map",
   output: {
-    filename: "[name].bundle.js"
+    filename: "[name].bundle.js",
   },
   devServer: {
     static: "./dist",
     historyApiFallback: true,
   },
   optimization: {
-    runtimeChunk: 'single',
+    runtimeChunk: "single",
   },
   plugins: [
     new CircularDependencyPlugin({

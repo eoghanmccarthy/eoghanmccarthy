@@ -42,7 +42,7 @@
         display: inline-block;
         background-color: #80ff00;
         &:after {
-          content: '/';
+          content: "/";
           padding: 0 10px;
         }
         &:last-child:after {
@@ -59,10 +59,9 @@
     align-items: center;
     padding: 0 30px;
     > a {
-      background-image: url('../../../assets/github.png');
+      background-image: url("../../../assets/github.png");
       background-size: cover;
       background-repeat: no-repeat;
     }
   }
 }
-

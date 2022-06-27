@@ -4,7 +4,7 @@ import { Router } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import { DialogsProvider, ErrorBoundary } from "@eoghanmccarthy/ui";
 
-import "./styles.scss";
+import "./styles.css";
 
 import App from "./App";
 
