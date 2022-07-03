@@ -1,0 +1,22 @@
+{
+  "name": "@eoghanmccarthy/styles",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.js --mode production && npm run build-css-modules",
+    "build-css-modules": "node ./scripts/build-css-modules.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eoghanmccarthy/eoghanmccarthy.git",
+    "directory": "packages/styles"
+  },
+  "bugs": {
+    "url": "https://github.com/eoghanmccarthy/eoghanmccarthy/issues"
+  },
+  "homepage": "https://github.com/eoghanmccarthy/eoghanmccarthy#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

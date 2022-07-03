@@ -1,0 +1,14 @@
+:root {
+  --color-blue1: hsl(206, 100%, 99.2%);
+  --color-blue2: hsl(210, 100%, 98.0%);
+  --color-blue3: hsl(209, 100%, 96.5%);
+  --color-blue4: hsl(210, 98.8%, 94.0%);
+  --color-blue5: hsl(209, 95.0%, 90.1%);
+  --color-blue6: hsl(209, 81.2%, 84.5%);
+  --color-blue7: hsl(208, 77.5%, 76.9%);
+  --color-blue8: hsl(206, 81.9%, 65.3%);
+  --color-blue9: hsl(206, 100%, 50.0%);
+  --color-blue10: hsl(208, 100%, 47.3%);
+  --color-blue11: hsl(211, 100%, 43.2%);
+  --color-blue12: hsl(211, 100%, 15.0%);
+}

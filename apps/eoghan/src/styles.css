@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i&display=swap");
+@import "~@eoghanmccarthy/styles/fonts.css";
+@import "~@eoghanmccarthy/styles/colors.css";
 
 :root {
   --color-primary: #ff1458;
@@ -23,7 +24,7 @@ body {
   padding: 0;
   margin: 0;
   color: #000;
-  font-family: "Roboto Mono", sans-serif;
+  font-family: var(--font-primary);
   line-height: 1.45;
 }
 

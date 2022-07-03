@@ -1,8 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i");
-
-:root {
-  --font-primary: "Roboto Mono", sans-serif;
-}
+@import "~@eoghanmccarthy/styles/fonts.css";
+@import "~@eoghanmccarthy/styles/colors.css";
 
 :root {
   --color-primary: #ff00ff;

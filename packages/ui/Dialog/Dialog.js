@@ -33,7 +33,7 @@ const Dialog = ({
       <DialogBackground close={close}>
         <animated.div
           tabIndex={"-1"}
-          style={{ ...style,...props }}
+          style={{ ...style, ...props }}
           className={cx("ui-dialog", className, styles({ size }).toString())}
           onClick={(e) => e.stopPropagation()}
           onKeyDown={handleKeyDown}
