@@ -1,0 +1,26 @@
+#box {
+  --color-step: yellow;
+  --color-step-hover: var(--color-secondary);
+  --color-step-hit: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#box .step {
+  position: relative;
+  padding: 0;
+  border-width: 0;
+  cursor: pointer;
+  background: var(--color-step);
+  outline: none;
+  transition: background 0.3s ease-out;
+}
+
+#box .step:hover {
+  background: var(--color-step-hover);
+}
+
+#box .step.hit {
+  background: var(--color-step-hit);
+  transition: background 0.1s ease-in;
+}

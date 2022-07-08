@@ -1,7 +1,5 @@
-const amber = require("./amber");
-const blue = require("./blue");
+const green = require("./green");
 
 module.exports = {
-  amber,
-  blue,
+  green,
 };

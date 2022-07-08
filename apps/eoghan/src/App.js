@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { useDialogsContext } from "@eoghanmccarthy/ui";
-import * as colors from "@eoghanmccarthy/colors";
 
 import Home from "./pages";
 

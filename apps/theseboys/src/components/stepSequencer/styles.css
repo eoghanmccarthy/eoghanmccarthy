@@ -1,0 +1,68 @@
+.sequencer {
+  grid-area: sequencer;
+  display: flex;
+  background-color: hsla(0, 0%, 100%, 0.008);
+}
+
+.sequencer .sequencer-randomizer {
+  display: none;
+  width: 72px;
+  padding: 16px 0;
+  background: orange;
+}
+
+.sequencer .sequencer-steps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sequencer .steps {
+  flex: 1;
+  display: grid;
+  /*touch-action: none;*/
+  width: 100%;
+}
+
+.sequencer .step {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border-width: 0;
+  cursor: pointer;
+}
+
+.sequencer .step[value="on"] {
+  background: var(--color-secondary);
+}
+
+.sequencer .step[value="on"][data-status="current"] {
+  background: blueviolet;
+}
+
+.sequencer .step svg {
+  fill: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+}
+
+.sequencer .step[value="off"] .step-icon.off {
+  display: block;
+  fill: var(--color-bluegrey-900);
+}
+
+.sequencer .step[value="off"] .step-icon.on {
+  display: none;
+}
+
+.sequencer .step[value="on"] .step-icon.off {
+  display: none;
+}
+
+.sequencer .step[value="on"] .step-icon.on {
+  display: block;
+}

@@ -1,0 +1,10 @@
+#oscillator {
+  display: block;
+  background-color: blue;
+  opacity: 1;
+  transition: all 0.25s ease;
+}
+
+#oscillator:hover {
+  opacity: 0.9;
+}

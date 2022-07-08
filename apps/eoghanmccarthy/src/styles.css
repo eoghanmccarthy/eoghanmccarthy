@@ -31,7 +31,7 @@ body,
 body {
   margin: 0;
   color: #000000;
-  font-family: var(--font-primary);
+  font-family: var(--font-roboto-mono);
   font-weight: 100;
   line-height: 1;
   background: white;

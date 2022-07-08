@@ -1,0 +1,11 @@
+.track-effects {
+  grid-area: effects;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  padding: var(--spacing-20) var(--spacing-20) var(--spacing-16);
+  background-color: var(--color-bluegrey-900);
+}
+
+.track-effects:focus-within {
+  background-color: var(--color-bluegrey-900);
+}

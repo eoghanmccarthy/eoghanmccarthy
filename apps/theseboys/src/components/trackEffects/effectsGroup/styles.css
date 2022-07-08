@@ -1,0 +1,39 @@
+.effects-group {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.effects-group > .controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.effects-group > .label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 var(--spacing-4);
+  margin-top: var(--spacing-16);
+}
+
+.effects-group > .label > div {
+  flex: 1;
+  display: inline-block;
+  height: 1px;
+  background-color: var(--color-grey-900);
+}
+
+.effects-group > .label > span {
+  margin: 0 var(--spacing-8);
+  color: var(--color-bluegrey-200);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.effects-group:focus-within > .label > span {
+  color: white;
+  font-weight: bold;
+}

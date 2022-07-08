@@ -11,7 +11,7 @@ Object.entries(allColorScales).forEach(([colorScaleName, scale]) => {
   const selector = ":root";
   const scaleAssCssProperties = Object.entries(scale)
     .map(([name, value]) => {
-      const cssVariable = `--color-${name}: ${value};`;
+      const cssVariable = `--color-${colorScaleName}-${name}: ${value};`;
       cssVariables = cssVariables + `${cssVariable}<br />`;
       return `  ${cssVariable}`;
     })
@@ -26,4 +26,4 @@ Object.entries(allColorScales).forEach(([colorScaleName, scale]) => {
 });
 
 fs.writeFileSync(path.join(".", "colors.css"), cssImports);
-fs.writeFileSync(path.join(".", "README.md"), "<h1>Styles</h1>" + cssVariables);
+fs.writeFileSync(path.join(".", "COLORS.md"), "<h1>Styles</h1>" + cssVariables);

@@ -1,0 +1,73 @@
+#studio {
+  --br: 16px;
+  display: grid;
+  grid-template-areas:
+    "master master"
+    "globals tracks";
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: 240px 1fr;
+  grid-gap: 16px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+#studio #globals {
+  grid-area: globals;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+#studio #globals #master {
+  display: block;
+  border-top: none;
+  background-color: transparent;
+}
+
+#studio #globals #master .master__status {
+  display: none;
+}
+
+#studio #globals #master .master__controls {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  padding: 16px;
+  background-color: var(--color-bluegrey-900);
+  border-radius: var(--br);
+}
+
+#studio #globals #master .master__controls #playback-controls {
+  height: 56px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#studio #tracks {
+  grid-area: tracks;
+  display: grid;
+  grid-row-gap: 16px;
+}
+
+#studio #tracks .track {
+  border-radius: var(--br);
+}
+
+#studio #tracks .track-controls {
+  background-color: var(--color-bluegrey-900);
+  /*border-radius: 16px 16px 0 0;*/
+}
+
+#studio #tracks .track-effects {
+  background-color: var(--color-bluegrey-900);
+  /*border-radius: 0 0 16px 16px;*/
+}
+
+#studio #tracks .sequencer {
+  /*padding: 0 var(--spacing-12);*/
+  background-color: rgba(255, 255, 255, 0.008);
+}
+
+#studio #tracks .sequencer .step {
+  padding-top: 100%;
+}
