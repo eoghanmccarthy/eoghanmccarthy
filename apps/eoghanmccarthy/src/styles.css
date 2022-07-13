@@ -154,7 +154,7 @@ a:hover {
   flex-wrap: wrap;
 }
 
-.me__post .media {
+.me__post .content {
   flex: 3 1 540px;
 }
 
@@ -163,7 +163,16 @@ a:hover {
   line-height: 1.2;
 }
 
-.media .gallery {
+.canvas-responsive-wrapper {
+  width: 100%;
+}
+
+.canvas-responsive-wrapper canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.gallery {
   display: flex;
   flex-direction: column;
 }

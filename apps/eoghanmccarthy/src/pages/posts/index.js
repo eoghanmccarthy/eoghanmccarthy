@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 
 import { Footer, Header, Main, Sidebar } from "components/layout";
 import { Post } from "components/post";
@@ -14,6 +14,7 @@ const Posts = () => (
       <nav className={"side-nav"}>
         {postsData.map((post) => {
           const { id, status, title } = post;
+
           if (status !== "draft") {
             return (
               <NavLink key={id} to={`/posts/${id}`}>
@@ -28,10 +29,9 @@ const Posts = () => (
     </Sidebar>
     <Main>
       <ScrollToTop>
-        <Switch>
-          <Route exact path={`/posts`} render={() => null} />
-          <Route exact path={`/posts/:postId`} render={() => <Post />} />
-        </Switch>
+        <Routes>
+          <Route exact path={`:postId`} element={<Post />} />
+        </Routes>
       </ScrollToTop>
     </Main>
     <Footer />

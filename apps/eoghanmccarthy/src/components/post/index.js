@@ -3,29 +3,41 @@ import { useParams } from "react-router-dom";
 
 import { useGetPost } from "../../utils/api";
 
+import CanvasResponsiveWrapper from "../canvasResponsiveWrapper";
 import Gallery from "components/gallery";
 
 export const Post = () => {
   const { postId } = useParams();
-  const { data } = useGetPost({ postId });
-
-  const gallery = React.useMemo(() => {
-    if (Array.isArray(data?.media)) {
-      return data.media.filter(
-        (item) => item.type === "image" || item.type === "video"
-      );
+  const { data } = useGetPost(
+    { postId },
+    {
+      select: ({ media, ...rest }) => ({
+        media: Array.isArray(media)
+          ? media.filter(
+              (item) => item.type === "image" || item.type === "video"
+            )
+          : undefined,
+        ...rest,
+      }),
     }
-  }, [data]);
+  );
 
   if (!data) {
     return null;
   }
 
+  const hasContent = Boolean(data.media) || Boolean(data.Component);
+
   return (
     <article data-post-id={data.id} className={"me__post"}>
-      {gallery?.length ? (
-        <div className={"media"}>
-          <Gallery list={gallery} />
+      {hasContent ? (
+        <div className={"content"}>
+          {data.Component ? (
+            <CanvasResponsiveWrapper>
+              <data.Component />
+            </CanvasResponsiveWrapper>
+          ) : null}
+          {Boolean(data.media) ? <Gallery list={data.media} /> : null}
         </div>
       ) : null}
       <span className={"description"}>

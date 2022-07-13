@@ -1,0 +1,27 @@
+{
+  "name": "@eoghanmccarthy/hooks",
+  "version": "0.1.0",
+  "main": "./index.js",
+  "scripts": {
+    "lint": "eslint *.js*"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eoghanmccarthy/eoghanmccarthy.git",
+    "directory": "packages/hooks"
+  },
+  "bugs": {
+    "url": "https://github.com/eoghanmccarthy/eoghanmccarthy/issues"
+  },
+  "homepage": "https://github.com/eoghanmccarthy/eoghanmccarthy#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*"
+  }
+}

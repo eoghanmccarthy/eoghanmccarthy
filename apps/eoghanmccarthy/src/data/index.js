@@ -1,11 +1,14 @@
 import React from "react";
 import { generateId } from "../utils/generateId";
 
+import Art from "../components/canvas";
+
 export const posts = [
   {
     id: "6n1EOTol",
     title: "japan with canon kiss x3",
     text: "some shots in japan taken with a canon kiss x3.",
+    Component: null,
     media: [
       {
         type: "image",
@@ -53,6 +56,7 @@ export const posts = [
     id: "4gyX7aqL",
     title: "tokyo, japan",
     text: "a few shots from the first trips to tokyo.",
+    Component: null,
     media: [
       {
         type: "image",
@@ -85,6 +89,7 @@ export const posts = [
     id: "2ovZOQmQ",
     title: "baseball game in tokyo, japan",
     text: "a baseball game in tokyo, japan.",
+    Component: null,
     media: [
       {
         type: "image",
@@ -116,6 +121,7 @@ export const posts = [
       const animal = animals[(year - 1948) % animals.length];
       return <span className="text-large">{animal}</span>;
     },
+    Component: null,
   },
   {
     id: "OdOcgBi7",
@@ -126,6 +132,7 @@ export const posts = [
         .
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -158,6 +165,7 @@ export const posts = [
         <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -175,6 +183,7 @@ export const posts = [
         <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "video",
@@ -192,6 +201,7 @@ export const posts = [
         <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "video",
@@ -205,6 +215,7 @@ export const posts = [
     status: "draft",
     title: "los angeles itinerary",
     text: `los angeles itinerary, 2003.`,
+    Component: null,
     media: [
       {
         type: "image",
@@ -222,6 +233,7 @@ export const posts = [
         <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -242,11 +254,13 @@ export const posts = [
         .
       </span>
     ),
+    Component: null,
   },
   {
     id: "c7SzsMX4",
     title: "theseboys logo",
     text: `theseboys logo.`,
+    Component: null,
     media: [
       {
         type: "image",
@@ -259,6 +273,7 @@ export const posts = [
     id: "WfO7R3Kk",
     title: "japan japan",
     text: `japan japan photo collage.`,
+    Component: null,
     media: [
       {
         type: "image",
@@ -275,6 +290,7 @@ export const posts = [
         a wedding in <mark>nagano, japan, 2004</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -307,6 +323,7 @@ export const posts = [
         video of snow, <mark>hokkaido, japan</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "video",
@@ -323,6 +340,7 @@ export const posts = [
         breakfast on mount elbrus, <mark>russia, 2006</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -332,6 +350,12 @@ export const posts = [
     ],
   },
   {
+    id: "kykCrq3y",
+    title: "canvas",
+    text: "canvas",
+    Component: Art,
+  },
+  {
     id: "5AWKtaN7",
     title: "flower shop in tokyo",
     text: () => (
@@ -339,6 +363,7 @@ export const posts = [
         a flower shop in <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -351,6 +376,7 @@ export const posts = [
     id: "jj0diCuc",
     title: "detail 9/9a aungier street",
     text: `detail from inside dublin's oldest domestic building at 9/9a aungier street.`,
+    Component: null,
     media: [
       {
         type: "image",
@@ -372,6 +398,7 @@ export const posts = [
         a bamboo forest in <mark>shizuoka, japan</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -399,6 +426,7 @@ export const posts = [
         piccadilly circus during lockdown, <mark>london, 2020</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -412,6 +440,7 @@ export const posts = [
     status: "draft",
     title: "merry-go-round",
     text: `a merry-go-round.`,
+    Component: null,
     media: [
       {
         type: "image",
@@ -428,6 +457,7 @@ export const posts = [
         the alps, <mark>switzerland, 2019</mark>.
       </span>
     ),
+    Component: null,
     media: [
       {
         type: "image",
@@ -475,11 +505,13 @@ export const posts = [
         </div>
       );
     },
+    Component: null,
   },
   {
     id: "umIfb1wj",
     title: "flashing gif",
     text: `flashing gif.`,
+    Component: null,
     media: [
       {
         type: "image",

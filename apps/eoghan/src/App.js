@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useDialogsContext } from "@eoghanmccarthy/ui";
 
 import Home from "./pages";
@@ -17,10 +17,10 @@ const App = () => {
   return (
     <div className="me">
       <header className="me__header" />
-      <Switch>
-        <Route exact path="/" render={() => <Home />} />
-        <Route render={() => <Home />} />
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route element={<Home />} />
+      </Routes>
       <footer className="me__footer" />
     </div>
   );
