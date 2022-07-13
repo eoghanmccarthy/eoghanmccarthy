@@ -3,7 +3,7 @@ import p5 from "p5";
 
 function sketch(p) {
   p.setup = function () {
-    p.createCanvas(400, 400);
+    p.createCanvas(800, 800);
     p.noSmooth();
   };
 
