@@ -1,9 +1,8 @@
 import React from "react";
-import { generateId } from "../utils/generateId";
 
-import Art from "../components/canvas";
+import { items as canvases } from "./canvas";
 
-export const posts = [
+export const items = [
   {
     id: "6n1EOTol",
     title: "japan with canon kiss x3",
@@ -353,7 +352,7 @@ export const posts = [
     id: "kykCrq3y",
     title: "canvas",
     text: "canvas",
-    Component: Art,
+    Component: canvases.find((item) => item.id === "first").Component,
   },
   {
     id: "5AWKtaN7",
@@ -524,5 +523,5 @@ export const posts = [
 
 console.log(
   "number of live posts",
-  posts.filter((p) => p.status !== "draft").length
+  items.filter((p) => p.status !== "draft").length
 );

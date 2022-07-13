@@ -41,9 +41,9 @@ export const Post = () => {
         </div>
       ) : null}
       <span className={"description"}>
-        {typeof data?.text === "function" ? (
+        {typeof data.text === "function" ? (
           <data.text />
-        ) : typeof data?.text === "string" ? (
+        ) : typeof data.text === "string" ? (
           data.text
         ) : null}
       </span>

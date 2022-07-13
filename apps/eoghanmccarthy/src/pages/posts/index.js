@@ -1,41 +1,45 @@
 import * as React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 
+import { useGetPosts } from "../../utils/api";
+
 import { Footer, Header, Main, Sidebar } from "components/layout";
 import { Post } from "components/post";
 import ScrollToTop from "components/scrollToTop";
 
-import { posts as postsData } from "src/data";
+const Posts = () => {
+  const { data } = useGetPosts();
 
-const Posts = () => (
-  <div className={"me content"}>
-    <Header />
-    <Sidebar>
-      <nav className={"side-nav"}>
-        {postsData.map((post) => {
-          const { id, status, title } = post;
+  return (
+    <div className={"me posts"}>
+      <Header />
+      <Sidebar>
+        <nav className={"side-nav"}>
+          {data?.map((post) => {
+            const { id, status, title } = post;
 
-          if (status !== "draft") {
-            return (
-              <NavLink key={id} to={`/posts/${id}`}>
-                {title}
-              </NavLink>
-            );
-          } else {
-            return null;
-          }
-        })}
-      </nav>
-    </Sidebar>
-    <Main>
-      <ScrollToTop>
-        <Routes>
-          <Route exact path={`:postId`} element={<Post />} />
-        </Routes>
-      </ScrollToTop>
-    </Main>
-    <Footer />
-  </div>
-);
+            if (status !== "draft") {
+              return (
+                <NavLink key={id} to={`/posts/${id}`}>
+                  {title}
+                </NavLink>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </nav>
+      </Sidebar>
+      <Main>
+        <ScrollToTop>
+          <Routes>
+            <Route exact path={`:postId`} element={<Post />} />
+          </Routes>
+        </ScrollToTop>
+      </Main>
+      <Footer />
+    </div>
+  );
+};
 
 export default Posts;
