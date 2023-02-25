@@ -1,16 +1,16 @@
-import React, { memo } from "react";
-import cx from "classnames";
+import React, { memo } from 'react'
+import cx from 'classnames'
 
 export const PlusIcon = memo(
   ({
     className,
-    width = "100%",
-    stroke = "var(--color-bluegrey-600)",
-    strokeWidth = "4",
+    width = '100%',
+    stroke = 'var(--color-bluegrey-600)',
+    strokeWidth = '4',
   }) => {
     return (
       <svg
-        className={cx("svg-icon", className)}
+        className={cx('svg-icon', className)}
         width={width}
         viewBox="0 0 30 30"
         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export const PlusIcon = memo(
           y1="0"
           x2="15"
           y2="30"
-          fill={"transparent"}
+          fill={'transparent'}
           stroke={stroke}
           strokeWidth={strokeWidth}
         />
@@ -29,11 +29,11 @@ export const PlusIcon = memo(
           y1="15"
           x2="30"
           y2="15"
-          fill={"transparent"}
+          fill={'transparent'}
           stroke={stroke}
           strokeWidth={strokeWidth}
         />
       </svg>
-    );
+    )
   }
-);
+)

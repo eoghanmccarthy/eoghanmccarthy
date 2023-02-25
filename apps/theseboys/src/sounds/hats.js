@@ -2,22 +2,22 @@
 //https://blog.landr.com/eq-kick-and-bass/
 //https://github.com/Tonejs/Tone.js/issues/416
 
-import { STEPS_DEFAULT } from "../utils/constants";
+import { STEPS_DEFAULT } from '../utils/constants'
 
-const sound = { notes: [], steps: STEPS_DEFAULT };
+const sound = { notes: [], steps: STEPS_DEFAULT }
 
 export const tracks = {
   HAT01: {
-    id: "HAT01",
-    type: "hat",
-    name: "",
+    id: 'HAT01',
+    type: 'hat',
+    name: '',
     ...sound,
     instrument: {
-      synth: "NoiseSynth",
+      synth: 'NoiseSynth',
       options: {
         volume: -8,
         noise: {
-          type: "white",
+          type: 'white',
           playbackRate: 5,
         },
         envelope: {
@@ -30,18 +30,18 @@ export const tracks = {
     },
     effects: new Map([
       [
-        "Filter",
+        'Filter',
         {
           Q: 1,
           detune: 0,
           frequency: 11600,
           gain: 0,
           rolloff: -48,
-          type: "bandpass",
+          type: 'bandpass',
         },
       ],
       [
-        "EQ3",
+        'EQ3',
         {
           low: -60,
           mid: 0,
@@ -52,21 +52,21 @@ export const tracks = {
       ],
     ]),
     controls: {
-      equaliser: { span: "1 / span 5", effects: ["EQ3"] },
-      filter: { span: "6 / span 1", effects: ["Filter"] },
+      equaliser: { span: '1 / span 5', effects: ['EQ3'] },
+      filter: { span: '6 / span 1', effects: ['Filter'] },
     },
   },
   HAT02: {
-    id: "HAT02",
-    type: "hat",
-    name: "",
+    id: 'HAT02',
+    type: 'hat',
+    name: '',
     ...sound,
     instrument: {
-      synth: "NoiseSynth",
+      synth: 'NoiseSynth',
       options: {
         volume: -8,
         noise: {
-          type: "white",
+          type: 'white',
           playbackRate: 5,
         },
         envelope: {
@@ -79,19 +79,19 @@ export const tracks = {
     },
     effects: new Map([
       [
-        "Filter",
+        'Filter',
         {
           Q: 1,
           detune: 0,
           frequency: 3700,
           gain: 0,
           rolloff: -48,
-          type: "bandpass",
+          type: 'bandpass',
         },
       ],
-      ["Reverb", { decay: 4, preDelay: 0.2, wet: 0.28 }],
+      ['Reverb', { decay: 4, preDelay: 0.2, wet: 0.28 }],
       [
-        "EQ3",
+        'EQ3',
         {
           low: -60,
           mid: 0,
@@ -102,8 +102,8 @@ export const tracks = {
       ],
     ]),
     controls: {
-      equaliser: { span: "1 / span 5", effects: ["EQ3"] },
-      filter: { span: "6 / span 1", effects: ["Filter"] },
+      equaliser: { span: '1 / span 5', effects: ['EQ3'] },
+      filter: { span: '6 / span 1', effects: ['Filter'] },
     },
   },
-};
+}

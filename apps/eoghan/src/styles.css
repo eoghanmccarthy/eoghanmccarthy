@@ -1,5 +1,5 @@
-@import "~@eoghanmccarthy/styles/fonts.css";
-@import "~@eoghanmccarthy/styles/colors.css";
+@import '~@eoghanmccarthy/styles/fonts.css';
+@import '~@eoghanmccarthy/styles/colors.css';
 
 :root {
   --color-primary: #ff1458;
@@ -76,9 +76,9 @@ a {
   display: grid;
   grid-template-rows: 100px auto 100px;
   grid-template-areas:
-    "header"
-    "main"
-    "footer";
+    'header'
+    'main'
+    'footer';
   height: 100%;
   min-height: 100vh;
   overflow: hidden;

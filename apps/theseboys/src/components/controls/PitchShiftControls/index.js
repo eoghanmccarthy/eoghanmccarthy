@@ -1,21 +1,21 @@
-import React, { memo } from "react";
+import React, { memo } from 'react'
 
-import { SliderControl } from "../../controllers";
+import { SliderControl } from '../../controllers'
 
 const PitchShiftControls = memo(({ trackId, node }) => {
-  if (!trackId || !node) return null;
+  if (!trackId || !node) return null
 
   return (
     <SliderControl
       id={`${trackId}-pitchshift--pitch`}
-      label={"PCH"}
+      label={'PCH'}
       step={12}
       min={-48}
       max={48}
       initialValue={node.get().pitch ?? 0}
       onChange={(val) => node.set({ pitch: val })}
     />
-  );
-});
+  )
+})
 
-export default PitchShiftControls;
+export default PitchShiftControls

@@ -2,24 +2,24 @@
 //https://blog.landr.com/eq-kick-and-bass/
 //https://github.com/Tonejs/Tone.js/issues/416
 
-import { STEPS_DEFAULT } from "../utils/constants";
+import { STEPS_DEFAULT } from '../utils/constants'
 
-const sound = { notes: [], steps: STEPS_DEFAULT };
+const sound = { notes: [], steps: STEPS_DEFAULT }
 
 export const tracks = {
   kick01: {
-    id: "kick01",
-    type: "kick",
-    name: "SUB KICK",
+    id: 'kick01',
+    type: 'kick',
+    name: 'SUB KICK',
     ...sound,
-    notes: ["G1"],
+    notes: ['G1'],
     instrument: {
-      synth: "MembraneSynth",
+      synth: 'MembraneSynth',
       options: {
         pitchDecay: 0.01,
         octaves: 6,
         oscillator: {
-          type: "square4",
+          type: 'square4',
         },
         envelope: {
           attack: 0.001,
@@ -30,10 +30,17 @@ export const tracks = {
       },
     },
     effects: new Map([
-      ["Reverb", { decay: 0.2, preDelay: 0.2, wet: 0.05 }],
-      ["Distortion", { distortion: 0.6, oversample: "4x", wet: 0.22 }],
+      ['Reverb', { decay: 0.2, preDelay: 0.2, wet: 0.05 }],
       [
-        "Compressor",
+        'Distortion',
+        {
+          distortion: 0.6,
+          oversample: '4x',
+          wet: 0.22,
+        },
+      ],
+      [
+        'Compressor',
         {
           threshold: -26,
           knee: 20,
@@ -42,9 +49,9 @@ export const tracks = {
           release: 0.132,
         },
       ],
-      ["Limiter", { threshold: -48 }],
+      ['Limiter', { threshold: -48 }],
       [
-        "EQ3",
+        'EQ3',
         {
           Q: 1,
           low: -3,
@@ -56,29 +63,32 @@ export const tracks = {
       ],
     ]),
     controls: {
-      equaliser: { span: "1 / span 5", effects: ["EQ3"] },
-      compressor: { span: "6 / span 4", effects: ["Compressor"] },
-      limiter: { span: "10 / span 1", effects: ["Limiter"] },
+      equaliser: { span: '1 / span 5', effects: ['EQ3'] },
+      compressor: {
+        span: '6 / span 4',
+        effects: ['Compressor'],
+      },
+      limiter: { span: '10 / span 1', effects: ['Limiter'] },
       effects: {
-        span: "11 / span 2",
+        span: '11 / span 2',
         effects: [],
         //effects: ['Distortion', 'Reverb']
       },
     },
   },
   kick02: {
-    id: "kick02",
-    type: "kick",
-    name: "MID KICK",
+    id: 'kick02',
+    type: 'kick',
+    name: 'MID KICK',
     ...sound,
-    notes: ["C1"],
+    notes: ['C1'],
     instrument: {
-      synth: "MembraneSynth",
+      synth: 'MembraneSynth',
       options: {
         pitchDecay: 0.01,
         octaves: 6,
         oscillator: {
-          type: "square4",
+          type: 'square4',
         },
         envelope: {
           attack: 0.001,
@@ -90,7 +100,7 @@ export const tracks = {
     },
     effects: new Map([
       [
-        "Compressor",
+        'Compressor',
         {
           threshold: -21,
           knee: 20,
@@ -99,9 +109,9 @@ export const tracks = {
           release: 0.132,
         },
       ],
-      ["Limiter", { threshold: -12 }],
+      ['Limiter', { threshold: -12 }],
       [
-        "EQ3",
+        'EQ3',
         {
           Q: 1,
           low: -3,
@@ -113,9 +123,12 @@ export const tracks = {
       ],
     ]),
     controls: {
-      eq3: { span: "1 / span 5", effects: ["EQ3"] },
-      compressor: { span: "6 / span 4", effects: ["Compressor"] },
-      limiter: { span: "10 / span 1", effects: ["Limiter"] },
+      eq3: { span: '1 / span 5', effects: ['EQ3'] },
+      compressor: {
+        span: '6 / span 4',
+        effects: ['Compressor'],
+      },
+      limiter: { span: '10 / span 1', effects: ['Limiter'] },
     },
   },
-};
+}

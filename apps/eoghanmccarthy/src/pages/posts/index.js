@@ -1,31 +1,31 @@
-import * as React from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import * as React from 'react'
+import { Routes, Route, NavLink } from 'react-router-dom'
 
-import { useGetPosts } from "services/api";
+import { useGetPosts } from 'services/api'
 
-import { Footer, Header, Main, Sidebar } from "components/layout";
-import { Post } from "components/post";
-import ScrollToTop from "components/scrollToTop";
+import { Footer, Header, Main, Sidebar } from 'components/layout'
+import { Post } from 'components/post'
+import ScrollToTop from 'components/scrollToTop'
 
 const Posts = () => {
-  const { data } = useGetPosts();
+  const { data } = useGetPosts()
 
   return (
-    <div className={"me posts"}>
+    <div className={'me posts'}>
       <Header />
       <Sidebar>
-        <nav className={"side-nav"}>
+        <nav className={'side-nav'}>
           {data?.map((post) => {
-            const { id, status, title } = post;
+            const { id, status, title } = post
 
-            if (status !== "draft") {
+            if (status !== 'draft') {
               return (
                 <NavLink key={id} to={`/posts/${id}`}>
                   {title}
                 </NavLink>
-              );
+              )
             } else {
-              return null;
+              return null
             }
           })}
         </nav>
@@ -39,7 +39,7 @@ const Posts = () => {
       </Main>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Posts;
+export default Posts

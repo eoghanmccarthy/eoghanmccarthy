@@ -1,25 +1,25 @@
-import React, { memo, forwardRef } from "react";
-import PropTypes from "prop-types";
+import React, { memo, forwardRef } from 'react'
+import PropTypes from 'prop-types'
 //Only instruments that extend the Monophonic class can be used with Tone.PolySynth
 //AMSynth, DuoSynth, FMSynth, MembraneSynth, MetalSynth, Synth
 
-import { useEventListener, useSound } from "hooks";
+import { useEventListener, useSound } from 'hooks'
 
 import {
   channelTypes,
   instrumentTypes,
   notesTypes,
   stepsTypes,
-} from "../../utils/types";
+} from '../../utils/types'
 
-import Track from "../trackContainer";
-import StepSequencer from "../stepSequencer";
-import { TrackEffects, EffectsGroup } from "../trackEffects";
-import { ControlHandler } from "../controls/ControlHandler";
-import EnvelopeControls from "../controls/EnvelopeControls";
+import Track from '../trackContainer'
+import StepSequencer from '../stepSequencer'
+import { TrackEffects, EffectsGroup } from '../trackEffects'
+import { ControlHandler } from '../controls/ControlHandler'
+import EnvelopeControls from '../controls/EnvelopeControls'
 
 //const notes = ['A4', 'D3', 'E3', 'G4', 'F#4'];
-const notes = ["A3", "C4", "D4", "E4", "G4", "A4"];
+const notes = ['A3', 'C4', 'D4', 'E4', 'G4', 'A4']
 
 // const delay = useRef(
 //     new FeedbackDelay({
@@ -45,7 +45,7 @@ const PolyTrack = memo(
       },
       ref
     ) => {
-      const sound = useSound(channel, instrument, effects);
+      const sound = useSound(channel, instrument, effects)
 
       useEventListener((e) => {
         if (parseInt(e.key) === index + 1) {
@@ -58,7 +58,7 @@ const PolyTrack = memo(
             // }
           }
         }
-      });
+      })
 
       return (
         <Track trackId={trackId}>
@@ -76,7 +76,7 @@ const PolyTrack = memo(
                   {value.effects.map((name, i) => {
                     const node = sound.effects.find(
                       (effect) => effect.name === name
-                    );
+                    )
                     if (node) {
                       return (
                         <ControlHandler
@@ -85,29 +85,33 @@ const PolyTrack = memo(
                           name={name}
                           node={node}
                         />
-                      );
+                      )
                     } else {
-                      return null;
+                      return null
                     }
                   })}
                 </EffectsGroup>
-              );
+              )
             })}
-            <EffectsGroup span={"17 / span 4"} title={"envelope"}>
+            <EffectsGroup span={'17 / span 4'} title={'envelope'}>
               <EnvelopeControls
                 trackId={trackId}
                 initialValue={sound.synth?.get().envelope}
-                onChange={(val) => sound.synth.set({ envelope: val })}
+                onChange={(val) =>
+                  sound.synth.set({
+                    envelope: val,
+                  })
+                }
               />
             </EffectsGroup>
           </TrackEffects>
         </Track>
-      );
+      )
     }
   )
-);
+)
 
-export default PolyTrack;
+export default PolyTrack
 
 PolyTrack.propTypes = {
   trackId: PropTypes.string.isRequired,
@@ -119,4 +123,4 @@ PolyTrack.propTypes = {
   steps: stepsTypes,
   effects: PropTypes.object.isRequired,
   controls: PropTypes.object.isRequired,
-};
+}

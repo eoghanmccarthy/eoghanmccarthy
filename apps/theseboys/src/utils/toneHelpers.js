@@ -18,12 +18,12 @@ import {
   Reverb,
   StereoWidener,
   Synth,
-} from "tone";
-import { isString } from "utils/typeCheck";
+} from 'tone'
+import { isString } from 'utils/typeCheck'
 
 export const getSynth = (name, options = {}) => {
   if (!isString(name)) {
-    return;
+    return
   }
 
   const synths = {
@@ -32,14 +32,14 @@ export const getSynth = (name, options = {}) => {
     MetalSynth: new MetalSynth(options),
     NoiseSynth: new NoiseSynth(options),
     Synth: new Synth(options),
-  };
+  }
 
-  return synths[name];
-};
+  return synths[name]
+}
 
 export const getEffect = (name, options = {}) => {
   if (!isString(name)) {
-    return;
+    return
   }
 
   const effects = {
@@ -57,7 +57,7 @@ export const getEffect = (name, options = {}) => {
     PitchShift: new PitchShift(options),
     Reverb: new Reverb(options),
     StereoWidener: new StereoWidener(options),
-  };
+  }
 
-  return effects[name];
-};
+  return effects[name]
+}

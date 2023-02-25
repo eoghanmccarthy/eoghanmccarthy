@@ -1,4 +1,4 @@
-import TrackEffects from "./trackEffects";
-import EffectsGroup from "./effectsGroup";
+import TrackEffects from './trackEffects'
+import EffectsGroup from './effectsGroup'
 
-export { TrackEffects, EffectsGroup };
+export { TrackEffects, EffectsGroup }

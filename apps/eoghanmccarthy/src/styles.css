@@ -1,5 +1,5 @@
-@import "~@eoghanmccarthy/styles/fonts.css";
-@import "~@eoghanmccarthy/styles/colors.css";
+@import '~@eoghanmccarthy/styles/fonts.css';
+@import '~@eoghanmccarthy/styles/colors.css';
 
 :root {
   --color-primary: #ff00ff;
@@ -65,7 +65,7 @@ a:hover {
 }
 
 .me.index {
-  grid-template-areas: "main";
+  grid-template-areas: 'main';
   max-height: 100vh;
 }
 
@@ -86,9 +86,9 @@ a:hover {
   grid-template-rows: 280px auto 140px;
   grid-template-columns: 2fr 3fr;
   grid-template-areas:
-    "header main"
-    "sidebar main"
-    "footer footer";
+    'header main'
+    'sidebar main'
+    'footer footer';
 }
 
 .me.posts .me__header {

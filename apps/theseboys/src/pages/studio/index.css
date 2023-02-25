@@ -2,8 +2,8 @@
   --br: 16px;
   display: grid;
   grid-template-areas:
-    "master master"
-    "globals tracks";
+    'master master'
+    'globals tracks';
   grid-template-rows: min-content 1fr;
   grid-template-columns: 240px 1fr;
   grid-gap: 16px;

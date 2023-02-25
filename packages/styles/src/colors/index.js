@@ -1,5 +1,5 @@
-const green = require("./green");
+const green = require('./green')
 
 module.exports = {
   green,
-};
+}

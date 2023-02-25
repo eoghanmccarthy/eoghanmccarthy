@@ -1,20 +1,20 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import React from 'react'
+import { useLocation, Link } from 'react-router-dom'
 
-import "./index.css";
+import './index.css'
 
-import Logo from "../../Logo";
+import Logo from '../../Logo'
 
 const Footer = () => {
-  const location = useLocation();
+  const location = useLocation()
 
   return (
-    <footer className={"me__footer"}>
-      <Link reloadDocument to={location.pathname === "/" ? "/studio" : "/"}>
-        <Logo fill={"var(--color-grey-800)"} />
+    <footer className={'me__footer'}>
+      <Link reloadDocument to={location.pathname === '/' ? '/studio' : '/'}>
+        <Logo fill={'var(--color-grey-800)'} />
       </Link>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

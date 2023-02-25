@@ -1,21 +1,21 @@
-import React, { memo, forwardRef } from "react";
-import PropTypes from "prop-types";
+import React, { memo, forwardRef } from 'react'
+import PropTypes from 'prop-types'
 
-import { useEventListener, useSound } from "hooks";
+import { useEventListener, useSound } from 'hooks'
 
 import {
   channelTypes,
   instrumentTypes,
   notesTypes,
   stepsTypes,
-} from "../../utils/types";
+} from '../../utils/types'
 
-import { ControlHandler } from "../controls";
-import EnvelopeControls from "../controls/EnvelopeControls";
-import Track from "../trackContainer";
-import TrackControls from "../trackControls";
-import StepSequencer from "../stepSequencer";
-import { TrackEffects, EffectsGroup } from "../trackEffects";
+import { ControlHandler } from '../controls'
+import EnvelopeControls from '../controls/EnvelopeControls'
+import Track from '../trackContainer'
+import TrackControls from '../trackControls'
+import StepSequencer from '../stepSequencer'
+import { TrackEffects, EffectsGroup } from '../trackEffects'
 
 const StudioTrack = memo(
   forwardRef(
@@ -33,7 +33,7 @@ const StudioTrack = memo(
       },
       ref
     ) => {
-      const sound = useSound(channel, instrument, effects);
+      const sound = useSound(channel, instrument, effects)
 
       useEventListener((e) => {
         if (parseInt(e.key) === index + 1) {
@@ -45,11 +45,11 @@ const StudioTrack = memo(
             //   steps.forEach(step => step.setAttribute('value', 'off'));
             // }
           } else {
-            document.querySelector(`#${trackId}`)?.scrollIntoView();
+            document.querySelector(`#${trackId}`)?.scrollIntoView()
             //document.querySelector(`#${trackId}-sample`)?.focus();
           }
         }
-      });
+      })
 
       return (
         <Track trackId={trackId}>
@@ -72,7 +72,7 @@ const StudioTrack = memo(
                   {value.effects.map((name, i) => {
                     const node = sound.effects.find(
                       (effect) => effect.name === name
-                    );
+                    )
                     if (node) {
                       return (
                         <ControlHandler
@@ -81,15 +81,15 @@ const StudioTrack = memo(
                           name={name}
                           node={node}
                         />
-                      );
+                      )
                     } else {
-                      return null;
+                      return null
                     }
                   })}
                 </EffectsGroup>
-              );
+              )
             })}
-            <EffectsGroup span={"17 / span 4"} title={"envelope"}>
+            <EffectsGroup span={'17 / span 4'} title={'envelope'}>
               <EnvelopeControls
                 trackId={trackId}
                 initialValue={sound.synth?.envelope?.get()}
@@ -98,12 +98,12 @@ const StudioTrack = memo(
             </EffectsGroup>
           </TrackEffects>
         </Track>
-      );
+      )
     }
   )
-);
+)
 
-export default StudioTrack;
+export default StudioTrack
 
 StudioTrack.propTypes = {
   trackId: PropTypes.string.isRequired,
@@ -115,4 +115,4 @@ StudioTrack.propTypes = {
   steps: stepsTypes,
   effects: PropTypes.object.isRequired,
   controls: PropTypes.object.isRequired,
-};
+}

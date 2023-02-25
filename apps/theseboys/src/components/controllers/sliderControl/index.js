@@ -1,13 +1,13 @@
-import React, { memo, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
+import React, { memo, useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 
-import Slider from "components/slider";
-import Controller from "../controller";
+import Slider from 'components/slider'
+import Controller from '../controller'
 
 const SliderControl = memo(
   ({
     id,
-    orient = "vertical",
+    orient = 'vertical',
     label,
     step = 0.1,
     min = 0,
@@ -16,76 +16,75 @@ const SliderControl = memo(
     toFixed = 0,
     onChange,
   }) => {
-    const controlRef = useRef(null);
-    const valueRef = useRef(null);
+    const controlRef = useRef(null)
+    const valueRef = useRef(null)
 
-    const isInvalid = (val) =>
-      typeof val !== "number" || val < min || val > max;
+    const isInvalid = (val) => typeof val !== 'number' || val < min || val > max
 
     useEffect(() => {
       if (!isInvalid(initial)) {
-        controlRef.current.value = initial.toString();
-        valueRef.current.innerHTML = initial.toFixed(toFixed);
+        controlRef.current.value = initial.toString()
+        valueRef.current.innerHTML = initial.toFixed(toFixed)
       }
-    }, []);
+    }, [])
 
     return (
       <Controller id={id} orient={orient}>
-        <label htmlFor={""} className={"label"}>
+        <label htmlFor={''} className={'label'}>
           {label}
         </label>
-        <div className={"controls"}>
+        <div className={'controls'}>
           <Slider
             ref={controlRef}
-            className={"control"}
+            className={'control'}
             orient={orient}
             step={step}
             min={min}
             max={max}
             onChange={(e) => {
-              const val = parseFloat(e.target.value);
+              const val = parseFloat(e.target.value)
 
               if (!isInvalid(val)) {
-                valueRef.current.innerHTML = val.toFixed(toFixed);
-                onChange(val, "0.1");
+                valueRef.current.innerHTML = val.toFixed(toFixed)
+                onChange(val, '0.1')
               }
             }}
             onKeyDown={(e) => {
-              let val;
+              let val
 
               switch (e.key) {
-                case "q":
-                  val = max;
-                  break;
-                case "a":
-                  val = min;
-                  break;
-                case "s":
-                  val = initial;
-                  break;
+                case 'q':
+                  val = max
+                  break
+                case 'a':
+                  val = min
+                  break
+                case 's':
+                  val = initial
+                  break
                 default:
-                  break;
+                  break
               }
 
               if (!isInvalid(val)) {
-                e.target.value = val;
-                valueRef.current.innerHTML = val.toFixed(toFixed);
-                onChange(val, "4n");
+                e.target.value = val
+                valueRef.current.innerHTML = val.toFixed(toFixed)
+                onChange(val, '4n')
               }
             }}
           />
         </div>
-        <span ref={valueRef} className={"value"} />
+        <span ref={valueRef} className={'value'} />
       </Controller>
-    );
+    )
   }
-);
+)
 
-export default SliderControl;
+export default SliderControl
 
 SliderControl.propTypes = {
   id: PropTypes.string.isRequired,
-  orient: PropTypes.oneOf(["horizontal", "vertical"]),
+  orient: PropTypes.oneOf(['horizontal', 'vertical']),
   label: PropTypes.string.isRequired,
   step: PropTypes.number,
   min: PropTypes.number,
@@ -93,4 +92,4 @@ SliderControl.propTypes = {
   initialValue: PropTypes.number.isRequired,
   toFixed: PropTypes.number,
   onChange: PropTypes.func.isRequired,
-};
+}

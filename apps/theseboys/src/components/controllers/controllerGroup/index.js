@@ -1,20 +1,22 @@
-import React, { memo } from "react";
-import cx from "classnames";
+import React, { memo } from 'react'
+import cx from 'classnames'
 
-import "./styles.css";
+import './styles.css'
 
 const ControllerGroup = memo(
-  ({ children, id, orientation = "horizontal", ...rest }) => {
+  ({ children, id, orientation = 'horizontal', ...rest }) => {
     return (
       <div
         id={id}
-        className={cx("controller-group", { [orientation]: orientation })}
+        className={cx('controller-group', {
+          [orientation]: orientation,
+        })}
         {...rest}
       >
         {children}
       </div>
-    );
+    )
   }
-);
+)
 
-export default ControllerGroup;
+export default ControllerGroup

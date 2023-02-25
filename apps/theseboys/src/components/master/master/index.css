@@ -52,11 +52,11 @@
   fill: white;
 }
 
-#master #playback-controls .playback.play[value="on"] svg > * {
+#master #playback-controls .playback.play[value='on'] svg > * {
   fill: blue;
 }
 
-#master[data-recorder="stand-by"] #playback-controls .playback.record svg > * {
+#master[data-recorder='stand-by'] #playback-controls .playback.record svg > * {
   animation-name: record-standby;
   animation-duration: 0.8s;
   animation-delay: 0.2s;
@@ -64,7 +64,7 @@
   animation-iteration-count: infinite;
 }
 
-#master[data-recorder="on"] #playback-controls .playback.record svg > * {
+#master[data-recorder='on'] #playback-controls .playback.record svg > * {
   fill: red;
 }
 

@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
 
-const createRootReducer = () => combineReducers({});
+const createRootReducer = () => combineReducers({})
 
-export default createRootReducer;
+export default createRootReducer

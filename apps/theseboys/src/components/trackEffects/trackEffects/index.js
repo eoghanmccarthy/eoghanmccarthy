@@ -1,13 +1,13 @@
-import React, { memo } from "react";
+import React, { memo } from 'react'
 
-import "./styles.css";
+import './styles.css'
 
 const TrackEffects = memo(({ children, trackId }) => {
   return (
-    <div id={`${trackId}-effects`} className={"track-effects"}>
+    <div id={`${trackId}-effects`} className={'track-effects'}>
       {children}
     </div>
-  );
-});
+  )
+})
 
-export default TrackEffects;
+export default TrackEffects

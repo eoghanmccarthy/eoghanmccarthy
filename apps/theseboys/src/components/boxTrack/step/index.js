@@ -1,25 +1,25 @@
-import React, { memo, useRef } from "react";
+import React, { memo, useRef } from 'react'
 
-import { useEventListener } from "hooks";
+import { useEventListener } from 'hooks'
 
 const Step = memo(({ id, onClick }) => {
-  const ref = useRef();
+  const ref = useRef()
 
   useEventListener(
     (e) => {
-      e.target.classList.add("hit");
+      e.target.classList.add('hit')
     },
     ref.current,
-    "pointerdown"
-  );
+    'pointerdown'
+  )
 
   useEventListener(
     (e) => {
-      e.target.classList.remove("hit");
+      e.target.classList.remove('hit')
     },
     ref.current,
-    "pointerup"
-  );
+    'pointerup'
+  )
 
   return (
     <button ref={ref} id={id} className={`step`} onClick={onClick}>
@@ -33,7 +33,7 @@ const Step = memo(({ id, onClick }) => {
       {/*  <circle cx={'15'} cy={'15'} r={'0.5'} fill={'white'} />*/}
       {/*</svg>*/}
     </button>
-  );
-});
+  )
+})
 
-export default Step;
+export default Step

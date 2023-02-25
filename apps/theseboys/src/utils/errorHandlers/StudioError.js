@@ -1,4 +1,4 @@
-import LogRocket from "logrocket";
+import LogRocket from 'logrocket'
 
 /**
  * Captures an exception and sends it to LogRocket
@@ -6,10 +6,10 @@ import LogRocket from "logrocket";
  * @constructor
  */
 function StudioError(message) {
-  this.message = message;
-  LogRocket.captureException(this);
+  this.message = message
+  LogRocket.captureException(this)
 }
 
-StudioError.prototype = new Error();
+StudioError.prototype = new Error()
 
-export default StudioError;
+export default StudioError

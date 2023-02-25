@@ -1,5 +1,5 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { NODE_ENV } = process.env;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { NODE_ENV } = process.env
 
 module.exports = {
   module: {
@@ -9,12 +9,12 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"],
+              presets: ['@babel/preset-env', '@babel/preset-react'],
               plugins: [
-                "@babel/plugin-syntax-dynamic-import",
-                "@babel/plugin-transform-runtime",
+                '@babel/plugin-syntax-dynamic-import',
+                '@babel/plugin-transform-runtime',
               ],
             },
           },
@@ -24,15 +24,15 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [
-          NODE_ENV === "development"
-            ? "style-loader"
+          NODE_ENV === 'development'
+            ? 'style-loader'
             : MiniCssExtractPlugin.loader,
-          "css-loader",
+          'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: ["postcss-preset-env", "postcss-flexibility"],
+                plugins: ['postcss-preset-env', 'postcss-flexibility'],
               },
             },
           },
@@ -42,13 +42,13 @@ module.exports = {
         test: /\.(png|jpg|svg|gif|mp3|mp4|ttf|eot|woff)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              outputPath: "./assets/",
+              outputPath: './assets/',
             },
           },
         ],
       },
     ],
   },
-};
+}

@@ -1,8 +1,8 @@
-import React, { memo } from "react";
-import { oneOf } from "prop-types";
-import cx from "classnames";
+import React, { memo } from 'react'
+import { oneOf } from 'prop-types'
+import cx from 'classnames'
 
-import "./styles.css";
+import './styles.css'
 
 const Button = memo(
   ({
@@ -11,10 +11,10 @@ const Button = memo(
     testId,
     isDisabled = false,
     className,
-    role = "button",
-    type = "button",
+    role = 'button',
+    type = 'button',
     size = 48,
-    shape = "circle",
+    shape = 'circle',
     variant,
     ...rest
   }) => {
@@ -24,10 +24,10 @@ const Button = memo(
         data-testid={testId}
         disabled={isDisabled}
         className={cx(
-          "tb-button",
+          'tb-button',
           {
-            [`size-${size}`]: size && variant !== "text",
-            [shape]: shape && variant !== "text",
+            [`size-${size}`]: size && variant !== 'text',
+            [shape]: shape && variant !== 'text',
             [variant]: variant,
             disabled: isDisabled,
           },
@@ -39,13 +39,13 @@ const Button = memo(
       >
         {children}
       </button>
-    );
+    )
   }
-);
+)
 
-export default Button;
+export default Button
 
 Button.propTypes = {
   size: oneOf([24, 28, 32, 36, 40, 44, 48]),
-  shape: oneOf(["circle", "rounded"]),
-};
+  shape: oneOf(['circle', 'rounded']),
+}

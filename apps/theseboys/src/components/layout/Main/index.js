@@ -1,14 +1,14 @@
-import React from "react";
-import cx from "classnames";
+import React from 'react'
+import cx from 'classnames'
 
-import "./index.css";
+import './index.css'
 
 const Main = ({ children, id, className }) => {
   return (
-    <main id={id} className={cx("me__main", className)}>
+    <main id={id} className={cx('me__main', className)}>
       {children}
     </main>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

@@ -1,14 +1,14 @@
 export const tracks = {
   OSC01: {
-    id: "OSC01",
-    type: "osc",
-    name: "",
+    id: 'OSC01',
+    type: 'osc',
+    name: '',
     instrument: {
-      synth: "Oscillator",
+      synth: 'Oscillator',
       options: {
         volume: -8,
         noise: {
-          type: "white",
+          type: 'white',
           playbackRate: 5,
         },
         envelope: {
@@ -21,7 +21,7 @@ export const tracks = {
     },
     effects: {
       Filter: {
-        type: "lowpass",
+        type: 'lowpass',
         frequency: 1100,
         rolloff: -12,
         Q: 1,
@@ -33,4 +33,4 @@ export const tracks = {
       },
     },
   },
-};
+}

@@ -2,9 +2,9 @@
   display: grid;
   grid-template-rows: min-content auto min-content;
   grid-template-areas:
-    "controls"
-    "sequencer"
-    "effects";
+    'controls'
+    'sequencer'
+    'effects';
   width: 100%;
   overflow: hidden;
 }

@@ -1,14 +1,14 @@
-const { merge } = require("webpack-merge");
-const path = require("path");
-const common = require("./webpack.common.js");
-const CircularDependencyPlugin = require("circular-dependency-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { merge } = require('webpack-merge')
+const path = require('path')
+const common = require('./webpack.common.js')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(common, {
-  mode: "development",
-  devtool: "source-map",
+  mode: 'development',
+  devtool: 'source-map',
   devServer: {
-    static: "./dist",
+    static: './dist',
     historyApiFallback: true,
   },
   plugins: [
@@ -19,4 +19,4 @@ module.exports = merge(common, {
     }),
     new MiniCssExtractPlugin(),
   ],
-});
+})

@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ["prettier"],
+  extends: ['prettier'],
   rules: {
-    "react/jsx-key": "off",
+    'react/jsx-key': 'off',
   },
-};
+}

@@ -1,1 +1,1 @@
-`http://theseboys.com/`
+`npm run build -w=eoghanmccarthy`

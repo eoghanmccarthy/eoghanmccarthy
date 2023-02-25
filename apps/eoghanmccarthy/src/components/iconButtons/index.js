@@ -1,22 +1,22 @@
-import React from "react";
-import cx from "classnames";
-import { css } from "@stitches/react";
+import React from 'react'
+import cx from 'classnames'
+import { css } from '@stitches/react'
 
-import { Button } from "@eoghanmccarthy/ui";
+import { Button } from '@eoghanmccarthy/ui'
 
-import "./styles.css";
+import './styles.css'
 
 const styles = css({
-  "& span": {
-    display: "block",
-    width: "25px",
-    height: "2px",
-    backgroundColor: "white",
-    "&:last-child": {
-      marginTop: "4px",
+  '& span': {
+    display: 'block',
+    width: '25px',
+    height: '2px',
+    backgroundColor: 'white',
+    '&:last-child': {
+      marginTop: '4px',
     },
   },
-});
+})
 
 const Base = ({ children, className, onClick, ...rest }) => {
   return (
@@ -27,48 +27,48 @@ const Base = ({ children, className, onClick, ...rest }) => {
     >
       {children}
     </Button>
-  );
-};
+  )
+}
 
 export const Open = ({ onClick }) => {
   return (
-    <Base className={"open"} onClick={onClick}>
+    <Base className={'open'} onClick={onClick}>
       <span />
       <span />
     </Base>
-  );
-};
+  )
+}
 
 export const Close = ({ onClick }) => {
   return (
-    <Base className={"close"} onClick={onClick}>
+    <Base className={'close'} onClick={onClick}>
       <span />
       <span />
     </Base>
-  );
-};
+  )
+}
 
 export const Scroll = ({ onClick }) => {
   return (
-    <Base className={"scroll"} onClick={onClick}>
+    <Base className={'scroll'} onClick={onClick}>
       <span />
       <span />
     </Base>
-  );
-};
+  )
+}
 
 export const Prev = ({ onClick }) => {
   return (
-    <Base className={"prev"} onClick={onClick}>
+    <Base className={'prev'} onClick={onClick}>
       <span />
     </Base>
-  );
-};
+  )
+}
 
 export const Next = ({ onClick }) => {
   return (
-    <Base className={"next"} onClick={onClick}>
+    <Base className={'next'} onClick={onClick}>
       <span />
     </Base>
-  );
-};
+  )
+}

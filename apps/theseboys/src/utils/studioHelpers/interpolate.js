@@ -1,13 +1,13 @@
 function linearStep(from, to, x, useClamp) {
-  return useClamp ? clamp(from, to, x) : x;
+  return useClamp ? clamp(from, to, x) : x
 }
 
 function clamp(from, to, x) {
-  let val = x;
-  if (val < from) val = from;
-  if (val > to) val = to;
+  let val = x
+  if (val < from) val = from
+  if (val > to) val = to
 
-  return val;
+  return val
 }
 
 export const interpolate = ({
@@ -19,14 +19,14 @@ export const interpolate = ({
     x,
     { from: [minX, maxX] = from, to: [minY, maxY] = to } = {}
   ) {
-    const slope = (maxY - minY) / (maxX - minX);
+    const slope = (maxY - minY) / (maxX - minX)
 
-    const a = -slope * minX + minY;
+    const a = -slope * minX + minY
 
-    const res = slope * x + a;
+    const res = slope * x + a
 
-    return linearStep(minY, maxY, res, clamp);
+    return linearStep(minY, maxY, res, clamp)
   }
 
-  return makeInterpolationFunc;
-};
+  return makeInterpolationFunc
+}

@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { useDialogsContext } from "@eoghanmccarthy/ui";
+import React, { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { useDialogsContext } from '@eoghanmccarthy/ui'
 
-import Home from "./pages";
+import Home from './pages'
 
 const App = () => {
-  const dialogCtx = useDialogsContext();
-  const location = useLocation();
+  const dialogCtx = useDialogsContext()
+  const location = useLocation()
 
   useEffect(() => {
     if (location) {
-      dialogCtx.clear();
+      dialogCtx.clear()
     }
-  }, [location]);
+  }, [location])
 
   return (
     <div className="me">
@@ -23,7 +23,7 @@ const App = () => {
       </Routes>
       <footer className="me__footer" />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

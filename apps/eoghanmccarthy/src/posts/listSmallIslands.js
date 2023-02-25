@@ -1,25 +1,29 @@
-import React from "react";
+import React from 'react'
 
-const coordinates = ["24.3465531,123.7309762,12z"];
+const data = [
+  { name: 'iriomote-jima', coords: '24.3465531,123.7309762,12z' },
+  { name: 'iriomote-jima', coords: '24.3465531,123.7309762,12z' },
+]
 
 const Post = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {coordinates.map((coords, i) => {
-        const url = `https://www.google.com/maps/@${coords}`;
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      {data.map(({ name, coords }, i) => {
         return (
           <a
-            style={{ wordBreak: "break-all" }}
             key={i}
-            href={url}
-            target={"_blank"}
+            style={{
+              wordBreak: 'break-all',
+            }}
+            href={`https://www.google.com/maps/@${coords}`}
+            target={'_blank'}
           >
-            {coords}
+            {name}
           </a>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default Post;
+export default Post

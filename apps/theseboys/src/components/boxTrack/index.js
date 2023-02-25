@@ -1,11 +1,11 @@
-import React, { memo, forwardRef } from "react";
-import PropTypes from "prop-types";
+import React, { memo, forwardRef } from 'react'
+import PropTypes from 'prop-types'
 
-import { useEventListener, useSound } from "hooks";
+import { useEventListener, useSound } from 'hooks'
 
-import { channelTypes, instrumentTypes, notesTypes } from "../../utils/types";
+import { channelTypes, instrumentTypes, notesTypes } from '../../utils/types'
 
-import Step from "./step";
+import Step from './step'
 
 const BoxTrack = memo(
   forwardRef(
@@ -13,37 +13,37 @@ const BoxTrack = memo(
       { index, trackId, channel, instrument, notes, effects, controls },
       ref
     ) => {
-      const noteInterval = `16n`;
+      const noteInterval = `16n`
 
-      const { trigger } = useSound(channel, instrument, effects);
+      const { trigger } = useSound(channel, instrument, effects)
 
       useEventListener((e) => {
         if (parseInt(e.key) === index + 1) {
-          document.querySelector(`button#${trackId}`).classList.add("hit");
-          handleTrigger();
+          document.querySelector(`button#${trackId}`).classList.add('hit')
+          handleTrigger()
         }
-      });
+      })
 
       useEventListener(
         (e) => {
           if (parseInt(e.key) === index + 1) {
-            document.querySelector(`button#${trackId}`).classList.remove("hit");
+            document.querySelector(`button#${trackId}`).classList.remove('hit')
           }
         },
         document.body,
-        "keyup"
-      );
+        'keyup'
+      )
 
       const handleTrigger = () => {
-        trigger(notes, noteInterval);
-      };
+        trigger(notes, noteInterval)
+      }
 
-      return <Step id={trackId} onClick={handleTrigger} />;
+      return <Step id={trackId} onClick={handleTrigger} />
     }
   )
-);
+)
 
-export default BoxTrack;
+export default BoxTrack
 
 BoxTrack.propTypes = {
   trackId: PropTypes.string.isRequired,
@@ -52,4 +52,4 @@ BoxTrack.propTypes = {
   channel: channelTypes,
   notes: notesTypes,
   effects: PropTypes.object.isRequired,
-};
+}

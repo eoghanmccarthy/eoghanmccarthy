@@ -33,11 +33,11 @@
   cursor: pointer;
 }
 
-.sequencer .step[value="on"] {
+.sequencer .step[value='on'] {
   background: var(--color-secondary);
 }
 
-.sequencer .step[value="on"][data-status="current"] {
+.sequencer .step[value='on'][data-status='current'] {
   background: blueviolet;
 }
 
@@ -50,19 +50,19 @@
   transform: translate(-50%, -50%);
 }
 
-.sequencer .step[value="off"] .step-icon.off {
+.sequencer .step[value='off'] .step-icon.off {
   display: block;
   fill: var(--color-bluegrey-900);
 }
 
-.sequencer .step[value="off"] .step-icon.on {
+.sequencer .step[value='off'] .step-icon.on {
   display: none;
 }
 
-.sequencer .step[value="on"] .step-icon.off {
+.sequencer .step[value='on'] .step-icon.off {
   display: none;
 }
 
-.sequencer .step[value="on"] .step-icon.on {
+.sequencer .step[value='on'] .step-icon.on {
   display: block;
 }

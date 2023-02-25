@@ -1,3 +1,3 @@
-import StudioError from "./StudioError";
+import StudioError from './StudioError'
 
-export { StudioError };
+export { StudioError }

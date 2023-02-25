@@ -3,51 +3,64 @@ import React, {
   useReducer,
   useMemo,
   isValidElement,
-} from "react";
+} from 'react'
 
-import { generateId } from "../utils";
+import { generateId } from '../utils'
 
-import Blanket from "../Blanket";
+import Blanket from '../Blanket'
 
-export const DialogsContext = createContext();
+export const DialogsContext = createContext()
 
-const initialState = {};
+const initialState = {}
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "open":
-      return { ...state, [action.payload.id]: { ...action.payload.props } };
-    case "close":
-      const { [action.payload.id]: cleared, ...rest } = { ...state };
-      return { ...rest };
-    case "clear":
-      return initialState;
+    case 'open':
+      return {
+        ...state,
+        [action.payload.id]: {
+          ...action.payload.props,
+        },
+      }
+    case 'close':
+      const { [action.payload.id]: cleared, ...rest } = {
+        ...state,
+      }
+      return { ...rest }
+    case 'clear':
+      return initialState
     default:
-      return state;
+      return state
   }
-};
+}
 
 const DialogsProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   const elements = useMemo(() => {
     if (Object.keys(state).length > 0) {
       return Object.entries(state).map(([id, props = {}]) => {
-        const { Component } = props;
+        const { Component } = props
 
         if (!isValidElement(Component)) {
-          return null;
+          return null
         }
 
         const commonProps = {
           key: id,
-          close: () => dispatch({ type: "close", payload: { id } }),
-        };
+          close: () =>
+            dispatch({
+              type: 'close',
+              payload: { id },
+            }),
+        }
 
-        return React.cloneElement(Component, { ...commonProps });
-      });
+        return React.cloneElement(Component, {
+          ...commonProps,
+        })
+      })
     }
-  }, [state]);
+  }, [state])
 
   return (
     <>
@@ -55,22 +68,37 @@ const DialogsProvider = ({ children }) => {
         value={{
           state,
           open: (Component, options = {}) => {
-            let { id } = options;
+            let { id } = options
 
-            id = id ?? generateId();
+            id = id ?? generateId()
 
             dispatch({
-              type: "open",
-              payload: { id, props: { Component } },
-            });
+              type: 'open',
+              payload: {
+                id,
+                props: {
+                  Component,
+                },
+              },
+            })
 
             return {
               id,
-              close: () => dispatch({ type: "close", payload: { id } }),
-            };
+              close: () =>
+                dispatch({
+                  type: 'close',
+                  payload: {
+                    id,
+                  },
+                }),
+            }
           },
-          close: (id) => dispatch({ type: "close", payload: { id } }),
-          clear: () => dispatch({ type: "clear" }),
+          close: (id) =>
+            dispatch({
+              type: 'close',
+              payload: { id },
+            }),
+          clear: () => dispatch({ type: 'clear' }),
         }}
       >
         {children}
@@ -78,7 +106,7 @@ const DialogsProvider = ({ children }) => {
       {elements || null}
       {Boolean(elements) ? <Blanket /> : null}
     </>
-  );
-};
+  )
+}
 
-export default DialogsProvider;
+export default DialogsProvider

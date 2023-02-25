@@ -1,21 +1,21 @@
-import React, { memo } from "react";
+import React, { memo } from 'react'
 
 import {
   DECIBEL_MIN,
   DECIBEL_MAX,
   FREQUENCY_MIN,
   FREQUENCY_MAX,
-} from "../../../utils/constants";
-import { SliderControl } from "../../controllers";
+} from '../../../utils/constants'
+import { SliderControl } from '../../controllers'
 
 const Eq3Controls = memo(({ trackId, node }) => {
-  if (!trackId || !node) return null;
+  if (!trackId || !node) return null
 
   return (
     <>
       <SliderControl
         id={`${trackId}-eq3--low`}
-        label={"LOW"}
+        label={'LOW'}
         step={1}
         min={DECIBEL_MIN}
         max={DECIBEL_MAX}
@@ -24,7 +24,7 @@ const Eq3Controls = memo(({ trackId, node }) => {
       />
       <SliderControl
         id={`${trackId}-eq3--mid`}
-        label={"MID"}
+        label={'MID'}
         step={1}
         min={DECIBEL_MIN}
         max={DECIBEL_MAX}
@@ -33,7 +33,7 @@ const Eq3Controls = memo(({ trackId, node }) => {
       />
       <SliderControl
         id={`${trackId}-eq3--high`}
-        label={"HIG"}
+        label={'HIG'}
         step={1}
         min={DECIBEL_MIN}
         max={DECIBEL_MAX}
@@ -42,7 +42,7 @@ const Eq3Controls = memo(({ trackId, node }) => {
       />
       <SliderControl
         id={`${trackId}-eq3--low-frequency`}
-        label={"LPF"}
+        label={'LPF'}
         step={10}
         min={FREQUENCY_MIN}
         max={FREQUENCY_MAX}
@@ -51,7 +51,7 @@ const Eq3Controls = memo(({ trackId, node }) => {
       />
       <SliderControl
         id={`${trackId}-eq3--high-frequency`}
-        label={"HPF"}
+        label={'HPF'}
         step={10}
         min={FREQUENCY_MIN}
         max={FREQUENCY_MAX}
@@ -59,7 +59,7 @@ const Eq3Controls = memo(({ trackId, node }) => {
         onChange={(val, time) => node.highFrequency.rampTo(val, time)}
       />
     </>
-  );
-});
+  )
+})
 
-export default Eq3Controls;
+export default Eq3Controls

@@ -1,20 +1,20 @@
-import { SCALE_A_MINOR, STEPS_DEFAULT } from "../utils/constants";
+import { SCALE_A_MINOR, STEPS_DEFAULT } from '../utils/constants'
 
 const sound = {
   notes: SCALE_A_MINOR.slice(0, 6),
   get steps() {
-    let arr = [];
+    let arr = []
     for (let i = 0; i < this.notes.length; i++) {
-      arr.push(...STEPS_DEFAULT);
+      arr.push(...STEPS_DEFAULT)
     }
-    return arr;
+    return arr
   },
-};
+}
 
 export const tracks = {
   bass01: {
-    id: "bass01",
-    type: "poly",
+    id: 'bass01',
+    type: 'poly',
     channel: {
       pan: 0.4,
       volume: 4,
@@ -23,7 +23,7 @@ export const tracks = {
     stepCount: 16,
     ...sound,
     instrument: {
-      synth: "PolySynth",
+      synth: 'PolySynth',
       options: {
         maxPolyphony: 6, // number of notes
         volume: -10,
@@ -35,7 +35,7 @@ export const tracks = {
         },
         voice0: {
           oscillator: {
-            type: "triangle4",
+            type: 'triangle4',
           },
           volume: -30,
           envelope: {
@@ -55,19 +55,35 @@ export const tracks = {
       },
     },
     effects: new Map([
-      ["Reverb", { decay: 4, preDelay: 0.2, wet: 0.08 }],
+      ['Reverb', { decay: 4, preDelay: 0.2, wet: 0.08 }],
       [
-        "EQ3",
-        { low: 0, mid: -10, high: 4, lowFrequency: 1320, highFrequency: 5380 },
+        'EQ3',
+        {
+          low: 0,
+          mid: -10,
+          high: 4,
+          lowFrequency: 1320,
+          highFrequency: 5380,
+        },
       ],
-      ["PitchShift", { pitch: -12 }],
-      ["Distortion", { distortion: 0.6, oversample: "4x", wet: 0.72 }],
-      ["Gate", { threshold: -40, smoothing: 0.2 }],
-      ["Limiter", { threshold: 0 }],
+      ['PitchShift', { pitch: -12 }],
+      [
+        'Distortion',
+        {
+          distortion: 0.6,
+          oversample: '4x',
+          wet: 0.72,
+        },
+      ],
+      ['Gate', { threshold: -40, smoothing: 0.2 }],
+      ['Limiter', { threshold: 0 }],
     ]),
     controls: {
-      eq3: { span: "1 / span 5", effects: ["EQ3"] },
-      effects: { span: "6 / span 2", effects: ["Distortion", "Reverb"] },
+      eq3: { span: '1 / span 5', effects: ['EQ3'] },
+      effects: {
+        span: '6 / span 2',
+        effects: ['Distortion', 'Reverb'],
+      },
     },
   },
-};
+}

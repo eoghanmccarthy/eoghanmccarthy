@@ -1,19 +1,19 @@
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
-const CircularDependencyPlugin = require("circular-dependency-plugin");
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common.js')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
 
 module.exports = merge(common, {
-  mode: "development",
-  devtool: "inline-source-map",
+  mode: 'development',
+  devtool: 'inline-source-map',
   output: {
-    filename: "[name].bundle.js",
+    filename: '[name].bundle.js',
   },
   devServer: {
-    static: "./dist",
+    static: './dist',
     historyApiFallback: true,
   },
   optimization: {
-    runtimeChunk: "single",
+    runtimeChunk: 'single',
   },
   plugins: [
     new CircularDependencyPlugin({
@@ -22,4 +22,4 @@ module.exports = merge(common, {
       cwd: process.cwd(),
     }),
   ],
-});
+})

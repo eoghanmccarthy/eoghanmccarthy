@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 
 const usePointer = (element = document.body) => {
-  const [isDown, setIsDown] = useState(false);
+  const [isDown, setIsDown] = useState(false)
 
   useEffect(() => {
-    const isSupported = element && element.addEventListener;
-    if (!isSupported) return;
+    const isSupported = element && element.addEventListener
+    if (!isSupported) return
 
-    const handleMouseDown = () => setIsDown(true);
-    const handleMouseUp = () => setIsDown(false);
+    const handleMouseDown = () => setIsDown(true)
+    const handleMouseUp = () => setIsDown(false)
 
-    element.addEventListener("pointerdown", handleMouseDown);
-    element.addEventListener("pointerup", handleMouseUp);
+    element.addEventListener('pointerdown', handleMouseDown)
+    element.addEventListener('pointerup', handleMouseUp)
 
     return () => {
-      element.removeEventListener("pointerdown", handleMouseDown);
-      element.removeEventListener("pointerup", handleMouseUp);
-    };
-  }, [element]);
+      element.removeEventListener('pointerdown', handleMouseDown)
+      element.removeEventListener('pointerup', handleMouseUp)
+    }
+  }, [element])
 
-  return { isDown };
-};
+  return { isDown }
+}
 
-export default usePointer;
+export default usePointer

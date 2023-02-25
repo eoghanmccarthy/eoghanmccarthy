@@ -1,13 +1,13 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React from 'react'
+import { useParams } from 'react-router-dom'
 
-import { useGetPost } from "services/api";
+import { useGetPost } from 'services/api'
 
-import CanvasResponsiveWrapper from "../canvasResponsiveWrapper";
-import Gallery from "components/gallery";
+import CanvasResponsiveWrapper from '../canvasResponsiveWrapper'
+import Gallery from 'components/gallery'
 
 export const Post = () => {
-  const { postId } = useParams();
+  const { postId } = useParams()
 
   const { data } = useGetPost(
     { postId },
@@ -15,24 +15,24 @@ export const Post = () => {
       select: ({ media, ...rest }) => ({
         media: Array.isArray(media)
           ? media.filter(
-              (item) => item.type === "image" || item.type === "video"
+              (item) => item.type === 'image' || item.type === 'video'
             )
           : undefined,
         ...rest,
       }),
     }
-  );
+  )
 
   if (!data) {
-    return null;
+    return null
   }
 
-  const hasContent = Boolean(data.media) || Boolean(data.Component);
+  const hasContent = Boolean(data.media) || Boolean(data.Component)
 
   return (
-    <article data-post-id={data.id} className={"me__post"}>
+    <article data-post-id={data.id} className={'me__post'}>
       {hasContent ? (
-        <div className={"content"}>
+        <div className={'content'}>
           {data.Component ? (
             <CanvasResponsiveWrapper>
               <data.Component />
@@ -41,13 +41,13 @@ export const Post = () => {
           {Boolean(data.media) ? <Gallery list={data.media} /> : null}
         </div>
       ) : null}
-      <span className={"description"}>
-        {typeof data.text === "function" ? (
+      <span className={'description'}>
+        {typeof data.text === 'function' ? (
           <data.text />
-        ) : typeof data.text === "string" ? (
+        ) : typeof data.text === 'string' ? (
           data.text
         ) : null}
       </span>
     </article>
-  );
-};
+  )
+}

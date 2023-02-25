@@ -1,15 +1,15 @@
-import React, { memo } from "react";
+import React, { memo } from 'react'
 
-import { SliderControl } from "../../controllers";
+import { SliderControl } from '../../controllers'
 
 const EnvelopeControls = memo(({ trackId, initialValue, onChange }) => {
-  if (!trackId || !initialValue) return null;
+  if (!trackId || !initialValue) return null
 
   return (
     <>
       <SliderControl
         id={`${trackId}-envelope--attack`}
-        label={"ATK"}
+        label={'ATK'}
         step={0.001}
         max={2}
         toFixed={3}
@@ -18,7 +18,7 @@ const EnvelopeControls = memo(({ trackId, initialValue, onChange }) => {
       />
       <SliderControl
         id={`${trackId}-envelope--decay`}
-        label={"DEC"}
+        label={'DEC'}
         step={0.001}
         max={2}
         toFixed={3}
@@ -27,7 +27,7 @@ const EnvelopeControls = memo(({ trackId, initialValue, onChange }) => {
       />
       <SliderControl
         id={`${trackId}-envelope--sustain`}
-        label={"SUS"}
+        label={'SUS'}
         step={0.001}
         toFixed={3}
         initialValue={initialValue.sustain ?? 0}
@@ -35,7 +35,7 @@ const EnvelopeControls = memo(({ trackId, initialValue, onChange }) => {
       />
       <SliderControl
         id={`${trackId}-envelope--release`}
-        label={"REL"}
+        label={'REL'}
         step={0.001}
         max={2}
         toFixed={3}
@@ -43,7 +43,7 @@ const EnvelopeControls = memo(({ trackId, initialValue, onChange }) => {
         onChange={(val) => onChange({ release: val })}
       />
     </>
-  );
-});
+  )
+})
 
-export default EnvelopeControls;
+export default EnvelopeControls

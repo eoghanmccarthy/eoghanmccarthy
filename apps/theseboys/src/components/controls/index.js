@@ -1,1 +1,1 @@
-export { ControlHandler } from "./ControlHandler";
+export { ControlHandler } from './ControlHandler'

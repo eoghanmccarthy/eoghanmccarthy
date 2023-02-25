@@ -1,14 +1,14 @@
-import React, { memo, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { memo, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-import { MinusIcon, PlusIcon } from "../../icon";
-import Button from "../../button";
-import Controller from "../controller";
+import { MinusIcon, PlusIcon } from '../../icon'
+import Button from '../../button'
+import Controller from '../controller'
 
 const ButtonControl = memo(
   ({
     id,
-    orient = "vertical",
+    orient = 'vertical',
     label,
     step = 1,
     min = 0,
@@ -18,65 +18,65 @@ const ButtonControl = memo(
     onChange,
   }) => {
     useEffect(() => {
-      handleOnChange(initialValue);
-    }, []);
+      handleOnChange(initialValue)
+    }, [])
 
     const handleOnChange = (val) => {
-      if (typeof val !== "number" || val < min || val > max) return;
+      if (typeof val !== 'number' || val < min || val > max) return
 
       document
         .querySelectorAll(`#${id} .control`)
-        ?.forEach((e) => e.setAttribute("value", `${val}`));
+        ?.forEach((e) => e.setAttribute('value', `${val}`))
       document
         .querySelector(`#${id} span.value`)
-        ?.setAttribute("value", val.toFixed(toFixed));
+        ?.setAttribute('value', val.toFixed(toFixed))
 
       if (val > min && val < max) {
         document
           .querySelectorAll(`#${id} .control`)
           ?.forEach(
-            (e) => e.classList.contains("alert") && e.classList.remove("alert")
-          );
+            (e) => e.classList.contains('alert') && e.classList.remove('alert')
+          )
       } else if (val === min) {
-        document.querySelector(`#${id} .control.dec`)?.classList.add("alert");
+        document.querySelector(`#${id} .control.dec`)?.classList.add('alert')
       } else if (val === max) {
-        document.querySelector(`#${id} .control.inc`)?.classList.add("alert");
+        document.querySelector(`#${id} .control.inc`)?.classList.add('alert')
       }
 
-      onChange(val);
-    };
+      onChange(val)
+    }
 
     return (
-      <Controller id={id} orient={orient} type={"button"}>
-        <label className={"label"}>{label}</label>
-        <div className={"controls"}>
+      <Controller id={id} orient={orient} type={'button'}>
+        <label className={'label'}>{label}</label>
+        <div className={'controls'}>
           <Button
-            className={"control dec"}
+            className={'control dec'}
             size={28}
             onClick={(e) => {
-              const next = parseFloat(e.target.value) - step;
-              if (next < min) return;
-              handleOnChange(next);
+              const next = parseFloat(e.target.value) - step
+              if (next < min) return
+              handleOnChange(next)
             }}
           >
-            <MinusIcon width={"72%"} />
+            <MinusIcon width={'72%'} />
           </Button>
           <Button
-            className={"control inc"}
+            className={'control inc'}
             size={28}
             onClick={(e) => {
-              const next = parseFloat(e.target.value) + step;
-              if (next > max) return;
-              handleOnChange(next);
+              const next = parseFloat(e.target.value) + step
+              if (next > max) return
+              handleOnChange(next)
             }}
           >
-            <PlusIcon width={"72%"} />
+            <PlusIcon width={'72%'} />
           </Button>
         </div>
-        <span className={"value"} />
+        <span className={'value'} />
       </Controller>
-    );
+    )
   }
-);
+)
 
-export default ButtonControl;
+export default ButtonControl

@@ -1,28 +1,28 @@
-import consoleLog from "utils/errorHandlers/consoleLog";
-import { isString } from "utils/typeCheck";
+import consoleLog from 'utils/errorHandlers/consoleLog'
+import { isString } from 'utils/typeCheck'
 
 export default (trackId) => {
   const errorLog = (...args) => {
-    consoleLog("drawSteps,", ...args);
-  };
+    consoleLog('drawSteps,', ...args)
+  }
 
   if (!isString(trackId)) {
-    errorLog("invalid args", trackId);
-    return;
+    errorLog('invalid args', trackId)
+    return
   }
 
-  const rows = document.querySelectorAll(`#${trackId}-steps .steps`);
+  const rows = document.querySelectorAll(`#${trackId}-steps .steps`)
 
-  let arr = [];
+  let arr = []
   for (let i = 0; i < rows.length; i++) {
-    let rowValues = [];
-    const steps = rows[i].querySelectorAll(`.step`);
+    let rowValues = []
+    const steps = rows[i].querySelectorAll(`.step`)
     for (let i = 0; i < steps.length; i++) {
-      steps[i].getAttribute("value") === "on"
+      steps[i].getAttribute('value') === 'on'
         ? rowValues.push(1)
-        : rowValues.push(0);
+        : rowValues.push(0)
     }
-    arr.push(rowValues);
+    arr.push(rowValues)
   }
-  return arr;
-};
+  return arr
+}
