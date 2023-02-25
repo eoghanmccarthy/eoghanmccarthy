@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useDialogsContext, Spacer } from "@eoghanmccarthy/ui";
 
 import * as IconButtons from "components/iconButtons";
+
 import Logo from "components/logo";
-import NavigationModal from "../../../modals/navigation";
+import NavigationModal from "features/navigation";
 
 export const Header = () => {
   const navigate = useNavigate();

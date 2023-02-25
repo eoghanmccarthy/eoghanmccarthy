@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTransition, animated, config } from "react-spring";
-import { generateId } from "../../utils/generateId";
+import { generateId } from "utils";
 
 import "./styles.scss";
 

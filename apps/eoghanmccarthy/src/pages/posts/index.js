@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 
-import { useGetPosts } from "../../utils/api";
+import { useGetPosts } from "services/api";
 
 import { Footer, Header, Main, Sidebar } from "components/layout";
 import { Post } from "components/post";

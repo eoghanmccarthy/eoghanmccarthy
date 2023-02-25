@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
 
-import { items as posts } from "../../data/posts";
-import { items as canvases } from "../../data/canvas";
+import { items as posts } from "posts";
 
 const postsKeys = {
   all: ["posts"],
@@ -18,7 +17,7 @@ export const useGetPosts = (options = {}) => {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve(posts);
-        }, 100);
+        }, 0);
       });
     },
     {
@@ -36,34 +35,7 @@ export const useGetPost = (params, options = {}) => {
         setTimeout(() => {
           const data = posts.find((item) => item.id === postId);
           resolve(data);
-        }, 100);
-      });
-    },
-    {
-      cacheTime: 0,
-      ...options,
-    }
-  );
-};
-
-const canvasKeys = {
-  all: ["canvas"],
-  lists: () => [...canvasKeys.all, "list"],
-  list: (filters) => [...canvasKeys.lists(), { filters }],
-  details: () => [...canvasKeys.all, "detail"],
-  detail: (id) => [...canvasKeys.details(), id],
-};
-
-export const useGetCanvas = (params, options = {}) => {
-  const { canvasId } = params;
-  return useQuery(
-    canvasKeys.detail(canvasId),
-    async () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const data = canvases.find((item) => item.id === canvasId);
-          resolve(data);
-        }, 100);
+        }, 0);
       });
     },
     {

@@ -5,7 +5,7 @@ import { useDialogsContext } from "@eoghanmccarthy/ui";
 import { Main } from "components/layout";
 import Logo from "components/animatedLogo";
 import * as IconButtons from "components/iconButtons";
-import NavigationModal from "../../modals/navigation";
+import NavigationModal from "features/navigation";
 
 const Page = () => {
   const dialog = useDialogsContext();

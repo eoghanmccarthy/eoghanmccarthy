@@ -1,12 +1,12 @@
 import React from "react";
 
-import { items as canvases } from "./canvas";
+import SmallIslandsList from "./listSmallIslands";
 
 export const items = [
   {
     id: "6n1EOTol",
     title: "japan with canon kiss x3",
-    text: "some shots in japan taken with a canon kiss x3.",
+    text: `some shots in japan taken with a canon kiss x3.`,
     Component: null,
     media: [
       {
@@ -54,7 +54,7 @@ export const items = [
   {
     id: "4gyX7aqL",
     title: "tokyo, japan",
-    text: "a few shots from the first trips to tokyo.",
+    text: `a few shots from the first trips to tokyo.`,
     Component: null,
     media: [
       {
@@ -349,13 +349,6 @@ export const items = [
     ],
   },
   {
-    id: "kykCrq3y",
-    title: "canvas",
-    status: "draft",
-    text: "canvas",
-    Component: canvases.find((item) => item.id === "first").Component,
-  },
-  {
     id: "5AWKtaN7",
     title: "flower shop in tokyo",
     text: () => (
@@ -483,29 +476,9 @@ export const items = [
   },
   {
     id: "hwzAk8Wx",
-    title: "list of coordinates",
-    text: () => {
-      const coordinates = ["24.3465531,123.7309762,12z"];
-
-      return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {coordinates.map((coords, i) => {
-            const url = `https://www.google.com/maps/@${coords}`;
-            return (
-              <a
-                style={{ wordBreak: "break-all" }}
-                key={i}
-                href={url}
-                target={"_blank"}
-              >
-                {coords}
-              </a>
-            );
-          })}
-        </div>
-      );
-    },
-    Component: null,
+    title: "list of small islands",
+    text: `i've always had a fascination with small islands`,
+    Component: SmallIslandsList,
   },
   {
     id: "umIfb1wj",

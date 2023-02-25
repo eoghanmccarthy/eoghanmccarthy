@@ -3,9 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useDialogsContext } from "@eoghanmccarthy/ui";
 
 const Home = lazy(() => import("pages/index"));
-
 import Posts from "pages/posts";
-import Canvas from "pages/canvas";
 
 const App = () => {
   const dialog = useDialogsContext();
@@ -22,7 +20,6 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="posts/*" element={<Posts />} />
-        <Route path="canvas/*" element={<Canvas />} />
         <Route path={"*"} element={<Home />} />
       </Routes>
     </Suspense>

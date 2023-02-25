@@ -1,13 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { useGetPost } from "../../utils/api";
+import { useGetPost } from "services/api";
 
 import CanvasResponsiveWrapper from "../canvasResponsiveWrapper";
 import Gallery from "components/gallery";
 
 export const Post = () => {
   const { postId } = useParams();
+
   const { data } = useGetPost(
     { postId },
     {
