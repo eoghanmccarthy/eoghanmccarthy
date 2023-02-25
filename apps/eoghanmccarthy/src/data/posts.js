@@ -351,6 +351,7 @@ export const items = [
   {
     id: "kykCrq3y",
     title: "canvas",
+    status: "draft",
     text: "canvas",
     Component: canvases.find((item) => item.id === "first").Component,
   },
