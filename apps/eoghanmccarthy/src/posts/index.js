@@ -210,20 +210,6 @@ export const items = [
     ],
   },
   {
-    id: 'MKC7CpU0',
-    status: 'draft',
-    title: 'los angeles itinerary',
-    text: `los angeles itinerary, 2003.`,
-    Component: null,
-    media: [
-      {
-        type: 'image',
-        src: require('assets/images/Screenshot 2022-01-11 at 23.18.47-edit.jpg'),
-        label: 'los angeles, usa',
-      },
-    ],
-  },
-  {
     id: 'DgBgHDXP',
     title: 'narita airport quarantine hotel view',
     text: () => (
@@ -430,10 +416,8 @@ export const items = [
   },
   {
     id: 'LwEmhBVL',
-    status: 'draft',
     title: 'merry-go-round',
-    text: `a merry-go-round.`,
-    Component: null,
+    text: `merry-go-round.`,
     media: [
       {
         type: 'image',
@@ -477,7 +461,7 @@ export const items = [
   {
     id: 'hwzAk8Wx',
     title: 'list of small islands',
-    text: `always been fascinated with small islands`,
+    text: `a small list of small islands`,
     Component: ListSmallIslands,
   },
   {
