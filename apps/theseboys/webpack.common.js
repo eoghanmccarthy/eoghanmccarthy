@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = merge(base, {
   entry: './src/index.js',
   output: {
-    path: path.resolve(process.cwd(), '/dist'),
+    path: path.join(__dirname, '/dist'),
     publicPath: '/',
     clean: true,
   },
