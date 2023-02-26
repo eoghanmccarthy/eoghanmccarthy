@@ -17,7 +17,7 @@ const Post = () => {
             key={i}
             style={{
               wordBreak: 'break-all',
-              textTransform: "lowercase"
+              textTransform: 'lowercase',
             }}
             href={`https://www.google.com/maps/@${coords}`}
             target={'_blank'}
