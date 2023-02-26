@@ -175,7 +175,7 @@ export const items = [
   },
   {
     id: 'YaMAaXIz',
-    title: 'yamanote line video',
+    title: 'yamanote line video #1',
     text: () => (
       <span>
         video taken from the yamanote subway line,{' '}
@@ -193,10 +193,10 @@ export const items = [
   },
   {
     id: 'KS0IgMLJ',
-    title: 'shibuya crossing yamanote line video',
+    title: 'yamanote line video #2',
     text: () => (
       <span>
-        video of shibuya crossing taken from the yamanote subway line,{' '}
+        video taken from the yamanote subway line,{' '}
         <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
@@ -479,6 +479,23 @@ export const items = [
     title: 'list of small islands',
     text: `always been fascinated with small islands`,
     Component: ListSmallIslands,
+  },
+  {
+    id: 'erEU5o2u',
+    title: 'hakone ekiden 2023',
+    text: `hakone ekiden 2023`,
+    media: [
+      {
+        type: 'image',
+        src: require('assets/images/IMG_4355.jpg'),
+        label: 'hakone ekiden 2023',
+      },
+      {
+        type: 'video',
+        src: require('assets/video/IMG_4348.mov'),
+        label: 'hakone ekiden 2023',
+      },
+    ],
   },
   {
     id: 'umIfb1wj',

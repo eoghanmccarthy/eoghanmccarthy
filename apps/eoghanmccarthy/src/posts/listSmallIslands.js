@@ -2,7 +2,7 @@ import React from 'react'
 
 const data = [
   { name: 'iriomote-jima', coords: '24.3465531,123.7309762,12z' },
-  { name: 'iriomote-jima', coords: '24.3465531,123.7309762,12z' },
+  { name: 'valentia island', coords: '51.907885,-10.3916423,12z' },
 ]
 
 const Post = () => {
