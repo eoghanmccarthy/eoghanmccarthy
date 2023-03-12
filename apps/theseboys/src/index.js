@@ -1,24 +1,19 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
 import { ErrorBoundary } from '@eoghanmccarthy/ui'
 
 import App from './App'
 
 import './styles.css'
 
-const MOUNT_NODE = document.getElementById('root')
+const container = document.getElementById('root')
+const root = createRoot(container)
 
-const queryClient = new QueryClient()
-
-render(
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
-    </BrowserRouter>
-  </QueryClientProvider>,
-  MOUNT_NODE
+root.render(
+  <BrowserRouter>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </BrowserRouter>
 )

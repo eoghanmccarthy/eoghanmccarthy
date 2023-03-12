@@ -1,5 +1,3 @@
-import LogRocket from 'logrocket'
-
 /**
  * Captures an exception and sends it to LogRocket
  * @param message
@@ -7,7 +5,7 @@ import LogRocket from 'logrocket'
  */
 function StudioError(message) {
   this.message = message
-  LogRocket.captureException(this)
+  console.error(this)
 }
 
 StudioError.prototype = new Error()
