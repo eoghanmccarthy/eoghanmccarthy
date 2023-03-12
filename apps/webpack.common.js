@@ -1,5 +1,8 @@
 const webpack = require('webpack')
+const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 const NODE_ENV = process.env.NODE_ENV
 
 if (!NODE_ENV) {
@@ -10,6 +13,13 @@ if (!NODE_ENV) {
 const __DEV__ = NODE_ENV === 'development'
 
 module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.join(__dirname, '/dist'),
+    assetModuleFilename: 'assets/[hash][ext]',
+    publicPath: '/',
+    clean: true,
+  },
   module: {
     unsafeCache: true,
     rules: [
@@ -23,8 +33,7 @@ module.exports = {
               presets: [['@babel/preset-env'], ['@babel/preset-react']],
               plugins: [
                 '@babel/plugin-syntax-dynamic-import',
-                '@babel/plugin-transform-runtime',
-                '@eoghanmccarthy/babel-plugin-remove-test-ids',
+                '@babel/plugin-transform-runtime'
               ],
             },
           },
@@ -54,8 +63,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: './src/index.html',
+    }),
     new webpack.DefinePlugin({
       __DEV__,
     }),
-  ],
-}
+  ]
+};

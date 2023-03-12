@@ -1,32 +1,19 @@
 const path = require('path')
 const { merge } = require('webpack-merge')
-const base = require('./webpack.base.config.js')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const common = require('../webpack.common')
 
-module.exports = merge(base, {
-  entry: './src/index.js',
-  output: {
-    path: path.join(__dirname, '/dist'),
-    publicPath: '/',
-    clean: true,
-  },
-  devtool: 'source-map',
+module.exports = merge(common, {
   resolve: {
     alias: {
-      src: path.resolve(__dirname, 'src/'),
       assets: path.resolve(__dirname, 'assets/'),
+      src: path.resolve(__dirname, 'src/'),
       components: path.resolve(__dirname, 'src/components/'),
+      features: path.resolve(__dirname, 'src/features/'),
       hooks: path.resolve(__dirname, 'src/hooks/'),
       pages: path.resolve(__dirname, 'src/pages/'),
-      routes: path.resolve(__dirname, 'src/routes/'),
+      services: path.resolve(__dirname, 'src/services/'),
       utils: path.resolve(__dirname, 'src/utils/'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/index.html',
-    }),
-  ],
+  }
 })
