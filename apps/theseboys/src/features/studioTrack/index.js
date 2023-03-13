@@ -33,6 +33,8 @@ const StudioTrack = memo(
         }
       })
 
+      console.log('track render')
+
       return (
         <Panel>
           <PanelMain>

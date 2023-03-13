@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { Channel, Destination } from 'tone'
 
+import { isArray } from 'utils/typeCheck'
+
 import { getSynth, getEffect } from 'utils/toneHelpers'
 
 const useSound = (channel, instrument, effects = {}) => {

@@ -23,19 +23,19 @@ const MasterProvider = ({ children }) => {
       Destination.connect(recorder.current)
     }
 
-    return () => {
-      if (recorder.current) {
-        recorder.current.dispose()
-      }
-
-      if (Transport) {
-        Transport.dispose()
-      }
-
-      if (Destination) {
-        Destination.dispose()
-      }
-    }
+    // return () => {
+    //   if (recorder.current) {
+    //     recorder.current.dispose()
+    //   }
+    //
+    //   if (Transport) {
+    //     Transport.dispose()
+    //   }
+    //
+    //   if (Destination) {
+    //     Destination.dispose()
+    //   }
+    // }
   }, [])
 
   useEventListener((e) => {
@@ -61,7 +61,6 @@ const MasterProvider = ({ children }) => {
     if (!master) return
 
     if (getTransport().state === 'stopped') {
-      // Start playback
       Transport.start()
       target.setAttribute('value', 'on')
       master.setAttribute('data-playback', 'started')

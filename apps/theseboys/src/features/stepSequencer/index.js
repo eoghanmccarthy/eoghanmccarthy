@@ -18,19 +18,20 @@ const StepSequencer = memo(({ trackId, notes, stepCount = 16, steps, onStep }) =
   const noteInterval = `${stepCount}n`
   const noteIndices = newArray(stepCount)
 
-  const handleOnSequenceStep = (time, column) => {
-    onSequenceStep(trackId, notes, stepCount, time, column, (notesToPlay, velocity) =>
-      onStep(notesToPlay, noteInterval, time, velocity)
-    )
-  }
-
-  /* Sequencer */
-  const sequenceRef = useRef(new Sequence(handleOnSequenceStep, noteIndices, noteInterval).start(0))
-
   useEffect(() => {
+    const sequencer = new Sequence(
+      (time, column) => {
+        onSequenceStep(trackId, notes, stepCount, time, column, (notesToPlay, velocity) =>
+          onStep(notesToPlay, noteInterval, time, velocity)
+        )
+      },
+      noteIndices,
+      noteInterval
+    ).start(0)
+
     return () => {
-      if (sequenceRef.current) {
-        sequenceRef.current.dispose()
+      if (sequencer) {
+        sequencer.dispose()
       }
     }
   }, [])

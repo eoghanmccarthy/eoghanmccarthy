@@ -77,7 +77,7 @@ const Studio = () => {
           <Master volume={0} bpm={120} />
           <Midi />
         </section>
-        <section id={'tracks'}>
+        <section id={'tracks'} style={{ alignSelf: 'start' }}>
           <Panel>
             <PanelMain></PanelMain>
           </Panel>
@@ -97,9 +97,9 @@ const Studio = () => {
 
               switch (track.type) {
                 case 'kick':
-                case 'hat':
-                case 'poly':
-                case 'snare':
+                  // case 'hat':
+                  // case 'poly':
+                  // case 'snare':
                   return <StudioTrack {...props} />
                 default:
                   return null

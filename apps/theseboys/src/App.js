@@ -7,6 +7,7 @@ import Studio from 'pages/studio'
 import Box from 'pages/box'
 import Poly from 'pages/poly'
 import Oscillator from 'pages/oscillator'
+import X from 'pages/x'
 import { MasterProvider } from 'features/master'
 
 const App = () => (
@@ -54,6 +55,7 @@ const StudioRoutes = () => (
           </MasterProvider>
         }
       />
+      <Route path="x" element={<X />} />
     </Routes>
     <Footer />
   </>

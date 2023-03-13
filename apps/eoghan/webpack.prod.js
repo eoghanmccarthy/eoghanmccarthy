@@ -7,5 +7,5 @@ module.exports = merge(common, prod, {
   output: {
     filename: '[name].[contenthash].bundle.js',
     chunkFilename: '[id].js',
-  }
+  },
 })
