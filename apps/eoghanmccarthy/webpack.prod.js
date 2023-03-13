@@ -4,4 +4,8 @@ const prod = require('../webpack.prod')
 
 module.exports = merge(common, prod, {
   mode: 'production',
+  output: {
+    filename: '[name].[contenthash].bundle.js',
+    chunkFilename: '[id].js',
+  }
 })
