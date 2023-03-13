@@ -1,11 +1,6 @@
 import React, { memo } from 'react'
 
-import {
-  WET_STEP,
-  WET_DECIMALS,
-  WET_MIN,
-  WET_MAX,
-} from '../../../utils/constants'
+import { WET_STEP, WET_DECIMALS, WET_MIN, WET_MAX } from '../../../utils/constants'
 import { SliderControl } from '../../controllers'
 
 const DistortionControls = memo(({ trackId, node }) => {

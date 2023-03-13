@@ -60,9 +60,7 @@ const TrackControls = memo(({ trackId, trackNumber, channel, play }) => {
           toFixed={2}
           initialValue={0.8}
           onChange={(val) => {
-            document
-              .querySelector(`#${trackId}-sequencer`)
-              .setAttribute('data-random-value', val)
+            document.querySelector(`#${trackId}-sequencer`).setAttribute('data-random-value', val)
           }}
         />
       </ControllerGroup>
@@ -71,9 +69,7 @@ const TrackControls = memo(({ trackId, trackNumber, channel, play }) => {
           id={`${trackId}-volume`}
           orient={'horizontal'}
           label={'VOL'}
-          initialValue={
-            toPercent([VOL_MIN, VOL_MAX], channel.get().volume) ?? 0
-          }
+          initialValue={toPercent([VOL_MIN, VOL_MAX], channel.get().volume) ?? 0}
           onChange={(val) =>
             channel.set({
               volume: fromPercent([VOL_MIN, VOL_MAX], val),
@@ -94,9 +90,7 @@ const TrackControls = memo(({ trackId, trackNumber, channel, play }) => {
         <Button
           size={36}
           onClick={(e) => {
-            document
-              .querySelector(`#${trackId}-effects`)
-              ?.classList.toggle('hidden')
+            document.querySelector(`#${trackId}-effects`)?.classList.toggle('hidden')
             e.target.classList.toggle('rotated')
           }}
         >

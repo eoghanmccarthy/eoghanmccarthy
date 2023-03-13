@@ -10,15 +10,8 @@ function clamp(from, to, x) {
   return val
 }
 
-export const interpolate = ({
-  from = [0, 100],
-  to = [0, 100],
-  clamp = true,
-}) => {
-  function makeInterpolationFunc(
-    x,
-    { from: [minX, maxX] = from, to: [minY, maxY] = to } = {}
-  ) {
+export const interpolate = ({ from = [0, 100], to = [0, 100], clamp = true }) => {
+  function makeInterpolationFunc(x, { from: [minX, maxX] = from, to: [minY, maxY] = to } = {}) {
     const slope = (maxY - minY) / (maxX - minX)
 
     const a = -slope * minX + minY

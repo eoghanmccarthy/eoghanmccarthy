@@ -5,10 +5,7 @@ import cx from 'classnames'
 
 const DialogBackground = ({ children, close }) => {
   return (
-    <div
-      className={cx('ui-dialog-background', styles().toString())}
-      onClick={close}
-    >
+    <div className={cx('ui-dialog-background', styles().toString())} onClick={close}>
       {children}
     </div>
   )

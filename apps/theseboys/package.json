@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --node-env=development",
-    "build": "webpack --config webpack.prod.js --mode --node-env=production",
+    "build": "webpack --config webpack.prod.js --node-env=production",
+    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
     "@eoghanmccarthy/ui": "*",
     "@tonejs/midi": "^2.0.28",
     "classnames": "^2.2.6",
+    "onchange": "^7.1.0",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -48,7 +50,6 @@
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^2.4.6",
     "postcss": "^8.4.5",
-    "postcss-flexibility": "^3.0.0",
     "postcss-loader": "^6.2.1",
     "postcss-preset-env": "^7.2.0",
     "source-map-loader": "^0.2.4",

@@ -16,13 +16,7 @@ export const SquareIcon = memo(
         viewBox="0 0 300 300"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect
-          width="300"
-          height="300"
-          fill={fill}
-          stroke={stroke}
-          strokeWidth={strokeWidth}
-        />
+        <rect width="300" height="300" fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
       </svg>
     )
   }

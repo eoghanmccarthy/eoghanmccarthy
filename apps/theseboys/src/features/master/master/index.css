@@ -1,0 +1,76 @@
+#master {
+  flex: 1;
+  grid-area: master;
+  display: grid;
+  grid-template-rows: 40px 88px;
+}
+
+#master > * {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-20);
+}
+
+#master .master__status {
+  position: relative;
+}
+
+#master #playback-controls {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#master #playback-controls button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  aspect-ratio: 1 / 1;
+}
+
+#master #playback-controls button svg {
+  width: auto;
+  height: 100%;
+}
+
+#master #playback-controls .playback svg > * {
+  fill: white;
+}
+
+#master #playback-controls .playback.play[value='on'] svg > * {
+  fill: blue;
+}
+
+#master[data-recorder='stand-by'] #playback-controls .playback.record svg > * {
+  animation-name: record-standby;
+  animation-duration: 0.8s;
+  animation-delay: 0.2s;
+  animation-timing-function: steps(1, end);
+  animation-iteration-count: infinite;
+}
+
+#master[data-recorder='on'] #playback-controls .playback.record svg > * {
+  fill: red;
+}
+
+#master #beat {
+  position: absolute;
+  height: 100%;
+  background-color: var(--color-secondary);
+}
+
+@keyframes record-standby {
+  0% {
+    fill: red;
+  }
+  50% {
+    fill: white;
+  }
+}

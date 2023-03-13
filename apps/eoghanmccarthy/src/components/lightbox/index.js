@@ -31,11 +31,7 @@ const Lightbox = ({ currentIndex, setCurrentIndex, isOpen, list, onClose }) => {
       item && (
         <animated.div id={'lightbox'} key={key} style={props}>
           <IconButtons.Close onClick={onClose} />
-          <Viewer
-            list={list}
-            currentIndex={currentIndex}
-            setCurrentIndex={setCurrentIndex}
-          />
+          <Viewer list={list} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
         </animated.div>
       )
   )

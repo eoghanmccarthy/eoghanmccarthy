@@ -9,12 +9,7 @@ const Blanket = () => {
     to: { opacity: 1 },
     config: { duration: 100 },
   })
-  return (
-    <animated.div
-      style={props}
-      className={cx('ui-blanket', styles().toString())}
-    />
-  )
+  return <animated.div style={props} className={cx('ui-blanket', styles().toString())} />
 }
 
 export default Blanket

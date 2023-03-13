@@ -27,16 +27,12 @@ const ButtonControl = memo(
       document
         .querySelectorAll(`#${id} .control`)
         ?.forEach((e) => e.setAttribute('value', `${val}`))
-      document
-        .querySelector(`#${id} span.value`)
-        ?.setAttribute('value', val.toFixed(toFixed))
+      document.querySelector(`#${id} span.value`)?.setAttribute('value', val.toFixed(toFixed))
 
       if (val > min && val < max) {
         document
           .querySelectorAll(`#${id} .control`)
-          ?.forEach(
-            (e) => e.classList.contains('alert') && e.classList.remove('alert')
-          )
+          ?.forEach((e) => e.classList.contains('alert') && e.classList.remove('alert'))
       } else if (val === min) {
         document.querySelector(`#${id} .control.dec`)?.classList.add('alert')
       } else if (val === max) {

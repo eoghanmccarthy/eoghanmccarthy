@@ -11,15 +11,9 @@ const shortcutMap = {
   duplicateSelection: [getShortcutKey('CtrlOrCmd+D')],
   sendBackward: [getShortcutKey('CtrlOrCmd+[')],
   bringForward: [getShortcutKey('CtrlOrCmd+]')],
-  sendToBack: [
-    isDarwin
-      ? getShortcutKey('CtrlOrCmd+Alt+[')
-      : getShortcutKey('CtrlOrCmd+Shift+['),
-  ],
+  sendToBack: [isDarwin ? getShortcutKey('CtrlOrCmd+Alt+[') : getShortcutKey('CtrlOrCmd+Shift+[')],
   bringToFront: [
-    isDarwin
-      ? getShortcutKey('CtrlOrCmd+Alt+]')
-      : getShortcutKey('CtrlOrCmd+Shift+]'),
+    isDarwin ? getShortcutKey('CtrlOrCmd+Alt+]') : getShortcutKey('CtrlOrCmd+Shift+]'),
   ],
   copyAsPng: [getShortcutKey('Shift+Alt+C')],
   copyAsSvg: [],

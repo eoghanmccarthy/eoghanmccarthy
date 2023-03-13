@@ -1,6 +1,9 @@
 # Ignore artifacts:
 dist
 coverage
+public
+assets
+.turbo
 
 # Ignore all HTML files:
 *.html

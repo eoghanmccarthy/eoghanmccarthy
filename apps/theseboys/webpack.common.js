@@ -15,5 +15,5 @@ module.exports = merge(common, {
       utils: path.resolve(__dirname, 'src/utils/'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
-  }
+  },
 })

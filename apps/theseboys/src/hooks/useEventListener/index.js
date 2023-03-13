@@ -1,10 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const useEventListener = (
-  handler,
-  element = document.body,
-  eventName = 'keydown'
-) => {
+const useEventListener = (handler, element = document.body, eventName = 'keydown') => {
   const savedHandler = useRef()
 
   useEffect(() => {

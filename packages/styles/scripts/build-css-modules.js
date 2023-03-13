@@ -19,10 +19,7 @@ Object.entries(allColorScales).forEach(([colorScaleName, scale]) => {
   const scaleAsCssFile = `${selector} {\n${scaleAssCssProperties}\n}`
   const cssImport = `@import "./colors/${colorScaleName}.css";\n`
   cssImports = cssImports + cssImport
-  fs.writeFileSync(
-    path.join(outputDir, colorScaleName + '.css'),
-    scaleAsCssFile
-  )
+  fs.writeFileSync(path.join(outputDir, colorScaleName + '.css'), scaleAsCssFile)
 })
 
 fs.writeFileSync(path.join('.', 'colors.css'), cssImports)

@@ -72,8 +72,7 @@ let sketch = function (p) {
       for (let angle = 0; angle < 360; angle++) {
         let radian = p.radians(angle)
         let radius =
-          chaos_mag *
-            getNoiseWithTime(radian, chaos_delta * i + chaos_init, oz) +
+          chaos_mag * getNoiseWithTime(radian, chaos_delta * i + chaos_init, oz) +
           (dim_delta * i + dim_init)
         p.vertex(radius * p.cos(radian), radius * p.sin(radian))
       }

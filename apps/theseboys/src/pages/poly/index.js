@@ -2,12 +2,13 @@ import React, { useRef, createRef } from 'react'
 
 import './index.css'
 
-import { SCALE_A_MINOR, TRACK_DEFAULT } from '../../utils/constants'
+import { SCALE_A_MINOR, TRACK_DEFAULT } from 'utils/constants'
 
-import { Main } from 'components/layout'
-import PolyTrack from 'components/polyTrack'
-import { Master } from 'components/master'
 import { sounds } from '../../sounds'
+
+import { Main } from 'components'
+import { Master } from 'features/master'
+import PolyTrack from 'features/polyTrack'
 
 const songs = {
   t001: {

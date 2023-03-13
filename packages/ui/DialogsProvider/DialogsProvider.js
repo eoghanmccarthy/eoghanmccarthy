@@ -1,9 +1,4 @@
-import React, {
-  createContext,
-  useReducer,
-  useMemo,
-  isValidElement,
-} from 'react'
+import React, { createContext, useReducer, useMemo, isValidElement } from 'react'
 
 import { generateId } from '../utils'
 

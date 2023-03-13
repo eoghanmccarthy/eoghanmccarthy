@@ -127,8 +127,7 @@ export const items = [
     title: 'ai weiwei in london',
     text: () => (
       <span>
-        ai weiwei exhibition in piccadilly circus, <mark>london, uk, 2020</mark>
-        .
+        ai weiwei exhibition in piccadilly circus, <mark>london, uk, 2020</mark>.
       </span>
     ),
     Component: null,
@@ -160,8 +159,7 @@ export const items = [
     title: 'cherry blossoms along meguro river',
     text: () => (
       <span>
-        a row of cherry blossoms along the meguro river,{' '}
-        <mark>tokyo, japan, 2021</mark>.
+        a row of cherry blossoms along the meguro river, <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
     Component: null,
@@ -178,8 +176,7 @@ export const items = [
     title: 'yamanote line video #1',
     text: () => (
       <span>
-        video taken from the yamanote subway line,{' '}
-        <mark>tokyo, japan, 2021</mark>.
+        video taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
     Component: null,
@@ -196,8 +193,7 @@ export const items = [
     title: 'yamanote line video #2',
     text: () => (
       <span>
-        video taken from the yamanote subway line,{' '}
-        <mark>tokyo, japan, 2021</mark>.
+        video taken from the yamanote subway line, <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
     Component: null,
@@ -214,8 +210,7 @@ export const items = [
     title: 'narita airport quarantine hotel view',
     text: () => (
       <span>
-        view from narita airport quarantine hotel,{' '}
-        <mark>tokyo, japan, 2021</mark>.
+        view from narita airport quarantine hotel, <mark>tokyo, japan, 2021</mark>.
       </span>
     ),
     Component: null,
@@ -233,10 +228,7 @@ export const items = [
     title: 'to-do list item count',
     text: () => (
       <span>
-        <mark className="dark text-large">
-          34 items on this year's to-do list
-        </mark>
-        .
+        <mark className="dark text-large">34 items on this year's to-do list</mark>.
       </span>
     ),
     Component: null,
@@ -496,7 +488,4 @@ export const items = [
   },
 ]
 
-console.log(
-  'number of live posts',
-  items.filter((p) => p.status !== 'draft').length
-)
+console.log('number of live posts', items.filter((p) => p.status !== 'draft').length)

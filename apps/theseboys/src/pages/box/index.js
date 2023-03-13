@@ -2,12 +2,13 @@ import React, { useRef, createRef } from 'react'
 
 import './index.css'
 
-import { Main } from 'components/layout'
-import { Master } from 'components/master'
-import BoxTrack from '../../components/boxTrack'
-
-import { TRACK_DEFAULT } from '../../utils/constants'
 import { sounds } from '../../sounds'
+
+import { Main } from 'components'
+import { Master } from 'features/master'
+import BoxTrack from 'features/boxTrack'
+
+import { TRACK_DEFAULT } from 'utils/constants'
 
 const song = {
   t001: 'kick01',
@@ -25,6 +26,7 @@ const Box = () => {
   return (
     <Main id={'studio'}>
       <Master volume={0} bpm={120} />
+      <span></span>
       <section id={'box'}>
         {tracks.map(([trackId, soundId], i) => {
           const track = sounds[soundId]

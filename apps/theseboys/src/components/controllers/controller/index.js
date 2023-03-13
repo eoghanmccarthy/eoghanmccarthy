@@ -5,13 +5,7 @@ import cx from 'classnames'
 import './styles.css'
 
 const Controller = memo(
-  ({
-    children,
-    id,
-    orient = 'vertical',
-    type = 'slider',
-    theme = 'default',
-  }) => {
+  ({ children, id, orient = 'vertical', type = 'slider', theme = 'default' }) => {
     return (
       <div
         id={id}

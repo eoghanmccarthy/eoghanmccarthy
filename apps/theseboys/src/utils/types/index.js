@@ -25,6 +25,4 @@ export const instrumentTypes = PropTypes.shape({
 
 export const notesTypes = PropTypes.arrayOf(PropTypes.string)
 
-export const stepsTypes = PropTypes.arrayOf(
-  PropTypes.array.isRequired
-).isRequired
+export const stepsTypes = PropTypes.arrayOf(PropTypes.array.isRequired).isRequired

@@ -15,10 +15,7 @@ const Bio = () => {
   }))
 
   return (
-    <div
-      id={'bio'}
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-    >
+    <div id={'bio'} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
       <div className={'bio__header'}>
         <animated.h1
           style={{
@@ -29,13 +26,7 @@ const Bio = () => {
         </animated.h1>
       </div>
       <div className={'bio__main'}>
-        <Button
-          as={'a'}
-          size={32}
-          shape={'rounded'}
-          theme={'yellow'}
-          href={'mailto:me@eoghan.io'}
-        >
+        <Button as={'a'} size={32} shape={'rounded'} theme={'yellow'} href={'mailto:me@eoghan.io'}>
           me@eoghan.io
         </Button>
         <Spacer size={32} />

@@ -10,9 +10,7 @@ import Button from '../index'
 describe('Button component', () => {
   afterEach(cleanup)
 
-  const MockComponent = (props) => (
-    <Button testId={'instance-test-id'} {...props} />
-  )
+  const MockComponent = (props) => <Button testId={'instance-test-id'} {...props} />
 
   it('renders without crashing', () => {
     const div = document.createElement('div')

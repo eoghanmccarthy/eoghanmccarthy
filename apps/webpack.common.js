@@ -31,10 +31,7 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: [['@babel/preset-env'], ['@babel/preset-react']],
-              plugins: [
-                '@babel/plugin-syntax-dynamic-import',
-                '@babel/plugin-transform-runtime'
-              ],
+              plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-transform-runtime'],
             },
           },
         ],
@@ -49,7 +46,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: ['postcss-preset-env', 'postcss-flexibility'],
+                plugins: ['postcss-preset-env'],
               },
             },
           },
@@ -70,5 +67,5 @@ module.exports = {
     new webpack.DefinePlugin({
       __DEV__,
     }),
-  ]
-};
+  ],
+}

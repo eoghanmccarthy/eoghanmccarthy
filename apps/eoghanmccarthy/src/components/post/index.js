@@ -14,9 +14,7 @@ export const Post = () => {
     {
       select: ({ media, ...rest }) => ({
         media: Array.isArray(media)
-          ? media.filter(
-              (item) => item.type === 'image' || item.type === 'video'
-            )
+          ? media.filter((item) => item.type === 'image' || item.type === 'video')
           : undefined,
         ...rest,
       }),

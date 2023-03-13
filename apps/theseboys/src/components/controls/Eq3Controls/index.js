@@ -1,11 +1,6 @@
 import React, { memo } from 'react'
 
-import {
-  DECIBEL_MIN,
-  DECIBEL_MAX,
-  FREQUENCY_MIN,
-  FREQUENCY_MAX,
-} from '../../../utils/constants'
+import { DECIBEL_MIN, DECIBEL_MAX, FREQUENCY_MIN, FREQUENCY_MAX } from '../../../utils/constants'
 import { SliderControl } from '../../controllers'
 
 const Eq3Controls = memo(({ trackId, node }) => {

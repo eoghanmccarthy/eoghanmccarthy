@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Main } from 'components/layout'
-import { Master } from 'components/master'
-import Oscillator from '../../components/oscillator'
+import { Main } from 'components'
+import { Master } from 'features/master'
+import Oscillator from 'features/oscillator'
 
 const Page = () => {
   return (

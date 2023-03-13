@@ -3,8 +3,7 @@ import React from 'react'
 import './index.css'
 
 import TwitterLogo from 'assets/Twitter_Social_Icon_Circle_Color.svg'
-import { Footer, Main } from 'components/layout'
-import Logo from 'components/Logo'
+import { Footer, Logo, Main } from 'components'
 
 const Home = () => {
   return (

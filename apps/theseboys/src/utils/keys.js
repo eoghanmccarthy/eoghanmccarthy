@@ -70,9 +70,7 @@ export const getShortcutKey = (shortcut) => {
     .replace(/\bDel\b/i, 'Delete')
 
   if (isDarwin) {
-    return shortcut
-      .replace(/\bCtrlOrCmd\b/i, 'Cmd')
-      .replace(/\bAlt\b/i, 'Option')
+    return shortcut.replace(/\bCtrlOrCmd\b/i, 'Cmd').replace(/\bAlt\b/i, 'Option')
   }
   return shortcut.replace(/\bCtrlOrCmd\b/i, 'Ctrl')
 }

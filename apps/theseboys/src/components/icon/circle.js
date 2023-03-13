@@ -16,14 +16,7 @@ export const CircleIcon = memo(
         viewBox="0 0 300 300"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle
-          cx="150"
-          cy="150"
-          r={'150'}
-          fill={fill}
-          stroke={stroke}
-          strokeWidth={strokeWidth}
-        />
+        <circle cx="150" cy="150" r={'150'} fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
       </svg>
     )
   }

@@ -18,9 +18,7 @@ export default (trackId) => {
     let rowValues = []
     const steps = rows[i].querySelectorAll(`.step`)
     for (let i = 0; i < steps.length; i++) {
-      steps[i].getAttribute('value') === 'on'
-        ? rowValues.push(1)
-        : rowValues.push(0)
+      steps[i].getAttribute('value') === 'on' ? rowValues.push(1) : rowValues.push(0)
     }
     arr.push(rowValues)
   }

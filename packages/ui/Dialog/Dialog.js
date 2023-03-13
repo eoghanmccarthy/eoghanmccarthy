@@ -7,14 +7,7 @@ import cx from 'classnames'
 
 import DialogBackground from './DialogBackground'
 
-const Dialog = ({
-  children,
-  className,
-  style = {},
-  size = 'md',
-  close,
-  ...rest
-}) => {
+const Dialog = ({ children, className, style = {}, size = 'md', close, ...rest }) => {
   const props = useSpring({
     from: { opacity: 0, transform: 'translateY(+70px)' },
     to: { opacity: 1, transform: 'translateY(0px)' },

@@ -1,23 +1,16 @@
-import React, {
-  Fragment,
-  useRef,
-  createRef,
-  useState,
-  useMemo,
-  useEffect,
-} from 'react'
+import React, { Fragment, useRef, createRef, useState, useMemo, useEffect } from 'react'
 import { Transport, Destination, Meter, UserMedia } from 'tone'
 
 import './index.css'
 
 import { SCALE_A_MINOR, TRACK_DEFAULT } from '../../utils/constants'
 
-import { Footer, Main } from 'components/layout'
-import StudioTrack from 'components/studioTrack'
-import { Master } from 'components/master'
-import Midi from '../../components/midi'
 import { sounds } from '../../sounds'
-import ShortcutsLegend from 'components/ShortcutsLegend'
+
+import { Main, Panel, PanelMain } from 'components'
+import { Master } from 'features/master'
+import Midi from 'features/midi'
+import StudioTrack from 'features/studioTrack'
 
 const song = {
   t001: { sound: 'kick01' },
@@ -80,20 +73,14 @@ const Studio = () => {
   return (
     <Fragment>
       <Main id={'studio'}>
-        {/*<Master volume={0} bpm={120} />*/}
-        <section id={'globals'}>
-          <div
-            className={'master-wrapper'}
-            style={{
-              position: 'sticky',
-              top: '16px',
-            }}
-          >
-            <Master volume={0} bpm={120} />
-          </div>
+        <section id={'globals'} style={{ position: 'sticky', top: '32px', alignSelf: 'start' }}>
+          <Master volume={0} bpm={120} />
           <Midi />
         </section>
         <section id={'tracks'}>
+          <Panel>
+            <PanelMain></PanelMain>
+          </Panel>
           {tracks.map(([trackId, { sound, ...config }], i) => {
             const track = sounds[sound]
 
@@ -123,7 +110,6 @@ const Studio = () => {
           })}
         </section>
       </Main>
-      <Footer />
     </Fragment>
   )
 }

@@ -20,11 +20,7 @@ const styles = css({
 
 const Base = ({ children, className, onClick, ...rest }) => {
   return (
-    <Button
-      className={cx(className, styles.toString())}
-      onClick={onClick}
-      {...rest}
-    >
+    <Button className={cx(className, styles.toString())} onClick={onClick} {...rest}>
       {children}
     </Button>
   )
