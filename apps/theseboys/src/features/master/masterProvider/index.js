@@ -23,19 +23,19 @@ const MasterProvider = ({ children }) => {
       Destination.connect(recorder.current)
     }
 
-    // return () => {
-    //   if (recorder.current) {
-    //     recorder.current.dispose()
-    //   }
-    //
-    //   if (Transport) {
-    //     Transport.dispose()
-    //   }
-    //
-    //   if (Destination) {
-    //     Destination.dispose()
-    //   }
-    // }
+    return () => {
+      if (recorder.current) {
+        recorder.current.dispose()
+      }
+
+      if (Transport) {
+        Transport.dispose()
+      }
+
+      if (Destination) {
+        Destination.dispose()
+      }
+    }
   }, [])
 
   useEventListener((e) => {
@@ -61,7 +61,9 @@ const MasterProvider = ({ children }) => {
     if (!master) return
 
     if (getTransport().state === 'stopped') {
-      Transport.start()
+      //https://github.com/Tonejs/Tone.js/wiki/Performance#scheduling-in-advance
+      Transport.start("+0.1")
+
       target.setAttribute('value', 'on')
       master.setAttribute('data-playback', 'started')
       console.log('transport is', getTransport().state)

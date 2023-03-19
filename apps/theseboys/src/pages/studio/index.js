@@ -13,8 +13,8 @@ import Midi from 'features/midi'
 import StudioTrack from 'features/studioTrack'
 
 const song = {
-  t001: { sound: 'kick01' },
-  t002: { sound: 'kick02' },
+  t001: { sound: 'kick01', steps: [[1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]] },
+  t002: { sound: 'kick02', steps: [[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]] },
   t003: { sound: 'snare01' },
   t004: { sound: 'snare02' },
   t005: {

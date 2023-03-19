@@ -5,7 +5,8 @@ import { isArray, isString, isNumber } from 'utils/typeCheck'
 
 import './styles.css'
 
-import { onSequenceStep, newArray } from './utils'
+import { newArray } from 'utils'
+import { onSequenceStep } from './utils'
 
 import Step from './step'
 import { SliderControl } from 'components/controllers'

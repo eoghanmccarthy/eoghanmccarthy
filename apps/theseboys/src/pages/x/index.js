@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { MonoSynth, Transport, Sequence, getContext, start, Destination } from 'tone'
 
-import { newArray } from 'features/stepSequencer/utils'
+import { newArray } from 'utils'
 
 const pattern = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
