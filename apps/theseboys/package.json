@@ -21,6 +21,7 @@
     "@eoghanmccarthy/ui": "*",
     "@tonejs/midi": "^2.0.28",
     "classnames": "^2.2.6",
+    "jotai": "^2.0.3",
     "onchange": "^7.1.0",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
@@ -31,7 +32,8 @@
     "redux": "^4.0.5",
     "reselect": "^4.0.0",
     "shortid": "^2.2.15",
-    "tone": "^14.7.39"
+    "tone": "^14.7.39",
+    "use-immer": "^0.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",

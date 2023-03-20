@@ -5,9 +5,9 @@
  * @returns {array}
  */
 export const newArray = (length) => {
-    const array = []
-    for (let i = 0; i < length; i++) {
-        array.push(i)
-    }
-    return array
+  const array = []
+  for (let i = 0; i < length; i++) {
+    array.push(i)
+  }
+  return array
 }

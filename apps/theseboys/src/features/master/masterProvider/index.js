@@ -62,7 +62,7 @@ const MasterProvider = ({ children }) => {
 
     if (getTransport().state === 'stopped') {
       //https://github.com/Tonejs/Tone.js/wiki/Performance#scheduling-in-advance
-      Transport.start("+0.1")
+      Transport.start('+0.1')
 
       target.setAttribute('value', 'on')
       master.setAttribute('data-playback', 'started')
