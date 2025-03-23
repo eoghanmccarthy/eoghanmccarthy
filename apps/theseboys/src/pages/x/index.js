@@ -1,67 +1,195 @@
-import React, { useEffect, useState } from 'react'
-import { MonoSynth, Transport, Sequence, getContext, start, Destination } from 'tone'
+// import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+// import * as Tone from 'tone';
+//
+// function StepSequencer() {
+//   const [isPlaying, setIsPlaying] = useState(false);
+//   const [steps, setSteps] = useState(new Array(16).fill(false).map(() => new Array(4).fill(false)));
+//   const [synths, setSynths] = useState([]);
+//
+//   const currentStepIndex = useRef(0);
+//
+//   useEffect(() => {
+//     const synths = [
+//       new Tone.Synth().toDestination(),
+//       new Tone.Synth().toDestination(),
+//       new Tone.MetalSynth().toDestination(),
+//       new Tone.PluckSynth().toDestination(),
+//     ];
+//     setSynths(synths);
+//     return () => {
+//       synths.forEach(synth => synth.dispose());
+//     };
+//   }, []);
+//
+//   const handleStepClick = useCallback((trackIndex, stepIndex) => {
+//     setSteps(prevSteps => {
+//       const newSteps = [...prevSteps];
+//       newSteps[trackIndex][stepIndex] = !newSteps[trackIndex][stepIndex];
+//       return newSteps;
+//     });
+//   }, []);
+//
+//   const getTrackSequence = useCallback((trackIndex, synth) => {
+//     return new Tone.Sequence((time, step) => {
+//       if (steps[trackIndex][step]) {
+//         synth.triggerAttackRelease('C4', '8n', time);
+//       }
+//     }, new Array(16).fill(0).map((_, i) => i), '16n').start(0);
+//   }, [steps]);
+//
+//   const sequences = useMemo(() => {
+//     if (synths.length) {
+//       return synths.map((synth, index) => {
+//         return {
+//           synth,
+//           sequence: getTrackSequence(index, synth),
+//           steps: steps.map(track => track[index]),
+//         };
+//       });
+//     }
+//   }, [synths, steps, getTrackSequence]);
+//
+//   const playPause = useCallback(async () => {
+//     if (isPlaying) {
+//       Tone.Transport.stop();
+//       Tone.Transport.position = 0;
+//     } else {
+//       if (Tone.getContext().state !== 'running') {
+//         await Tone.start()
+//       }
+//       Tone.Transport.start();
+//     }
+//     setIsPlaying((prev) => !prev);
+//   }, [isPlaying, setIsPlaying]);
+//
+//   useEffect(() => {
+//     const loop = new Tone.Loop((time) => {
+//       sequences.forEach(({ synth, sequence, steps }) => {
+//         if (steps[currentStepIndex.current]) {
+//           synth.triggerAttackRelease('C4', '8n', time);
+//         }
+//         sequence.at(currentStepIndex.current, steps[currentStepIndex.current]);
+//       });
+//       currentStepIndex.current = (currentStepIndex.current + 1) % 16;
+//     }, '16n').start(0);
+//     return () => {
+//       loop.stop(0);
+//     };
+//   }, [sequences]);
+//
+//   return (
+//       <div>
+//         {steps.map((track, trackIndex) => (
+//             <div key={trackIndex}>
+//               {track.map((step, stepIndex) => (
+//                   <div
+//                       key={`${trackIndex}-${stepIndex}`}
+//                       style={{
+//                         display: 'inline-block',
+//                         width: 20,
+//                         height: 20,
+//                         border: '1px solid black',
+//                         background: step ? 'black' : 'white',
+//                       }}
+//                       onClick={() => handleStepClick(trackIndex, stepIndex)}
+//                   />
+//               ))}
+//             </div>
+//         ))}
+//         <button onClick={playPause}>play/pause</button>
+//       </div>
+//   );
+// }
+//
+// export default StepSequencer;
 
-import { newArray } from 'utils'
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import * as Tone from 'tone';
 
-const pattern = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-]
-
-const notes = ['C#4', 'D#4', 'F#4', 'G#4', 'A#4', 'C#5', 'D#5', 'F#5'].reverse()
-
-const synth = new MonoSynth().toDestination()
-
-const Page = () => {
-  const [playState, setPlayState] = useState(Transport.state)
-  const noteInterval = `16n`
-  const noteIndices = newArray(16)
+function StepSequencer() {
+    const [isPlaying, setIsPlaying] = useState(false);
+  const [steps, setSteps] = useState(new Array(16).fill(false).map(() => new Array(4).fill(false)));
+  const [synths, setSynths] = useState([]);
 
   useEffect(() => {
-    const loop = new Sequence(
-      (time, col) => {
-        pattern.map((row, noteIndex) => {
-          if (row[col]) {
-            synth.triggerAttackRelease(notes[noteIndex], '8n', time)
+    const synths = [
+      new Tone.Synth().toDestination(),
+      new Tone.Synth().toDestination(),
+      new Tone.MetalSynth().toDestination(),
+      new Tone.PluckSynth().toDestination(),
+    ];
+    setSynths(synths);
+    return () => {
+      synths.forEach(synth => synth.dispose());
+    };
+  }, []);
+
+  const handleStepClick = useCallback((trackIndex, stepIndex) => {
+    setSteps(prevSteps => {
+      const newSteps = [...prevSteps];
+      newSteps[trackIndex][stepIndex] = !newSteps[trackIndex][stepIndex];
+      return newSteps;
+    });
+  }, []);
+
+  const loops = useMemo(() => {
+    if (synths.length) {
+      return synths.map((synth, index) => {
+        return new Tone.Sequence((time, step) => {
+          if (steps[index][step]) {
+            synth.triggerAttackRelease('C4', '8n', time);
           }
-        })
-      },
-      noteIndices,
-      noteInterval
-    ).start(0)
-    return () => loop.dispose()
-  }, [])
-
-  const play = async () => {
-    if (getContext().state !== 'running') {
-      await start()
+        }, new Array(16).fill(0).map((_, i) => i), '16n').start(0);
+      });
     }
-    Transport.start()
-    setPlayState(Transport.state)
-  }
+  }, [synths, steps]);
 
-  const stop = () => {
-    Transport.stop()
-    setPlayState(Transport.state)
-  }
+  useEffect(() => {
+    return () => {
+      if (loops?.length) {
+        loops.forEach(loop => loop.stop(0));
+      }
+    };
+  }, [loops]);
+
+    const playPause = useCallback(async () => {
+    if (isPlaying) {
+      Tone.Transport.stop();
+      Tone.Transport.bpm.value = 120;
+      Tone.Transport.position = 0;
+    } else {
+      if (Tone.getContext().state !== 'running') {
+        await Tone.start()
+      }
+      Tone.Transport.start();
+    }
+    setIsPlaying((prev) => !prev);
+  }, [isPlaying, setIsPlaying]);
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          playState === 'started' ? stop() : play()
-        }}
-      >
-        {playState}
-      </button>
-    </div>
-  )
+      <div>
+        {steps.map((track, trackIndex) => (
+            <div key={trackIndex}>
+              {track.map((step, stepIndex) => (
+                  <div
+                      key={`${trackIndex}-${stepIndex}`}
+                      style={{
+                        display: 'inline-block',
+                        width: 20,
+                        height: 20,
+                        border: '1px solid black',
+                        background: step ? 'black' : 'white',
+                      }}
+                      onClick={() => handleStepClick(trackIndex, stepIndex)}
+                  />
+              ))}
+            </div>
+        ))}
+        <button onClick={playPause}>play/pause</button>
+      </div>
+  );
 }
 
-export default Page
+export default StepSequencer;
+
+
