@@ -1,4 +1,4 @@
-# E
+# Eoghan
 
 To start an app, run:
 
