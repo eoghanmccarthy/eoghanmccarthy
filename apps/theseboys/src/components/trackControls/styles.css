@@ -1,8 +1,0 @@
-.track-controls {
-  grid-area: controls;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 72px;
-  padding: 0 var(--spacing-12);
-}
