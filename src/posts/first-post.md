@@ -1,25 +1,10 @@
 ---
-title: My First Post
 date: 2024-01-15
 slug: first-post
-category: Product
-description: This is my first blog post written in markdown.
+type: note
+featuredImage: https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60
 ---
 
-# Welcome to My Blog
+Just discovered this amazing CSS framework that makes styling so much easier. The documentation is really well done too.
 
-This is my first blog post written in **markdown**.
-
-## Features
-
-- Easy to write
-- Simple formatting
-- Code support
-
-```javascript
-console.log('Hello, world!');
-```
-
-## Conclusion
-
-Markdown makes blogging simple and enjoyable!
+[Tailwind CSS](https://tailwindcss.com)
