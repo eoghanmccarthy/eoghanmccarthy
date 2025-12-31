@@ -22,17 +22,17 @@ function PostView() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
+    <div className="max-w-7xl mx-auto px-6 py-32">
       <div className="content-grid">
         {/* Sidebar */}
-        <aside className="col-span-24 lg:col-span-6">
+        <aside className="col-span-full lg:col-span-6">
           <nav className="space-y-2">
             <div className="text-base font-medium text-gray-900">All Posts</div>
           </nav>
         </aside>
 
         {/* Main Content */}
-        <main className="col-span-24 lg:col-span-18">
+        <main className="col-span-full lg:col-span-12">
           <div className="mb-4">
             <PostTypeBadge type={post.type} />
           </div>

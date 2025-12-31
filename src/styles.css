@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  --site-header-height: 52px;
+}
+
 body {
   @apply m-0;
   font-family:
