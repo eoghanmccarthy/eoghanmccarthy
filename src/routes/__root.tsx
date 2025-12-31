@@ -1,42 +1,36 @@
-import { HeadContent, Scripts, createRootRoute, Outlet } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
+import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 
-import Header from '../components/header'
+import Header from "../components/header";
 
-import appCss from '../styles.css?url'
+import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charSet: 'utf-8',
+        charSet: "utf-8",
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
       },
       {
-        title: 'eoghanmccarthy',
+        title: "eoghanmccarthy",
       },
     ],
     links: [
       {
-        rel: 'stylesheet',
+        rel: "stylesheet",
         href: appCss,
       },
     ],
   }),
-  shellComponent: RootComponent,
-})
-
-function RootComponent() {
-  return (
-      <RootDocument>
-        <Outlet />
-      </RootDocument>
-  );
-}
+  shellComponent: RootDocument,
+  notFoundComponent: () => {
+    return <p>Not found!</p>;
+  },
+  ssr: true,
+});
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
@@ -44,22 +38,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-gray-100 font-serif text-gray-700">
+      <body className="bg-gray-100 font-serif text-gray-700 !mb-24">
         <Header />
         {children}
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
         <Scripts />
       </body>
     </html>
-  )
+  );
 }
