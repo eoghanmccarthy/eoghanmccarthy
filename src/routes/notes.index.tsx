@@ -17,47 +17,57 @@ function Component() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
-      <h1 className="text-6xl font-normal mb-16 tracking-tight">Notes</h1>
+      <h1 className="text-6xl font-normal mb-16 -skew-x-16">Notes</h1>
 
-      <div className="flex gap-16">
+      <div className="content-grid">
         {/* Sidebar */}
-        <aside className="w-48 flex-shrink-0 max-xl:hidden">
+        <aside className="col-span-24 lg:col-span-6">
           <nav className="space-y-2">
             <div className="text-base font-medium text-gray-900">All Posts</div>
           </nav>
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 max-w-3xl">
+        <main className="col-span-24 lg:col-span-18">
           <div className="space-y-12">
             {posts.length === 0 ? (
               <p className="text-gray-500">No posts found.</p>
             ) : (
               posts.map((post) => (
-                <article key={post.slug} className="space-y-2">
+                <article
+                  key={post.slug}
+                  className="space-y-2 pb-12 border-b border-gray-200 last:border-0"
+                >
                   <PostTypeBadge type={post.type} />
-                  {post.featuredImage && (
-                    <FeaturedImage
-                      src={post.featuredImage}
-                      alt={post.title || 'Post image'}
-                      variant="detail"
-                    />
-                  )}
-                  {post.type === 'note' ? (
+                  {post.type === "note" ? (
                     <>
                       <Link to={`/notes/${post.slug}`} className="block group">
                         <div className="prose group-hover:text-gray-600 transition-colors">
                           <Markdown>{post.content}</Markdown>
                         </div>
                       </Link>
+                      {post.featuredImage && (
+                        <FeaturedImage
+                          src={post.featuredImage}
+                          alt={post.title || "Post image"}
+                          variant="detail"
+                        />
+                      )}
                       <p className="text-sm text-gray-500">
                         {formatDate(post.date)}
                       </p>
                     </>
                   ) : (
                     <>
+                      {post.featuredImage && (
+                        <FeaturedImage
+                          src={post.featuredImage}
+                          alt={post.title || "Post image"}
+                          variant="detail"
+                        />
+                      )}
                       <Link to={`/notes/${post.slug}`} className="block group">
-                        <h2 className="text-xl font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">
+                        <h2 className="text-xl font-normal text-gray-900 group-hover:text-gray-600 transition-colors">
                           {post.title}
                         </h2>
                       </Link>

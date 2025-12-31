@@ -3,7 +3,7 @@ import { extractExcerpt } from "./extract-excerpt";
 
 export interface Post {
   slug: string;
-  type: 'blog' | 'note';
+  type: "blog" | "note";
   title?: string;
   date: string;
   category?: string;
@@ -24,15 +24,18 @@ export async function loadPosts(): Promise<Post[]> {
       const { data, content } = parseFrontmatter(rawContent);
       const slug = path.split("/").pop()?.replace(".md", "") || "";
 
-      const type = (data.type as 'blog' | 'note') || 'blog';
+      const type = (data.type as "blog" | "note") || "blog";
 
       return {
         slug,
         type,
-        title: type === 'blog' ? data.title || slug : data.title,
+        title: type === "blog" ? data.title || slug : data.title,
         date: data.date || "",
-        category: type === 'blog' ? data.category || "General" : data.category,
-        description: type === 'blog' ? data.description || extractExcerpt(content) : data.description,
+        category: type === "blog" ? data.category || "General" : data.category,
+        description:
+          type === "blog"
+            ? data.description || extractExcerpt(content)
+            : data.description,
         featuredImage: data.featuredImage,
         content,
       };
@@ -57,15 +60,18 @@ export async function loadPost(slug: string): Promise<Post | null> {
       const rawContent = (await modules[path]()) as string;
       const { data, content } = parseFrontmatter(rawContent);
 
-      const type = (data.type as 'blog' | 'note') || 'blog';
+      const type = (data.type as "blog" | "note") || "blog";
 
       return {
         slug,
         type,
-        title: type === 'blog' ? data.title || slug : data.title,
+        title: type === "blog" ? data.title || slug : data.title,
         date: data.date || "",
-        category: type === 'blog' ? data.category || "General" : data.category,
-        description: type === 'blog' ? data.description || extractExcerpt(content) : data.description,
+        category: type === "blog" ? data.category || "General" : data.category,
+        description:
+          type === "blog"
+            ? data.description || extractExcerpt(content)
+            : data.description,
         featuredImage: data.featuredImage,
         content,
       };
