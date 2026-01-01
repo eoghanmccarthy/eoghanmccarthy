@@ -6,6 +6,7 @@ import { formatDate } from "@/utils/date.ts";
 
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
+import Tags from "@/components/tags";
 
 export const Route = createFileRoute("/notes/")({
   loader: async () => loadPosts(),
@@ -16,7 +17,7 @@ function Component() {
   const posts = Route.useLoaderData();
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-32">
+    <div className="page-container">
       <h1 className="text-6xl font-normal mb-16 -skew-x-16">Notes</h1>
 
       <div className="content-grid">

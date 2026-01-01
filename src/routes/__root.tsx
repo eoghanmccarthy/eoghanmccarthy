@@ -38,7 +38,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-stone-100 font-serif text-gray-700 !mb-24 pt-[var(--site-header-height)]">
+      <body className="bg-stone-100 font-serif text-gray-700 pt-[var(--site-header-height)]">
         <Header />
         {children}
         <Scripts />
