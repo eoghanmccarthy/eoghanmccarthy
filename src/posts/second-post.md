@@ -5,6 +5,7 @@ slug: second-post
 type: blog
 category: Development
 description: My experience setting up a type-safe routing solution with TanStack Router and React 19
+tags: React, TypeScript, TanStack, Web Development
 ---
 
 I recently spent some time building out a modern web application using React 19 and TanStack Router. The experience has been surprisingly smooth, and I wanted to share some thoughts on why this stack works so well.

@@ -22,7 +22,7 @@ function PostView() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-32">
+    <div className="page-container">
       <div className="content-grid">
         {/* Sidebar */}
         <aside className="col-span-full lg:col-span-6">
