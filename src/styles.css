@@ -2,6 +2,7 @@
 
 :root {
   --site-header-height: 52px;
+  --site-sticky-top: 64px;
 }
 
 body {
