@@ -25,13 +25,17 @@ function Component() {
         {/* Sidebar */}
         <aside className="col-span-full lg:col-span-6">
           <div className="top-[var(--site-sticky-top)] md:sticky">
-          <nav className="space-y-1 mb-6 text-base font-normal">
-            {["all posts", ...CATEGORIES].map((category) => (
-              <div key={category} className="capitalize text-gray-600 hover:text-gray-900">
-                {category}
-              </div>
-            ))}
-          </nav></div>
+            <nav className="space-y-1 mb-6 text-base font-normal">
+              {["all posts", ...CATEGORIES].map((category) => (
+                <div
+                  key={category}
+                  className="capitalize text-gray-600 hover:text-gray-900"
+                >
+                  {category}
+                </div>
+              ))}
+            </nav>
+          </div>
         </aside>
 
         {/* Main Content */}
@@ -48,7 +52,11 @@ function Component() {
                   <PostTypeBadge type={post.type} />
                   {post.type === "note" ? (
                     <>
-                      <Link to="/notes/$slug" params={{ slug: post.slug }} className="block group">
+                      <Link
+                        to="/notes/$slug"
+                        params={{ slug: post.slug }}
+                        className="block group"
+                      >
                         <div className="prose group-hover:text-gray-600 transition-colors">
                           <Markdown>{post.content}</Markdown>
                         </div>
@@ -73,7 +81,11 @@ function Component() {
                           variant="detail"
                         />
                       )}
-                      <Link to="/notes/$slug" params={{ slug: post.slug }} className="block group">
+                      <Link
+                        to="/notes/$slug"
+                        params={{ slug: post.slug }}
+                        className="block group"
+                      >
                         <h2 className="text-xl font-normal text-gray-900 group-hover:text-gray-600 transition-colors">
                           {post.title}
                         </h2>
