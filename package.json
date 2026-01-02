@@ -27,7 +27,8 @@
     "react-dom": "^19.2.0",
     "react-markdown": "^10.1.0",
     "tailwindcss": "^4.0.6",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "zod": "^4.3.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20251231.0",
