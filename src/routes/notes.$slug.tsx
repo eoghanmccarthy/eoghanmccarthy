@@ -26,9 +26,12 @@ function PostView() {
       <div className="content-grid">
         {/* Sidebar */}
         <aside className="col-span-full lg:col-span-6">
-          <nav className="space-y-2">
-            <div className="text-base font-medium text-gray-900">All Posts</div>
-          </nav>
+          <div className="top-[var(--site-sticky-top)] md:sticky">
+            <nav className="space-y-1 mb-6 text-base font-normal text-gray-900">
+              <div>All Posts</div>
+              <div>Technology</div>
+              <div>Random</div>
+            </nav></div>
         </aside>
 
         {/* Main Content */}
