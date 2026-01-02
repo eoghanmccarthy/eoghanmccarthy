@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ReactMarkdown from "react-markdown";
 
+import { CATEGORIES } from "@/constants";
+
 import { loadPost } from "@/utils/posts.ts";
 import { formatDate } from "@/utils/date.ts";
+
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
 
@@ -18,7 +21,7 @@ function PostView() {
   const post = Route.useLoaderData();
 
   if (!post) {
-    return <div className="p-6">Loading...</div>;
+    return <p>Loading...</p>;
   }
 
   return (
@@ -27,10 +30,10 @@ function PostView() {
         {/* Sidebar */}
         <aside className="col-span-full lg:col-span-6">
           <div className="top-[var(--site-sticky-top)] md:sticky">
-            <nav className="space-y-1 mb-6 text-base font-normal text-gray-900">
-              <div>All Posts</div>
-              <div>Technology</div>
-              <div>Random</div>
+            <nav className="space-y-1 mb-6 text-base font-normal">
+              {["all posts", ...CATEGORIES].map((category) => (
+                <div key={category} className="capitalize text-gray-600 hover:text-gray-900">{category}</div>
+              ))}
             </nav></div>
         </aside>
 

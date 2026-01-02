@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import Markdown from "react-markdown";
 
+import { CATEGORIES } from "@/constants";
+
 import { loadPosts } from "@/utils/posts.ts";
 import { formatDate } from "@/utils/date.ts";
 
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
-import Tags from "@/components/tags";
 
 export const Route = createFileRoute("/notes/")({
   loader: async () => loadPosts(),
@@ -24,10 +25,12 @@ function Component() {
         {/* Sidebar */}
         <aside className="col-span-full lg:col-span-6">
           <div className="top-[var(--site-sticky-top)] md:sticky">
-          <nav className="space-y-1 mb-6 text-base font-normal text-gray-900">
-            <div>All Posts</div>
-            <div>Technology</div>
-            <div>Random</div>
+          <nav className="space-y-1 mb-6 text-base font-normal">
+            {["all posts", ...CATEGORIES].map((category) => (
+              <div key={category} className="capitalize text-gray-600 hover:text-gray-900">
+                {category}
+              </div>
+            ))}
           </nav></div>
         </aside>
 
@@ -45,7 +48,7 @@ function Component() {
                   <PostTypeBadge type={post.type} />
                   {post.type === "note" ? (
                     <>
-                      <Link to={`/notes/${post.slug}`} className="block group">
+                      <Link to="/notes/$slug" params={{ slug: post.slug }} className="block group">
                         <div className="prose group-hover:text-gray-600 transition-colors">
                           <Markdown>{post.content}</Markdown>
                         </div>
@@ -70,7 +73,7 @@ function Component() {
                           variant="detail"
                         />
                       )}
-                      <Link to={`/notes/${post.slug}`} className="block group">
+                      <Link to="/notes/$slug" params={{ slug: post.slug }} className="block group">
                         <h2 className="text-xl font-normal text-gray-900 group-hover:text-gray-600 transition-colors">
                           {post.title}
                         </h2>
@@ -79,7 +82,7 @@ function Component() {
                         {post.description}
                       </p>
                       <p className="text-sm text-gray-500">
-                        {post.category} · {formatDate(post.date)}
+                        {formatDate(post.date)}
                       </p>
                     </>
                   )}

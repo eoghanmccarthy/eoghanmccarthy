@@ -36,6 +36,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        </style>
         <HeadContent />
       </head>
       <body className="bg-stone-100 font-serif text-gray-700 pt-[var(--site-header-height)]">

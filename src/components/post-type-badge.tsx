@@ -1,5 +1,7 @@
+import { type PostType } from "@/constants";
+
 interface PostTypeBadgeProps {
-  type: "blog" | "note";
+  type: PostType;
 }
 
 export default function PostTypeBadge({ type }: PostTypeBadgeProps) {
