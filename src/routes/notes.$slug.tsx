@@ -32,9 +32,15 @@ function PostView() {
           <div className="top-[var(--site-sticky-top)] md:sticky">
             <nav className="space-y-1 mb-6 text-base font-normal">
               {["all posts", ...CATEGORIES].map((category) => (
-                <div key={category} className="capitalize text-gray-600 hover:text-gray-900">{category}</div>
+                <div
+                  key={category}
+                  className="capitalize text-gray-600 hover:text-gray-900"
+                >
+                  {category}
+                </div>
               ))}
-            </nav></div>
+            </nav>
+          </div>
         </aside>
 
         {/* Main Content */}

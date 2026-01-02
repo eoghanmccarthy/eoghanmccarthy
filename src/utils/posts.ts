@@ -39,7 +39,9 @@ function createPostFromData(
     date: data.date || "",
     category: data.category,
     description:
-      type === "blog" ? data.description || extractExcerpt(content) : data.description,
+      type === "blog"
+        ? data.description || extractExcerpt(content)
+        : data.description,
     featuredImage: data.featuredImage,
     tags: tags && tags.length > 0 ? tags : undefined,
     content,
