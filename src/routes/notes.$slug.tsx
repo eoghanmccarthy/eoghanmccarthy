@@ -1,16 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import ReactMarkdown from "react-markdown";
 
 import { CATEGORIES } from "@/constants";
 
-import { loadPost } from "@/utils/posts.ts";
+import { postQueryOptions } from "@/api/posts";
 import { formatDate } from "@/utils/date.ts";
 
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
 
 export const Route = createFileRoute("/notes/$slug")({
-  loader: async ({ params: { slug } }) => loadPost(slug),
+  loader: async ({ context: { queryClient }, params: { slug } }) => {
+    await queryClient.ensureQueryData(postQueryOptions(slug));
+  },
   component: PostView,
   notFoundComponent: () => {
     return <p>Post not found!</p>;
@@ -18,11 +21,8 @@ export const Route = createFileRoute("/notes/$slug")({
 });
 
 function PostView() {
-  const post = Route.useLoaderData();
-
-  if (!post) {
-    return <p>Loading...</p>;
-  }
+  const { slug } = Route.useParams();
+  const { data: post } = useSuspenseQuery(postQueryOptions(slug));
 
   return (
     <div className="page-container">
@@ -72,6 +72,22 @@ function PostView() {
               alt={post.title || "Post image"}
               variant="detail"
             />
+          )}
+          {post.tags.length > 0 && (
+            <div className="mt-8 text-sm text-gray-600">
+              {post.tags.map((tag, index) => (
+                <span key={tag}>
+                  {index > 0 && <span className="mx-2">•</span>}
+                  <Link
+                    to="/notes"
+                    search={{ tags: [tag] }}
+                    className="capitalize hover:text-gray-900"
+                  >
+                    {tag}
+                  </Link>
+                </span>
+              ))}
+            </div>
           )}
         </main>
       </div>

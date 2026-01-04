@@ -1,15 +1,17 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { zodValidator } from "@tanstack/zod-adapter";
 import Markdown from "react-markdown";
 import { z } from "zod";
 
-import { CATEGORIES, TAGS, Tag } from "@/constants";
+import { CATEGORIES, TAGS } from "@/constants";
 
-import { loadPosts } from "@/utils/posts.ts";
 import { formatDate } from "@/utils/date.ts";
 
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
+
+import { postsQueryOptions } from "@/api/posts.ts";
 
 const notesSearchSchema = z.object({
   category: z.string().optional(),
@@ -18,30 +20,20 @@ const notesSearchSchema = z.object({
 
 export const Route = createFileRoute("/notes/")({
   validateSearch: zodValidator(notesSearchSchema),
-  loaderDeps: ({ search: { category,tags } }) => ({ category, tags }),
-  loader: async ({ deps: { category, tags } }) => {
-    const allPosts = await loadPosts();
-
-    // Step 1: Filter by category
-    let filteredPosts = category
-      ? allPosts.filter((post) => post.category === category)
-      : allPosts;
-
-    // Step 2: Filter by tags (if any selected)
-    if (tags && tags.length > 0) {
-      filteredPosts = filteredPosts.filter((post) =>
-        tags.some((tag) => post.tags.includes(tag as Tag))
-      );
-    }
-
-    return filteredPosts;
+  loaderDeps: ({ search: { category, tags } }) => ({ category, tags }),
+  loader: async ({ context, deps: { category, tags } }) => {
+    await context.queryClient.ensureQueryData(
+      postsQueryOptions({ category, tags }),
+    );
   },
   component: Component,
 });
 
 function Component() {
+  const navigate = useNavigate();
   const { category, tags } = Route.useSearch();
-  const posts = Route.useLoaderData();
+  const postsQuery = useSuspenseQuery(postsQueryOptions({ category, tags }));
+  const posts = postsQuery.data;
 
   return (
     <div className="page-container">
@@ -66,25 +58,25 @@ function Component() {
                 </Link>
               ))}
               {[...TAGS].map((t) => (
-                  <Link
-                      to="."
-                      key={t}
-                      className={`block capitalize ${tags && tags.includes(t)  ? "text-gray-900" : "text-gray-600"} hover:text-gray-900`}
-                      search={(prev) => {
-                        const currentTags = prev.tags || [];
-                        const isSelected = currentTags.includes(t);
-                        const newTags = isSelected
-                          ? currentTags.filter(tag => tag !== t)
-                          : [...currentTags, t];
+                <Link
+                  to="."
+                  key={t}
+                  className={`block capitalize ${tags && tags.includes(t) ? "text-gray-900" : "text-gray-600"} hover:text-gray-900`}
+                  search={(prev) => {
+                    const currentTags = prev.tags || [];
+                    const isSelected = currentTags.includes(t);
+                    const newTags = isSelected
+                      ? currentTags.filter((tag) => tag !== t)
+                      : [...currentTags, t];
 
-                        return {
-                          ...prev,
-                          tags: newTags.length > 0 ? newTags : undefined,
-                        };
-                      }}
-                  >
-                    {t}
-                  </Link>
+                    return {
+                      ...prev,
+                      tags: newTags.length > 0 ? newTags : undefined,
+                    };
+                  }}
+                >
+                  {t}
+                </Link>
               ))}
             </nav>
           </div>
@@ -104,15 +96,24 @@ function Component() {
                   <PostTypeBadge type={post.type} />
                   {post.type === "note" ? (
                     <>
-                      <Link
-                        to="/notes/$slug"
-                        params={{ slug: post.slug }}
-                        className="block group"
+                      <div
+                        className="block group cursor-pointer"
+                        onClick={(e) => {
+                          // Allow links inside markdown to work without navigating to post
+                          if ((e.target as HTMLElement).closest("a")) {
+                            return;
+                          }
+
+                          navigate({
+                            to: "/notes/$slug",
+                            params: { slug: post.slug },
+                          });
+                        }}
                       >
                         <div className="prose group-hover:text-gray-600 transition-colors">
                           <Markdown>{post.content}</Markdown>
                         </div>
-                      </Link>
+                      </div>
                       {post.featuredImage && (
                         <FeaturedImage
                           src={post.featuredImage}
