@@ -1,5 +1,11 @@
 import { z } from "zod";
-import { POST_TYPES, CATEGORIES, TAGS } from "@/constants";
+import {
+  POST_TYPES,
+  CATEGORIES,
+  TAGS,
+  AUTHORS,
+  POST_STATUS,
+} from "@/constants";
 
 import { parseFrontmatter } from "./parse-frontmatter";
 import { extractExcerpt } from "./extract-excerpt";
@@ -7,12 +13,15 @@ import { extractExcerpt } from "./extract-excerpt";
 const PostSchema = z.object({
   slug: z.string(),
   type: z.enum(POST_TYPES),
-  title: z.string().optional(),
-  date: z.string(),
-  category: z.enum(CATEGORIES).optional(),
-  description: z.string().optional(),
-  featuredImage: z.string().optional(),
-  tags: z.array(z.enum(TAGS)).optional(),
+  title: z.string(),
+  author: z.enum(AUTHORS),
+  status: z.enum(POST_STATUS),
+  created: z.string(),
+  updated: z.string().nullable(),
+  category: z.enum(CATEGORIES).nullable(),
+  description: z.string(),
+  featuredImage: z.string().nullable(),
+  tags: z.array(z.enum(TAGS)),
   content: z.string(),
 });
 
@@ -22,7 +31,7 @@ function createPostFromData(
   slug: string,
   data: Record<string, string>,
   content: string,
-): Post {
+): Post | null {
   const type = data.type || POST_TYPES[0];
 
   // Parse and validate tags
@@ -31,19 +40,26 @@ function createPostFromData(
     .map((t) => t.trim())
     .filter((t) => TAGS.includes(t as any));
 
-  // Build raw post data
+  // Build raw post data with defaults
   const rawPost = {
     slug,
     type,
-    title: type === "blog" ? data.title || slug : data.title,
-    date: data.date || "",
-    category: data.category,
+    title: type === "blog" ? data.title || slug : "",
+    author:
+      data.author && AUTHORS.includes(data.author as any)
+        ? data.author
+        : AUTHORS[0],
+    status:
+      data.status && POST_STATUS.includes(data.status as any)
+        ? data.status
+        : POST_STATUS[0],
+    created: data.created,
+    updated: data.updated || null,
+    category: data.category || null,
     description:
-      type === "blog"
-        ? data.description || extractExcerpt(content)
-        : data.description,
-    featuredImage: data.featuredImage,
-    tags: tags && tags.length > 0 ? tags : undefined,
+      type === "blog" ? data.description || extractExcerpt(content) : "",
+    featuredImage: data.featuredImage || null,
+    tags: tags && tags.length > 0 ? tags : [],
     content,
   };
 
@@ -52,13 +68,7 @@ function createPostFromData(
 
   if (!result.success) {
     console.error(`Validation error for post "${slug}":`, result.error);
-    // Return a minimal valid post as fallback
-    return {
-      slug,
-      type: POST_TYPES[0],
-      date: data.date || "",
-      content,
-    };
+    return null;
   }
 
   return result.data;
@@ -81,9 +91,11 @@ export async function loadPosts(): Promise<Post[]> {
   );
 
   const posts = await Promise.all(postPromises);
-  return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  return posts
+    .filter((post): post is Post => post !== null)
+    .sort(
+      (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime(),
+    );
 }
 
 export async function loadPost(slug: string): Promise<Post | null> {
