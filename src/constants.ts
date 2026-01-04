@@ -12,7 +12,7 @@ export const TAGS = [
   "TanStack",
   "Web Development",
   "CSS",
-  "Tailwind"
+  "Tailwind",
 ] as const;
 
 export type PostType = (typeof POST_TYPES)[number];
