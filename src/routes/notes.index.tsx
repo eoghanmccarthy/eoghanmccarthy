@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { zodValidator } from "@tanstack/zod-adapter";
 import Markdown from "react-markdown";
+import { z } from "zod";
 
-import { CATEGORIES } from "@/constants";
+import { CATEGORIES, TAGS, Tag } from "@/constants";
 
 import { loadPosts } from "@/utils/posts.ts";
 import { formatDate } from "@/utils/date.ts";
@@ -9,12 +11,36 @@ import { formatDate } from "@/utils/date.ts";
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
 
+const notesSearchSchema = z.object({
+  category: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+});
+
 export const Route = createFileRoute("/notes/")({
-  loader: async () => loadPosts(),
+  validateSearch: zodValidator(notesSearchSchema),
+  loaderDeps: ({ search: { category,tags } }) => ({ category, tags }),
+  loader: async ({ deps: { category, tags } }) => {
+    const allPosts = await loadPosts();
+
+    // Step 1: Filter by category
+    let filteredPosts = category
+      ? allPosts.filter((post) => post.category === category)
+      : allPosts;
+
+    // Step 2: Filter by tags (if any selected)
+    if (tags && tags.length > 0) {
+      filteredPosts = filteredPosts.filter((post) =>
+        tags.some((tag) => post.tags.includes(tag as Tag))
+      );
+    }
+
+    return filteredPosts;
+  },
   component: Component,
 });
 
 function Component() {
+  const { category, tags } = Route.useSearch();
   const posts = Route.useLoaderData();
 
   return (
@@ -26,13 +52,39 @@ function Component() {
         <aside className="col-span-full lg:col-span-6">
           <div className="top-[var(--site-sticky-top)] md:sticky">
             <nav className="space-y-1 mb-6 text-base font-normal">
-              {["all posts", ...CATEGORIES].map((category) => (
-                <div
-                  key={category}
-                  className="capitalize text-gray-600 hover:text-gray-900"
+              {["all posts", ...CATEGORIES].map((c) => (
+                <Link
+                  to="."
+                  key={c}
+                  className={`block capitalize ${category === c || (category === undefined && c === "all posts") ? "text-gray-900" : "text-gray-600"} hover:text-gray-900`}
+                  search={(prev) => ({
+                    ...prev,
+                    category: c === "all posts" ? undefined : c,
+                  })}
                 >
-                  {category}
-                </div>
+                  {c}
+                </Link>
+              ))}
+              {[...TAGS].map((t) => (
+                  <Link
+                      to="."
+                      key={t}
+                      className={`block capitalize ${tags && tags.includes(t)  ? "text-gray-900" : "text-gray-600"} hover:text-gray-900`}
+                      search={(prev) => {
+                        const currentTags = prev.tags || [];
+                        const isSelected = currentTags.includes(t);
+                        const newTags = isSelected
+                          ? currentTags.filter(tag => tag !== t)
+                          : [...currentTags, t];
+
+                        return {
+                          ...prev,
+                          tags: newTags.length > 0 ? newTags : undefined,
+                        };
+                      }}
+                  >
+                    {t}
+                  </Link>
               ))}
             </nav>
           </div>
@@ -69,7 +121,7 @@ function Component() {
                         />
                       )}
                       <p className="text-sm text-gray-500">
-                        {formatDate(post.date)}
+                        {formatDate(post.created)}
                       </p>
                     </>
                   ) : (
@@ -94,7 +146,7 @@ function Component() {
                         {post.description}
                       </p>
                       <p className="text-sm text-gray-500">
-                        {formatDate(post.date)}
+                        {formatDate(post.created)}
                       </p>
                     </>
                   )}

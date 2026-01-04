@@ -1,9 +1,12 @@
 ---
-date: 2024-01-15
+created: 2024-01-15T09:00:00Z
+updated: 2024-01-15T09:00:00Z
 slug: first-post
 type: note
+status: published
+author: eoghan
 featuredImage: https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60
-tags: CSS, Tailwind, Frontend
+tags: CSS, Tailwind
 ---
 
 Just discovered this amazing CSS framework that makes styling so much easier. The documentation is really well done too.
