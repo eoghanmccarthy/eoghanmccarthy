@@ -4,6 +4,7 @@ import { Hono } from "hono";
 import type { Context, Next } from "hono";
 import { cors } from "hono/cors";
 import type { R2Bucket } from "@cloudflare/workers-types";
+import { ulid } from "ulid";
 
 type Bindings = {
   STORAGE: R2Bucket;
@@ -62,7 +63,6 @@ app.post("/api/posts/upload", async (c) => {
   try {
     const body = await c.req.json();
     const {
-      slug,
       title,
       content,
       type = "note",
@@ -76,17 +76,20 @@ app.post("/api/posts/upload", async (c) => {
       branch = "main",
     } = body;
 
-    if (!slug || !content) {
-      return c.json({ error: "slug and content are required" }, 400);
+    if (!content) {
+      return c.json({ error: "content is required" }, 400);
     }
 
-    // Generate frontmatter
+    // Auto-generate lowercase ULID for filename/slug
+    const id = ulid().toLowerCase();
+
+    // Generate frontmatter (no slug field - it's derived from filename)
     const now = new Date().toISOString();
     const frontmatter = [
       "---",
+      `id: ${id}`,
       `createdAt: ${now}`,
       `updatedAt: ${now}`,
-      `slug: ${slug}`,
       `type: ${type}`,
       `status: ${status}`,
       `author: ${author}`,
@@ -103,8 +106,8 @@ app.post("/api/posts/upload", async (c) => {
     // Combine frontmatter + content
     const fullContent = `${frontmatter}\n\n${content}`;
 
-    // Use slug as filename
-    const sanitizedFilename = slug.endsWith(".md") ? slug : `${slug}.md`;
+    // Use id as filename
+    const sanitizedFilename = id.endsWith(".md") ? id : `${id}.md`;
 
     // GitHub API endpoint for creating/updating files
     const path = `src/posts/${sanitizedFilename}`;
@@ -141,7 +144,7 @@ app.post("/api/posts/upload", async (c) => {
         "User-Agent": "Cloudflare-Worker",
       },
       body: JSON.stringify({
-        message: message || `Add ${slug}`,
+        message: message || `Add ${id}`,
         content: btoa(fullContent), // Base64 encode frontmatter + content
         branch,
         ...(sha && { sha }), // Include SHA if updating
@@ -180,16 +183,16 @@ app.post("/api/posts/upload", async (c) => {
 });
 
 // Update post status
-app.patch("/api/posts/:slug/status", async (c) => {
+app.patch("/api/posts/:id/status", async (c) => {
   try {
-    const slug = c.req.param("slug");
+    const id = c.req.param("id");
     const { status } = await c.req.json();
 
     if (!status) {
       return c.json({ error: "status is required" }, 400);
     }
 
-    const filename = slug.endsWith(".md") ? slug : `${slug}.md`;
+    const filename = id.endsWith(".md") ? id : `${id}.md`;
     const path = `src/posts/${filename}`;
     const url = `https://api.github.com/repos/${c.env.GITHUB_OWNER}/${c.env.GITHUB_REPO}/contents/${path}`;
 
@@ -250,7 +253,7 @@ app.patch("/api/posts/:slug/status", async (c) => {
         "User-Agent": "Cloudflare-Worker",
       },
       body: JSON.stringify({
-        message: `Update ${slug} status to ${status}`,
+        message: `Update ${id} status to ${status}`,
         content: btoa(updatedContent),
         sha: existingFile.sha,
       }),
@@ -273,7 +276,7 @@ app.patch("/api/posts/:slug/status", async (c) => {
 
     return c.json({
       success: true,
-      slug,
+      id,
       status,
       url: result.content.html_url,
     });

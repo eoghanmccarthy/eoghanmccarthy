@@ -10,9 +10,9 @@ import { formatDate } from "@/utils/date.ts";
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
 
-export const Route = createFileRoute("/notes/$slug")({
-  loader: async ({ context: { queryClient }, params: { slug } }) => {
-    await queryClient.ensureQueryData(postQueryOptions(slug));
+export const Route = createFileRoute("/notes/$id")({
+  loader: async ({ context: { queryClient }, params: { id } }) => {
+    await queryClient.ensureQueryData(postQueryOptions(id));
   },
   component: PostView,
   notFoundComponent: () => {
@@ -21,8 +21,8 @@ export const Route = createFileRoute("/notes/$slug")({
 });
 
 function PostView() {
-  const { slug } = Route.useParams();
-  const { data: post } = useSuspenseQuery(postQueryOptions(slug));
+  const { id } = Route.useParams();
+  const { data: post } = useSuspenseQuery(postQueryOptions(id));
 
   return (
     <div className="page-container">

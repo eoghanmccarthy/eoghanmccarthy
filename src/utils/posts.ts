@@ -11,7 +11,7 @@ import { parseFrontmatter } from "./parse-frontmatter";
 import { extractExcerpt } from "./extract-excerpt";
 
 const PostSchema = z.object({
-  slug: z.string(),
+  id: z.string(),
   type: z.enum(POST_TYPES),
   title: z.string(),
   author: z.enum(AUTHORS),
@@ -28,7 +28,7 @@ const PostSchema = z.object({
 export type Post = z.infer<typeof PostSchema>;
 
 function createPostFromData(
-  slug: string,
+    id: string,
   data: Record<string, string>,
   content: string,
 ): Post | null {
@@ -45,9 +45,9 @@ function createPostFromData(
 
   // Build raw post data with defaults
   const rawPost = {
-    slug,
+    id,
     type,
-    title: type === "blog" ? data.title || slug : "",
+    title: type === "blog" ? data.title : "",
     author:
       data.author && AUTHORS.includes(data.author as any)
         ? data.author
@@ -70,7 +70,7 @@ function createPostFromData(
   const result = PostSchema.safeParse(rawPost);
 
   if (!result.success) {
-    console.error(`Validation error for post "${slug}":`, result.error);
+    console.error(`Validation error for post "${id}":`, result.error);
     return null;
   }
 
@@ -87,9 +87,9 @@ export async function loadPosts(): Promise<Post[]> {
     async ([path, loadModule]) => {
       const rawContent = (await loadModule()) as string;
       const { data, content } = parseFrontmatter(rawContent);
-      const slug = path.split("/").pop()?.replace(".md", "") || "";
+      const id = path.split("/").pop()?.replace(".md", "") || "";
 
-      return createPostFromData(slug, data, content);
+      return createPostFromData(id, data, content);
     },
   );
 
@@ -101,19 +101,19 @@ export async function loadPosts(): Promise<Post[]> {
     );
 }
 
-export async function loadPost(slug: string): Promise<Post | null> {
+export async function loadPost(id: string): Promise<Post | null> {
   try {
     const modules = import.meta.glob("../posts/*.md", {
       query: "?raw",
       import: "default",
     });
-    const path = `../posts/${slug}.md`;
+    const path = `../posts/${id}.md`;
 
     if (modules[path]) {
       const rawContent = (await modules[path]()) as string;
       const { data, content } = parseFrontmatter(rawContent);
 
-      return createPostFromData(slug, data, content);
+      return createPostFromData(id, data, content);
     }
 
     return null;

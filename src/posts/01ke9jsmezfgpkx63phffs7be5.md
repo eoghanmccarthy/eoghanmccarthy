@@ -1,12 +1,12 @@
 ---
-title: Building a Modern Web Stack with React and TanStack
+id: 01ke9jsmezfgpkx63phffs7be5
 createdAt: 2024-01-20T09:00:00Z
 updatedAt: 2024-01-20T09:00:00Z
-slug: second-post
 type: blog
 status: published
 author: eoghan
 category: technology
+title: Building a Modern Web Stack with React and TanStack
 description: My experience setting up a type-safe routing solution with TanStack Router and React 19
 tags: [React, TypeScript, TanStack]
 ---
@@ -18,8 +18,8 @@ I recently spent some time building out a modern web application using React 19 
 The biggest selling point for me was the **type-safety**. With TanStack Router, you get full TypeScript support for route parameters, search params, and loader data. No more runtime errors from typos in route paths.
 
 ```typescript
-export const Route = createFileRoute("/posts/$slug")({
-  loader: async ({ params: { slug } }) => loadPost(slug),
+export const Route = createFileRoute("/posts/$id")({
+  loader: async ({ params: { id } }) => loadPost(id),
   component: PostView,
 });
 ```

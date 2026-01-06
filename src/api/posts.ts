@@ -41,9 +41,9 @@ export const postsQueryOptions = (filters?: PostFilters) =>
     queryFn: () => fetchPosts(filters),
   });
 
-// Fetch single post by slug from markdown files
-export const fetchPost = async (slug: string) => {
-  const post = await loadPost(slug);
+// Fetch single post by id from markdown files
+export const fetchPost = async (id: string) => {
+  const post = await loadPost(id);
 
   if (!post) {
     throw notFound();
@@ -52,8 +52,8 @@ export const fetchPost = async (slug: string) => {
   return post;
 };
 
-export const postQueryOptions = (slug: string) =>
+export const postQueryOptions = (id: string) =>
   queryOptions({
-    queryKey: ["posts", slug],
-    queryFn: () => fetchPost(slug),
+    queryKey: ["posts", id],
+    queryFn: () => fetchPost(id),
   });
