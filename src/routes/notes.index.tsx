@@ -123,7 +123,7 @@ function Component() {
                         />
                       )}
                       <p className="text-sm text-gray-500">
-                        {formatDate(post.created)}
+                        {formatDate(post.createdAt)}
                       </p>
                     </>
                   ) : post.type === "blog" ? (
@@ -148,7 +148,7 @@ function Component() {
                         {post.description}
                       </p>
                       <p className="text-sm text-gray-500">
-                        {formatDate(post.created)}
+                        {formatDate(post.createdAt)}
                       </p>
                     </>
                   ) : null}

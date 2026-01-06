@@ -61,7 +61,7 @@ function PostView() {
             </h1>
           )}
           <p className="text-gray-500 mb-8 font-normal">
-            {formatDate(post.created)}
+            {formatDate(post.createdAt)}
           </p>
           <div className="prose">
             <ReactMarkdown>{post.content}</ReactMarkdown>
