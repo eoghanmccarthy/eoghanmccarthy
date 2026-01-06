@@ -15,15 +15,18 @@ export type PostFilters = {
 export const fetchPosts = async (filters?: PostFilters) => {
   const allPosts = await loadPosts();
 
-  // If no filters, return all posts
+  // Filter to only published posts
+  const publishedPosts = allPosts.filter((post) => post.status === "published");
+
+  // If no filters, return published posts
   if (!filters?.category && (!filters?.tags || filters.tags.length === 0)) {
-    return allPosts;
+    return publishedPosts;
   }
 
   // Step 1: Filter by category
   let filteredPosts = filters.category
-    ? allPosts.filter((post) => post.category === filters.category)
-    : allPosts;
+    ? publishedPosts.filter((post) => post.category === filters.category)
+    : publishedPosts;
 
   // Step 2: Filter by tags (if any selected)
   if (filters.tags && filters.tags.length > 0) {
