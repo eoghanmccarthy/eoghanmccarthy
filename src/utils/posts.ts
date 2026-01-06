@@ -34,7 +34,6 @@ function createPostFromData(
 ): Post | null {
   const type = data.type || POST_TYPES[0];
 
-  // Parse and validate tags from array format: [tag1, tag2, tag3]
   let tagsString = data.tags || "";
   if (tagsString.startsWith("[") && tagsString.endsWith("]")) {
     tagsString = tagsString.slice(1, -1); // Remove brackets
