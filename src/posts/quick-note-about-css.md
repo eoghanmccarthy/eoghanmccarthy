@@ -1,0 +1,14 @@
+---
+created: 2026-01-06T03:58:47.552Z
+updated: 2026-01-06T03:58:47.552Z
+slug: quick-note-about-css
+type: note
+status: published
+author: eoghan
+featuredImage: https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800
+tags: CSS, Tailwind
+---
+
+Just discovered this amazing CSS framework that makes styling so much easier.
+
+[Tailwind CSS](https://tailwindcss.com)
