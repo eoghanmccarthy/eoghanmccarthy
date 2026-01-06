@@ -84,8 +84,8 @@ app.post("/api/posts/upload", async (c) => {
     const now = new Date().toISOString();
     const frontmatter = [
       "---",
-      `created: ${now}`,
-      `updated: ${now}`,
+      `createdAt: ${now}`,
+      `updatedAt: ${now}`,
       `slug: ${slug}`,
       `type: ${type}`,
       `status: ${status}`,
@@ -231,8 +231,8 @@ app.patch("/api/posts/:slug/status", async (c) => {
         if (line.startsWith("status:")) {
           return `status: ${status}`;
         }
-        if (line.startsWith("updated:")) {
-          return `updated: ${now}`;
+        if (line.startsWith("updatedAt:")) {
+          return `updatedAt: ${now}`;
         }
         return line;
       })

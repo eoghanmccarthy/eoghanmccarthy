@@ -16,8 +16,8 @@ const PostSchema = z.object({
   title: z.string(),
   author: z.enum(AUTHORS),
   status: z.enum(POST_STATUS),
-  created: z.string(),
-  updated: z.string().nullable(),
+  createdAt: z.string(),
+  updatedAt: z.string().nullable(),
   category: z.enum(CATEGORIES).nullable(),
   description: z.string(),
   featuredImage: z.string().nullable(),
@@ -56,8 +56,8 @@ function createPostFromData(
       data.status && POST_STATUS.includes(data.status as any)
         ? data.status
         : POST_STATUS[0],
-    created: data.created,
-    updated: data.updated || null,
+    createdAt: data.createdAt,
+    updatedAt: data.updatedAt || null,
     category: data.category || null,
     description:
       type === "blog" ? data.description || extractExcerpt(content) : "",
@@ -97,7 +97,7 @@ export async function loadPosts(): Promise<Post[]> {
   return posts
     .filter((post): post is Post => post !== null)
     .sort(
-      (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime(),
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     );
 }
 
