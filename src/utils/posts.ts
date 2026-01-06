@@ -10,15 +10,21 @@ import {
 import { parseFrontmatter } from "./parse-frontmatter";
 import { extractExcerpt } from "./extract-excerpt";
 
+export function generateShortId() {
+  const timestamp = Date.now().toString(36);
+  const random = Math.random().toString(36).substring(2, 6);
+  return timestamp + random;
+}
+
 const PostSchema = z.object({
   id: z.string(),
-  type: z.enum(POST_TYPES),
-  title: z.string(),
-  author: z.enum(AUTHORS),
-  status: z.enum(POST_STATUS),
   createdAt: z.string(),
   updatedAt: z.string().nullable(),
+  type: z.enum(POST_TYPES),
+  status: z.enum(POST_STATUS),
   category: z.enum(CATEGORIES).nullable(),
+  author: z.enum(AUTHORS),
+  title: z.string(),
   description: z.string(),
   featuredImage: z.string().nullable(),
   tags: z.array(z.enum(TAGS)),
@@ -28,7 +34,7 @@ const PostSchema = z.object({
 export type Post = z.infer<typeof PostSchema>;
 
 function createPostFromData(
-    id: string,
+  id: string,
   data: Record<string, string>,
   content: string,
 ): Post | null {
@@ -97,7 +103,8 @@ export async function loadPosts(): Promise<Post[]> {
   return posts
     .filter((post): post is Post => post !== null)
     .sort(
-      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     );
 }
 
