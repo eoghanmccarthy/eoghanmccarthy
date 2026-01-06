@@ -32,8 +32,9 @@ export const Route = createFileRoute("/notes/")({
 function Component() {
   const navigate = useNavigate();
   const { category, tags } = Route.useSearch();
-  const postsQuery = useSuspenseQuery(postsQueryOptions({ category, tags }));
-  const posts = postsQuery.data;
+  const { data: posts } = useSuspenseQuery(
+    postsQueryOptions({ category, tags }),
+  );
 
   return (
     <div className="page-container">
@@ -125,7 +126,7 @@ function Component() {
                         {formatDate(post.created)}
                       </p>
                     </>
-                  ) : (
+                  ) : post.type === "blog" ? (
                     <>
                       {post.featuredImage && (
                         <FeaturedImage
@@ -150,7 +151,7 @@ function Component() {
                         {formatDate(post.created)}
                       </p>
                     </>
-                  )}
+                  ) : null}
                 </article>
               ))
             )}
