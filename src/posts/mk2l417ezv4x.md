@@ -1,9 +1,9 @@
 ---
 id: mk2l417ezv4x
 createdAt: 2026-01-06T12:47:29.306Z
-updatedAt: 2026-01-06T12:47:29.306Z
+updatedAt: 2026-01-06T12:53:46.616Z
 type: note
-status: published
+status: draft
 author: eoghan
 tags: [CSS, Web Development]
 ---
