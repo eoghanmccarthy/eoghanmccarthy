@@ -20,7 +20,7 @@ app.use(
   "*",
   cors({
     origin: "*",
-    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "X-Custom-Auth-Key"],
   }),
 );
@@ -41,8 +41,8 @@ const authMiddleware = async (
 ) => {
   const method = c.req.method;
 
-  // Require auth for POST, PUT, DELETE (skip GET for public endpoints)
-  if (method === "POST" || method === "PUT" || method === "DELETE") {
+  // Require auth for POST, PUT, PATCH, DELETE (skip GET for public endpoints)
+  if (method === "POST" || method === "PUT" || method === "PATCH" || method === "DELETE") {
     const headerValue = c.req.header("X-Custom-Auth-Key");
     const expectedValue = c.env.AUTH_KEY_SECRET;
 
@@ -166,6 +166,115 @@ app.post("/api/posts/upload", async (c) => {
     return c.json({
       success: true,
       path,
+      url: result.content.html_url,
+    });
+  } catch (error) {
+    return c.json(
+      {
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      500,
+    );
+  }
+});
+
+// Update post status
+app.patch("/api/posts/:slug/status", async (c) => {
+  try {
+    const slug = c.req.param("slug");
+    const { status } = await c.req.json();
+
+    if (!status) {
+      return c.json({ error: "status is required" }, 400);
+    }
+
+    const filename = slug.endsWith(".md") ? slug : `${slug}.md`;
+    const path = `src/posts/${filename}`;
+    const url = `https://api.github.com/repos/${c.env.GITHUB_OWNER}/${c.env.GITHUB_REPO}/contents/${path}`;
+
+    // Fetch existing file
+    const getResponse = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${c.env.GITHUB_TOKEN}`,
+        Accept: "application/vnd.github.v3+json",
+        "User-Agent": "Cloudflare-Worker",
+      },
+    });
+
+    if (!getResponse.ok) {
+      return c.json({ error: "Post not found" }, 404);
+    }
+
+    const existingFile = (await getResponse.json()) as {
+      content: string;
+      sha: string;
+    };
+
+    // Decode existing content
+    const existingContent = atob(existingFile.content);
+
+    // Parse frontmatter and update status
+    const frontmatterMatch = existingContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+    if (!frontmatterMatch) {
+      return c.json({ error: "Invalid markdown format" }, 400);
+    }
+
+    const frontmatter = frontmatterMatch[1];
+    const content = frontmatterMatch[2];
+
+    // Update status and updated timestamp in frontmatter
+    const now = new Date().toISOString();
+    const updatedFrontmatter = frontmatter
+      .split("\n")
+      .map((line) => {
+        if (line.startsWith("status:")) {
+          return `status: ${status}`;
+        }
+        if (line.startsWith("updated:")) {
+          return `updated: ${now}`;
+        }
+        return line;
+      })
+      .join("\n");
+
+    const updatedContent = `---\n${updatedFrontmatter}\n---\n${content}`;
+
+    // Upload updated file
+    const updateResponse = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${c.env.GITHUB_TOKEN}`,
+        Accept: "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+        "User-Agent": "Cloudflare-Worker",
+      },
+      body: JSON.stringify({
+        message: `Update ${slug} status to ${status}`,
+        content: btoa(updatedContent),
+        sha: existingFile.sha,
+      }),
+    });
+
+    if (!updateResponse.ok) {
+      const error = await updateResponse.text();
+      return c.json(
+        {
+          error: "Failed to update post",
+          details: error,
+        },
+        500,
+      );
+    }
+
+    const result = (await updateResponse.json()) as {
+      content: { html_url: string };
+    };
+
+    return c.json({
+      success: true,
+      slug,
+      status,
       url: result.content.html_url,
     });
   } catch (error) {
