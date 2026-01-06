@@ -1,7 +1,7 @@
 ---
+id: 01ke9jsmezbvh9p95khcc98abs
 createdAt: 2024-01-15T09:00:00Z
 updatedAt: 2024-01-15T09:00:00Z
-slug: first-post
 type: note
 status: published
 author: eoghan

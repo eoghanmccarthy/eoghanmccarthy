@@ -91,7 +91,7 @@ function Component() {
             ) : (
               posts.map((post) => (
                 <article
-                  key={post.slug}
+                  key={post.id}
                   className="space-y-2 pb-12 border-b border-gray-200 last:border-0"
                 >
                   <PostTypeBadge type={post.type} />
@@ -106,8 +106,8 @@ function Component() {
                           }
 
                           navigate({
-                            to: "/notes/$slug",
-                            params: { slug: post.slug },
+                            to: "/notes/$id",
+                            params: { id: post.id },
                           });
                         }}
                       >
@@ -136,8 +136,8 @@ function Component() {
                         />
                       )}
                       <Link
-                        to="/notes/$slug"
-                        params={{ slug: post.slug }}
+                        to="/notes/$id"
+                        params={{ id: post.id }}
                         className="block group"
                       >
                         <h2 className="text-xl font-normal text-gray-900 group-hover:text-gray-600 transition-colors">
