@@ -61,16 +61,50 @@ app.use("/api/*", authMiddleware);
 app.post("/api/posts/upload", async (c) => {
   try {
     const body = await c.req.json();
-    const { filename, content, message, branch = "main" } = body;
+    const {
+      slug,
+      title,
+      content,
+      type = "note",
+      status = "published",
+      author = "eoghan",
+      category = null,
+      description = "",
+      featuredImage = null,
+      tags = [],
+      message,
+      branch = "main",
+    } = body;
 
-    if (!filename || !content) {
-      return c.json({ error: "filename and content are required" }, 400);
+    if (!slug || !content) {
+      return c.json({ error: "slug and content are required" }, 400);
     }
 
-    // Ensure filename ends with .md
-    const sanitizedFilename = filename.endsWith(".md")
-      ? filename
-      : `${filename}.md`;
+    // Generate frontmatter
+    const now = new Date().toISOString();
+    const frontmatter = [
+      "---",
+      `created: ${now}`,
+      `updated: ${now}`,
+      `slug: ${slug}`,
+      `type: ${type}`,
+      `status: ${status}`,
+      `author: ${author}`,
+      title ? `title: ${title}` : null,
+      category ? `category: ${category}` : null,
+      description ? `description: ${description}` : null,
+      featuredImage ? `featuredImage: ${featuredImage}` : null,
+      tags.length > 0 ? `tags: ${tags.join(", ")}` : null,
+      "---",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    // Combine frontmatter + content
+    const fullContent = `${frontmatter}\n\n${content}`;
+
+    // Use slug as filename
+    const sanitizedFilename = slug.endsWith(".md") ? slug : `${slug}.md`;
 
     // GitHub API endpoint for creating/updating files
     const path = `src/posts/${sanitizedFilename}`;
@@ -107,8 +141,8 @@ app.post("/api/posts/upload", async (c) => {
         "User-Agent": "Cloudflare-Worker",
       },
       body: JSON.stringify({
-        message: message || `Upload ${sanitizedFilename}`,
-        content: btoa(content), // Base64 encode the content
+        message: message || `Add ${slug}`,
+        content: btoa(fullContent), // Base64 encode frontmatter + content
         branch,
         ...(sha && { sha }), // Include SHA if updating
       }),
