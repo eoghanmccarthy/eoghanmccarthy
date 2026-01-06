@@ -4,7 +4,8 @@ import { Hono } from "hono";
 import type { Context, Next } from "hono";
 import { cors } from "hono/cors";
 import type { R2Bucket } from "@cloudflare/workers-types";
-import { ulid } from "ulid";
+
+import { generateShortId } from "@/utils/posts.ts";
 
 type Bindings = {
   STORAGE: R2Bucket;
@@ -43,7 +44,12 @@ const authMiddleware = async (
   const method = c.req.method;
 
   // Require auth for POST, PUT, PATCH, DELETE (skip GET for public endpoints)
-  if (method === "POST" || method === "PUT" || method === "PATCH" || method === "DELETE") {
+  if (
+    method === "POST" ||
+    method === "PUT" ||
+    method === "PATCH" ||
+    method === "DELETE"
+  ) {
     const headerValue = c.req.header("X-Custom-Auth-Key");
     const expectedValue = c.env.AUTH_KEY_SECRET;
 
@@ -80,8 +86,7 @@ app.post("/api/posts/upload", async (c) => {
       return c.json({ error: "content is required" }, 400);
     }
 
-    // Auto-generate lowercase ULID for filename/slug
-    const id = ulid().toLowerCase();
+    const id = generateShortId();
 
     // Generate frontmatter (no slug field - it's derived from filename)
     const now = new Date().toISOString();
@@ -218,7 +223,9 @@ app.patch("/api/posts/:id/status", async (c) => {
     const existingContent = atob(existingFile.content);
 
     // Parse frontmatter and update status
-    const frontmatterMatch = existingContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+    const frontmatterMatch = existingContent.match(
+      /^---\n([\s\S]*?)\n---\n([\s\S]*)$/,
+    );
     if (!frontmatterMatch) {
       return c.json({ error: "Invalid markdown format" }, 400);
     }
