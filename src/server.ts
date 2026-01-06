@@ -94,7 +94,7 @@ app.post("/api/posts/upload", async (c) => {
       category ? `category: ${category}` : null,
       description ? `description: ${description}` : null,
       featuredImage ? `featuredImage: ${featuredImage}` : null,
-      tags.length > 0 ? `tags: ${tags.join(", ")}` : null,
+      tags.length > 0 ? `tags: [${tags.join(", ")}]` : null,
       "---",
     ]
       .filter(Boolean)
