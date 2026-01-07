@@ -42,7 +42,7 @@
 		"ENVIRONMENT": "development",
 		"GITHUB_OWNER": "eoghanmccarthy",
 		"GITHUB_REPO": "eoghanmccarthy",
-		"R2_PUBLIC_URL": "https://84c099ef513c31171b4e7c70e6386149.r2.cloudflarestorage.com/eoghanmccarthy-com-storage"
+		"R2_PUBLIC_URL": "https://assets.eoghanmccarthy.com"
 	},
 	"routes": [
 		{
