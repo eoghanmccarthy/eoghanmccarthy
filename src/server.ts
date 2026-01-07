@@ -14,6 +14,7 @@ type Bindings = {
   GITHUB_REPO: string;
   GITHUB_OWNER: string;
   ENVIRONMENT?: string;
+  R2_PUBLIC_URL: string;
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
@@ -34,6 +35,61 @@ app.get("/api/ping", (c) => {
     timestamp: new Date().toISOString(),
     environment: c.env.ENVIRONMENT || "production",
   });
+});
+
+// Test R2 connection
+app.get("/api/r2/test", async (c) => {
+  try {
+    // Try to list objects in the bucket
+    const listed = await c.env.STORAGE.list({ limit: 5 });
+    return c.json({
+      success: true,
+      bucketConnected: true,
+      objectCount: listed.objects.length,
+      objects: listed.objects.map((obj) => ({
+        key: obj.key,
+        size: obj.size,
+        uploaded: obj.uploaded,
+      })),
+    });
+  } catch (error) {
+    return c.json(
+      {
+        success: false,
+        error: "R2 connection failed",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      500,
+    );
+  }
+});
+
+// Get image from R2 (for testing)
+app.get("/api/r2/get/*", async (c) => {
+  try {
+    // Get the full path after /api/r2/get/
+    const key = c.req.path.replace("/api/r2/get/", "");
+    const object = await c.env.STORAGE.get(key);
+
+    if (!object) {
+      return c.json({ error: "Object not found", key }, 404);
+    }
+
+    // Convert R2 body to Response compatible body
+    const headers = new Headers();
+    headers.set("Content-Type", object.httpMetadata?.contentType || "application/octet-stream");
+    headers.set("Cache-Control", object.httpMetadata?.cacheControl || "public, max-age=31536000");
+
+    return new Response(object.body as any, { headers });
+  } catch (error) {
+    return c.json(
+      {
+        error: "Failed to retrieve object",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      500,
+    );
+  }
 });
 
 // Auth middleware for protected routes
@@ -180,6 +236,87 @@ app.post("/api/posts/upload", async (c) => {
     return c.json(
       {
         error: "Internal server error",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      500,
+    );
+  }
+});
+
+// Upload image to R2
+app.post("/api/images/upload", async (c) => {
+  try {
+    const formData = await c.req.formData();
+    const file = formData.get("image") as File | null;
+
+    if (!file) {
+      return c.json({ error: "No image file provided" }, 400);
+    }
+
+    // Validate file type
+    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/webp"];
+    if (!allowedTypes.includes(file.type)) {
+      return c.json(
+        {
+          error: "Invalid file type",
+          message: "Only JPEG, PNG, GIF, and WebP images are allowed",
+        },
+        400,
+      );
+    }
+
+    // Validate file size (max 10MB)
+    const maxSize = 10 * 1024 * 1024;
+    if (file.size > maxSize) {
+      return c.json(
+        {
+          error: "File too large",
+          message: "Maximum file size is 10MB",
+        },
+        400,
+      );
+    }
+
+    // Generate unique filename with folder organization
+    const timestamp = Date.now();
+    const randomId = generateShortId();
+    const fileExtension = file.name.split(".").pop() || "jpg";
+    const filename = `posts/${timestamp}-${randomId}.${fileExtension}`;
+
+    // Upload to R2
+    const arrayBuffer = await file.arrayBuffer();
+    const uploadResult = await c.env.STORAGE.put(filename, arrayBuffer, {
+      httpMetadata: {
+        contentType: file.type,
+        cacheControl: "max-age=31536000", // 1 year cache
+      },
+    });
+
+    // Verify upload succeeded
+    if (!uploadResult) {
+      return c.json(
+        {
+          error: "Failed to upload to R2",
+          message: "R2 put operation returned null",
+        },
+        500,
+      );
+    }
+
+    // Construct public URL
+    const publicUrl = `${c.env.R2_PUBLIC_URL}/${filename}`;
+
+    return c.json({
+      success: true,
+      url: publicUrl,
+      filename,
+      size: file.size,
+      type: file.type,
+    });
+  } catch (error) {
+    return c.json(
+      {
+        error: "Failed to upload image",
         details: error instanceof Error ? error.message : "Unknown error",
       },
       500,

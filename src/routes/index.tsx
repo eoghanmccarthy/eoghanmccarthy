@@ -1,42 +1,30 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { Logo } from "@/components/logo.tsx";
+
 export const Route = createFileRoute("/")({ component: App });
 
 function App() {
   return (
-    <div className="fixed inset-0 overflow-hidden bg-black">
-      <div className="h-screen grid grid-cols-2">
+    <div
+      className="fixed inset-0 overflow-hidden bg-black bg-cover bg-center"
+      // style={{ backgroundImage: "url(/src/assets/IMG_3568.jpg)" }}
+    >
+      <img
+        src="/src/assets/IMG_4238 (1).JPG"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="h-screen grid grid-cols-1 py-16">
         {/* Left: Image */}
-        <div className="relative h-full">
-          <img
-            src="/src/assets/IMG_3568.jpg"
-            alt=""
-            className="w-full h-full object-cover opacity-90"
-          />
-        </div>
-
-        {/* Right: Content */}
-        <div className="relative h-full bg-white flex flex-col justify-between p-12 md:p-20">
-          {/* Large Number */}
-          <div className="flex-1 flex items-center">
-            <h1 className="text-[25vw] md:text-[20vw] font-black leading-none tracking-tighter text-black">
-              01
-            </h1>
-          </div>
-
-          {/* Navigation */}
-          <nav className="space-y-6 border-t border-black pt-8">
-            <Link
-              to="/notes"
-              className="block text-xl md:text-2xl font-normal tracking-tight hover:opacity-50 transition-opacity uppercase"
-            >
-              Notes
-            </Link>
-            <div className="text-xs uppercase tracking-widest text-gray-500">
-              2026
-            </div>
-          </nav>
-        </div>
+        {/*<div className="relative h-full">*/}
+        {/*  <img*/}
+        {/*    src="/src/assets/IMG_3568.jpg"*/}
+        {/*    alt=""*/}
+        {/*    className="w-full h-full object-cover opacity-90"*/}
+        {/*  />*/}
+        {/*</div>*/}
+        <Logo className="w-full h-full max-w-full max-h-full" />
       </div>
     </div>
   );
