@@ -93,3 +93,19 @@ code {
     @apply rounded-lg my-4;
   }
 }
+
+@layer components {
+  .form-label {
+    @apply block text-sm font-normal text-gray-700;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg font-mono text-sm;
+    @apply focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent;
+  }
+}

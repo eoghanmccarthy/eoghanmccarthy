@@ -56,9 +56,9 @@ function Component() {
         // Reset form on success
         form.reset();
 
-        alert(`Post uploaded successfully! Path: ${result.path}`);
+        console.log(`Post uploaded successfully! Path: ${result.path}`);
       } catch (error) {
-        alert(
+        console.error(
           `Failed to upload post: ${error instanceof Error ? error.message : "Unknown error"}`,
         );
       }
@@ -101,10 +101,7 @@ function Component() {
                   name="apiKey"
                   children={(field) => (
                     <>
-                      <label
-                        htmlFor={field.name}
-                        className="block text-sm font-normal text-gray-700"
-                      >
+                      <label htmlFor={field.name} className="form-label">
                         API Key
                       </label>
                       <input
@@ -114,7 +111,7 @@ function Component() {
                         value={field.state.value}
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                        className="form-input"
                       />
                       <FieldInfo field={field} />
                     </>
@@ -127,10 +124,7 @@ function Component() {
                   name="content"
                   children={(field) => (
                     <>
-                      <label
-                        htmlFor={field.name}
-                        className="block text-sm font-normal text-gray-700"
-                      >
+                      <label htmlFor={field.name} className="form-label">
                         Content
                       </label>
                       <textarea
@@ -140,7 +134,7 @@ function Component() {
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
                         rows={12}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent font-mono text-sm"
+                        className="form-textarea"
                       />
                       <FieldInfo field={field} />
                     </>
@@ -153,10 +147,7 @@ function Component() {
                   name="featuredImage"
                   children={(field) => (
                     <>
-                      <label
-                        htmlFor={field.name}
-                        className="block text-sm font-normal text-gray-700"
-                      >
+                      <label htmlFor={field.name} className="form-label">
                         Featured Image
                       </label>
                       <input
@@ -187,10 +178,7 @@ function Component() {
                   name="tags"
                   children={(field) => (
                     <>
-                      <label
-                        htmlFor={field.name}
-                        className="block text-sm font-normal text-gray-700"
-                      >
+                      <label htmlFor={field.name} className="form-label">
                         Tags
                       </label>
                       <input
@@ -201,7 +189,7 @@ function Component() {
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
                         placeholder="comma, separated, tags"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                        className="form-input"
                       />
                       <FieldInfo field={field} />
                     </>
