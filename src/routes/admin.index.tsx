@@ -160,7 +160,7 @@ function Component() {
                           const file = e.target.files?.[0];
                           field.handleChange(file);
                         }}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-gray-900 file:text-white hover:file:bg-gray-700"
+                        className="form-file-input"
                       />
                       {field.state.value && (
                         <p className="text-sm text-gray-600">
