@@ -108,4 +108,11 @@ code {
     @apply w-full px-4 py-2 border border-gray-300 rounded-lg font-mono text-sm;
     @apply focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent;
   }
+
+  .form-file-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent;
+    @apply file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm;
+    @apply file:bg-gray-900 file:text-white hover:file:bg-gray-700;
+  }
 }
