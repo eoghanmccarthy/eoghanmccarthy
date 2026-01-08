@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NotesIndexRouteImport } from './routes/notes.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as NotesIdRouteImport } from './routes/notes.$id'
 
 const NotesRoute = NotesRouteImport.update({
@@ -29,6 +30,11 @@ const NotesIndexRoute = NotesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => NotesRoute,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NotesIdRoute = NotesIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -39,11 +45,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/notes': typeof NotesRouteWithChildren
   '/notes/$id': typeof NotesIdRoute
+  '/admin': typeof AdminIndexRoute
   '/notes/': typeof NotesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/notes/$id': typeof NotesIdRoute
+  '/admin': typeof AdminIndexRoute
   '/notes': typeof NotesIndexRoute
 }
 export interface FileRoutesById {
@@ -51,19 +59,21 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/notes': typeof NotesRouteWithChildren
   '/notes/$id': typeof NotesIdRoute
+  '/admin/': typeof AdminIndexRoute
   '/notes/': typeof NotesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/notes' | '/notes/$id' | '/notes/'
+  fullPaths: '/' | '/notes' | '/notes/$id' | '/admin' | '/notes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/notes/$id' | '/notes'
-  id: '__root__' | '/' | '/notes' | '/notes/$id' | '/notes/'
+  to: '/' | '/notes/$id' | '/admin' | '/notes'
+  id: '__root__' | '/' | '/notes' | '/notes/$id' | '/admin/' | '/notes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   NotesRoute: typeof NotesRouteWithChildren
+  AdminIndexRoute: typeof AdminIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -88,6 +98,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/notes/'
       preLoaderRoute: typeof NotesIndexRouteImport
       parentRoute: typeof NotesRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/notes/$id': {
       id: '/notes/$id'
@@ -114,6 +131,7 @@ const NotesRouteWithChildren = NotesRoute._addFileChildren(NotesRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   NotesRoute: NotesRouteWithChildren,
+  AdminIndexRoute: AdminIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

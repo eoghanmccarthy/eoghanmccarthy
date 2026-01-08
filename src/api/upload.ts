@@ -1,0 +1,124 @@
+import { useMutation } from "@tanstack/react-query";
+
+import type { PostType, PostStatus, Category, Tag } from "@/constants";
+
+// Response type for image upload
+export type ImageUploadResponse = {
+  success: boolean;
+  url: string;
+  filename: string;
+  size: number;
+  type: string;
+};
+
+// Response type for post upload
+export type PostUploadResponse = {
+  success: boolean;
+  path: string;
+  url: string;
+};
+
+// Upload image to R2 storage
+export const uploadImage = async (
+  file: File,
+  apiKey: string,
+): Promise<ImageUploadResponse> => {
+  const formData = new FormData();
+  formData.append("image", file);
+
+  const response = await fetch("/api/images/upload", {
+    method: "POST",
+    headers: {
+      "X-Custom-Auth-Key": apiKey,
+    },
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const error = (await response.json()) as { error?: string };
+    throw new Error(error.error || "Failed to upload image");
+  }
+
+  return response.json();
+};
+
+// Upload post data to GitHub
+export type PostData = {
+  title?: string;
+  content: string;
+  type?: PostType;
+  status?: PostStatus;
+  author?: string;
+  category?: Category | null;
+  description?: string;
+  featuredImage?: string | null;
+  tags?: Tag[];
+  message?: string;
+  branch?: string;
+};
+
+export const uploadPost = async (
+  data: PostData,
+  apiKey: string,
+): Promise<PostUploadResponse> => {
+  const response = await fetch("/api/posts/upload", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Custom-Auth-Key": apiKey,
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    const error = (await response.json()) as { error?: string };
+    throw new Error(error.error || "Failed to upload post");
+  }
+
+  return response.json();
+};
+
+// Combined mutation for uploading image + post
+export type UploadPostInput = {
+  apiKey: string;
+  content: string;
+  tags?: string;
+  featuredImage?: File;
+  title?: string;
+  type?: PostType;
+  status?: PostStatus;
+  category?: Category;
+  description?: string;
+};
+
+export const useUploadPost = () => {
+  return useMutation({
+    mutationFn: async (input: UploadPostInput) => {
+      const { apiKey, featuredImage, tags, ...postFields } = input;
+
+      // Step 1: Upload image if provided
+      let imageUrl: string | null = null;
+      if (featuredImage) {
+        const imageResponse = await uploadImage(featuredImage, apiKey);
+        imageUrl = imageResponse.url;
+      }
+
+      // Step 2: Parse tags (backend will validate against allowed tags)
+      const parsedTags = tags
+        ? tags
+            .split(",")
+            .map((tag) => tag.trim())
+            .filter(Boolean)
+        : [];
+
+      // Step 3: Upload post with image URL
+      const postData: PostData = {
+        ...postFields,
+        featuredImage: imageUrl,
+        tags: parsedTags as Tag[],
+      };
+
+      return uploadPost(postData, apiKey);
+    },
+  });
+};

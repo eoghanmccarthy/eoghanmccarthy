@@ -1,10 +1,9 @@
 import { queryOptions } from "@tanstack/react-query";
 import { notFound } from "@tanstack/react-router";
 
-import { loadPosts, loadPost, type Post } from "@/utils/posts";
-import { type Tag } from "@/constants";
+import type { Tag } from "@/constants";
 
-export type { Post };
+import { loadPosts, loadPost } from "@/utils/posts";
 
 export type PostFilters = {
   category?: string;
