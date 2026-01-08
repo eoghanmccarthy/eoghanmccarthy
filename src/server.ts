@@ -37,61 +37,6 @@ app.get("/api/ping", (c) => {
   });
 });
 
-// Test R2 connection
-app.get("/api/r2/test", async (c) => {
-  try {
-    // Try to list objects in the bucket
-    const listed = await c.env.STORAGE.list({ limit: 5 });
-    return c.json({
-      success: true,
-      bucketConnected: true,
-      objectCount: listed.objects.length,
-      objects: listed.objects.map((obj) => ({
-        key: obj.key,
-        size: obj.size,
-        uploaded: obj.uploaded,
-      })),
-    });
-  } catch (error) {
-    return c.json(
-      {
-        success: false,
-        error: "R2 connection failed",
-        details: error instanceof Error ? error.message : "Unknown error",
-      },
-      500,
-    );
-  }
-});
-
-// Get image from R2 (for testing)
-app.get("/api/r2/get/*", async (c) => {
-  try {
-    // Get the full path after /api/r2/get/
-    const key = c.req.path.replace("/api/r2/get/", "");
-    const object = await c.env.STORAGE.get(key);
-
-    if (!object) {
-      return c.json({ error: "Object not found", key }, 404);
-    }
-
-    // Convert R2 body to Response compatible body
-    const headers = new Headers();
-    headers.set("Content-Type", object.httpMetadata?.contentType || "application/octet-stream");
-    headers.set("Cache-Control", object.httpMetadata?.cacheControl || "public, max-age=31536000");
-
-    return new Response(object.body as any, { headers });
-  } catch (error) {
-    return c.json(
-      {
-        error: "Failed to retrieve object",
-        details: error instanceof Error ? error.message : "Unknown error",
-      },
-      500,
-    );
-  }
-});
-
 // Auth middleware for protected routes
 const authMiddleware = async (
   c: Context<{ Bindings: Bindings }>,
@@ -99,7 +44,7 @@ const authMiddleware = async (
 ) => {
   const method = c.req.method;
 
-  // Require auth for POST, PUT, PATCH, DELETE (skip GET for public endpoints)
+  // Require auth for POST, PUT, PATCH, DELETE
   if (
     method === "POST" ||
     method === "PUT" ||
@@ -254,7 +199,13 @@ app.post("/api/images/upload", async (c) => {
     }
 
     // Validate file type
-    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/webp"];
+    const allowedTypes = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/gif",
+      "image/webp",
+    ];
     if (!allowedTypes.includes(file.type)) {
       return c.json(
         {
@@ -281,7 +232,7 @@ app.post("/api/images/upload", async (c) => {
     const timestamp = Date.now();
     const randomId = generateShortId();
     const fileExtension = file.name.split(".").pop() || "jpg";
-    const filename = `posts/${timestamp}-${randomId}.${fileExtension}`;
+    const filename = `images/${timestamp}-${randomId}.${fileExtension}`;
 
     // Upload to R2
     const arrayBuffer = await file.arrayBuffer();
