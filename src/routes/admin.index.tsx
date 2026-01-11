@@ -32,8 +32,8 @@ const FormSchema = z.object({
 });
 
 function Component() {
-  const createPostMutation = useCreatePost();
-  const uploadMutation = useUploadPost();
+  const uploadMutation = useCreatePost();
+  // const uploadMutation = useUploadPost();
 
   const form = useForm({
     defaultValues: {
@@ -47,19 +47,12 @@ function Component() {
     },
     onSubmit: async ({ value }) => {
       try {
-        const result = await createPostMutation.mutateAsync({
+        const result = await uploadMutation.mutateAsync({
           apiKey: value.apiKey,
           content: value.content,
           tags: value.tags,
           featuredImage: value.featuredImage,
         });
-
-        // const result = await uploadMutation.mutateAsync({
-        //   apiKey: value.apiKey,
-        //   content: value.content,
-        //   tags: value.tags,
-        //   featuredImage: value.featuredImage,
-        // });
 
         // Reset form on success
         form.reset();
