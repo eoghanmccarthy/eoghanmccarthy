@@ -9,10 +9,7 @@ export const POST_STATUS = ["draft", "published"] as const;
 export const TAGS = [
   "React",
   "TypeScript",
-  "TanStack",
-  "Web Development",
-  "CSS",
-  "Tailwind",
+  "Web Development"
 ] as const;
 
 export type PostType = (typeof POST_TYPES)[number];
