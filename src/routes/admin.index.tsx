@@ -3,7 +3,7 @@ import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
 import type { AnyFieldApi } from "@tanstack/react-form";
 
-import { useUploadPost } from "@/api/upload";
+import { useUploadPost, useCreatePost } from "@/api/upload";
 
 export const Route = createFileRoute("/admin/")({
   component: Component,
@@ -32,6 +32,7 @@ const FormSchema = z.object({
 });
 
 function Component() {
+  const createPostMutation = useCreatePost();
   const uploadMutation = useUploadPost();
 
   const form = useForm({
@@ -46,12 +47,19 @@ function Component() {
     },
     onSubmit: async ({ value }) => {
       try {
-        const result = await uploadMutation.mutateAsync({
+        const result = await createPostMutation.mutateAsync({
           apiKey: value.apiKey,
           content: value.content,
           tags: value.tags,
           featuredImage: value.featuredImage,
         });
+
+        // const result = await uploadMutation.mutateAsync({
+        //   apiKey: value.apiKey,
+        //   content: value.content,
+        //   tags: value.tags,
+        //   featuredImage: value.featuredImage,
+        // });
 
         // Reset form on success
         form.reset();

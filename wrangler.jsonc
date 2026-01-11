@@ -9,7 +9,7 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
-	"main": "src/server.ts",
+	"main": "src/server/index.ts",
 	//	"main": "@tanstack/react-start/server-entry",
 	"observability": {
 		"enabled": true
