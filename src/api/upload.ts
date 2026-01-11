@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 
 import type { PostType, PostStatus, Category, Tag } from "@/constants";
+import { compressImage } from "@/utils/image";
 
 // Response type for image upload
 export type ImageUploadResponse = {
@@ -96,10 +97,15 @@ export const useUploadPost = () => {
     mutationFn: async (input: UploadPostInput) => {
       const { apiKey, featuredImage, tags, ...postFields } = input;
 
-      // Step 1: Upload image if provided
+      // Step 1: Compress and upload image if provided
       let imageUrl: string | null = null;
       if (featuredImage) {
-        const imageResponse = await uploadImage(featuredImage, apiKey);
+        const compressedImage = await compressImage(featuredImage, {
+          maxWidth: 1920,
+          maxHeight: 1080,
+          quality: 0.9,
+        });
+        const imageResponse = await uploadImage(compressedImage, apiKey);
         imageUrl = imageResponse.url;
       }
 
@@ -161,9 +167,14 @@ export const useCreatePost = () => {
         }
       });
 
-      // Add image if provided
+      // Compress and add image if provided
       if (featuredImage) {
-        formData.append("featuredImage", featuredImage);
+        const compressedImage = await compressImage(featuredImage, {
+          maxWidth: 1920,
+          maxHeight: 1080,
+          quality: 0.9,
+        });
+        formData.append("featuredImage", compressedImage);
       }
 
       // Send request

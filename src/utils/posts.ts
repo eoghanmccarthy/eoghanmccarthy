@@ -5,12 +5,6 @@ import { PostSchema, type Post } from "@/types.ts";
 import { parseFrontmatter } from "./parse-frontmatter";
 import { extractExcerpt } from "./extract-excerpt";
 
-export function generateShortId() {
-  const timestamp = Date.now().toString(36);
-  const random = Math.random().toString(36).substring(2, 6);
-  return timestamp + random;
-}
-
 function createPostFromData(
   id: string,
   data: Record<string, string>,
