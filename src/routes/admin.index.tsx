@@ -3,7 +3,7 @@ import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
 import type { AnyFieldApi } from "@tanstack/react-form";
 
-import { useUploadPost, useCreatePost } from "@/api/upload";
+import { useCreatePost } from "@/api/upload";
 
 export const Route = createFileRoute("/admin/")({
   component: Component,
@@ -33,7 +33,6 @@ const FormSchema = z.object({
 
 function Component() {
   const uploadMutation = useCreatePost();
-  // const uploadMutation = useUploadPost();
 
   const form = useForm({
     defaultValues: {
