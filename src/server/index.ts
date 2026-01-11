@@ -5,11 +5,13 @@ import type { Context, Next } from "hono";
 import { cors } from "hono/cors";
 import type { R2Bucket } from "@cloudflare/workers-types";
 
-import { generateShortId } from "@/utils/posts.ts";
-
-import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from "@/constants.ts";
-
-import { updatePostStatus, generateFrontmatter } from "@/server/utils.ts";
+import {
+  generateShortId,
+  updatePostStatus,
+  generateFrontmatter,
+  validateImage,
+  ImageValidationError,
+} from "@/server/utils.ts";
 
 type Bindings = {
   STORAGE: R2Bucket;
@@ -210,26 +212,20 @@ app.post("/api/posts/create", async (c) => {
     // Handle optional image upload
     let imageUrl: string | null = null;
     if (featuredImage) {
-      // Validate file type
-      if (!ALLOWED_FILE_TYPES.includes(featuredImage.type)) {
-        return c.json(
-          {
-            error: "Invalid file type",
-            message: "Only JPEG, PNG, GIF, and WebP images are allowed",
-          },
-          400,
-        );
-      }
-
-      // Validate file size
-      if (featuredImage.size > MAX_FILE_SIZE) {
-        return c.json(
-          {
-            error: "File too large",
-            message: "Maximum file size is 10MB",
-          },
-          400,
-        );
+      // Validate image
+      try {
+        validateImage(featuredImage);
+      } catch (error) {
+        if (error instanceof ImageValidationError) {
+          return c.json(
+            {
+              error: error.message,
+              message: error.details,
+            },
+            400,
+          );
+        }
+        throw error;
       }
 
       // Generate filename with post ID prefix
@@ -349,26 +345,20 @@ app.post("/api/images/upload", async (c) => {
       return c.json({ error: "No image file provided" }, 400);
     }
 
-    // Validate file type
-    if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-      return c.json(
-        {
-          error: "Invalid file type",
-          message: "Only JPEG, PNG, GIF, and WebP images are allowed",
-        },
-        400,
-      );
-    }
-
-    // Validate file size
-    if (file.size > MAX_FILE_SIZE) {
-      return c.json(
-        {
-          error: "File too large",
-          message: "Maximum file size is 10MB",
-        },
-        400,
-      );
+    // Validate image
+    try {
+      validateImage(file);
+    } catch (error) {
+      if (error instanceof ImageValidationError) {
+        return c.json(
+          {
+            error: error.message,
+            message: error.details,
+          },
+          400,
+        );
+      }
+      throw error;
     }
 
     // Generate unique filename with folder organization
