@@ -55,10 +55,7 @@ export const compressImage = async (
 
   // Use pica to resize with high quality
   const pica = Pica();
-  await pica.resize(sourceCanvas, targetCanvas, {
-    quality: 3, // Lanczos3 filter (highest quality)
-    alpha: true,
-  });
+  await pica.resize(sourceCanvas, targetCanvas, {});
 
   // Convert to blob
   const blob = await pica.toBlob(targetCanvas, file.type, quality);
