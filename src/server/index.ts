@@ -7,6 +7,10 @@ import type { R2Bucket } from "@cloudflare/workers-types";
 
 import { generateShortId } from "@/utils/posts.ts";
 
+import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from "@/constants.ts";
+
+import { updatePostStatus, generateFrontmatter } from "@/server/utils.ts";
+
 type Bindings = {
   STORAGE: R2Bucket;
   AUTH_KEY_SECRET: string;
@@ -16,6 +20,8 @@ type Bindings = {
   ENVIRONMENT?: string;
   R2_PUBLIC_URL: string;
 };
+
+const AUTHORIZED_METHODS = ["POST", "PUT", "PATCH", "DELETE"];
 
 const app = new Hono<{ Bindings: Bindings }>();
 
@@ -44,13 +50,8 @@ const authMiddleware = async (
 ) => {
   const method = c.req.method;
 
-  // Require auth for POST, PUT, PATCH, DELETE
-  if (
-    method === "POST" ||
-    method === "PUT" ||
-    method === "PATCH" ||
-    method === "DELETE"
-  ) {
+  // Require auth for modifying methods
+  if (AUTHORIZED_METHODS.includes(method)) {
     const headerValue = c.req.header("X-Custom-Auth-Key");
     const expectedValue = c.env.AUTH_KEY_SECRET;
 
@@ -89,25 +90,18 @@ app.post("/api/posts/upload", async (c) => {
 
     const id = generateShortId();
 
-    // Generate frontmatter (no slug field - it's derived from filename)
-    const now = new Date().toISOString();
-    const frontmatter = [
-      "---",
-      `id: ${id}`,
-      `createdAt: ${now}`,
-      `updatedAt: ${now}`,
-      `type: ${type}`,
-      `status: ${status}`,
-      `author: ${author}`,
-      title ? `title: ${title}` : null,
-      category ? `category: ${category}` : null,
-      description ? `description: ${description}` : null,
-      featuredImage ? `featuredImage: ${featuredImage}` : null,
-      tags.length > 0 ? `tags: [${tags.join(", ")}]` : null,
-      "---",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    // Generate frontmatter
+    const frontmatter = generateFrontmatter({
+      id,
+      type,
+      status,
+      author,
+      title,
+      category,
+      description,
+      featuredImage,
+      tags,
+    });
 
     // Combine frontmatter + content
     const fullContent = `${frontmatter}\n\n${content}`;
@@ -188,6 +182,163 @@ app.post("/api/posts/upload", async (c) => {
   }
 });
 
+// Create post with optional image (unified endpoint)
+app.post("/api/posts/create", async (c) => {
+  try {
+    const formData = await c.req.formData();
+
+    // Extract post fields from FormData
+    const content = formData.get("content") as string | null;
+    const title = formData.get("title") as string | null;
+    const type = (formData.get("type") as string) || "note";
+    const status = (formData.get("status") as string) || "published";
+    const author = (formData.get("author") as string) || "eoghan";
+    const category = (formData.get("category") as string) || null;
+    const description = (formData.get("description") as string) || "";
+    const tagsString = (formData.get("tags") as string) || "";
+    const message = formData.get("message") as string | null;
+    const branch = (formData.get("branch") as string) || "main";
+    const featuredImage = formData.get("featuredImage") as File | null;
+
+    if (!content) {
+      return c.json({ error: "content is required" }, 400);
+    }
+
+    // Generate post ID
+    const id = generateShortId();
+
+    // Handle optional image upload
+    let imageUrl: string | null = null;
+    if (featuredImage) {
+      // Validate file type
+      if (!ALLOWED_FILE_TYPES.includes(featuredImage.type)) {
+        return c.json(
+          {
+            error: "Invalid file type",
+            message: "Only JPEG, PNG, GIF, and WebP images are allowed",
+          },
+          400,
+        );
+      }
+
+      // Validate file size
+      if (featuredImage.size > MAX_FILE_SIZE) {
+        return c.json(
+          {
+            error: "File too large",
+            message: "Maximum file size is 10MB",
+          },
+          400,
+        );
+      }
+
+      // Generate filename with post ID prefix
+      const fileExtension = featuredImage.name.split(".").pop() || "jpg";
+      const filename = `images/${id}-featured.${fileExtension}`;
+
+      // Upload to R2
+      const arrayBuffer = await featuredImage.arrayBuffer();
+      const uploadResult = await c.env.STORAGE.put(filename, arrayBuffer, {
+        httpMetadata: {
+          contentType: featuredImage.type,
+          cacheControl: "max-age=31536000", // 1 year cache
+        },
+      });
+
+      if (!uploadResult) {
+        return c.json(
+          {
+            error: "Failed to upload image to R2",
+            message: "R2 put operation returned null",
+          },
+          500,
+        );
+      }
+
+      imageUrl = `${c.env.R2_PUBLIC_URL}/${filename}`;
+    }
+
+    // Parse tags
+    const tags = tagsString
+      ? tagsString
+          .split(",")
+          .map((tag) => tag.trim())
+          .filter(Boolean)
+      : [];
+
+    // Generate frontmatter
+    const frontmatter = generateFrontmatter({
+      id,
+      type,
+      status,
+      author,
+      title,
+      category,
+      description,
+      featuredImage: imageUrl,
+      tags,
+    });
+
+    // Combine frontmatter + content
+    const fullContent = `${frontmatter}\n\n${content}`;
+
+    // Use id as filename
+    const sanitizedFilename = id.endsWith(".md") ? id : `${id}.md`;
+
+    // GitHub API endpoint for creating file
+    const path = `src/posts/${sanitizedFilename}`;
+    const url = `https://api.github.com/repos/${c.env.GITHUB_OWNER}/${c.env.GITHUB_REPO}/contents/${path}`;
+
+    // Create file (this endpoint is for new posts only)
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${c.env.GITHUB_TOKEN}`,
+        Accept: "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+        "User-Agent": "Cloudflare-Worker",
+      },
+      body: JSON.stringify({
+        message: message || `Add ${id}`,
+        content: btoa(fullContent),
+        branch,
+      }),
+    });
+
+    if (!response.ok) {
+      const error = await response.text();
+      return c.json(
+        {
+          error: "Failed to upload to GitHub",
+          details: error,
+          status: response.status,
+        },
+        500,
+      );
+    }
+
+    const result = (await response.json()) as {
+      content: { html_url: string };
+    };
+
+    return c.json({
+      success: true,
+      id,
+      path,
+      url: result.content.html_url,
+      imageUrl,
+    });
+  } catch (error) {
+    return c.json(
+      {
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      500,
+    );
+  }
+});
+
 // Upload image to R2
 app.post("/api/images/upload", async (c) => {
   try {
@@ -199,14 +350,7 @@ app.post("/api/images/upload", async (c) => {
     }
 
     // Validate file type
-    const allowedTypes = [
-      "image/jpeg",
-      "image/jpg",
-      "image/png",
-      "image/gif",
-      "image/webp",
-    ];
-    if (!allowedTypes.includes(file.type)) {
+    if (!ALLOWED_FILE_TYPES.includes(file.type)) {
       return c.json(
         {
           error: "Invalid file type",
@@ -216,9 +360,8 @@ app.post("/api/images/upload", async (c) => {
       );
     }
 
-    // Validate file size (max 10MB)
-    const maxSize = 10 * 1024 * 1024;
-    if (file.size > maxSize) {
+    // Validate file size
+    if (file.size > MAX_FILE_SIZE) {
       return c.json(
         {
           error: "File too large",
@@ -323,18 +466,7 @@ app.patch("/api/posts/:id/status", async (c) => {
 
     // Update status and updated timestamp in frontmatter
     const now = new Date().toISOString();
-    const updatedFrontmatter = frontmatter
-      .split("\n")
-      .map((line) => {
-        if (line.startsWith("status:")) {
-          return `status: ${status}`;
-        }
-        if (line.startsWith("updatedAt:")) {
-          return `updatedAt: ${now}`;
-        }
-        return line;
-      })
-      .join("\n");
+    const updatedFrontmatter = updatePostStatus(frontmatter, status, now);
 
     const updatedContent = `---\n${updatedFrontmatter}\n---\n${content}`;
 
