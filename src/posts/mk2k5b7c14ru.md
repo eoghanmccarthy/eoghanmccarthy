@@ -1,14 +1,11 @@
 ---
 id: mk2k5b7c14ru
-createdAt: 2026-01-06T03:58:47.552Z
-updatedAt: 2026-01-06T05:35:08.020Z
+createdAt: 2025-12-20T03:58:47.552Z
+updatedAt: 2025-12-20T05:35:08.020Z
 type: note
-status: draft
+status: published
 author: eoghan
-featuredImage: https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800
-tags: [CSS, Tailwind]
+tags: [Web Development, React]
 ---
 
-Just discovered this amazing CSS framework that makes styling so much easier.
-
-[Tailwind CSS](https://tailwindcss.com)
+Building a blog. Starting with markdown files in the repo. We'll see how far I get with it.
