@@ -2,10 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import ReactMarkdown from "react-markdown";
 
+import { formatDate } from "@/utils/date.ts";
 import { CATEGORIES } from "@/constants";
 
-import { postQueryOptions } from "@/api/posts";
-import { formatDate } from "@/utils/date.ts";
+import { postQueryOptions } from "@/queries/posts";
+
 
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";

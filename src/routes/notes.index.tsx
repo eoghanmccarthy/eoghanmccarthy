@@ -8,10 +8,10 @@ import { CATEGORIES, TAGS } from "@/constants";
 
 import { formatDate } from "@/utils/date.ts";
 
+import { postsQueryOptions } from "@/queries/posts.ts";
+
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
-
-import { postsQueryOptions } from "@/api/posts.ts";
 
 const notesSearchSchema = z.object({
   category: z.string().optional(),

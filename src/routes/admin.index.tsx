@@ -3,7 +3,7 @@ import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
 import type { AnyFieldApi } from "@tanstack/react-form";
 
-import { useCreatePost } from "@/api/upload";
+import { useCreatePost } from "@/queries/upload";
 
 export const Route = createFileRoute("/admin/")({
   component: Component,
