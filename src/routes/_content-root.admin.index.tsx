@@ -5,8 +5,8 @@ import type { AnyFieldApi } from "@tanstack/react-form";
 
 import { useCreatePost } from "@/queries/upload";
 
-export const Route = createFileRoute("/admin/")({
-  component: Component,
+export const Route = createFileRoute("/_content-root/admin/")({
+  component: RouteComponent,
 });
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
@@ -31,7 +31,7 @@ const FormSchema = z.object({
   featuredImage: z.any(),
 });
 
-function Component() {
+function RouteComponent() {
   const uploadMutation = useCreatePost();
 
   const form = useForm({

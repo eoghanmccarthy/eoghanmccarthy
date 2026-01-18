@@ -5,8 +5,6 @@ import {
 } from "@tanstack/react-router";
 import type { QueryClient } from "@tanstack/react-query";
 
-import Header from "../components/header";
-
 import appCss from "../styles.css?url";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
@@ -49,8 +47,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         </style>
         <HeadContent />
       </head>
-      <body className="bg-stone-100 font-serif text-gray-700 pt-[var(--site-header-height)]">
-        <Header />
+      <body className="bg-stone-100 font-serif text-gray-700 has-[>header]:pt-[var(--site-header-height)]">
         {children}
         <Scripts />
       </body>

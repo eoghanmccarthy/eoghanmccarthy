@@ -18,7 +18,7 @@ const notesSearchSchema = z.object({
   tags: z.array(z.string()).optional(),
 });
 
-export const Route = createFileRoute("/notes/")({
+export const Route = createFileRoute("/_content-root/notes/")({
   validateSearch: zodValidator(notesSearchSchema),
   loaderDeps: ({ search: { category, tags } }) => ({ category, tags }),
   loader: async ({ context, deps: { category, tags } }) => {
@@ -26,10 +26,10 @@ export const Route = createFileRoute("/notes/")({
       postsQueryOptions({ category, tags }),
     );
   },
-  component: Component,
+  component: RouteComponent,
 });
 
-function Component() {
+function RouteComponent() {
   const navigate = useNavigate();
   const { category, tags } = Route.useSearch();
   const { data: posts } = useSuspenseQuery(

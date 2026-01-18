@@ -11,17 +11,17 @@ import { postQueryOptions } from "@/queries/posts";
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
 
-export const Route = createFileRoute("/notes/$id")({
+export const Route = createFileRoute("/_content-root/notes/$id")({
   loader: async ({ context: { queryClient }, params: { id } }) => {
     await queryClient.ensureQueryData(postQueryOptions(id));
   },
-  component: PostView,
+  component: RouteComponent,
   notFoundComponent: () => {
     return <p>Post not found!</p>;
   },
 });
 
-function PostView() {
+function RouteComponent() {
   const { id } = Route.useParams();
   const { data: post } = useSuspenseQuery(postQueryOptions(id));
 
