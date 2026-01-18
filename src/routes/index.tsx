@@ -1,6 +1,7 @@
 import {createFileRoute, Link} from "@tanstack/react-router";
 
 import { Logo } from "@/components/logo.tsx";
+import hero from "@/assets/IMG_4238 (1).JPG";
 
 export const Route = createFileRoute("/")({ component: RouteComponent });
 
@@ -9,7 +10,7 @@ function RouteComponent() {
     <div className="h-screen w-screen grid grid-cols-2">
       <div className="h-full w-full">
         <img
-          src="/src/assets/IMG_4238 (1).JPG"
+          src={hero}
           alt=""
           className="w-full h-full object-cover"
         />
