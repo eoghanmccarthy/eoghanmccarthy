@@ -3,7 +3,7 @@ id: mk2k5b4kw71g
 createdAt: 2025-12-18T09:00:00Z
 updatedAt: 2025-12-18T09:00:00Z
 type: blog
-status: published
+status: draft
 author: eoghan
 category: technology
 title: Building a Modern Web Stack with React and TanStack

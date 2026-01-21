@@ -8,6 +8,4 @@ author: eoghan
 tags: [CSS, Tailwind]
 ---
 
-Testing the new array-based tag format in frontmatter.
-
-This should work perfectly with the updated parser!
+Adding tags to posts for better discoverability.

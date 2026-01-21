@@ -38,7 +38,7 @@ function RouteComponent() {
 
   return (
     <div className="page-container">
-      <h1 className="text-6xl font-normal mb-6 md:mb-16 -skew-x-16">Notes</h1>
+      <h1 className="text-6xl font-semibold mb-6 md:mb-16">Notes</h1>
 
       <div className="content-grid">
         {/* Sidebar */}

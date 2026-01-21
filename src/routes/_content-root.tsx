@@ -1,11 +1,20 @@
-import { createFileRoute, Outlet } from '@tanstack/react-router'
+import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-import Header from "../components/header";
+import { MainNav } from "@/components/main-nav.tsx";
 
-export const Route = createFileRoute('/_content-root')({
+export const Route = createFileRoute("/_content-root")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <><Header /><Outlet /></>
+  return (
+    <>
+      <header className="bg-stone-100 px-4 fixed top-0 left-0 z-50 w-full">
+        <div className="h-[var(--site-header-height)] z-2 flex items-center justify-center">
+          <MainNav className="gap-4 text-xl" />
+        </div>
+      </header>
+      <Outlet />
+    </>
+  );
 }

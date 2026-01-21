@@ -1,6 +1,8 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_content-root/notes")({ component: RouteComponent });
+export const Route = createFileRoute("/_content-root/notes")({
+  component: RouteComponent,
+});
 
 function RouteComponent() {
   return <Outlet />;
