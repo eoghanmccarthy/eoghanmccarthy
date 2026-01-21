@@ -9,4 +9,4 @@ featuredImage: https://assets.eoghanmccarthy.com/images/mk9spkttwn53-featured.JP
 tags: [React]
 ---
 
-Another api test
+Compressing images in the client now. Works pretty well.

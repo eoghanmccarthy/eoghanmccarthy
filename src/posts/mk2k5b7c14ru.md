@@ -8,4 +8,4 @@ author: eoghan
 tags: [Web Development, React]
 ---
 
-Building a blog. Starting with storing posts as markdown files in the repo. We'll see how far I get with this approach before I need to change anything.
+Starting with storing posts as markdown files in the repo. We'll see how far I get with this approach before I need to change anything.

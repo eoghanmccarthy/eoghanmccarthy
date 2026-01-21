@@ -7,7 +7,6 @@ import { CATEGORIES } from "@/constants";
 
 import { postQueryOptions } from "@/queries/posts";
 
-
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
 
