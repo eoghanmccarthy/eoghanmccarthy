@@ -67,7 +67,7 @@ function RouteComponent() {
 
   return (
     <div className="page-container">
-      <h1 className="text-6xl font-semibold mb-6 md:mb-16">Admin</h1>
+      <h1 className="text-6xl heading-text mb-6 md:mb-16">Admin</h1>
 
       <div className="content-grid">
         {/* Sidebar */}

@@ -5,7 +5,7 @@ updatedAt: 2026-01-06T12:53:46.616Z
 type: note
 status: draft
 author: eoghan
-tags: [CSS, Web Development]
+tags: [css, web development]
 ---
 
 Just discovered another amazing CSS framework that makes styling so much easier. The documentation is really well done too.

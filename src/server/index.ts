@@ -142,7 +142,7 @@ app.post("/api/posts/create", async (c) => {
     const tags = tagsString
       ? tagsString
           .split(",")
-          .map((tag) => tag.trim())
+          .map((tag) => tag.trim().toLowerCase())
           .filter(Boolean)
       : [];
 
@@ -212,79 +212,6 @@ app.post("/api/posts/create", async (c) => {
     return c.json(
       {
         error: "Internal server error",
-        details: error instanceof Error ? error.message : "Unknown error",
-      },
-      500,
-    );
-  }
-});
-
-// Upload image to R2
-app.post("/api/images/upload", async (c) => {
-  try {
-    const formData = await c.req.formData();
-    const file = formData.get("image") as File | null;
-
-    if (!file) {
-      return c.json({ error: "No image file provided" }, 400);
-    }
-
-    // Validate image
-    try {
-      validateImage(file);
-    } catch (error) {
-      if (error instanceof ImageValidationError) {
-        return c.json(
-          {
-            error: error.message,
-            message: error.details,
-          },
-          400,
-        );
-      }
-      throw error;
-    }
-
-    // Generate unique filename with folder organization
-    const timestamp = Date.now();
-    const randomId = generateShortId();
-    const fileExtension = file.name.split(".").pop() || "jpg";
-    const filename = `images/${timestamp}-${randomId}.${fileExtension}`;
-
-    // Upload to R2
-    const arrayBuffer = await file.arrayBuffer();
-    const uploadResult = await c.env.STORAGE.put(filename, arrayBuffer, {
-      httpMetadata: {
-        contentType: file.type,
-        cacheControl: "max-age=31536000", // 1 year cache
-      },
-    });
-
-    // Verify upload succeeded
-    if (!uploadResult) {
-      return c.json(
-        {
-          error: "Failed to upload to R2",
-          message: "R2 put operation returned null",
-        },
-        500,
-      );
-    }
-
-    // Construct public URL
-    const publicUrl = `${c.env.R2_PUBLIC_URL}/${filename}`;
-
-    return c.json({
-      success: true,
-      url: publicUrl,
-      filename,
-      size: file.size,
-      type: file.type,
-    });
-  } catch (error) {
-    return c.json(
-      {
-        error: "Failed to upload image",
         details: error instanceof Error ? error.message : "Unknown error",
       },
       500,

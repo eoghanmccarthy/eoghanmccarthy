@@ -6,7 +6,7 @@ type: note
 status: published
 author: eoghan
 featuredImage: https://assets.eoghanmccarthy.com/images/mk9sdq8vkg99-featured.JPG
-tags: [React]
+tags: []
 ---
 
 Will post some images on here too.

@@ -6,7 +6,7 @@ type: note
 status: published
 author: eoghan
 featuredImage: https://assets.eoghanmccarthy.com/images/mk9spkttwn53-featured.JPG
-tags: [React]
+tags: []
 ---
 
 Compressing images in the client now. Works pretty well.

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils.ts";
 
 export function MainNav({ className }: { className?: string }) {
   return (
-    <nav className={cn("flex text-3xl gap-1 font-semibold", className)}>
+    <nav className={cn("flex text-3xl gap-1 heading-text", className)}>
       <Link to="/" className="hover:text-gray-400">
         Home
       </Link>
