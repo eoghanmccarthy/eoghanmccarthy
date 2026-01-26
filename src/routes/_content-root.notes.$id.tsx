@@ -3,7 +3,11 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import ReactMarkdown from "react-markdown";
 
 import { formatDate } from "@/utils/date.ts";
-import { CATEGORIES } from "@/constants";
+import {
+  CATEGORIES,
+  CATEGORY_DISPLAY_NAMES,
+  TAG_DISPLAY_NAMES,
+} from "@/constants";
 
 import { postQueryOptions } from "@/queries/posts";
 
@@ -31,12 +35,11 @@ function RouteComponent() {
         <aside className="col-span-full lg:col-span-6">
           <div className="top-[var(--site-sticky-top)] md:sticky">
             <nav className="space-y-1 mb-6 text-base font-normal">
-              {["all posts", ...CATEGORIES].map((category) => (
-                <div
-                  key={category}
-                  className="capitalize text-gray-600 hover:text-gray-900"
-                >
-                  {category}
+              {["all posts", ...CATEGORIES].map((c) => (
+                <div key={c} className="text-gray-600 hover:text-gray-900">
+                  {CATEGORY_DISPLAY_NAMES[
+                    c as keyof typeof CATEGORY_DISPLAY_NAMES
+                  ] ?? c}
                 </div>
               ))}
             </nav>
@@ -81,9 +84,10 @@ function RouteComponent() {
                   <Link
                     to="/notes"
                     search={{ tags: [tag] }}
-                    className="capitalize hover:text-gray-900"
+                    className="hover:text-gray-900"
                   >
-                    {tag}
+                    {TAG_DISPLAY_NAMES[tag as keyof typeof TAG_DISPLAY_NAMES] ??
+                      tag}
                   </Link>
                 </span>
               ))}

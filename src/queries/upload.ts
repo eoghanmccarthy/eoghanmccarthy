@@ -4,7 +4,7 @@ import type { PostType, PostStatus, Category } from "@/constants";
 import { compressImage } from "@/utils/image";
 
 // Create post with optional image
-export type CreatePostInput = {
+export type CreatePostVariables = {
   apiKey: string;
   content: string;
   tags?: string;
@@ -28,7 +28,7 @@ export type CreatePostResponse = {
 
 export const useCreatePost = () => {
   return useMutation({
-    mutationFn: async (input: CreatePostInput) => {
+    mutationFn: async (input: CreatePostVariables) => {
       const { apiKey, featuredImage, ...postFields } = input;
 
       // Build FormData

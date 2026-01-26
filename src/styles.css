@@ -5,7 +5,7 @@
     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  --font-display: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "JetBrains Mono", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-monospace:
     source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
@@ -26,6 +26,10 @@ code {
 }
 
 @layer utilities {
+  .heading-text {
+    @apply font-display font-semibold;
+  }
+
   .skew {
     @apply -skew-x-16;
   }
@@ -107,11 +111,14 @@ code {
   }
 
   .form-textarea {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg font-mono text-sm;
+    /*@apply form-input;*/
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg;
     @apply focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent;
+    @apply font-mono text-sm;
   }
 
   .form-file-input {
+    /*@apply form-input;*/
     @apply w-full px-4 py-2 border border-gray-300 rounded-lg;
     @apply focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent;
     @apply file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm;

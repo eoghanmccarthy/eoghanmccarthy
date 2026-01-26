@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 // import { Logo } from "@/components/logo.tsx";
+// @ts-expect-error -- image file
 import hero from "@/assets/IMG_4238 (1).JPG";
 
 import { MainNav } from "@/components/main-nav.tsx";

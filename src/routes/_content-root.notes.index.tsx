@@ -4,22 +4,21 @@ import { zodValidator } from "@tanstack/zod-adapter";
 import Markdown from "react-markdown";
 import { z } from "zod";
 
-import { CATEGORIES, TAGS } from "@/constants";
-
 import { formatDate } from "@/utils/date.ts";
 
 import { postsQueryOptions } from "@/queries/posts.ts";
 
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
+import NotesSideNav from "@/components/notes-side-nav";
 
-const notesSearchSchema = z.object({
+const searchSchema = z.object({
   category: z.string().optional(),
   tags: z.array(z.string()).optional(),
 });
 
 export const Route = createFileRoute("/_content-root/notes/")({
-  validateSearch: zodValidator(notesSearchSchema),
+  validateSearch: zodValidator(searchSchema),
   loaderDeps: ({ search: { category, tags } }) => ({ category, tags }),
   loader: async ({ context, deps: { category, tags } }) => {
     await context.queryClient.ensureQueryData(
@@ -38,48 +37,12 @@ function RouteComponent() {
 
   return (
     <div className="page-container">
-      <h1 className="text-6xl font-semibold mb-6 md:mb-16">Notes</h1>
+      <h1 className="text-6xl heading-text mb-6 md:mb-16">Notes</h1>
 
       <div className="content-grid">
-        {/* Sidebar */}
         <aside className="col-span-full lg:col-span-6">
           <div className="top-[var(--site-sticky-top)] md:sticky">
-            <nav className="space-y-1 mb-6 text-base font-normal">
-              {["all posts", ...CATEGORIES].map((c) => (
-                <Link
-                  to="."
-                  key={c}
-                  className={`block capitalize ${category === c || (category === undefined && c === "all posts") ? "text-gray-900" : "text-gray-600"} hover:text-gray-900`}
-                  search={(prev) => ({
-                    ...prev,
-                    category: c === "all posts" ? undefined : c,
-                  })}
-                >
-                  {c}
-                </Link>
-              ))}
-              {[...TAGS].map((t) => (
-                <Link
-                  to="."
-                  key={t}
-                  className={`block capitalize ${tags && tags.includes(t) ? "text-gray-900" : "text-gray-600"} hover:text-gray-900`}
-                  search={(prev) => {
-                    const currentTags = prev.tags || [];
-                    const isSelected = currentTags.includes(t);
-                    const newTags = isSelected
-                      ? currentTags.filter((tag) => tag !== t)
-                      : [...currentTags, t];
-
-                    return {
-                      ...prev,
-                      tags: newTags.length > 0 ? newTags : undefined,
-                    };
-                  }}
-                >
-                  {t}
-                </Link>
-              ))}
-            </nav>
+            <NotesSideNav category={category} tags={tags} />
           </div>
         </aside>
 
