@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { zodValidator } from "@tanstack/zod-adapter";
 import Markdown from "react-markdown";
+import rehypeExternalLinks from "rehype-external-links";
 import { z } from "zod";
 
 import { formatDate } from "@/utils/date.ts";
@@ -75,7 +76,9 @@ function RouteComponent() {
                         }}
                       >
                         <div className="prose group-hover:text-gray-600 transition-colors">
-                          <Markdown>{post.content}</Markdown>
+                          <Markdown rehypePlugins={[
+                            rehypeExternalLinks({ target: "_blank" })
+                          ]}>{post.content}</Markdown>
                         </div>
                       </div>
                       {post.featuredImage && (
