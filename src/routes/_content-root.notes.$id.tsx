@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import ReactMarkdown from "react-markdown";
+import rehypeExternalLinks from "rehype-external-links";
 
 import { formatDate } from "@/utils/date.ts";
 import {
@@ -67,7 +68,9 @@ function RouteComponent() {
             {formatDate(post.createdAt)}
           </p>
           <div className="prose">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown rehypePlugins={[
+              rehypeExternalLinks({ target: "_blank" })
+            ]}>{post.content}</ReactMarkdown>
           </div>
           {post.type === "note" && post.featuredImage && (
             <FeaturedImage
