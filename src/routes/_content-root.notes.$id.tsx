@@ -68,9 +68,11 @@ function RouteComponent() {
             {formatDate(post.createdAt)}
           </p>
           <div className="prose">
-            <ReactMarkdown rehypePlugins={[
-              rehypeExternalLinks({ target: "_blank" })
-            ]}>{post.content}</ReactMarkdown>
+            <ReactMarkdown
+              // rehypePlugins={[rehypeExternalLinks({ target: "_blank" })]}
+            >
+              {post.content}
+            </ReactMarkdown>
           </div>
           {post.type === "note" && post.featuredImage && (
             <FeaturedImage

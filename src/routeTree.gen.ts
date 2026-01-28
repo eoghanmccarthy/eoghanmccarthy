@@ -8,173 +8,173 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as ContentRootRouteImport } from './routes/_content-root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ContentRootNotesRouteImport } from './routes/_content-root.notes'
-import { Route as ContentRootNotesIndexRouteImport } from './routes/_content-root.notes.index'
-import { Route as ContentRootAdminIndexRouteImport } from './routes/_content-root.admin.index'
-import { Route as ContentRootNotesIdRouteImport } from './routes/_content-root.notes.$id'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as ContentRootRouteImport } from "./routes/_content-root";
+import { Route as IndexRouteImport } from "./routes/index";
+import { Route as ContentRootNotesRouteImport } from "./routes/_content-root.notes";
+import { Route as ContentRootNotesIndexRouteImport } from "./routes/_content-root.notes.index";
+import { Route as ContentRootAdminIndexRouteImport } from "./routes/_content-root.admin.index";
+import { Route as ContentRootNotesIdRouteImport } from "./routes/_content-root.notes.$id";
 
 const ContentRootRoute = ContentRootRouteImport.update({
-  id: '/_content-root',
+  id: "/_content-root",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ContentRootNotesRoute = ContentRootNotesRouteImport.update({
-  id: '/notes',
-  path: '/notes',
+  id: "/notes",
+  path: "/notes",
   getParentRoute: () => ContentRootRoute,
-} as any)
+} as any);
 const ContentRootNotesIndexRoute = ContentRootNotesIndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => ContentRootNotesRoute,
-} as any)
+} as any);
 const ContentRootAdminIndexRoute = ContentRootAdminIndexRouteImport.update({
-  id: '/admin/',
-  path: '/admin/',
+  id: "/admin/",
+  path: "/admin/",
   getParentRoute: () => ContentRootRoute,
-} as any)
+} as any);
 const ContentRootNotesIdRoute = ContentRootNotesIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
+  id: "/$id",
+  path: "/$id",
   getParentRoute: () => ContentRootNotesRoute,
-} as any)
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/notes': typeof ContentRootNotesRouteWithChildren
-  '/notes/$id': typeof ContentRootNotesIdRoute
-  '/admin': typeof ContentRootAdminIndexRoute
-  '/notes/': typeof ContentRootNotesIndexRoute
+  "/": typeof IndexRoute;
+  "/notes": typeof ContentRootNotesRouteWithChildren;
+  "/notes/$id": typeof ContentRootNotesIdRoute;
+  "/admin": typeof ContentRootAdminIndexRoute;
+  "/notes/": typeof ContentRootNotesIndexRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/notes/$id': typeof ContentRootNotesIdRoute
-  '/admin': typeof ContentRootAdminIndexRoute
-  '/notes': typeof ContentRootNotesIndexRoute
+  "/": typeof IndexRoute;
+  "/notes/$id": typeof ContentRootNotesIdRoute;
+  "/admin": typeof ContentRootAdminIndexRoute;
+  "/notes": typeof ContentRootNotesIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/_content-root': typeof ContentRootRouteWithChildren
-  '/_content-root/notes': typeof ContentRootNotesRouteWithChildren
-  '/_content-root/notes/$id': typeof ContentRootNotesIdRoute
-  '/_content-root/admin/': typeof ContentRootAdminIndexRoute
-  '/_content-root/notes/': typeof ContentRootNotesIndexRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexRoute;
+  "/_content-root": typeof ContentRootRouteWithChildren;
+  "/_content-root/notes": typeof ContentRootNotesRouteWithChildren;
+  "/_content-root/notes/$id": typeof ContentRootNotesIdRoute;
+  "/_content-root/admin/": typeof ContentRootAdminIndexRoute;
+  "/_content-root/notes/": typeof ContentRootNotesIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/notes' | '/notes/$id' | '/admin' | '/notes/'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/notes/$id' | '/admin' | '/notes'
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: "/" | "/notes" | "/notes/$id" | "/admin" | "/notes/";
+  fileRoutesByTo: FileRoutesByTo;
+  to: "/" | "/notes/$id" | "/admin" | "/notes";
   id:
-    | '__root__'
-    | '/'
-    | '/_content-root'
-    | '/_content-root/notes'
-    | '/_content-root/notes/$id'
-    | '/_content-root/admin/'
-    | '/_content-root/notes/'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/"
+    | "/_content-root"
+    | "/_content-root/notes"
+    | "/_content-root/notes/$id"
+    | "/_content-root/admin/"
+    | "/_content-root/notes/";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ContentRootRoute: typeof ContentRootRouteWithChildren
+  IndexRoute: typeof IndexRoute;
+  ContentRootRoute: typeof ContentRootRouteWithChildren;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/_content-root': {
-      id: '/_content-root'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof ContentRootRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_content-root/notes': {
-      id: '/_content-root/notes'
-      path: '/notes'
-      fullPath: '/notes'
-      preLoaderRoute: typeof ContentRootNotesRouteImport
-      parentRoute: typeof ContentRootRoute
-    }
-    '/_content-root/notes/': {
-      id: '/_content-root/notes/'
-      path: '/'
-      fullPath: '/notes/'
-      preLoaderRoute: typeof ContentRootNotesIndexRouteImport
-      parentRoute: typeof ContentRootNotesRoute
-    }
-    '/_content-root/admin/': {
-      id: '/_content-root/admin/'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof ContentRootAdminIndexRouteImport
-      parentRoute: typeof ContentRootRoute
-    }
-    '/_content-root/notes/$id': {
-      id: '/_content-root/notes/$id'
-      path: '/$id'
-      fullPath: '/notes/$id'
-      preLoaderRoute: typeof ContentRootNotesIdRouteImport
-      parentRoute: typeof ContentRootNotesRoute
-    }
+    "/_content-root": {
+      id: "/_content-root";
+      path: "";
+      fullPath: "";
+      preLoaderRoute: typeof ContentRootRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_content-root/notes": {
+      id: "/_content-root/notes";
+      path: "/notes";
+      fullPath: "/notes";
+      preLoaderRoute: typeof ContentRootNotesRouteImport;
+      parentRoute: typeof ContentRootRoute;
+    };
+    "/_content-root/notes/": {
+      id: "/_content-root/notes/";
+      path: "/";
+      fullPath: "/notes/";
+      preLoaderRoute: typeof ContentRootNotesIndexRouteImport;
+      parentRoute: typeof ContentRootNotesRoute;
+    };
+    "/_content-root/admin/": {
+      id: "/_content-root/admin/";
+      path: "/admin";
+      fullPath: "/admin";
+      preLoaderRoute: typeof ContentRootAdminIndexRouteImport;
+      parentRoute: typeof ContentRootRoute;
+    };
+    "/_content-root/notes/$id": {
+      id: "/_content-root/notes/$id";
+      path: "/$id";
+      fullPath: "/notes/$id";
+      preLoaderRoute: typeof ContentRootNotesIdRouteImport;
+      parentRoute: typeof ContentRootNotesRoute;
+    };
   }
 }
 
 interface ContentRootNotesRouteChildren {
-  ContentRootNotesIdRoute: typeof ContentRootNotesIdRoute
-  ContentRootNotesIndexRoute: typeof ContentRootNotesIndexRoute
+  ContentRootNotesIdRoute: typeof ContentRootNotesIdRoute;
+  ContentRootNotesIndexRoute: typeof ContentRootNotesIndexRoute;
 }
 
 const ContentRootNotesRouteChildren: ContentRootNotesRouteChildren = {
   ContentRootNotesIdRoute: ContentRootNotesIdRoute,
   ContentRootNotesIndexRoute: ContentRootNotesIndexRoute,
-}
+};
 
 const ContentRootNotesRouteWithChildren =
-  ContentRootNotesRoute._addFileChildren(ContentRootNotesRouteChildren)
+  ContentRootNotesRoute._addFileChildren(ContentRootNotesRouteChildren);
 
 interface ContentRootRouteChildren {
-  ContentRootNotesRoute: typeof ContentRootNotesRouteWithChildren
-  ContentRootAdminIndexRoute: typeof ContentRootAdminIndexRoute
+  ContentRootNotesRoute: typeof ContentRootNotesRouteWithChildren;
+  ContentRootAdminIndexRoute: typeof ContentRootAdminIndexRoute;
 }
 
 const ContentRootRouteChildren: ContentRootRouteChildren = {
   ContentRootNotesRoute: ContentRootNotesRouteWithChildren,
   ContentRootAdminIndexRoute: ContentRootAdminIndexRoute,
-}
+};
 
 const ContentRootRouteWithChildren = ContentRootRoute._addFileChildren(
   ContentRootRouteChildren,
-)
+);
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContentRootRoute: ContentRootRouteWithChildren,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
+import type { getRouter } from "./router.tsx";
+import type { createStart } from "@tanstack/react-start";
+declare module "@tanstack/react-start" {
   interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
+    ssr: true;
+    router: Awaited<ReturnType<typeof getRouter>>;
   }
 }
