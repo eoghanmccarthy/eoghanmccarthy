@@ -14,6 +14,7 @@ import { postQueryOptions } from "@/queries/posts";
 
 import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
+import NotesSideNav from "@/components/notes-side-nav";
 
 export const Route = createFileRoute("/_content-root/notes/$id")({
   loader: async ({ context: { queryClient }, params: { id } }) => {
@@ -35,15 +36,7 @@ function RouteComponent() {
         {/* Sidebar */}
         <aside className="col-span-full lg:col-span-6">
           <div className="top-[var(--site-sticky-top)] md:sticky">
-            <nav className="space-y-1 mb-6 text-base font-normal">
-              {["all posts", ...CATEGORIES].map((c) => (
-                <div key={c} className="text-gray-600 hover:text-gray-900">
-                  {CATEGORY_DISPLAY_NAMES[
-                    c as keyof typeof CATEGORY_DISPLAY_NAMES
-                  ] ?? c}
-                </div>
-              ))}
-            </nav>
+            <NotesSideNav category={post.category} tags={post.tags} />
           </div>
         </aside>
 
