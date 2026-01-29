@@ -7,4 +7,4 @@ status: published
 author: eoghan
 ---
 
-Planning to check out [Tokyo Prototype](https://tokyoprototype.jp/sp/) this weekend.
+Planning to check out [Tokyo Prototype](https://tokyoprototype.jp/sp/) this weekend. Should be interesting.
