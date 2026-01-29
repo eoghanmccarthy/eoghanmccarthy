@@ -6,6 +6,7 @@ type: note
 status: published
 author: eoghan
 featuredImage: https://assets.eoghanmccarthy.com/images/mkytp6e8e5sc-featured.jpeg
+tags: [tokyo]
 ---
 
 Photo taken on a visit to a local gallery last year. Good for odd, eclectic exhibitions.
