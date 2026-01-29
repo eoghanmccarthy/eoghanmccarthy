@@ -8,4 +8,4 @@ author: eoghan
 featuredImage: https://assets.eoghanmccarthy.com/images/mk9vtjdoi1m1-featured.JPG
 ---
 
-One more compression test
+One more image compression test.
