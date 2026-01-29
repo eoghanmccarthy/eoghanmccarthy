@@ -69,7 +69,7 @@ function RouteComponent() {
           </p>
           <div className="prose">
             <ReactMarkdown
-              // rehypePlugins={[rehypeExternalLinks({ target: "_blank" })]}
+            // rehypePlugins={[rehypeExternalLinks({ target: "_blank" })]}
             >
               {post.content}
             </ReactMarkdown>

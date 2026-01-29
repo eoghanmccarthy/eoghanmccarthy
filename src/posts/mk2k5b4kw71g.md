@@ -8,7 +8,7 @@ author: eoghan
 category: technology
 title: Building a Modern Web Stack with React and TanStack
 description: My experience setting up a type-safe routing solution with TanStack Router and React 19
-tags: [react, typescript]
+tags: [web development]
 ---
 
 I recently spent some time building out a modern web application using React 19 and TanStack Router. The experience has been surprisingly smooth, and I wanted to share some thoughts on why this stack works so well.

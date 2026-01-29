@@ -24,12 +24,13 @@ export const AUTHORS = ["eoghan"] as const;
 
 export const POST_STATUS = ["draft", "published"] as const;
 
-export const TAGS = ["react", "typescript", "web development"] as const;
+export const TAGS = ["tokyo", "japan", "web development", "random"] as const;
 
 export const TAG_DISPLAY_NAMES: Record<(typeof TAGS)[number], string> = {
-  react: "React",
-  typescript: "TypeScript",
+  tokyo: "Tokyo",
+  japan: "Japan",
   "web development": "Web Development",
+  random: "Random",
 };
 
 export type PostType = (typeof POST_TYPES)[number];
