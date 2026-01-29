@@ -77,9 +77,9 @@ function RouteComponent() {
                       >
                         <div className="prose group-hover:text-gray-600 transition-colors">
                           <Markdown
-                            // rehypePlugins={[
-                            //   rehypeExternalLinks({ target: "_blank" }),
-                            // ]}
+                          // rehypePlugins={[
+                          //   rehypeExternalLinks({ target: "_blank" }),
+                          // ]}
                           >
                             {post.content}
                           </Markdown>

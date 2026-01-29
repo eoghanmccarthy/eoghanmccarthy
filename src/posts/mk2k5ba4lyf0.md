@@ -5,7 +5,7 @@ updatedAt: 2026-01-06T05:08:58.256Z
 type: note
 status: published
 author: eoghan
-tags: [css, tailwind]
+tags: [web development]
 ---
 
 Adding tags to posts for better discoverability.
