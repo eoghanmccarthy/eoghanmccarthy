@@ -6,7 +6,7 @@ type: note
 status: draft
 author: eoghan
 featuredImage: https://assets.eoghanmccarthy.com/images/mk9spkttwn53-featured.JPG
-tags: []
+tags: [web development]
 ---
 
 Compressing images in the client now. Works pretty well.

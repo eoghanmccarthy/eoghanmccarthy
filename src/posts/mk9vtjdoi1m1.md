@@ -6,6 +6,7 @@ type: note
 status: published
 author: eoghan
 featuredImage: https://assets.eoghanmccarthy.com/images/mk9vtjdoi1m1-featured.JPG
+tags: [web development]
 ---
 
 One more image compression test.
