@@ -1,9 +1,8 @@
 {
   "name": "eoghanmccarthy",
-  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
+    "dev": "vite dev",
     "build": "vite build",
     "serve": "vite preview",
     "test": "vitest run",
