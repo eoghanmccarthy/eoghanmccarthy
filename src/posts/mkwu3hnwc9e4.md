@@ -8,4 +8,4 @@ author: eoghan
 tags: [tokyo]
 ---
 
-Planning to check out [Tokyo Prototype](https://tokyoprototype.jp/sp/) this weekend. Should be interesting.
+Planning to check out [Tokyo Prototype](https://tokyoprototype.jp/sp/) this weekend. Should be interesting. Usually find something inspiring at these events.

@@ -8,4 +8,4 @@ author: eoghan
 tags: [web development]
 ---
 
-Created an MCP server that adds new posts here. Still searching for practical day job applications for MCP servers, but the experimentation is fun.
+Created an MCP server for adding new posts here. Still searching for practical day-job applications for MCP servers, but the experimentation is fun.
