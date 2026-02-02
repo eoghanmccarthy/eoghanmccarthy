@@ -22,9 +22,7 @@ export const Route = createFileRoute("/_content-root/notes/")({
   validateSearch: zodValidator(searchSchema),
   loaderDeps: ({ search: { category, tags } }) => ({ category, tags }),
   loader: async ({ context, deps: { category, tags } }) => {
-    await context.queryClient.ensureQueryData(
-      postsQueryOptions({ category, tags }),
-    );
+    await context.queryClient.ensureQueryData(postsQueryOptions({ category, tags }));
   },
   component: RouteComponent,
 });
@@ -32,13 +30,11 @@ export const Route = createFileRoute("/_content-root/notes/")({
 function RouteComponent() {
   const navigate = useNavigate();
   const { category, tags } = Route.useSearch();
-  const { data: posts } = useSuspenseQuery(
-    postsQueryOptions({ category, tags }),
-  );
+  const { data: posts } = useSuspenseQuery(postsQueryOptions({ category, tags }));
 
   return (
     <div className="page-container">
-      <h1 className="text-6xl heading-text mb-6 md:mb-16">Notes</h1>
+      <h1 className="page-heading">Notes</h1>
 
       <div className="content-grid">
         <aside>
@@ -92,9 +88,7 @@ function RouteComponent() {
                           variant="detail"
                         />
                       )}
-                      <p className="text-sm text-gray-500">
-                        {formatDate(post.createdAt)}
-                      </p>
+                      <p className="text-sm text-gray-500">{formatDate(post.createdAt)}</p>
                     </>
                   ) : post.type === "blog" ? (
                     <>
@@ -105,21 +99,13 @@ function RouteComponent() {
                           variant="detail"
                         />
                       )}
-                      <Link
-                        to="/notes/$id"
-                        params={{ id: post.id }}
-                        className="block group"
-                      >
+                      <Link to="/notes/$id" params={{ id: post.id }} className="block group">
                         <h2 className="text-xl font-normal text-gray-900 group-hover:text-gray-600 transition-colors">
                           {post.title}
                         </h2>
                       </Link>
-                      <p className="text-base text-gray-600 leading-relaxed">
-                        {post.description}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {formatDate(post.createdAt)}
-                      </p>
+                      <p className="text-base text-gray-600 leading-relaxed">{post.description}</p>
+                      <p className="text-sm text-gray-500">{formatDate(post.createdAt)}</p>
                     </>
                   ) : null}
                 </article>

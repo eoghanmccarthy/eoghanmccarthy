@@ -1,11 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-import {
-  CATEGORIES,
-  CATEGORY_DISPLAY_NAMES,
-  TAGS,
-  TAG_DISPLAY_NAMES,
-} from "@/constants";
+import { CATEGORIES, CATEGORY_DISPLAY_NAMES, TAGS, TAG_DISPLAY_NAMES } from "@/constants";
 
 interface NotesSideNavProps {
   category?: string | null;

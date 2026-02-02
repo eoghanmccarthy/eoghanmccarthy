@@ -6,10 +6,7 @@ export type CompressOptions = {
   quality?: number;
 };
 
-export const compressImage = async (
-  file: File,
-  options: CompressOptions = {},
-): Promise<File> => {
+export const compressImage = async (file: File, options: CompressOptions = {}): Promise<File> => {
   const { maxWidth = 1920, maxHeight = 1080, quality = 0.9 } = options;
 
   // Create image element

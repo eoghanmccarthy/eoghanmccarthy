@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_content-root/now/")({
 function RouteComponent() {
   return (
     <div className="page-container">
-      <h1 className="text-6xl heading-text mb-6 md:mb-16">Now</h1>
+      <h1 className="page-heading">Now</h1>
 
       <div className="content-grid">
         {/* Sidebar */}
@@ -17,10 +17,9 @@ function RouteComponent() {
         <main>
           <div className="prose">
             <p>
-              Currently building tooling for machine learning teams and
-              engineers. Exploring ways to use AI in both my day job and side
-              projects, though I'm still figuring out practical applications
-              beyond personal tinkering.
+              Currently building tooling for machine learning teams and engineers. Exploring ways to
+              use AI in both my day job and side projects, though I'm still figuring out practical
+              applications beyond personal tinkering.
             </p>
             <p>Always on the lookout for interesting side projects.</p>
           </div>

@@ -99,10 +99,8 @@ export function formatRelative(utcString: string): string {
 
     const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
 
-    if (Math.abs(seconds) < 60)
-      return rtf.format(-Math.round(seconds), "second");
-    if (Math.abs(minutes) < 60)
-      return rtf.format(-Math.round(minutes), "minute");
+    if (Math.abs(seconds) < 60) return rtf.format(-Math.round(seconds), "second");
+    if (Math.abs(minutes) < 60) return rtf.format(-Math.round(minutes), "minute");
     if (Math.abs(hours) < 24) return rtf.format(-Math.round(hours), "hour");
     if (Math.abs(days) < 30) return rtf.format(-Math.round(days), "day");
 

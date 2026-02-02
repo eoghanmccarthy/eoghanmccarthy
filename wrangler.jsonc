@@ -3,67 +3,65 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "eoghanmccarthy",
-	"compatibility_date": "2025-09-02",
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
-	"main": "src/server/index.ts",
-	//	"main": "@tanstack/react-start/server-entry",
-	"observability": {
-		"enabled": true
-	},
-	/**
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "eoghanmccarthy",
+  "compatibility_date": "2025-09-02",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "src/server/index.ts",
+  //	"main": "@tanstack/react-start/server-entry",
+  "observability": {
+    "enabled": true,
+  },
+  /**
    * Smart Placement
    * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
    */
-	// "placement": {  "mode": "smart" }
-	/**
+  // "placement": {  "mode": "smart" }
+  /**
    * Bindings
    * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
    * databases, object storage, AI inference, real-time communication and more.
    * https://developers.cloudflare.com/workers/runtime-apis/bindings/
    */
-	"r2_buckets": [
-		{
-			"binding": "STORAGE",
-			"bucket_name": "eoghanmccarthy-com-storage",
-			"preview_bucket_name": "eoghanmccarthy-com-storage-preview"
-		}
-	],
-	/**
+  "r2_buckets": [
+    {
+      "binding": "STORAGE",
+      "bucket_name": "eoghanmccarthy-com-storage",
+      "preview_bucket_name": "eoghanmccarthy-com-storage-preview",
+    },
+  ],
+  /**
    * Environment Variables
    * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
    * Note: Use secrets to store sensitive data.
    * https://developers.cloudflare.com/workers/configuration/secrets/
    */
-	"vars": {
-		"ENVIRONMENT": "development",
-		"GITHUB_OWNER": "eoghanmccarthy",
-		"GITHUB_REPO": "eoghanmccarthy",
-		"R2_PUBLIC_URL": "https://assets.eoghanmccarthy.com"
-	},
-	"routes": [
-		{
-			"pattern": "www.eoghanmccarthy.com",
-			"zone_name": "eoghanmccarthy.com",
-			"custom_domain": true
-		},
-		{
-			"pattern": "eoghanmccarthy.com",
-			"zone_name": "eoghanmccarthy.com",
-			"custom_domain": true
-		}
-	]
-	/**
+  "vars": {
+    "ENVIRONMENT": "development",
+    "GITHUB_OWNER": "eoghanmccarthy",
+    "GITHUB_REPO": "eoghanmccarthy",
+    "R2_PUBLIC_URL": "https://assets.eoghanmccarthy.com",
+  },
+  "routes": [
+    {
+      "pattern": "www.eoghanmccarthy.com",
+      "zone_name": "eoghanmccarthy.com",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "eoghanmccarthy.com",
+      "zone_name": "eoghanmccarthy.com",
+      "custom_domain": true,
+    },
+  ],
+  /**
    * Static Assets
    * https://developers.cloudflare.com/workers/static-assets/binding/
    */
-	// "assets": {  "directory": "./public/",  "binding": "ASSETS" }
-	/**
+  // "assets": {  "directory": "./public/",  "binding": "ASSETS" }
+  /**
    * Service Bindings (communicate between multiple Workers)
    * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
    */
-	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
+  // "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
 }

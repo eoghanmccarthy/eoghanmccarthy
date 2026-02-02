@@ -46,10 +46,7 @@ app.get("/api/ping", (c) => {
 });
 
 // Auth middleware for protected routes
-const authMiddleware = async (
-  c: Context<{ Bindings: Bindings }>,
-  next: Next,
-) => {
+const authMiddleware = async (c: Context<{ Bindings: Bindings }>, next: Next) => {
   const method = c.req.method;
 
   // Require auth for modifying methods
@@ -255,9 +252,7 @@ app.patch("/api/posts/:id/status", async (c) => {
     const existingContent = atob(existingFile.content);
 
     // Parse frontmatter and update status
-    const frontmatterMatch = existingContent.match(
-      /^---\n([\s\S]*?)\n---\n([\s\S]*)$/,
-    );
+    const frontmatterMatch = existingContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
     if (!frontmatterMatch) {
       return c.json({ error: "Invalid markdown format" }, 400);
     }

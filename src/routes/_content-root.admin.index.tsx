@@ -67,7 +67,7 @@ function RouteComponent() {
 
   return (
     <div className="page-container">
-      <h1 className="text-6xl heading-text mb-6 md:mb-16">Admin</h1>
+      <h1 className="page-heading">Admin</h1>
 
       <div className="content-grid">
         {/* Sidebar */}
@@ -84,9 +84,7 @@ function RouteComponent() {
         {/* Main Content */}
         <main>
           <div className="space-y-6">
-            <h2 className="text-2xl font-normal text-gray-900">
-              Upload New Post
-            </h2>
+            <h2 className="text-2xl font-normal text-gray-900">Upload New Post</h2>
 
             <form
               onSubmit={(e) => {
@@ -205,23 +203,17 @@ function RouteComponent() {
                     disabled={!canSubmit || uploadMutation.isPending}
                     className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {uploadMutation.isPending || isSubmitting
-                      ? "Uploading..."
-                      : "Upload Post"}
+                    {uploadMutation.isPending || isSubmitting ? "Uploading..." : "Upload Post"}
                   </button>
                 )}
               />
 
               {uploadMutation.isError && (
-                <p className="text-sm text-red-600">
-                  Error: {uploadMutation.error.message}
-                </p>
+                <p className="text-sm text-red-600">Error: {uploadMutation.error.message}</p>
               )}
 
               {uploadMutation.isSuccess && (
-                <p className="text-sm text-green-600">
-                  Post uploaded successfully!
-                </p>
+                <p className="text-sm text-green-600">Post uploaded successfully!</p>
               )}
             </form>
           </div>

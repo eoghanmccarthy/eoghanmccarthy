@@ -11,10 +11,7 @@ export const POST_TYPES = ["blog", "note"] as const;
 
 export const CATEGORIES = ["technology", "random"] as const;
 
-export const CATEGORY_DISPLAY_NAMES: Record<
-  "all posts" | (typeof CATEGORIES)[number],
-  string
-> = {
+export const CATEGORY_DISPLAY_NAMES: Record<"all posts" | (typeof CATEGORIES)[number], string> = {
   "all posts": "All Posts",
   technology: "Technology",
   random: "Random",
