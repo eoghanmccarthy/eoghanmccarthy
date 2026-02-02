@@ -34,14 +34,14 @@ function RouteComponent() {
     <div className="page-container">
       <div className="content-grid">
         {/* Sidebar */}
-        <aside className="col-span-full lg:col-span-6">
+        <aside>
           <div className="top-[var(--site-sticky-top)] md:sticky">
             <NotesSideNav category={post.category} tags={post.tags} />
           </div>
         </aside>
 
         {/* Main Content */}
-        <main className="col-span-full lg:col-span-12">
+        <main>
           <div className="mb-4">
             <PostTypeBadge type={post.type} />
           </div>
