@@ -9,14 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProjectsRootRouteImport } from './routes/_projects-root'
 import { Route as ContentRootRouteImport } from './routes/_content-root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsRootProjectsRouteImport } from './routes/_projects-root.projects'
 import { Route as ContentRootNotesRouteImport } from './routes/_content-root.notes'
+import { Route as ProjectsRootProjectsIndexRouteImport } from './routes/_projects-root.projects.index'
 import { Route as ContentRootNowIndexRouteImport } from './routes/_content-root.now.index'
 import { Route as ContentRootNotesIndexRouteImport } from './routes/_content-root.notes.index'
 import { Route as ContentRootAdminIndexRouteImport } from './routes/_content-root.admin.index'
 import { Route as ContentRootNotesIdRouteImport } from './routes/_content-root.notes.$id'
+import { Route as ProjectsRootProjectsJoyoIndexRouteImport } from './routes/_projects-root.projects.joyo/index'
 
+const ProjectsRootRoute = ProjectsRootRouteImport.update({
+  id: '/_projects-root',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContentRootRoute = ContentRootRouteImport.update({
   id: '/_content-root',
   getParentRoute: () => rootRouteImport,
@@ -26,11 +34,22 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsRootProjectsRoute = ProjectsRootProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => ProjectsRootRoute,
+} as any)
 const ContentRootNotesRoute = ContentRootNotesRouteImport.update({
   id: '/notes',
   path: '/notes',
   getParentRoute: () => ContentRootRoute,
 } as any)
+const ProjectsRootProjectsIndexRoute =
+  ProjectsRootProjectsIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => ProjectsRootProjectsRoute,
+  } as any)
 const ContentRootNowIndexRoute = ContentRootNowIndexRouteImport.update({
   id: '/now/',
   path: '/now/',
@@ -51,14 +70,23 @@ const ContentRootNotesIdRoute = ContentRootNotesIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => ContentRootNotesRoute,
 } as any)
+const ProjectsRootProjectsJoyoIndexRoute =
+  ProjectsRootProjectsJoyoIndexRouteImport.update({
+    id: '/joyo/',
+    path: '/joyo/',
+    getParentRoute: () => ProjectsRootProjectsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/notes': typeof ContentRootNotesRouteWithChildren
+  '/projects': typeof ProjectsRootProjectsRouteWithChildren
   '/notes/$id': typeof ContentRootNotesIdRoute
   '/admin': typeof ContentRootAdminIndexRoute
   '/notes/': typeof ContentRootNotesIndexRoute
   '/now': typeof ContentRootNowIndexRoute
+  '/projects/': typeof ProjectsRootProjectsIndexRoute
+  '/projects/joyo': typeof ProjectsRootProjectsJoyoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -66,40 +94,74 @@ export interface FileRoutesByTo {
   '/admin': typeof ContentRootAdminIndexRoute
   '/notes': typeof ContentRootNotesIndexRoute
   '/now': typeof ContentRootNowIndexRoute
+  '/projects': typeof ProjectsRootProjectsIndexRoute
+  '/projects/joyo': typeof ProjectsRootProjectsJoyoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_content-root': typeof ContentRootRouteWithChildren
+  '/_projects-root': typeof ProjectsRootRouteWithChildren
   '/_content-root/notes': typeof ContentRootNotesRouteWithChildren
+  '/_projects-root/projects': typeof ProjectsRootProjectsRouteWithChildren
   '/_content-root/notes/$id': typeof ContentRootNotesIdRoute
   '/_content-root/admin/': typeof ContentRootAdminIndexRoute
   '/_content-root/notes/': typeof ContentRootNotesIndexRoute
   '/_content-root/now/': typeof ContentRootNowIndexRoute
+  '/_projects-root/projects/': typeof ProjectsRootProjectsIndexRoute
+  '/_projects-root/projects/joyo/': typeof ProjectsRootProjectsJoyoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/notes' | '/notes/$id' | '/admin' | '/notes/' | '/now'
+  fullPaths:
+    | '/'
+    | '/notes'
+    | '/projects'
+    | '/notes/$id'
+    | '/admin'
+    | '/notes/'
+    | '/now'
+    | '/projects/'
+    | '/projects/joyo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/notes/$id' | '/admin' | '/notes' | '/now'
+  to:
+    | '/'
+    | '/notes/$id'
+    | '/admin'
+    | '/notes'
+    | '/now'
+    | '/projects'
+    | '/projects/joyo'
   id:
     | '__root__'
     | '/'
     | '/_content-root'
+    | '/_projects-root'
     | '/_content-root/notes'
+    | '/_projects-root/projects'
     | '/_content-root/notes/$id'
     | '/_content-root/admin/'
     | '/_content-root/notes/'
     | '/_content-root/now/'
+    | '/_projects-root/projects/'
+    | '/_projects-root/projects/joyo/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContentRootRoute: typeof ContentRootRouteWithChildren
+  ProjectsRootRoute: typeof ProjectsRootRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_projects-root': {
+      id: '/_projects-root'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof ProjectsRootRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_content-root': {
       id: '/_content-root'
       path: ''
@@ -114,12 +176,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_projects-root/projects': {
+      id: '/_projects-root/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRootProjectsRouteImport
+      parentRoute: typeof ProjectsRootRoute
+    }
     '/_content-root/notes': {
       id: '/_content-root/notes'
       path: '/notes'
       fullPath: '/notes'
       preLoaderRoute: typeof ContentRootNotesRouteImport
       parentRoute: typeof ContentRootRoute
+    }
+    '/_projects-root/projects/': {
+      id: '/_projects-root/projects/'
+      path: '/'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsRootProjectsIndexRouteImport
+      parentRoute: typeof ProjectsRootProjectsRoute
     }
     '/_content-root/now/': {
       id: '/_content-root/now/'
@@ -148,6 +224,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/notes/$id'
       preLoaderRoute: typeof ContentRootNotesIdRouteImport
       parentRoute: typeof ContentRootNotesRoute
+    }
+    '/_projects-root/projects/joyo/': {
+      id: '/_projects-root/projects/joyo/'
+      path: '/joyo'
+      fullPath: '/projects/joyo'
+      preLoaderRoute: typeof ProjectsRootProjectsJoyoIndexRouteImport
+      parentRoute: typeof ProjectsRootProjectsRoute
     }
   }
 }
@@ -181,9 +264,35 @@ const ContentRootRouteWithChildren = ContentRootRoute._addFileChildren(
   ContentRootRouteChildren,
 )
 
+interface ProjectsRootProjectsRouteChildren {
+  ProjectsRootProjectsIndexRoute: typeof ProjectsRootProjectsIndexRoute
+  ProjectsRootProjectsJoyoIndexRoute: typeof ProjectsRootProjectsJoyoIndexRoute
+}
+
+const ProjectsRootProjectsRouteChildren: ProjectsRootProjectsRouteChildren = {
+  ProjectsRootProjectsIndexRoute: ProjectsRootProjectsIndexRoute,
+  ProjectsRootProjectsJoyoIndexRoute: ProjectsRootProjectsJoyoIndexRoute,
+}
+
+const ProjectsRootProjectsRouteWithChildren =
+  ProjectsRootProjectsRoute._addFileChildren(ProjectsRootProjectsRouteChildren)
+
+interface ProjectsRootRouteChildren {
+  ProjectsRootProjectsRoute: typeof ProjectsRootProjectsRouteWithChildren
+}
+
+const ProjectsRootRouteChildren: ProjectsRootRouteChildren = {
+  ProjectsRootProjectsRoute: ProjectsRootProjectsRouteWithChildren,
+}
+
+const ProjectsRootRouteWithChildren = ProjectsRootRoute._addFileChildren(
+  ProjectsRootRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContentRootRoute: ContentRootRouteWithChildren,
+  ProjectsRootRoute: ProjectsRootRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
