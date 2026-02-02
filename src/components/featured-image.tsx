@@ -4,11 +4,7 @@ interface FeaturedImageProps {
   variant?: "list" | "detail";
 }
 
-export default function FeaturedImage({
-  src,
-  alt,
-  variant = "detail",
-}: FeaturedImageProps) {
+export default function FeaturedImage({ src, alt, variant = "detail" }: FeaturedImageProps) {
   const className =
     variant === "list"
       ? "w-full h-48 object-cover mb-2 rounded-md"

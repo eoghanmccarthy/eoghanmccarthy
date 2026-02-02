@@ -1,12 +1,6 @@
 import { z } from "zod";
 
-import {
-  AUTHORS,
-  CATEGORIES,
-  POST_STATUS,
-  POST_TYPES,
-  TAGS,
-} from "@/constants.ts";
+import { AUTHORS, CATEGORIES, POST_STATUS, POST_TYPES, TAGS } from "@/constants.ts";
 
 const PostSchema = z.object({
   id: z.string(),

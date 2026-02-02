@@ -4,11 +4,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
 
 import { formatDate } from "@/utils/date.ts";
-import {
-  CATEGORIES,
-  CATEGORY_DISPLAY_NAMES,
-  TAG_DISPLAY_NAMES,
-} from "@/constants";
+import { CATEGORIES, CATEGORY_DISPLAY_NAMES, TAG_DISPLAY_NAMES } from "@/constants";
 
 import { postQueryOptions } from "@/queries/posts";
 
@@ -53,13 +49,9 @@ function RouteComponent() {
             />
           )}
           {post.type === "blog" && post.title && (
-            <h1 className="text-4xl font-normal mb-2 text-balance">
-              {post.title}
-            </h1>
+            <h1 className="text-4xl font-normal mb-2 text-balance">{post.title}</h1>
           )}
-          <p className="text-gray-500 mb-8 font-normal">
-            {formatDate(post.createdAt)}
-          </p>
+          <p className="text-gray-500 mb-8 font-normal">{formatDate(post.createdAt)}</p>
           <div className="prose">
             <ReactMarkdown
             // rehypePlugins={[rehypeExternalLinks({ target: "_blank" })]}
@@ -79,13 +71,8 @@ function RouteComponent() {
               {post.tags.map((tag, index) => (
                 <span key={tag}>
                   {index > 0 && <span className="mx-2">•</span>}
-                  <Link
-                    to="/notes"
-                    search={{ tags: [tag] }}
-                    className="hover:text-gray-900"
-                  >
-                    {TAG_DISPLAY_NAMES[tag as keyof typeof TAG_DISPLAY_NAMES] ??
-                      tag}
+                  <Link to="/notes" search={{ tags: [tag] }} className="hover:text-gray-900">
+                    {TAG_DISPLAY_NAMES[tag as keyof typeof TAG_DISPLAY_NAMES] ?? tag}
                   </Link>
                 </span>
               ))}

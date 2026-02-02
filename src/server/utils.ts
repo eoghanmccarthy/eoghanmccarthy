@@ -18,10 +18,7 @@ export const validateImage = (file: File) => {
     );
   }
   if (file.size > MAX_FILE_SIZE) {
-    throw new ImageValidationError(
-      "File too large",
-      "Maximum file size is 10MB",
-    );
+    throw new ImageValidationError("File too large", "Maximum file size is 10MB");
   }
 };
 
@@ -58,9 +55,7 @@ export const generateFrontmatter = (data: FrontmatterData): string => {
     data.category ? `category: ${data.category}` : null,
     data.description ? `description: ${data.description}` : null,
     data.featuredImage ? `featuredImage: ${data.featuredImage}` : null,
-    data.tags && data.tags.length > 0
-      ? `tags: [${data.tags.join(", ")}]`
-      : null,
+    data.tags && data.tags.length > 0 ? `tags: [${data.tags.join(", ")}]` : null,
     "---",
   ]
     .filter(Boolean)
@@ -69,11 +64,7 @@ export const generateFrontmatter = (data: FrontmatterData): string => {
   return frontmatter;
 };
 
-export const updatePostStatus = (
-  frontmatter: string,
-  status: string,
-  now: string,
-) => {
+export const updatePostStatus = (frontmatter: string, status: string, now: string) => {
   // Update status and updated date in frontmatter
   const updatedFrontmatter = frontmatter
     .split("\n")

@@ -26,19 +26,12 @@ function createPostFromData(
     id,
     type,
     title: type === "blog" ? data.title : "",
-    author:
-      data.author && AUTHORS.includes(data.author as any)
-        ? data.author
-        : AUTHORS[0],
-    status:
-      data.status && POST_STATUS.includes(data.status as any)
-        ? data.status
-        : POST_STATUS[0],
+    author: data.author && AUTHORS.includes(data.author as any) ? data.author : AUTHORS[0],
+    status: data.status && POST_STATUS.includes(data.status as any) ? data.status : POST_STATUS[0],
     createdAt: data.createdAt,
     updatedAt: data.updatedAt || null,
     category: data.category || null,
-    description:
-      type === "blog" ? data.description || extractExcerpt(content) : "",
+    description: type === "blog" ? data.description || extractExcerpt(content) : "",
     featuredImage: data.featuredImage || null,
     tags: tags && tags.length > 0 ? tags : [],
     content,
@@ -61,23 +54,18 @@ export async function loadPosts(): Promise<Post[]> {
     import: "default",
   });
 
-  const postPromises = Object.entries(modules).map(
-    async ([path, loadModule]) => {
-      const rawContent = (await loadModule()) as string;
-      const { data, content } = parseFrontmatter(rawContent);
-      const id = path.split("/").pop()?.replace(".md", "") || "";
+  const postPromises = Object.entries(modules).map(async ([path, loadModule]) => {
+    const rawContent = (await loadModule()) as string;
+    const { data, content } = parseFrontmatter(rawContent);
+    const id = path.split("/").pop()?.replace(".md", "") || "";
 
-      return createPostFromData(id, data, content);
-    },
-  );
+    return createPostFromData(id, data, content);
+  });
 
   const posts = await Promise.all(postPromises);
   return posts
     .filter((post): post is Post => post !== null)
-    .sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-    );
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }
 
 export async function loadPost(id: string): Promise<Post | null> {
