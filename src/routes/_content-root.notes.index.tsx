@@ -41,14 +41,14 @@ function RouteComponent() {
       <h1 className="text-6xl heading-text mb-6 md:mb-16">Notes</h1>
 
       <div className="content-grid">
-        <aside className="col-span-full lg:col-span-6">
+        <aside>
           <div className="top-[var(--site-sticky-top)] md:sticky">
             <NotesSideNav category={category} tags={tags} />
           </div>
         </aside>
 
         {/* Main Content */}
-        <main className="col-span-full lg:col-span-12">
+        <main>
           <div className="space-y-12">
             {posts.length === 0 ? (
               <p className="text-gray-500">No posts found.</p>

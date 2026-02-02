@@ -71,7 +71,7 @@ function RouteComponent() {
 
       <div className="content-grid">
         {/* Sidebar */}
-        <aside className="col-span-full lg:col-span-6">
+        <aside>
           <div className="top-[var(--site-sticky-top)] md:sticky">
             <nav className="space-y-1 mb-6 text-base font-normal">
               <a href="#" className="block text-gray-900">
@@ -82,7 +82,7 @@ function RouteComponent() {
         </aside>
 
         {/* Main Content */}
-        <main className="col-span-full lg:col-span-12">
+        <main>
           <div className="space-y-6">
             <h2 className="text-2xl font-normal text-gray-900">
               Upload New Post

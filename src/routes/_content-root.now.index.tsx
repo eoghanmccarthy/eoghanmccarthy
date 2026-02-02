@@ -11,10 +11,10 @@ function RouteComponent() {
 
       <div className="content-grid">
         {/* Sidebar */}
-        <aside className="col-span-full lg:col-span-6"></aside>
+        <aside></aside>
 
         {/* Main Content */}
-        <main className="col-span-full lg:col-span-12">
+        <main>
           <div className="prose">
             <p>
               Currently building tooling for machine learning teams and
