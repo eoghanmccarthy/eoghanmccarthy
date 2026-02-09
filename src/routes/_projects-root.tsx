@@ -4,9 +4,9 @@ import { MainNav } from "@/components/main-nav.tsx";
 
 export const Route = createFileRoute("/_projects-root")({
   component: RouteComponent,
-    beforeLoad: () => {
-      throw redirect({ to: '/' })
-    },
+  beforeLoad: () => {
+    throw redirect({ to: '/' })
+  },
 });
 
 function RouteComponent() {

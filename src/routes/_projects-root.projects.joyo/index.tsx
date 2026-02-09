@@ -1,18 +1,40 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { z } from "zod";
-import { useState, useEffect } from "react";
+
+import { CharacterData } from "./types.ts";
+import { useJoyoProgress } from "./use-joyo-progress.ts";
 
 import { postsQueryOptions } from "@/queries/posts.ts";
 
 import NotesSideNav from "@/components/notes-side-nav";
 
+import { CharCard } from "./char-card-02.tsx";
+
+// https://gist.github.com/KEINOS/fb660943484008b7f5297bb627e0e1b1
 import joyoData from "./joyo_2010.json";
 
 const searchSchema = z.object({
   category: z.string().optional(),
   tags: z.array(z.string()).optional(),
+  strokes: z.coerce.number().optional(),
+  grade: z.string().optional(),
+  q: z.string().optional(),
+  status: z.enum(["all", "learned", "unlearned"]).optional().default("all"),
 });
+
+function getStrokes(kanji: CharacterData): number | null {
+  if (!kanji.raw_info) return null;
+  const parts = kanji.raw_info.split("\t");
+  const stroke = parseInt(parts[2], 10);
+  return isNaN(stroke) ? null : stroke;
+}
+
+function getGrade(kanji: CharacterData): string | null {
+  if (!kanji.raw_info) return null;
+  const parts = kanji.raw_info.split("\t");
+  return parts[3] || null;
+}
 
 export const Route = createFileRoute("/_projects-root/projects/joyo/")({
   validateSearch: zodValidator(searchSchema),
@@ -23,79 +45,46 @@ export const Route = createFileRoute("/_projects-root/projects/joyo/")({
   component: RouteComponent,
 });
 
-type CharacterData = {
-  joyo_kanji: string;
-  yomi?: {
-    on_yomi?: string[];
-    kun_yomi?: string[];
-  };
-};
-
-function KanjiCell({ id, kanji }: { id: string; kanji: CharacterData }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [visibleChars, setVisibleChars] = useState(0);
-
-  const onReading = kanji.yomi?.on_yomi?.join("・") || "";
-  const kunReading = kanji.yomi?.kun_yomi?.join("・") || "";
-  const fullReading = [onReading, kunReading].filter(Boolean).join(" ");
-  const totalChars = fullReading.length;
-
-  useEffect(() => {
-    if (!isHovered) {
-      setVisibleChars(0);
-      return;
-    }
-
-    if (visibleChars >= totalChars) return;
-
-    const timeout = setTimeout(() => {
-      setVisibleChars((prev) => prev + 1);
-    }, 40);
-
-    return () => clearTimeout(timeout);
-  }, [isHovered, visibleChars, totalChars]);
-
-  return (
-    <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`group relative aspect-square border-r border-dashed border-b border-neutral-200 cursor-pointer overflow-hidden ${
-        isHovered ? "bg-neutral-900" : "bg-neutral-50"
-      }`}
-    >
-      <span
-        className={`absolute top-2 left-2 font-mono text-[10px] ${
-          isHovered ? "text-neutral-500" : "text-neutral-400"
-        }`}
-      >
-        U+{Number(id).toString(16).toUpperCase().padStart(4, "0")}
-      </span>
-
-      <span
-        className={`absolute top-1/3 left-4 text-5xl font-light tracking-tight ${
-          isHovered ? "text-neutral-50" : "text-neutral-900"
-        }`}
-      >
-        {kanji.joyo_kanji}
-      </span>
-
-      <div className="absolute bottom-4 left-4 flex flex-col items-start gap-0.5">
-        {onReading && (
-          <span className="text-xs text-neutral-400">{onReading.slice(0, visibleChars)}</span>
-        )}
-        {kunReading && (
-          <span className="text-xs text-neutral-500">
-            {kunReading.slice(0, Math.max(0, visibleChars - onReading.length))}
-          </span>
-        )}
-      </div>
-    </div>
-  );
+function formatSessionDate(dateStr: string): string {
+  const [, m, d] = dateStr.split("-");
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  return `${months[parseInt(m, 10) - 1]} ${parseInt(d, 10)}`;
 }
+
+const totalKanji = Object.keys(joyoData).length;
 
 function RouteComponent() {
   const navigate = useNavigate();
-  const { category, tags } = Route.useSearch();
+  const { category, tags, strokes, grade, q, status } = Route.useSearch();
+  const { learned, toggle, lastSession } = useJoyoProgress();
+
+  const filteredData = Object.entries(joyoData).filter(([id, kanji]) => {
+    const k = kanji as CharacterData;
+    if (strokes !== undefined && getStrokes(k) !== strokes) return false;
+    if (grade !== undefined && getGrade(k) !== grade) return false;
+    if (q) {
+      const term = q.toLowerCase();
+      const readings = [...(k.yomi?.on_yomi || []), ...(k.yomi?.kun_yomi || [])];
+      const match = k.joyo_kanji.includes(term) || readings.some((r) => r.includes(term));
+      if (!match) return false;
+    }
+    if (status === "learned" && !learned.has(id)) return false;
+    if (status === "unlearned" && learned.has(id)) return false;
+    return true;
+  });
 
   return (
     <div className="page-container" style={{ maxWidth: "100%" }}>
@@ -110,42 +99,143 @@ function RouteComponent() {
 
         {/* Main Content */}
         <main style={{ gridColumnEnd: "-1" }}>
+          <div className="mb-4 flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <input
+                type="text"
+                placeholder="Search kanji or reading"
+                value={q ?? ""}
+                onChange={(e) =>
+                  navigate({
+                    to: ".",
+                    search: (prev) => ({
+                      ...prev,
+                      q: e.target.value || undefined,
+                    }),
+                  })
+                }
+                className="border border-neutral-200 px-2 py-1 text-sm"
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <label htmlFor="strokes" className="text-sm text-neutral-500">
+                Strokes
+              </label>
+              <input
+                id="strokes"
+                type="number"
+                min={1}
+                max={30}
+                value={strokes ?? ""}
+                onChange={(e) =>
+                  navigate({
+                    to: ".",
+                    search: (prev) => ({
+                      ...prev,
+                      strokes: e.target.value ? Number(e.target.value) : undefined,
+                    }),
+                  })
+                }
+                className="w-16 border border-neutral-200 px-2 py-1 text-sm"
+              />
+              {strokes !== undefined && (
+                <button
+                  type="button"
+                  onClick={() =>
+                    navigate({
+                      to: ".",
+                      search: (prev) => ({ ...prev, strokes: undefined }),
+                    })
+                  }
+                  className="text-sm text-neutral-400 hover:text-neutral-600"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <label htmlFor="grade" className="text-sm text-neutral-500">
+                Grade
+              </label>
+              <select
+                id="grade"
+                value={grade ?? ""}
+                onChange={(e) =>
+                  navigate({
+                    to: ".",
+                    search: (prev) => ({
+                      ...prev,
+                      grade: e.target.value || undefined,
+                    }),
+                  })
+                }
+                className="border border-neutral-200 px-2 py-1 text-sm"
+              >
+                <option value="">All</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="S">S</option>
+              </select>
+            </div>
+            <div className="flex items-center gap-2">
+              <label htmlFor="status" className="text-sm text-neutral-500">
+                Status
+              </label>
+              <select
+                id="status"
+                value={status ?? "all"}
+                onChange={(e) =>
+                  navigate({
+                    to: ".",
+                    search: (prev) => ({
+                      ...prev,
+                      status:
+                        e.target.value === "all"
+                          ? undefined
+                          : (e.target.value as "learned" | "unlearned"),
+                    }),
+                  })
+                }
+                className="border border-neutral-200 px-2 py-1 text-sm"
+              >
+                <option value="all">All</option>
+                <option value="learned">Learned</option>
+                <option value="unlearned">Unlearned</option>
+              </select>
+            </div>
+            {(strokes !== undefined || grade !== undefined || q) && (
+              <span className="text-sm text-neutral-400">{filteredData.length} kanji</span>
+            )}
+          </div>
+          <div className="mb-4 flex items-center gap-4 text-sm text-neutral-500">
+            <span>
+              {learned.size} / {totalKanji} learned
+            </span>
+            {lastSession && (
+              <span>
+                Last session: {lastSession.count} kanji · {formatSessionDate(lastSession.date)}
+              </span>
+            )}
+          </div>
           <div
-            className="grid font-jp border-l border-dashed border-t border-neutral-200"
+            className="grid font-jp border-l border-dashed border-t border-neutral-200 gap-4"
             style={{
-              gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
             }}
           >
-            {Object.entries(joyoData).map(([id, kanji]: [string, CharacterData]) => {
-              return <KanjiCell key={id} id={id} kanji={kanji} />;
+            {filteredData.map(([id, kanji]) => {
               return (
-                <div
+                <CharCard
                   key={id}
-                  className="group relative grid place-items-center aspect-square border-r border-dashed border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-900 cursor-pointer overflow-hidden"
-                >
-                  <span className="absolute top-2 left-2 font-mono text-[10px] text-neutral-400 group-hover:text-neutral-500 transition-colors duration-500">
-                    U+{Number(id).toString(16).toUpperCase().padStart(4, "0")}
-                  </span>
-
-                  {/* Kanji - shifts up on hover */}
-                  <span className="text-5xl font-light tracking-tight text-neutral-900 group-hover:text-neutral-50 transition-all duration-500 ease-out group-hover:-translate-y-4">
-                    {kanji.joyo_kanji}
-                  </span>
-
-                  {/* Readings - fade in from below on hover */}
-                  <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center gap-0.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                    {kanji.yomi?.on_yomi && (
-                      <span className="text-xs text-neutral-400">
-                        {kanji.yomi.on_yomi.join("・")}
-                      </span>
-                    )}
-                    {kanji.yomi?.kun_yomi && (
-                      <span className="text-xs text-neutral-500">
-                        {kanji.yomi.kun_yomi.join("・")}
-                      </span>
-                    )}
-                  </div>
-                </div>
+                  id={id}
+                  kanji={kanji as CharacterData}
+                  learned={learned.has(id)}
+                  onToggle={() => toggle(id)}
+                />
               );
             })}
           </div>

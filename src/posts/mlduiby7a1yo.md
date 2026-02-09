@@ -7,4 +7,6 @@ status: published
 author: eoghan
 ---
 
-Been experimenting with ![Vercel's json-render library](https://github.com/vercel-labs/json-render) for rendering React components from JSON schemas
+Been experimenting with [Vercel's json-render library](https://github.com/vercel-labs/json-render). Lets you generate UI from prompts but keeps everything constrained to components you define.
+
+Got it working in a TanStack Start app. First time using TanStack's server functions and really like them.
