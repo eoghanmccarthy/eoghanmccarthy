@@ -1,11 +1,10 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { z } from "zod";
 
-import { postsQueryOptions } from "@/queries/posts.ts";
-
 import NotesSideNav from "@/components/notes-side-nav";
+import { postsQueryOptions } from "@/queries/posts.ts";
 
 const searchSchema = z.object({
   category: z.string().optional(),
@@ -52,7 +51,7 @@ function RouteComponent() {
               projects.map((post) => (
                 <article
                   key={post.id}
-                  className="space-y-2 pb-12 border-b border-gray-200 last:border-0"
+                  className="space-y-2 border-b border-gray-200 pb-12 last:border-0"
                 >
                   {post.id}
                 </article>

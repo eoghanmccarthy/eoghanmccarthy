@@ -2,17 +2,14 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { z } from "zod";
 
-import { CharacterData } from "./types.ts";
-import { useJoyoProgress } from "./use-joyo-progress.ts";
-
+import NotesSideNav from "@/components/notes-side-nav";
 import { postsQueryOptions } from "@/queries/posts.ts";
 
-import NotesSideNav from "@/components/notes-side-nav";
-
 import { CharCard } from "./char-card-02.tsx";
-
 // https://gist.github.com/KEINOS/fb660943484008b7f5297bb627e0e1b1
 import joyoData from "./joyo_2010.json";
+import { CharacterData } from "./types.ts";
+import { useJoyoProgress } from "./use-joyo-progress.ts";
 
 const searchSchema = z.object({
   category: z.string().optional(),
@@ -222,7 +219,7 @@ function RouteComponent() {
             )}
           </div>
           <div
-            className="grid font-jp border-l border-dashed border-t border-neutral-200 gap-4"
+            className="font-jp grid gap-4 border-t border-l border-dashed border-neutral-200"
             style={{
               gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
             }}

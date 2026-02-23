@@ -1,16 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import ReactMarkdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
 
-import { formatDate } from "@/utils/date.ts";
-import { CATEGORIES, CATEGORY_DISPLAY_NAMES, TAG_DISPLAY_NAMES } from "@/constants";
-
-import { postQueryOptions } from "@/queries/posts";
-
-import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
 import NotesSideNav from "@/components/notes-side-nav";
+import PostTypeBadge from "@/components/post-type-badge";
+import { CATEGORIES, CATEGORY_DISPLAY_NAMES, TAG_DISPLAY_NAMES } from "@/constants";
+import { postQueryOptions } from "@/queries/posts";
+import { formatDate } from "@/utils/date.ts";
 
 export const Route = createFileRoute("/_content-root/notes/$id")({
   loader: async ({ context: { queryClient }, params: { id } }) => {
@@ -49,9 +47,9 @@ function RouteComponent() {
             />
           )}
           {post.type === "blog" && post.title && (
-            <h1 className="text-4xl font-normal mb-2 text-balance">{post.title}</h1>
+            <h1 className="mb-2 text-4xl font-normal text-balance">{post.title}</h1>
           )}
-          <p className="text-gray-500 mb-8 font-normal">{formatDate(post.createdAt)}</p>
+          <p className="mb-8 font-normal text-gray-500">{formatDate(post.createdAt)}</p>
           <div className="prose">
             <ReactMarkdown
             // rehypePlugins={[rehypeExternalLinks({ target: "_blank" })]}

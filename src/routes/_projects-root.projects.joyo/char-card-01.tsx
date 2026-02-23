@@ -30,7 +30,7 @@ export function CharCard({ id, kanji }: { id: string; kanji: CharacterData }) {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group relative aspect-square border-r border-dashed border-b border-neutral-200 cursor-pointer overflow-hidden ${
+      className={`group relative aspect-square cursor-pointer overflow-hidden border-r border-b border-dashed border-neutral-200 ${
         isHovered ? "bg-neutral-900" : "bg-neutral-50"
       }`}
     >

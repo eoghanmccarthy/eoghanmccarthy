@@ -1,17 +1,15 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { zodValidator } from "@tanstack/zod-adapter";
 import Markdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
 import { z } from "zod";
 
-import { formatDate } from "@/utils/date.ts";
-
-import { postsQueryOptions } from "@/queries/posts.ts";
-
-import PostTypeBadge from "@/components/post-type-badge";
 import FeaturedImage from "@/components/featured-image";
 import NotesSideNav from "@/components/notes-side-nav";
+import PostTypeBadge from "@/components/post-type-badge";
+import { postsQueryOptions } from "@/queries/posts.ts";
+import { formatDate } from "@/utils/date.ts";
 
 const searchSchema = z.object({
   category: z.string().optional(),
@@ -52,13 +50,13 @@ function RouteComponent() {
               posts.map((post) => (
                 <article
                   key={post.id}
-                  className="space-y-2 pb-12 border-b border-gray-200 last:border-0"
+                  className="space-y-2 border-b border-gray-200 pb-12 last:border-0"
                 >
                   <PostTypeBadge type={post.type} />
                   {post.type === "note" ? (
                     <>
                       <div
-                        className="block group cursor-pointer"
+                        className="group block cursor-pointer"
                         onClick={(e) => {
                           // Allow links inside markdown to work without navigating to post
                           if ((e.target as HTMLElement).closest("a")) {
@@ -71,7 +69,7 @@ function RouteComponent() {
                           });
                         }}
                       >
-                        <div className="prose group-hover:text-gray-600 transition-colors">
+                        <div className="prose transition-colors group-hover:text-gray-600">
                           <Markdown
                           // rehypePlugins={[
                           //   rehypeExternalLinks({ target: "_blank" }),
@@ -99,12 +97,12 @@ function RouteComponent() {
                           variant="detail"
                         />
                       )}
-                      <Link to="/notes/$id" params={{ id: post.id }} className="block group">
-                        <h2 className="text-xl font-normal text-gray-900 group-hover:text-gray-600 transition-colors">
+                      <Link to="/notes/$id" params={{ id: post.id }} className="group block">
+                        <h2 className="text-xl font-normal text-gray-900 transition-colors group-hover:text-gray-600">
                           {post.title}
                         </h2>
                       </Link>
-                      <p className="text-base text-gray-600 leading-relaxed">{post.description}</p>
+                      <p className="text-base leading-relaxed text-gray-600">{post.description}</p>
                       <p className="text-sm text-gray-500">{formatDate(post.createdAt)}</p>
                     </>
                   ) : null}

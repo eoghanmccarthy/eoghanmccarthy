@@ -44,7 +44,7 @@ export function CharCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onToggle}
-      className={`relative aspect-square cursor-pointer overflow-hidden flex flex-col`}
+      className={`relative flex aspect-square cursor-pointer flex-col overflow-hidden`}
     >
       {learned && (
         <span className="absolute top-1.5 right-2 z-10 text-[10px] text-neutral-400">●</span>
@@ -58,19 +58,19 @@ export function CharCard({
       </span>
 
       <div
-        className={`group relative flex-1 grid place-items-center`}
+        className={`group relative grid flex-1 place-items-center`}
         style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}
       >
-        <div className="absolute top-0 w-[80%] l-[10%] h-full bg-[yellow] group-hover:bg-white/60"></div>
+        <div className="l-[10%] absolute top-0 h-full w-[80%] bg-[yellow] group-hover:bg-white/60"></div>
         <span
-          className={`text-5xl font-light tracking-tight z-1 mr-1`}
+          className={`z-1 mr-1 text-5xl font-light tracking-tight`}
           style={{ fontSize: 180, marginTop: 16 }}
         >
           {kanji.joyo_kanji}
         </span>
       </div>
 
-      <div className="absolute top-8 left-4 w-full h-full flex flex-col items-start gap-0.5">
+      <div className="absolute top-8 left-4 flex h-full w-full flex-col items-start gap-0.5">
         {onReading && (
           <span className="text-xl text-neutral-400">{onReading.slice(0, visibleChars)}</span>
         )}

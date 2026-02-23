@@ -8,301 +8,291 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProjectsRootRouteImport } from './routes/_projects-root'
-import { Route as ContentRootRouteImport } from './routes/_content-root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProjectsRootProjectsRouteImport } from './routes/_projects-root.projects'
-import { Route as ContentRootNotesRouteImport } from './routes/_content-root.notes'
-import { Route as ProjectsRootProjectsIndexRouteImport } from './routes/_projects-root.projects.index'
-import { Route as ContentRootNowIndexRouteImport } from './routes/_content-root.now.index'
-import { Route as ContentRootNotesIndexRouteImport } from './routes/_content-root.notes.index'
-import { Route as ContentRootAdminIndexRouteImport } from './routes/_content-root.admin.index'
-import { Route as ContentRootNotesIdRouteImport } from './routes/_content-root.notes.$id'
-import { Route as ProjectsRootProjectsJoyoIndexRouteImport } from './routes/_projects-root.projects.joyo/index'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as ContentRootRouteImport } from "./routes/_content-root";
+import { Route as ContentRootAdminIndexRouteImport } from "./routes/_content-root.admin.index";
+import { Route as ContentRootNotesRouteImport } from "./routes/_content-root.notes";
+import { Route as ContentRootNotesIdRouteImport } from "./routes/_content-root.notes.$id";
+import { Route as ContentRootNotesIndexRouteImport } from "./routes/_content-root.notes.index";
+import { Route as ContentRootNowIndexRouteImport } from "./routes/_content-root.now.index";
+import { Route as ProjectsRootRouteImport } from "./routes/_projects-root";
+import { Route as ProjectsRootProjectsRouteImport } from "./routes/_projects-root.projects";
+import { Route as ProjectsRootProjectsIndexRouteImport } from "./routes/_projects-root.projects.index";
+import { Route as ProjectsRootProjectsJoyoIndexRouteImport } from "./routes/_projects-root.projects.joyo/index";
+import { Route as IndexRouteImport } from "./routes/index";
 
 const ProjectsRootRoute = ProjectsRootRouteImport.update({
-  id: '/_projects-root',
+  id: "/_projects-root",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ContentRootRoute = ContentRootRouteImport.update({
-  id: '/_content-root',
+  id: "/_content-root",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ProjectsRootProjectsRoute = ProjectsRootProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
+  id: "/projects",
+  path: "/projects",
   getParentRoute: () => ProjectsRootRoute,
-} as any)
+} as any);
 const ContentRootNotesRoute = ContentRootNotesRouteImport.update({
-  id: '/notes',
-  path: '/notes',
+  id: "/notes",
+  path: "/notes",
   getParentRoute: () => ContentRootRoute,
-} as any)
-const ProjectsRootProjectsIndexRoute =
-  ProjectsRootProjectsIndexRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => ProjectsRootProjectsRoute,
-  } as any)
+} as any);
+const ProjectsRootProjectsIndexRoute = ProjectsRootProjectsIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => ProjectsRootProjectsRoute,
+} as any);
 const ContentRootNowIndexRoute = ContentRootNowIndexRouteImport.update({
-  id: '/now/',
-  path: '/now/',
+  id: "/now/",
+  path: "/now/",
   getParentRoute: () => ContentRootRoute,
-} as any)
+} as any);
 const ContentRootNotesIndexRoute = ContentRootNotesIndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => ContentRootNotesRoute,
-} as any)
+} as any);
 const ContentRootAdminIndexRoute = ContentRootAdminIndexRouteImport.update({
-  id: '/admin/',
-  path: '/admin/',
+  id: "/admin/",
+  path: "/admin/",
   getParentRoute: () => ContentRootRoute,
-} as any)
+} as any);
 const ContentRootNotesIdRoute = ContentRootNotesIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
+  id: "/$id",
+  path: "/$id",
   getParentRoute: () => ContentRootNotesRoute,
-} as any)
-const ProjectsRootProjectsJoyoIndexRoute =
-  ProjectsRootProjectsJoyoIndexRouteImport.update({
-    id: '/joyo/',
-    path: '/joyo/',
-    getParentRoute: () => ProjectsRootProjectsRoute,
-  } as any)
+} as any);
+const ProjectsRootProjectsJoyoIndexRoute = ProjectsRootProjectsJoyoIndexRouteImport.update({
+  id: "/joyo/",
+  path: "/joyo/",
+  getParentRoute: () => ProjectsRootProjectsRoute,
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/notes': typeof ContentRootNotesRouteWithChildren
-  '/projects': typeof ProjectsRootProjectsRouteWithChildren
-  '/notes/$id': typeof ContentRootNotesIdRoute
-  '/admin': typeof ContentRootAdminIndexRoute
-  '/notes/': typeof ContentRootNotesIndexRoute
-  '/now': typeof ContentRootNowIndexRoute
-  '/projects/': typeof ProjectsRootProjectsIndexRoute
-  '/projects/joyo': typeof ProjectsRootProjectsJoyoIndexRoute
+  "/": typeof IndexRoute;
+  "/notes": typeof ContentRootNotesRouteWithChildren;
+  "/projects": typeof ProjectsRootProjectsRouteWithChildren;
+  "/notes/$id": typeof ContentRootNotesIdRoute;
+  "/admin": typeof ContentRootAdminIndexRoute;
+  "/notes/": typeof ContentRootNotesIndexRoute;
+  "/now": typeof ContentRootNowIndexRoute;
+  "/projects/": typeof ProjectsRootProjectsIndexRoute;
+  "/projects/joyo": typeof ProjectsRootProjectsJoyoIndexRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/notes/$id': typeof ContentRootNotesIdRoute
-  '/admin': typeof ContentRootAdminIndexRoute
-  '/notes': typeof ContentRootNotesIndexRoute
-  '/now': typeof ContentRootNowIndexRoute
-  '/projects': typeof ProjectsRootProjectsIndexRoute
-  '/projects/joyo': typeof ProjectsRootProjectsJoyoIndexRoute
+  "/": typeof IndexRoute;
+  "/notes/$id": typeof ContentRootNotesIdRoute;
+  "/admin": typeof ContentRootAdminIndexRoute;
+  "/notes": typeof ContentRootNotesIndexRoute;
+  "/now": typeof ContentRootNowIndexRoute;
+  "/projects": typeof ProjectsRootProjectsIndexRoute;
+  "/projects/joyo": typeof ProjectsRootProjectsJoyoIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/_content-root': typeof ContentRootRouteWithChildren
-  '/_projects-root': typeof ProjectsRootRouteWithChildren
-  '/_content-root/notes': typeof ContentRootNotesRouteWithChildren
-  '/_projects-root/projects': typeof ProjectsRootProjectsRouteWithChildren
-  '/_content-root/notes/$id': typeof ContentRootNotesIdRoute
-  '/_content-root/admin/': typeof ContentRootAdminIndexRoute
-  '/_content-root/notes/': typeof ContentRootNotesIndexRoute
-  '/_content-root/now/': typeof ContentRootNowIndexRoute
-  '/_projects-root/projects/': typeof ProjectsRootProjectsIndexRoute
-  '/_projects-root/projects/joyo/': typeof ProjectsRootProjectsJoyoIndexRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexRoute;
+  "/_content-root": typeof ContentRootRouteWithChildren;
+  "/_projects-root": typeof ProjectsRootRouteWithChildren;
+  "/_content-root/notes": typeof ContentRootNotesRouteWithChildren;
+  "/_projects-root/projects": typeof ProjectsRootProjectsRouteWithChildren;
+  "/_content-root/notes/$id": typeof ContentRootNotesIdRoute;
+  "/_content-root/admin/": typeof ContentRootAdminIndexRoute;
+  "/_content-root/notes/": typeof ContentRootNotesIndexRoute;
+  "/_content-root/now/": typeof ContentRootNowIndexRoute;
+  "/_projects-root/projects/": typeof ProjectsRootProjectsIndexRoute;
+  "/_projects-root/projects/joyo/": typeof ProjectsRootProjectsJoyoIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
+  fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
-    | '/'
-    | '/notes'
-    | '/projects'
-    | '/notes/$id'
-    | '/admin'
-    | '/notes/'
-    | '/now'
-    | '/projects/'
-    | '/projects/joyo'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/notes/$id'
-    | '/admin'
-    | '/notes'
-    | '/now'
-    | '/projects'
-    | '/projects/joyo'
+    | "/"
+    | "/notes"
+    | "/projects"
+    | "/notes/$id"
+    | "/admin"
+    | "/notes/"
+    | "/now"
+    | "/projects/"
+    | "/projects/joyo";
+  fileRoutesByTo: FileRoutesByTo;
+  to: "/" | "/notes/$id" | "/admin" | "/notes" | "/now" | "/projects" | "/projects/joyo";
   id:
-    | '__root__'
-    | '/'
-    | '/_content-root'
-    | '/_projects-root'
-    | '/_content-root/notes'
-    | '/_projects-root/projects'
-    | '/_content-root/notes/$id'
-    | '/_content-root/admin/'
-    | '/_content-root/notes/'
-    | '/_content-root/now/'
-    | '/_projects-root/projects/'
-    | '/_projects-root/projects/joyo/'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/"
+    | "/_content-root"
+    | "/_projects-root"
+    | "/_content-root/notes"
+    | "/_projects-root/projects"
+    | "/_content-root/notes/$id"
+    | "/_content-root/admin/"
+    | "/_content-root/notes/"
+    | "/_content-root/now/"
+    | "/_projects-root/projects/"
+    | "/_projects-root/projects/joyo/";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ContentRootRoute: typeof ContentRootRouteWithChildren
-  ProjectsRootRoute: typeof ProjectsRootRouteWithChildren
+  IndexRoute: typeof IndexRoute;
+  ContentRootRoute: typeof ContentRootRouteWithChildren;
+  ProjectsRootRoute: typeof ProjectsRootRouteWithChildren;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/_projects-root': {
-      id: '/_projects-root'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof ProjectsRootRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_content-root': {
-      id: '/_content-root'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof ContentRootRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_projects-root/projects': {
-      id: '/_projects-root/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRootProjectsRouteImport
-      parentRoute: typeof ProjectsRootRoute
-    }
-    '/_content-root/notes': {
-      id: '/_content-root/notes'
-      path: '/notes'
-      fullPath: '/notes'
-      preLoaderRoute: typeof ContentRootNotesRouteImport
-      parentRoute: typeof ContentRootRoute
-    }
-    '/_projects-root/projects/': {
-      id: '/_projects-root/projects/'
-      path: '/'
-      fullPath: '/projects/'
-      preLoaderRoute: typeof ProjectsRootProjectsIndexRouteImport
-      parentRoute: typeof ProjectsRootProjectsRoute
-    }
-    '/_content-root/now/': {
-      id: '/_content-root/now/'
-      path: '/now'
-      fullPath: '/now'
-      preLoaderRoute: typeof ContentRootNowIndexRouteImport
-      parentRoute: typeof ContentRootRoute
-    }
-    '/_content-root/notes/': {
-      id: '/_content-root/notes/'
-      path: '/'
-      fullPath: '/notes/'
-      preLoaderRoute: typeof ContentRootNotesIndexRouteImport
-      parentRoute: typeof ContentRootNotesRoute
-    }
-    '/_content-root/admin/': {
-      id: '/_content-root/admin/'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof ContentRootAdminIndexRouteImport
-      parentRoute: typeof ContentRootRoute
-    }
-    '/_content-root/notes/$id': {
-      id: '/_content-root/notes/$id'
-      path: '/$id'
-      fullPath: '/notes/$id'
-      preLoaderRoute: typeof ContentRootNotesIdRouteImport
-      parentRoute: typeof ContentRootNotesRoute
-    }
-    '/_projects-root/projects/joyo/': {
-      id: '/_projects-root/projects/joyo/'
-      path: '/joyo'
-      fullPath: '/projects/joyo'
-      preLoaderRoute: typeof ProjectsRootProjectsJoyoIndexRouteImport
-      parentRoute: typeof ProjectsRootProjectsRoute
-    }
+    "/_projects-root": {
+      id: "/_projects-root";
+      path: "";
+      fullPath: "";
+      preLoaderRoute: typeof ProjectsRootRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_content-root": {
+      id: "/_content-root";
+      path: "";
+      fullPath: "";
+      preLoaderRoute: typeof ContentRootRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_projects-root/projects": {
+      id: "/_projects-root/projects";
+      path: "/projects";
+      fullPath: "/projects";
+      preLoaderRoute: typeof ProjectsRootProjectsRouteImport;
+      parentRoute: typeof ProjectsRootRoute;
+    };
+    "/_content-root/notes": {
+      id: "/_content-root/notes";
+      path: "/notes";
+      fullPath: "/notes";
+      preLoaderRoute: typeof ContentRootNotesRouteImport;
+      parentRoute: typeof ContentRootRoute;
+    };
+    "/_projects-root/projects/": {
+      id: "/_projects-root/projects/";
+      path: "/";
+      fullPath: "/projects/";
+      preLoaderRoute: typeof ProjectsRootProjectsIndexRouteImport;
+      parentRoute: typeof ProjectsRootProjectsRoute;
+    };
+    "/_content-root/now/": {
+      id: "/_content-root/now/";
+      path: "/now";
+      fullPath: "/now";
+      preLoaderRoute: typeof ContentRootNowIndexRouteImport;
+      parentRoute: typeof ContentRootRoute;
+    };
+    "/_content-root/notes/": {
+      id: "/_content-root/notes/";
+      path: "/";
+      fullPath: "/notes/";
+      preLoaderRoute: typeof ContentRootNotesIndexRouteImport;
+      parentRoute: typeof ContentRootNotesRoute;
+    };
+    "/_content-root/admin/": {
+      id: "/_content-root/admin/";
+      path: "/admin";
+      fullPath: "/admin";
+      preLoaderRoute: typeof ContentRootAdminIndexRouteImport;
+      parentRoute: typeof ContentRootRoute;
+    };
+    "/_content-root/notes/$id": {
+      id: "/_content-root/notes/$id";
+      path: "/$id";
+      fullPath: "/notes/$id";
+      preLoaderRoute: typeof ContentRootNotesIdRouteImport;
+      parentRoute: typeof ContentRootNotesRoute;
+    };
+    "/_projects-root/projects/joyo/": {
+      id: "/_projects-root/projects/joyo/";
+      path: "/joyo";
+      fullPath: "/projects/joyo";
+      preLoaderRoute: typeof ProjectsRootProjectsJoyoIndexRouteImport;
+      parentRoute: typeof ProjectsRootProjectsRoute;
+    };
   }
 }
 
 interface ContentRootNotesRouteChildren {
-  ContentRootNotesIdRoute: typeof ContentRootNotesIdRoute
-  ContentRootNotesIndexRoute: typeof ContentRootNotesIndexRoute
+  ContentRootNotesIdRoute: typeof ContentRootNotesIdRoute;
+  ContentRootNotesIndexRoute: typeof ContentRootNotesIndexRoute;
 }
 
 const ContentRootNotesRouteChildren: ContentRootNotesRouteChildren = {
   ContentRootNotesIdRoute: ContentRootNotesIdRoute,
   ContentRootNotesIndexRoute: ContentRootNotesIndexRoute,
-}
+};
 
-const ContentRootNotesRouteWithChildren =
-  ContentRootNotesRoute._addFileChildren(ContentRootNotesRouteChildren)
+const ContentRootNotesRouteWithChildren = ContentRootNotesRoute._addFileChildren(
+  ContentRootNotesRouteChildren,
+);
 
 interface ContentRootRouteChildren {
-  ContentRootNotesRoute: typeof ContentRootNotesRouteWithChildren
-  ContentRootAdminIndexRoute: typeof ContentRootAdminIndexRoute
-  ContentRootNowIndexRoute: typeof ContentRootNowIndexRoute
+  ContentRootNotesRoute: typeof ContentRootNotesRouteWithChildren;
+  ContentRootAdminIndexRoute: typeof ContentRootAdminIndexRoute;
+  ContentRootNowIndexRoute: typeof ContentRootNowIndexRoute;
 }
 
 const ContentRootRouteChildren: ContentRootRouteChildren = {
   ContentRootNotesRoute: ContentRootNotesRouteWithChildren,
   ContentRootAdminIndexRoute: ContentRootAdminIndexRoute,
   ContentRootNowIndexRoute: ContentRootNowIndexRoute,
-}
+};
 
-const ContentRootRouteWithChildren = ContentRootRoute._addFileChildren(
-  ContentRootRouteChildren,
-)
+const ContentRootRouteWithChildren = ContentRootRoute._addFileChildren(ContentRootRouteChildren);
 
 interface ProjectsRootProjectsRouteChildren {
-  ProjectsRootProjectsIndexRoute: typeof ProjectsRootProjectsIndexRoute
-  ProjectsRootProjectsJoyoIndexRoute: typeof ProjectsRootProjectsJoyoIndexRoute
+  ProjectsRootProjectsIndexRoute: typeof ProjectsRootProjectsIndexRoute;
+  ProjectsRootProjectsJoyoIndexRoute: typeof ProjectsRootProjectsJoyoIndexRoute;
 }
 
 const ProjectsRootProjectsRouteChildren: ProjectsRootProjectsRouteChildren = {
   ProjectsRootProjectsIndexRoute: ProjectsRootProjectsIndexRoute,
   ProjectsRootProjectsJoyoIndexRoute: ProjectsRootProjectsJoyoIndexRoute,
-}
+};
 
-const ProjectsRootProjectsRouteWithChildren =
-  ProjectsRootProjectsRoute._addFileChildren(ProjectsRootProjectsRouteChildren)
+const ProjectsRootProjectsRouteWithChildren = ProjectsRootProjectsRoute._addFileChildren(
+  ProjectsRootProjectsRouteChildren,
+);
 
 interface ProjectsRootRouteChildren {
-  ProjectsRootProjectsRoute: typeof ProjectsRootProjectsRouteWithChildren
+  ProjectsRootProjectsRoute: typeof ProjectsRootProjectsRouteWithChildren;
 }
 
 const ProjectsRootRouteChildren: ProjectsRootRouteChildren = {
   ProjectsRootProjectsRoute: ProjectsRootProjectsRouteWithChildren,
-}
+};
 
-const ProjectsRootRouteWithChildren = ProjectsRootRoute._addFileChildren(
-  ProjectsRootRouteChildren,
-)
+const ProjectsRootRouteWithChildren = ProjectsRootRoute._addFileChildren(ProjectsRootRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContentRootRoute: ContentRootRouteWithChildren,
   ProjectsRootRoute: ProjectsRootRouteWithChildren,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
+import type { createStart } from "@tanstack/react-start";
+
+import type { getRouter } from "./router.tsx";
+declare module "@tanstack/react-start" {
   interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
+    ssr: true;
+    router: Awaited<ReturnType<typeof getRouter>>;
   }
 }

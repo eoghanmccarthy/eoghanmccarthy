@@ -1,9 +1,8 @@
 import { POST_TYPES, TAGS, AUTHORS, POST_STATUS } from "@/constants";
-
 import { PostSchema, type Post } from "@/types.ts";
 
-import { parseFrontmatter } from "./parse-frontmatter";
 import { extractExcerpt } from "./extract-excerpt";
+import { parseFrontmatter } from "./parse-frontmatter";
 
 function createPostFromData(
   id: string,

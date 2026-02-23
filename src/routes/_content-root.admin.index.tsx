@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useForm } from "@tanstack/react-form";
-import { z } from "zod";
 import type { AnyFieldApi } from "@tanstack/react-form";
+
+import { useForm } from "@tanstack/react-form";
+import { createFileRoute } from "@tanstack/react-router";
+import { z } from "zod";
 
 import { useCreatePost } from "@/queries/upload";
 
@@ -73,7 +74,7 @@ function RouteComponent() {
         {/* Sidebar */}
         <aside>
           <div className="top-[var(--site-sticky-top)] md:sticky">
-            <nav className="space-y-1 mb-6 text-base font-normal">
+            <nav className="mb-6 space-y-1 text-base font-normal">
               <a href="#" className="block text-gray-900">
                 Upload Post
               </a>
@@ -201,7 +202,7 @@ function RouteComponent() {
                   <button
                     type="submit"
                     disabled={!canSubmit || uploadMutation.isPending}
-                    className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="rounded-lg bg-gray-900 px-6 py-2 text-white transition-colors hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {uploadMutation.isPending || isSubmitting ? "Uploading..." : "Upload Post"}
                   </button>

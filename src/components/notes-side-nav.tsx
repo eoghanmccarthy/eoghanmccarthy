@@ -9,7 +9,7 @@ interface NotesSideNavProps {
 
 export default function NotesSideNav({ category, tags }: NotesSideNavProps) {
   return (
-    <nav className="space-y-1 mb-6 text-base font-normal">
+    <nav className="mb-6 space-y-1 text-base font-normal">
       {/*{["all posts", ...CATEGORIES].map((c) => (*/}
       {/*  <Link*/}
       {/*    to="/notes"*/}
