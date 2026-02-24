@@ -1,10 +1,11 @@
 import type { R2Bucket } from "@cloudflare/workers-types";
-import type { Context, Next } from "hono";
-
 import handler from "@tanstack/react-start/server-entry";
 import { createServerEntry } from "@tanstack/react-start/server-entry";
+import type { Context, Next } from "hono";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+
+import { loadPosts, loadPost } from "@/utils/posts.ts";
 
 import {
   generateShortId,
@@ -65,6 +66,44 @@ const authMiddleware = async (c: Context<{ Bindings: Bindings }>, next: Next) =>
 
 // Apply auth to all /api routes
 app.use("/api/*", authMiddleware);
+
+// Get all posts
+app.get("/api/posts", async (c) => {
+  try {
+    const posts = await loadPosts();
+    return c.json(posts);
+  } catch (error) {
+    return c.json(
+      {
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      500,
+    );
+  }
+});
+
+// Get single post by ID
+app.get("/api/posts/:id", async (c) => {
+  try {
+    const id = c.req.param("id");
+    const post = await loadPost(id);
+
+    if (!post) {
+      return c.json({ error: "Post not found" }, 404);
+    }
+
+    return c.json(post);
+  } catch (error) {
+    return c.json(
+      {
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      500,
+    );
+  }
+});
 
 // Create post with optional image
 app.post("/api/posts/create", async (c) => {
