@@ -8,4 +8,4 @@ author: eoghan
 featuredImage: https://assets.eoghanmccarthy.com/images/mod22e33kicf-featured.jpeg
 ---
 
-Snow country
+Snow Country.
