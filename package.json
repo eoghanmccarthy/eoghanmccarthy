@@ -10,7 +10,9 @@
     "preview": "npm run build && vite preview",
     "cf-typegen": "wrangler types",
     "format": "oxfmt",
-    "format:check": "oxfmt --check"
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.13.8",
@@ -48,6 +50,7 @@
     "@vitejs/plugin-react": "^5.0.4",
     "jsdom": "^27.0.0",
     "oxfmt": "^0.46.0",
+    "oxlint": "^1.61.0",
     "typescript": "^5.7.2",
     "vite": "^7.1.7",
     "vitest": "^3.0.5",
