@@ -1,6 +1,6 @@
 import type { QueryClient } from "@tanstack/react-query";
 
-import { HeadContent, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
+import { HeadContent, Scripts, createRootRouteWithContext, Outlet } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -25,17 +25,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
-  shellComponent: RootDocument,
+  shellComponent: RootShell,
+  component: RootComponent,
+  errorComponent: () => <div>Error</div>,
   notFoundComponent: () => {
     return <p>Not found!</p>;
   },
-  ssr: true,
+  ssr: false,
 });
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head title="eoghan mccarthy">
+      <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
@@ -50,4 +52,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </body>
     </html>
   );
+}
+
+function RootComponent() {
+  return <Outlet />;
 }
