@@ -2,7 +2,6 @@ import { queryOptions } from "@tanstack/react-query";
 import { notFound } from "@tanstack/react-router";
 
 import type { Tag } from "@/constants";
-
 import { loadPosts, loadPost } from "@/utils/posts";
 
 export type PostFilters = {

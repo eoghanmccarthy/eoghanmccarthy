@@ -1,10 +1,6 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "ignorePatterns": [".vinxi", ".output", "dist", "build", ".wrangler", "coverage", "*.min.js"],
-  "experimentalSortImports": {
-    "customGroups": []
-  },
-  "experimentalTailwindcss": {
-    "attributes": []
-  }
+  "sortImports": true,
+  "sortTailwindcss": true
 }

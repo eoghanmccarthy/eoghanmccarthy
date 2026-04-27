@@ -1,7 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 
 import type { PostType, PostStatus, Category } from "@/constants";
-
 import { compressImage } from "@/utils/image";
 
 // Create post with optional image
